@@ -1,3 +1,5 @@
+<div align="center">
+
 # Math.skill
 
 > *"一道题。一个经过验算的答案。"*
@@ -10,6 +12,8 @@
 
 [![English](https://img.shields.io/badge/English-blue?style=flat-square)](./README.md)
 [![中文](https://img.shields.io/badge/中文-red?style=flat-square)](./README.zh.md)
+
+</div>
 
 **在 AI 代理中输入一道数学题。返回严谨的分步推导、系统化验算后的可靠答案。**
 

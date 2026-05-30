@@ -1,3 +1,5 @@
+<div align="center">
+
 # Math.skill
 
 > *"One question. A verified answer."*
@@ -10,6 +12,8 @@
 
 [![English](https://img.shields.io/badge/English-blue?style=flat-square)](./README.md)
 [![中文](https://img.shields.io/badge/中文-red?style=flat-square)](./README.zh.md)
+
+</div>
 
 **Type a math problem in your agent. Get back a rigorous, step-by-step, verified solution.**
 
