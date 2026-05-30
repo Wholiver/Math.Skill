@@ -1,6 +1,6 @@
 <div align="center">
 
-# Math.skill
+# 数学.skill
 
 > *"一道题。一个经过验算的答案。"*
 
