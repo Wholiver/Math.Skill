@@ -10,8 +10,8 @@
 [![11,007 Lines](https://img.shields.io/badge/11,007-行-orange)]()
 [![41 Files](https://img.shields.io/badge/41-文件-8A2BE2)]()
 
-[![English](https://img.shields.io/badge/English-blue?style=flat-square)](./README.md)
-[![中文](https://img.shields.io/badge/中文-red?style=flat-square)](./README.zh.md)
+[![English](https://img.shields.io/badge/English-blue?style=flat-square)](./README.en.md)
+
 
 </div>
 
