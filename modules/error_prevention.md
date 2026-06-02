@@ -285,6 +285,102 @@ This module defines concrete error prevention rules, common pitfalls, and preven
 
 ---
 
+## 9. Complex Analysis Error Prevention
+
+### Rules
+
+1. **Analyticity domain check**: Before applying Cauchy's theorem or residue calculus, verify the function is analytic on and inside the contour except at isolated singularities.
+2. **Branch cut handling**: For multi-valued functions ($\log z$, $z^\alpha$, $\sqrt{z}$), explicitly define the branch cut and ensure the contour does not cross it.
+3. **Singularity classification**: Correctly classify singularities as removable, pole (with order), or essential before applying residue formulas.
+4. **Residue calculation verification**: For a pole of order $n$ at $z_0$: $\text{Res}(f, z_0) = \frac{1}{(n-1)!}\lim_{z\to z_0}\frac{d^{n-1}}{dz^{n-1}}[(z-z_0)^n f(z)]$. Verify the order before differentiating.
+5. **Contour orientation**: Standard positive orientation is counterclockwise. Reversing orientation changes the sign of the integral.
+6. **Jordan's lemma conditions**: For $\int_{-\infty}^\infty f(x)e^{iax}dx$ with $a > 0$, the semicircular arc contribution vanishes only if $|f(z)| \to 0$ uniformly as $|z| \to \infty$ in the upper half-plane.
+7. **Argument principle application**: $\frac{1}{2\pi i}\oint_\gamma \frac{f'(z)}{f(z)}dz = N - P$ where $N$ = zeros, $P$ = poles (counted with multiplicity). Ensure $f$ has no zeros or poles ON the contour.
+8. **Conformal mapping boundary correspondence**: When using conformal maps, verify that boundary points map correctly and the orientation is preserved.
+
+### Common Pitfalls with Examples
+
+| Pitfall | Wrong | Correct |
+|---|---|---|
+| Applying residue theorem across branch cut | Integrating $\log z$ around a circle centered at origin without accounting for branch cut | Define branch cut (e.g., negative real axis) and use keyhole contour |
+| Miscounting pole order | $\frac{1}{(z-1)^2(z+1)}$ has a simple pole at $z=1$ | Pole at $z=1$ is order 2; pole at $z=-1$ is order 1 |
+| Forgetting $2\pi i$ factor | $\oint \frac{dz}{z} = 1$ around unit circle | $\oint \frac{dz}{z} = 2\pi i$ |
+| Wrong residue for essential singularity | Using pole formula for $e^{1/z}$ at $z=0$ | Use Laurent series: $\text{Res}(e^{1/z}, 0) = 1$ (coefficient of $1/z$) |
+
+### Prevention Strategy
+
+1. **Draw the contour and mark all singularities** before computing
+2. **Identify branch cuts explicitly** for multi-valued functions
+3. **Classify each singularity** before choosing a residue calculation method
+4. **Check contour orientation** and apply sign accordingly
+5. **Verify decay conditions** for infinite contours (Jordan's lemma, estimation lemma)
+
+---
+
+## 10. Topology Error Prevention
+
+### Rules
+
+1. **Open set definition dependence**: "Open" is relative to the topology. Always specify which topology is being used (standard, discrete, indiscrete, subspace, quotient, etc.).
+2. **Continuity definition**: $f: X \to Y$ is continuous iff $f^{-1}(U)$ is open in $X$ for every open $U \subseteq Y$. Do NOT assume "$f$ maps open sets to open sets" (that's an open map, a different concept).
+3. **Compactness vs closed+bounded**: In $\mathbb{R}^n$, compact $\iff$ closed and bounded (Heine-Borel). In general metric/topological spaces, this equivalence FAILS.
+4. **Connectedness verification**: A space is connected if it cannot be written as a union of two disjoint non-empty open sets. Path-connected $\implies$ connected, but the converse fails (e.g., topologist's sine curve).
+5. **Hausdorff property**: A space is Hausdorff if any two distinct points have disjoint neighborhoods. $\mathbb{R}^n$ is Hausdorff, but quotient spaces may not be.
+6. **Homeomorphism requirements**: A homeomorphism must be bijective, continuous, AND have a continuous inverse. Bijective + continuous is NOT sufficient.
+7. **Subspace topology**: For $A \subseteq X$, open sets in $A$ are intersections $U \cap A$ where $U$ is open in $X$. Do not assume $A$ inherits properties like compactness or connectedness without verification.
+8. **Product topology basis**: Open sets in $\prod X_i$ are unions of products $\prod U_i$ where each $U_i$ is open in $X_i$ and $U_i = X_i$ for all but finitely many $i$ (for infinite products).
+
+### Common Pitfalls with Examples
+
+| Pitfall | Wrong | Correct |
+|---|---|---|
+| Assuming closed+bounded $\implies$ compact | "The set $(0,1)$ is bounded, so it's compact" | $(0,1)$ is NOT compact (not closed); $[0,1]$ IS compact in $\mathbb{R}$ |
+| Confusing continuity with open mapping | "$f(x)=x^2$ is continuous, so it maps open sets to open sets" | $f((-1,1)) = [0,1)$ which is NOT open |
+| Assuming connected components are open | "Connected components are always open" | Only true in locally connected spaces; false in general |
+| Quotient space Hausdorff assumption | "The quotient of a Hausdorff space is Hausdorff" | Generally false; requires additional conditions |
+
+### Prevention Strategy
+
+1. **State the topology explicitly** at the start of any topological argument
+2. **Use the correct definition of continuity** (preimage of open is open)
+3. **Distinguish between properties that hold in $\mathbb{R}^n$ vs general spaces**
+4. **Construct standard counterexamples** (topologist's sine curve, line with two origins, etc.) to test intuition
+5. **Verify all homeomorphism conditions**, especially continuity of the inverse
+
+---
+
+## 11. Number Theory Error Prevention
+
+### Rules
+
+1. **Divisibility definition**: $a \mid b$ means $\exists k \in \mathbb{Z}$ such that $b = ak$. Note that $0 \mid 0$ is true (since $0 = k \cdot 0$ for any $k$), but $0 \mid b$ for $b \neq 0$ is false.
+2. **Modular arithmetic domain**: Congruences $a \equiv b \pmod{n}$ are defined for integers. Extending to rationals or reals requires careful interpretation.
+3. **Prime factorization uniqueness**: The Fundamental Theorem of Arithmetic applies to $\mathbb{Z}^+$ (positive integers). In other rings (e.g., $\mathbb{Z}[\sqrt{-5}]$), unique factorization may fail.
+4. **Fermat's Little Theorem conditions**: $a^p \equiv a \pmod{p}$ for prime $p$ and any integer $a$. The form $a^{p-1} \equiv 1 \pmod{p}$ requires $\gcd(a,p) = 1$.
+5. **Euler's totient function**: $\phi(n)$ counts integers in $\{1, 2, \ldots, n\}$ coprime to $n$. For $n = p_1^{e_1} \cdots p_k^{e_k}$: $\phi(n) = n \prod_{i=1}^k (1 - \frac{1}{p_i})$.
+6. **Chinese Remainder Theorem**: The system $x \equiv a_i \pmod{n_i}$ has a unique solution mod $\text{lcm}(n_1, \ldots, n_k)$ if the moduli are pairwise coprime. Without coprimality, solutions may not exist or may not be unique.
+7. **Quadratic reciprocity**: For odd primes $p, q$: $\left(\frac{p}{q}\right)\left(\frac{q}{p}\right) = (-1)^{\frac{p-1}{2} \cdot \frac{q-1}{2}}$. Check that both primes are odd before applying.
+8. **Infinite descent validity**: Proof by infinite descent requires showing that assuming a solution exists leads to a smaller positive integer solution, contradicting well-ordering of $\mathbb{N}$.
+
+### Common Pitfalls with Examples
+
+| Pitfall | Wrong | Correct |
+|---|---|---|
+| Applying FLT without coprimality | "$2^4 \equiv 1 \pmod{4}$" (using $a^{p-1} \equiv 1$ with $p=2$) | FLT in form $a^{p-1} \equiv 1$ requires $\gcd(a,p)=1$; here $\gcd(2,4) \neq 1$ |
+| Assuming unique factorization in all rings | "$6 = 2 \cdot 3 = (1+\sqrt{-5})(1-\sqrt{-5})$ shows non-uniqueness in $\mathbb{Z}$" | Non-uniqueness occurs in $\mathbb{Z}[\sqrt{-5}]$, NOT in $\mathbb{Z}$ |
+| CRT without checking coprimality | Solving $x \equiv 1 \pmod{4}$, $x \equiv 2 \pmod{6}$ assuming unique solution mod 24 | $\gcd(4,6) = 2 \neq 1$; check consistency first ($1 \not\equiv 2 \pmod{2}$), no solution exists |
+| Quadratic reciprocity for $p=2$ | Applying reciprocity formula with $p=2$ | Handle $p=2$ separately: $\left(\frac{2}{q}\right) = (-1)^{\frac{q^2-1}{8}}$ |
+
+### Prevention Strategy
+
+1. **Verify primality** before applying prime-specific theorems
+2. **Check gcd conditions** for modular arithmetic results
+3. **Specify the ring** when discussing factorization
+4. **Test small cases** numerically before generalizing
+5. **Use the extended Euclidean algorithm** to verify Bezout coefficients
+
+---
+
 ## Cross-Domain Prevention Checklist
 
 Before finalizing any mathematical answer, run through this summary checklist:
@@ -297,3 +393,6 @@ Before finalizing any mathematical answer, run through this summary checklist:
 - [ ] **Calculus**: L'Hôpital conditions checked, $+C$ added, convergence verified, limits checked
 - [ ] **Linear Algebra**: Dimensions matched, eigenvalues verified by substitution, determinants double-checked
 - [ ] **Abstract Math**: Definitions complete, quantifier order correct, constructions well-defined, all equivalence properties checked
+- [ ] **Complex Analysis**: Analyticity verified, branch cuts handled, singularities classified, contour orientation correct
+- [ ] **Topology**: Topology specified, continuity definition correct, compactness/connectedness properly verified
+- [ ] **Number Theory**: Primality verified, gcd conditions checked, ring specified for factorization

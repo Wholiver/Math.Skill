@@ -16,6 +16,8 @@ This document defines all 11 verification methods (A through K), including:
 
 The following table maps problem classifications to recommended verification methods. The first listed method is the primary; the second is the fallback or complement. At least two must be applied; three or more increase confidence for difficult or high-stakes problems.
 
+**Method Numbering Note**: Methods are labeled A through K (11 total). The letters are mnemonic: A=Back-substitution, B=Boundary/Domain, C=Continuity/Boundary, D=Derivation(reverse), E=Estimation(numerical), F=Dimension(Formula), G=Special cases/limits, H=Independent method, I=Counterexample, J=Logic(formal), K=Consistency(computational).
+
 | Problem Classification | Primary Method | Secondary Method | Tertiary Method |
 |---|---|---|---|
 | `calculation` | E (Numerical) | A (Back-substitution) | — |
@@ -49,6 +51,24 @@ The following table maps problem classifications to recommended verification met
 | `solution_checking` | A (Back-substitution) | B (Domain) | E (Numerical) |
 | `problem_generation` | A (Back-substitution) | E (Numerical) | H (Independent method) |
 | `research_level_problem` | All applicable | All applicable | All applicable |
+
+### Method Applicability Matrix
+
+To avoid overlap and clarify when each method should be used:
+
+| Method | Best For | Not Suitable For | Unique Strength |
+|---|---|---|---|
+| A (Back-substitution) | Equations, systems, explicit solutions | Proofs, existence claims | Directly verifies solution satisfies original conditions |
+| B (Domain check) | ALL problems (universal pre-check) | None — always applicable | Catches extraneous solutions from non-reversible steps |
+| C (Boundary check) | Inequalities, optimization, intervals | Discrete problems without natural boundaries | Tests edge behavior where errors often hide |
+| D (Reverse derivation) | Proofs, derivations, integration | Numerical answers without derivation chain | Validates logical flow reversibility |
+| E (Numerical sampling) | Quantitative problems, identities | Pure existence proofs, symbolic manipulation only | Quick sanity check with concrete values |
+| F (Dimensional analysis) | Physics problems, formulas with units | Pure mathematics without physical interpretation | Structural validation of formula form |
+| G (Limits/special cases) | Functions, sequences, series, calculus | Finite combinatorics without parameters | Reveals asymptotic and degenerate behavior |
+| H (Independent method) | Problems with multiple solution approaches | Problems with only one known method | Strongest confidence via independent derivation |
+| I (Counterexample) | Universal claims, conjectures, "true/false" | Constructive existence proofs | Definitively disproves false claims |
+| J (Formal logic) | Proofs, abstract math, quantified statements | Computational problems | Catches reasoning errors that survive algebraic checks |
+| K (Computational consistency) | Matrix operations, statistics, multi-step computation | Simple single-step calculations | Uses invariants to catch propagation errors |
 
 ---
 
