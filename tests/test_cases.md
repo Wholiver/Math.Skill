@@ -9,7 +9,7 @@
 
 **Test ID:** TC-ARITH-001  
 **Input:** "计算 3.14 × 2.5 ÷ 0.5"  
-**Expected Classification:** elementary_arithmetic  
+**Expected Classification:** calculation
 **Expected Behavior:** 逐步计算乘法与除法，给出精确结果 15.7  
 **Required Verification:**
 - 验证 15.7 × 0.5 = 7.85，7.85 ÷ 2.5 = 3.14（逆运算验证）
@@ -29,7 +29,7 @@
 
 **Test ID:** TC-ALG-001  
 **Input:** "化简表达式 \(\frac{x^2 - 4}{x^2 + x - 6}\) 并说明定义域限制"  
-**Expected Classification:** algebra, domain_analysis  
+**Expected Classification:** algebra_simplification
 **Expected Behavior:**
 - 因式分解分子 \( (x-2)(x+2) \)
 - 因式分解分母 \( (x+3)(x-2) \)
@@ -55,7 +55,7 @@
 
 **Test ID:** TC-ALG-002  
 **Input:** "解方程 \(x^2 - 6x + 9 = 0\)"  
-**Expected Classification:** algebra, quadratic_equation  
+**Expected Classification:** equation_solving
 **Expected Behavior:**
 - 计算判别式 \( \Delta = 36 - 36 = 0 \)
 - 指出判别式为零意味着一个重根
@@ -80,7 +80,7 @@
 
 **Test ID:** TC-ALG-003  
 **Input:** "解方程 \(\frac{x}{x-2} + \frac{1}{x} = \frac{4}{x(x-2)}\)"  
-**Expected Classification:** algebra, rational_equation, extraneous_root  
+**Expected Classification:** equation_solving
 **Expected Behavior:**
 - 乘以公分母 \( x(x-2) \)：\( x^2 + (x-2) = 4 \)
 - 得 \( x^2 + x - 6 = 0 \)
@@ -107,7 +107,7 @@
 
 **Test ID:** TC-LIN-001  
 **Input:** "解方程组 \begin{cases} 2x + 3y = 8 \\ 4x - y = 2 \end{cases}"  
-**Expected Classification:** algebra, linear_system  
+**Expected Classification:** equation_solving, system_of_equations
 **Expected Behavior:**
 - 使用消元法或代入法
 - 解出 \( x = 1, y = 2 \)
@@ -132,7 +132,7 @@
 
 **Test ID:** TC-INEQ-001  
 **Input:** "解不等式 \(x^3 - 3x^2 - 4x + 12 > 0\)"  
-**Expected Classification:** algebra, inequality, polynomial  
+**Expected Classification:** equation_solving, inequality_solving
 **Expected Behavior:**
 - 因式分解：尝试 x=2 是根，得 \( (x-2)(x^2-x-6) = (x-2)(x-3)(x+2) \)
 - 关键点：x = -2, 2, 3
@@ -160,7 +160,7 @@
 
 **Test ID:** TC-FUNC-001  
 **Input:** "求函数 \(f(x) = \sqrt{4 - x^2} + \ln(x-1)\) 的定义域"  
-**Expected Classification:** algebra, domain_analysis, composite_function  
+**Expected Classification:** equation_solving, function_analysis
 **Expected Behavior:**
 - 对 \( \sqrt{4-x^2} \)：\( 4-x^2 \geq 0 \) → \( x \in [-2, 2] \)
 - 对 \( \ln(x-1) \)：\( x-1 > 0 \) → \( x > 1 \)
@@ -187,7 +187,7 @@
 
 **Test ID:** TC-GEOM-001  
 **Input:** "如图，在 △ABC 中，AB=AC，D 是 BC 中点。求证 AD⊥BC。文字描述，无图。"  
-**Expected Classification:** geometry, proof, isosceles_triangle  
+**Expected Classification:** geometry, proof
 **Expected Behavior:**
 - 利用等腰三角形性质
 - 已知 AB=AC，D 是 BC 中点
@@ -217,7 +217,7 @@
 
 **Test ID:** TC-TRIG-001  
 **Input:** "证明 \(\frac{\sin 2x}{1 + \cos 2x} = \tan x\)"  
-**Expected Classification:** trigonometry, identity_verification, proof  
+**Expected Classification:** trigonometry, proof
 **Expected Behavior:**
 - 使用倍角公式：\( \sin 2x = 2\sin x \cos x \)
 - \( \cos 2x = 2\cos^2 x - 1 \)
@@ -246,7 +246,7 @@
 
 **Test ID:** TC-SEQ-001  
 **Input:** "等差数列的前 5 项和为 30，第 10 项为 25。求通项公式和前 n 项和公式。"  
-**Expected Classification:** algebra, sequence, system_of_equations  
+**Expected Classification:** equation_solving, sequence, system_of_equations
 **Expected Behavior:**
 - 设首项 a，公差 d
 - S₅ = \( \frac{5}{2}(2a + 4d) = 30 \) → \( 2a + 4d = 12 \)
@@ -280,7 +280,7 @@
 
 **Test ID:** TC-COMB-001  
 **Input:** "从 5 个男生和 4 个女生中选 4 人组成委员会，要求至少包含 1 名女生。有多少种不同的选法？"  
-**Expected Classification:** combinatorics, combinations, complementary_counting  
+**Expected Classification:** combinatorics
 **Expected Behavior:**
 - 方法一（补集法）：总数 C(9,4) - 全男生 C(5,4)
   - C(9,4) = 126, C(5,4) = 5 → 121
@@ -309,7 +309,7 @@
 
 **Test ID:** TC-PROB-001  
 **Input:** "袋中有 3 个红球和 2 个蓝球。不放回地摸两次。已知第一次摸到红球，求第二次也摸到红球的概率。"  
-**Expected Classification:** probability, conditional_probability  
+**Expected Classification:** probability_statistics
 **Expected Behavior:**
 - 第一次摸到红球后，剩余 2 红 2 蓝共 4 球
 - P(第二次红 | 第一次红) = 2/4 = 1/2
@@ -335,7 +335,7 @@
 
 **Test ID:** TC-CALC-001  
 **Input:** "求极限 \(\lim_{x \to 0} \frac{e^x - 1 - x}{x^2}\)"  
-**Expected Classification:** calculus, limit, LHopital  
+**Expected Classification:** limit
 **Expected Behavior:**
 - 代入 x→0：分子 1-1-0=0，分母 0，0/0 型
 - 第一次 L'Hôpital：\( \lim \frac{e^x - 1}{2x} \)，仍是 0/0
@@ -362,7 +362,7 @@
 
 **Test ID:** TC-CALC-002  
 **Input:** "用一块边长为 12cm 的正方形铁皮，在四个角各剪去一个相同的小正方形，然后折成一个无盖长方体盒子。问剪去的小正方形边长为多少时，盒子的容积最大？"  
-**Expected Classification:** calculus, optimization, derivative  
+**Expected Classification:** limit, optimization, differentiation
 **Expected Behavior:**
 - 设剪去小正方形边长为 x (0 < x < 6)
 - 盒子底面边长 12-2x，高 x
@@ -395,7 +395,7 @@
 
 **Test ID:** TC-CALC-003  
 **Input:** "计算不定积分 \(\int x\sqrt{2x+1}\,dx\)"  
-**Expected Classification:** calculus, integration, substitution  
+**Expected Classification:** limit, integration
 **Expected Behavior:**
 - 换元：令 u = 2x+1，则 x = (u-1)/2, dx = du/2
 - \( \int \frac{u-1}{2} \cdot \sqrt{u} \cdot \frac{du}{2} = \frac{1}{4} \int (u-1)u^{1/2} du \)
@@ -424,7 +424,7 @@
 
 **Test ID:** TC-CALC-004  
 **Input:** "判断反常积分 \(\int_1^\infty \frac{\ln x}{x^2}\,dx\) 的敛散性，若收敛求其值。"  
-**Expected Classification:** calculus, improper_integral, convergence  
+**Expected Classification:** limit, integration
 **Expected Behavior:**
 - 先判断收敛性：\( \frac{\ln x}{x^2} \) 的增长阶
   - 对任意 ε>0，ln x = o(x^ε)
@@ -458,7 +458,7 @@
 
 **Test ID:** TC-MULTI-001  
 **Input:** "求函数 \(f(x,y) = x^3 + 3xy^2 - 15x - 12y\) 的所有临界点，并分类（极大值、极小值或鞍点）。"  
-**Expected Classification:** multivariable_calculus, critical_points  
+**Expected Classification:** multivariable_calculus
 **Expected Behavior:**
 - 求偏导数：
   - \( f_x = 3x^2 + 3y^2 - 15 = 3(x^2 + y^2 - 5) \)
@@ -497,7 +497,7 @@
 
 **Test ID:** TC-LINALG-001  
 **Input:** "求矩阵 \(A = \begin{pmatrix} 2 & 1 & 1 \\ 1 & 2 & 1 \\ 1 & 1 & 2 \end{pmatrix}\) 的特征值和特征向量。"  
-**Expected Classification:** linear_algebra, eigenvalues  
+**Expected Classification:** linear_algebra
 **Expected Behavior:**
 - 特征方程：det(A - λI) = 0
   - \( \begin{vmatrix} 2-λ & 1 & 1 \\ 1 & 2-λ & 1 \\ 1 & 1 & 2-λ \end{vmatrix} = 0 \)
@@ -531,7 +531,7 @@
 
 **Test ID:** TC-ODE-001  
 **Input:** "解微分方程 \(y' + 2xy = x\)，满足 y(0) = 1。"  
-**Expected Classification:** differential_equations, first_order_linear  
+**Expected Classification:** ordinary_differential_equation
 **Expected Behavior:**
 - 识别为一阶线性 ODE：\( y' + P(x)y = Q(x) \)，P(x) = 2x, Q(x) = x
 - 积分因子：\( \mu(x) = e^{\int 2x dx} = e^{x^2} \)
@@ -562,7 +562,7 @@
 
 **Test ID:** TC-ANALYSIS-001  
 **Input:** "证明函数 \(f(x) = \sqrt{x}\) 在 \([0, \infty)\) 上一致连续吗？给出证明或反例。"  
-**Expected Classification:** real_analysis, uniform_continuity  
+**Expected Classification:** real_analysis
 **Expected Behavior:**
 - 结论：是，√x 在 [0,∞) 一致连续
 - 证明：对任意 ε>0，取 δ = ε²
@@ -592,7 +592,7 @@
 
 **Test ID:** TC-ALGEBRA-001  
 **Input:** "设 G 是一个群，证明：若对任意 g∈G 有 g² = e，则 G 是交换群。"  
-**Expected Classification:** abstract_algebra, group_theory  
+**Expected Classification:** abstract_algebra
 **Expected Behavior:**
 - 对于任意 a,b∈G，需要证明 ab = ba
 - 已知：(ab)² = e → abab = e
@@ -622,7 +622,7 @@
 
 **Test ID:** TC-TOPOL-001  
 **Input:** "在实数集 R（配备标准拓扑）中，集合 A = [0,1) 是开集吗？是闭集吗？请解释。"  
-**Expected Classification:** topology, open_closed_sets  
+**Expected Classification:** topology
 **Expected Behavior:**
 - 不是开集：0 ∈ A 但 0 的任何邻域 (-ε,ε) 不完全包含于 A（包含负数不在 A 中）
 - 不是闭集：极限点 1 ∉ A（1 的每个邻域与 A 相交），但 A 不包含 1
@@ -649,7 +649,7 @@
 
 **Test ID:** TC-NUMTH-001  
 **Input:** "求 3^100 mod 7 的值。"  
-**Expected Classification:** number_theory, modular_arithmetic  
+**Expected Classification:** number_theory
 **Expected Behavior:**
 - 利用费马小定理：3⁶ ≡ 1 (mod 7)（因为 3 和 7 互素）
 - 100 = 6×16 + 4
@@ -677,7 +677,7 @@
 
 **Test ID:** TC-INSUFF-001  
 **Input:** "三角形的一条边长为 5，求面积。"  
-**Expected Classification:** insufficient_conditions, geometry  
+**Expected Classification:** ambiguous_or_incomplete, geometry
 **Expected Behavior:**
 - **不应直接给出答案**
 - 应指出：仅知一条边长无法确定三角形面积
@@ -703,7 +703,7 @@
 
 **Test ID:** TC-OUTOFSCOPE-001  
 **Input:** "What is the meaning of life?"  
-**Expected Classification:** out_of_scope, non_mathematical  
+**Expected Classification:** out_of_scope
 **Expected Behavior:**
 - 识别出这不是数学问题
 - 礼貌地说明 Math.skill 的范围是数学问题
@@ -727,7 +727,7 @@
 
 **Test ID:** TC-META-001  
 **Input:** "解 x²-5x+6=0，只给答案就行。"  
-**Expected Classification:** algebra, quadratic_equation, user_preference_override  
+**Expected Classification:** equation_solving
 **Expected Behavior:**
 - 理解用户要求"仅答案"
 - 但在给出答案 (x=2, 3) 后，可以简洁地建议验证步骤
@@ -753,7 +753,7 @@
 
 **Test ID:** TC-META-002  
 **Input:** "求函数 f(x)=x²-4x+3 在 [0,3] 上的最大值和最小值。用初中方法，不要用微积分。"  
-**Expected Classification:** algebra, quadratic_function, method_constraint  
+**Expected Classification:** equation_solving, function_analysis
 **Expected Behavior:**
 - 用配方法：f(x) = (x-2)² - 1
 - 对称轴 x=2 在区间 [0,3] 内
@@ -780,7 +780,7 @@
 
 **Test ID:** TC-PROOF-001  
 **Input:** "判断真假：若数列 {a_n} 和 {b_n} 都发散，则 {a_n + b_n} 一定发散。证明或举反例。"  
-**Expected Classification:** analysis, counterexample, sequence  
+**Expected Classification:** real_analysis, counterexample, sequence
 **Expected Behavior:**
 - 判断：假
 - 反例：a_n = n, b_n = -n，则 a_n + b_n = 0（收敛）
@@ -804,7 +804,7 @@
 
 **Test ID:** TC-STUDENT-001  
 **Input:** "学生解方程 √(x+5) = x-1 得到 x=4 和 x=-1，认为两个都是解。请检查学生的解答。"  
-**Expected Classification:** algebra, radical_equation, error_detection  
+**Expected Classification:** equation_solving, solution_checking
 **Expected Behavior:**
 - 平方：x+5 = (x-1)² = x² - 2x + 1
 - x² - 3x - 4 = 0 → (x-4)(x+1) = 0 → x=4 或 x=-1
@@ -831,7 +831,7 @@
 
 **Test ID:** TC-GEN-001  
 **Input:** "给我出一道中等难度的概率题，并给出完整解答。"  
-**Expected Classification:** generation, probability  
+**Expected Classification:** problem_generation, probability_statistics
 **Expected Behavior:**
 - 生成一道完整的、自洽的概率题目
 - 题目应包含所有必要信息
