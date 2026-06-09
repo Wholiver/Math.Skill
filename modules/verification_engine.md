@@ -581,7 +581,12 @@ When any verification method signals an error:
 4. **Fix**: Correct the error and propagate the change forward
 5. **Re-verify**: Apply the same verification methods again, plus at least one additional method
 6. **If error persists** after two correction cycles: Switch to an independent solution method (Method H)
-7. **If still failing**: State uncertainty explicitly; do not output an unverified answer
+7. **If still failing**: You MUST explicitly admit failure and decline to provide a final answer. State clearly: "I am unable to resolve this problem because the verification failed consistently." Do NOT output an unverified answer, do NOT fabricate steps, and do NOT invent "fake" verifications to pass.
+
+### Strict Anti-Hallucination Constraints in Verification
+- **Do NOT fake verifications**: Never claim a verification method passed if it did not or if you did not actually perform the calculation.
+- **Do NOT force a pass**: If a calculation results in a mismatch, do not invent algebraic rules or rounding reasons to justify it. A failure is a failure.
+- **No BS rule**: If you do not have high confidence in an intermediate step, do not invent "plausible" math (Plausible BS) to bridge the gap.
 
 ### Diagnostic Heuristics
 

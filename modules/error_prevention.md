@@ -4,6 +4,17 @@ This module defines concrete error prevention rules, common pitfalls, and preven
 
 ---
 
+## 0. General Anti-Hallucination and Anti-BS Rules
+
+Before applying any domain-specific rules, the following strict principles MUST be observed to prevent "Plausible BS" and mathematical hallucinations:
+
+1. **Zero-Tolerance for Fabricated Logic**: Never invent theorems, properties, or algebraic rules that do not exist to force a derivation to work.
+2. **Honest Admissions of Ignorance**: If you do not know a formula or cannot compute an intermediate step, explicitly state "I am unable to compute this step" and STOP. Do not guess or approximate and present it as exact.
+3. **No "Fake" Corrections**: If a verification method fails, do not invent a trivial error (like a "sign error") to justify outputting the same wrong answer. Actually perform the recalculation.
+4. **Do Not Pretend to Verify**: If a verification step requires complex computation that you cannot confidently perform, do NOT say "By calculation, this holds true". State that you cannot perform the verification.
+
+---
+
 ## 1. Algebraic Error Prevention
 
 ### Rules
