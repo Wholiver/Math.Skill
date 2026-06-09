@@ -1,108 +1,108 @@
-# 函数的单调性与极值
+# Monotonicity and extreme values ​​of functions
 
-## 用户输入
-求函数 $f(x) = x^3 - 3x^2 - 9x + 5$ 在区间 $[-2, 4]$ 上的单调区间与极值（包括极大值、极小值、最大值、最小值）。
+## User input
+Find the monotonic interval and extreme value (including maximum value, minimum value, maximum value and minimum value) of function     $f(x) = x^3 - 3x^2 - 9x + 5$     on the interval     $[-2, 4]$    .
 
-## Skill 分类
-函数（Functions）— 导数应用：单调性分析与极值问题
+## Skill Category
+Functions—derivative applications: monotonicity analysis and extreme value problems
 
-## 题意解析
+## Question meaning analysis
 
-**已知条件：**
-- 函数：$f(x) = x^3 - 3x^2 - 9x + 5$
-- 闭区间：$x \in [-2, 4]$
+**Known conditions:**
+- Function:     $f(x) = x^3 - 3x^2 - 9x + 5$
+- Closed interval:     $x \in [-2, 4]$
 
-**求解目标：**
-- 函数的单调递增区间和递减区间
-- 函数的极大值点与极大值、极小值点与极小值
-- 闭区间上的最大值与最小值
+**Solution goal:**
+- Monotonically increasing and decreasing intervals of the function
+- Maximum points and maxima, minimum points and minima of functions
+- Maximum and minimum values ​​on a closed interval
 
-**变量与定义域：**
-- 函数 $f(x)$ 是三次多项式，在 $\mathbb{R}$ 上连续可导，给定闭区间 $[-2, 4]$。
+**Variables and Domains:**
+- The function     $f(x)$     is a cubic polynomial that is continuously differentiable on     $\mathbb{R}$    , given the closed interval     $[-2, 4]$    .
 
-**隐式条件：**
-- 闭区间上的最值可能出现在临界点（导数为零的点）或区间端点，需要全部比较。
-- 导数是二次函数，判别式 $> 0$，存在两个不同的实根，函数有两个驻点。
+**Implicit condition:**
+- The maximum value on a closed interval may appear at the critical point (the point where the derivative is zero) or at the end of the interval, requiring all comparisons.
+- The derivative is a quadratic function, the discriminant     $> 0$    , there are two different real roots, and the function has two stationary points.
 
-## 方法选择
+## Method selection
 
-**选择方法：** 导数法（求导 → 求驻点 → 符号分析 → 单调性判断）+ 端点比较
+**Selection method:** Derivative method (derivative → stationary point → symbolic analysis → monotonicity judgment) + endpoint comparison
 
-**理由：**
-- 多项式函数求导简单直接。
-- 通过一阶导数的符号判断单调性是最标准的方法。
-- 二阶导数辅助判断极值类型。
+**reason:**
+- Derivation of polynomial functions is simple and straightforward.
+- The most standard way to judge monotonicity is by the sign of the first derivative.
+- The second-order derivative assists in determining the type of extreme value.
 
-**备选方法：**
-- 三次函数可以通过 $f(x)$ 的增减性间接判断，但不系统。
-- 数值试探法（列表计算）——不够精确，只能作为验算手段。
+**Alternative method:**
+- Cubic functions can be judged indirectly through the increase or decrease of     $f(x)$    , but it is not systematic.
+- Numerical heuristics (list calculations) - not accurate enough and can only be used as a verification method.
 
-## 解题过程
+## Problem solving process
 
-### 第一步：求导
+### Step 1: Derivation
 
-$$
+     $$
 f'(x) = 3x^2 - 6x - 9
 $$
 
-提取公因式 $3$：
+Extract the common factor     $3$    :
 
-$$
+     $$
 f'(x) = 3(x^2 - 2x - 3)
 $$
 
-因式分解：
+Factoring:
 
-$$
+     $$
 f'(x) = 3(x-3)(x+1)
 $$
 
-### 第二步：求驻点
+### Step 2: Find the stationary point
 
-令 $f'(x) = 0$：
+Let     $f'(x) = 0$     :
 
+     $$
+3(x-3)(x+1) = 0 \quad\Rightarrow\quad x = -1 \ \text{or}\ x = 3
 $$
-3(x-3)(x+1) = 0 \quad\Rightarrow\quad x = -1 \ \text{或}\ x = 3
-$$
 
-两个驻点都在区间 $[-2, 4]$ 内。
+Both stationary points are within the interval     $[-2, 4]$    .
 
-### 第三步：单调性分析
+### Step 3: Monotonicity Analysis
 
-根据 $f'(x) = 3(x-3)(x+1)$ 的符号判断原函数的单调性。
+Judge the monotonicity of the original function based on the sign of     $f'(x) = 3(x-3)(x+1)$    .
 
-| 区间 | $x$ 范围 | $x+1$ | $x-3$ | $f'(x)$ | $f(x)$ 单调性 |
+| interval |     $x$     range |     $x+1$     |     $x-3$     |     $f'(x)$     |     $f(x)$     monotonicity |
 |------|----------|-------|-------|---------|--------------|
-| $[-2, -1)$ | $-2 \leq x < -1$ | $\leq 0$/$< 0$ | $< 0$ | $> 0$ | 严格递增 ↗ |
-| $(-1, 3)$ | $-1 < x < 3$ | $> 0$ | $< 0$ | $< 0$ | 严格递减 ↘ |
-| $(3, 4]$ | $3 < x \leq 4$ | $> 0$ | $> 0$ | $> 0$ | 严格递增 ↗ |
+|     $[-2, -1)$     |     $-2 \leq x < -1$     |     $\leq 0$     /     $< 0$     |     $< 0$     |     $> 0$     | Strictly increasing ↗ |
+|     $(-1, 3)$     |     $-1 < x < 3$     |     $> 0$     |     $< 0$     |     $< 0$     | Strictly Decreasing ↘ |
+|     $(3, 4]$     |     $3 < x \leq 4$     |     $> 0$     |     $> 0$     |     $> 0$     | Strictly increasing ↗ |
 
-详细推导：
+Detailed derivation:
 
-- 当 $x \in [-2, -1)$：$x+1 < 0$，$x-3 < 0$，两负相乘得正，乘以 $3$ 仍为正，$f'(x) > 0$。函数递增。
-- 当 $x \in (-1, 3)$：$x+1 > 0$，$x-3 < 0$，一正一负相乘得负，$f'(x) < 0$。函数递减。
-- 当 $x \in (3, 4]$：$x+1 > 0$，$x-3 > 0$，两正相乘得正，$f'(x) > 0$。函数递增。
+- When     $x \in [-2, -1)$     :     $x+1 < 0$     ,     $x-3 < 0$     , the two negatives are multiplied together to get a positive, multiplied by     $3$     is still positive,     $f'(x) > 0$     . The function is incremented.
+- When     $x \in (-1, 3)$     :     $x+1 > 0$     ,     $x-3 < 0$     , one positive and one negative are multiplied together to get negative,     $f'(x) < 0$     . function decreases.
+- When     $x \in (3, 4]$     :     $x+1 > 0$     ,     $x-3 > 0$     , the two positives are multiplied to get a positive value,     $f'(x) > 0$     . The function is incremented.
 
-因此：
-- **单调递增区间：** $[-2, -1]$ 和 $[3, 4]$
-- **单调递减区间：** $[-1, 3]$
+therefore:
+- **Monotonically increasing intervals:**     $[-2, -1]$     and     $[3, 4]$
+- **Monotonically decreasing interval:**     $[-1, 3]$
 
-### 第四步：判断极值类型
+### Step 4: Determine the extreme value type
 
-求二阶导数：
+Find the second derivative:
 
-$$
+     $$
 f''(x) = 6x - 6 = 6(x-1)
 $$
 
-- $f''(-1) = 6(-1-1) = -12 < 0$ → $x = -1$ 处为**极大值点**
-- $f''(3) = 6(3-1) = 12 > 0$ → $x = 3$ 处为**极小值点**
+-     $f''(-1) = 6(-1-1) = -12 < 0$     →     $x = -1$     is the **maximum value point**
+-     $f''(3) = 6(3-1) = 12 > 0$     →     $x = 3$     is the **minimum point**
 
-### 第五步：计算各关键点的函数值
+### Step 5: Calculate the function value of each key point
 
-计算驻点和端点的函数值：
+Compute function values ​​for stationary points and endpoints:
 
-$$
+     $$
 \begin{aligned}
 f(-2) &= (-2)^3 - 3(-2)^2 - 9(-2) + 5 = -8 - 12 + 18 + 5 = 3 \\[6pt]
 f(-1) &= (-1)^3 - 3(-1)^2 - 9(-1) + 5 = -1 - 3 + 9 + 5 = 10 \\[6pt]
@@ -111,67 +111,67 @@ f(4) &= 4^3 - 3 \times 4^2 - 9 \times 4 + 5 = 64 - 48 - 36 + 5 = -15
 \end{aligned}
 $$
 
-### 第六步：确定极值与最值
+### Step 6: Determine the extreme value and maximum value
 
-| 位置 | $x$ | $f(x)$ | 性质 |
+| Location |     $x$     |     $f(x)$     | Properties |
 |------|-----|--------|------|
-| 左端点 | $-2$ | $3$ | — |
-| 驻点 | $-1$ | $10$ | 极大值，最大值 |
-| 驻点 | $3$ | $-22$ | 极小值，最小值 |
-| 右端点 | $4$ | $-15$ | — |
+| Left endpoint |     $-2$     |     $3$     | — |
+| Stationary point |     $-1$     |     $10$     | Maximum value, maximum value |
+| Stationary point |     $3$     |     $-22$     | Minimum value, minimum value |
+| Right endpoint |     $4$     |     $-15$     | — |
 
-比较四个值：
+Compare four values:
 
-- 最大值：$\max\{3, 10, -22, -15\} = 10$，在 $x = -1$ 处取得
-- 最小值：$\min\{3, 10, -22, -15\} = -22$，在 $x = 3$ 处取得
-- 极大值：$10$（$x=-1$）
-- 极小值：$-22$（$x=3$）
+- Maximum value:     $\max\{3, 10, -22, -15\} = 10$    , obtained at     $x = -1$
+- Minimum value:     $\min\{3, 10, -22, -15\} = -22$    , taken at     $x = 3$
+- Maximum value:     $10$     (     $x=-1$     )
+- Minimum value:     $-22$     (     $x=3$     )
 
-## 验算
+## Check calculation
 
-### 验算方法一：二阶导数验证极值类型
+### Verification method one: Second-order derivative verification extreme value type
 
-上步已用二阶导数验证，在 $x=-1$ 处 $f''(-1) = -12 < 0$（极大值），在 $x=3$ 处 $f''(3) = 12 > 0$（极小值）。判断正确。
+The previous step has been verified with the second derivative, at     $x=-1$         $f''(-1) = -12 < 0$     (maximum value), at     $x=3$         $f''(3) = 12 > 0$     (minimum value). The judgment is correct.
 
-### 验算方法二：取点验证单调性
+### Calculation method two: take points to verify monotonicity
 
-在单调递增区间取两点，验证 $f(x_1) < f(x_2)$；在递减区间取两点，验证 $f(x_1) > f(x_2)$。
+Pick two points in the monotonically increasing interval and verify     $f(x_1) < f(x_2)$    ; pick two points in the decreasing interval and verify     $f(x_1) > f(x_2)$    .
 
-- 递增区间 $[-2, -1]$：$f(-2) = 3$，$f(-1.5) = (-1.5)^3 - 3(2.25) + 13.5 + 5 = -3.375 - 6.75 + 13.5 + 5 = 8.375$。$3 < 8.375 < 10$，递增 ✓
-- 递减区间 $[-1, 3]$：$f(-1) = 10$，$f(0) = 5$，$f(1) = 1-3-9+5 = -6$，$f(2) = 8-12-18+5 = -17$。$10 > 5 > -6 > -17 > -22$，递减 ✓
-- 递增区间 $[3, 4]$：$f(3) = -22$，$f(3.5) = 42.875 - 36.75 - 31.5 + 5 = -20.375$，$f(4) = -15$。$-22 < -20.375 < -15$，递增 ✓
+- Increasing intervals     $[-2, -1]$    :     $f(-2) = 3$    ,     $f(-1.5) = (-1.5)^3 - 3(2.25) + 13.5 + 5 = -3.375 - 6.75 + 13.5 + 5 = 8.375$    .     $3 < 8.375 < 10$     , increment ✓
+- Decreasing interval     $[-1, 3]$    :     $f(-1) = 10$    ,     $f(0) = 5$    ,     $f(1) = 1-3-9+5 = -6$    ,     $f(2) = 8-12-18+5 = -17$    .     $10 > 5 > -6 > -17 > -22$     , decreasing ✓
+- Increasing intervals     $[3, 4]$    :     $f(3) = -22$    ,     $f(3.5) = 42.875 - 36.75 - 31.5 + 5 = -20.375$    ,     $f(4) = -15$    .     $-22 < -20.375 < -15$     , increment ✓
 
-### 验算方法三：导数符号数值验证
+### Verification method three: Numerical verification of derivative symbols
 
-在关键区间取点验证 $f'(x)$ 的符号：
+Take points in the key interval to verify the sign of     $f'(x)$    :
 
-- $x = -1.5$（在 $[-2, -1)$）：$f'(-1.5) = 3(2.25) - 6(-1.5) - 9 = 6.75 + 9 - 9 = 6.75 > 0$ ✓
-- $x = 0$（在 $(-1, 3)$）：$f'(0) = 0 - 0 - 9 = -9 < 0$ ✓
-- $x = 3.5$（在 $(3, 4]$）：$f'(3.5) = 3(12.25) - 6(3.5) - 9 = 36.75 - 21 - 9 = 6.75 > 0$ ✓
+-     $x = -1.5$     (in     $[-2, -1)$     ):     $f'(-1.5) = 3(2.25) - 6(-1.5) - 9 = 6.75 + 9 - 9 = 6.75 > 0$     ✓
+-     $x = 0$     (in     $(-1, 3)$     ):     $f'(0) = 0 - 0 - 9 = -9 < 0$     ✓
+-     $x = 3.5$     (in     $(3, 4]$     ):     $f'(3.5) = 3(12.25) - 6(3.5) - 9 = 36.75 - 21 - 9 = 6.75 > 0$     ✓
 
-## 最终答案
+## Final answer
 
-**单调性：**
+**Monotonicity:**
 
+     $$
+\boxed{\text{Increasing interval:}[-2, -1] \cup [3, 4],\quad \text{Decreasing interval:}[-1, 3]}
 $$
-\boxed{\text{递增区间：}[-2, -1] \cup [3, 4],\quad \text{递减区间：}[-1, 3]}
-$$
 
-**极值与最值：**
+**Extreme value and maximum value:**
 
-$$
+     $$
 \boxed{
 \begin{aligned}
-&\text{极大值：} f(-1) = 10 \quad (\text{也是最大值}) \\[4pt]
-&\text{极小值：} f(3) = -22 \quad (\text{也是最小值})
+&\text{Maximum value:} f(-1) = 10 \quad (\text{Also the maximum value}) \\[4pt]
+&\text{Minimum value:} f(3) = -22 \quad (\text{Also the minimum value})
 \end{aligned}
 }
 $$
 
-## 易错点
-1. **忘记比较端点值：** 在闭区间上求最值时，驻点的极值不一定是全局最值，必须与端点值比较。本例题中极值恰好是最值，但并非总是如此。
-2. **驻点不在区间内：** 如果某个驻点不在给定区间内，则不应纳入比较。本题中两个驻点 $x=-1$ 和 $x=3$ 都在 $[-2,4]$ 内。
-3. **单调区间书写不规范：** 在 $x=-1$ 处函数不可导（本题中可导），但单调区间仍可以包含端点。实际上 $f(x)$ 在 $x=-1$ 处是极大值点，左侧递增右侧递减，单调区间可以写成 $[-2, -1]$ 和 $[-1, 3]$。
-4. **二阶导数为零的情况：** 若 $f''(c)=0$，二阶导数判别法失效，需用一阶导数符号变化判断。本题中 $f''(1)=0$ 但 $x=1$ 不是驻点，不构成问题。
-5. **导数求错：** 常数项 $5$ 求导后为零，容易被遗留。各项系数要注意——特别是 $-9x$ 求导后为 $-9$。
-6. **极值与最值的区别：** 极大值/极小值是局部概念（导数判断），最大值/最小值是全局概念（比较所有可能点）。不要混淆。
+## Easy to make mistakes
+1. **Forgot to compare endpoint values:** When finding the maximum value on a closed interval, the extreme value of the stationary point is not necessarily the global maximum value and must be compared with the endpoint value. In this example the extreme value happens to be the maximum value, but this is not always the case.
+2. **Station point not within the interval:** If a stationary point is not within the given interval, it should not be included in the comparison. In this question, the two stationary points     $x=-1$     and     $x=3$     are both within     $[-2,4]$    .
+3. **Irregular writing of monotonic intervals:** The function is not differentiable at     $x=-1$     (it is differentiable in this question), but the monotonic interval can still include endpoints. In fact,     $f(x)$     is the maximum value point at     $x=-1$    . The left side increases and the right side decreases. The monotonic interval can be written as     $[-2, -1]$     and     $[-1, 3]$    .
+4. **The case where the second-order derivative is zero:** If     $f''(c)=0$    , the second-order derivative discrimination method fails, and the sign change of the first-order derivative needs to be used to judge. In this question,     $f''(1)=0$     but     $x=1$     are not stationary points and do not pose a problem.
+5. **Error in derivation:** The constant term     $5$     is zero after derivation and is easily left behind. Pay attention to the coefficients - especially     $-9x$     which is     $-9$     after derivation.
+6. **The difference between extreme value and maximum value:** Maximum value/minimum value is a local concept (derivative judgment), and maximum value/minimum value is a global concept (compare all possible points). Don't get confused.

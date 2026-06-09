@@ -1,335 +1,335 @@
-# Math.skill 高等数学模块 (Higher Math Modules)
+# Math.skill Higher Math Modules
 
-以下定义 8 个高等数学领域的详细解题与验算要求。
+The following defines detailed problem solving and calculation requirements for 8 areas of advanced mathematics.
 
 ---
 
-## 模块 1：极限 (Limits)
+## Module 1: Limits
 
-### 覆盖范围
-- 数列极限：`lim_{n→∞} a_n` 的存在性与计算
-- 函数极限：`lim_{x→a} f(x)`（含 `x→∞`）
-- 单侧极限：`lim_{x→a+}`、`lim_{x→a-}`
-- 无穷小比较：等价无穷小、高阶/低阶/同阶/等价
-- 泰勒展开方法求极限
-- 夹逼定理（Squeeze Theorem）
-- 单调有界定理（单调有界必收敛）
-- Stolz 定理（数列 L'Hôpital）
-- L'Hôpital 法则（函数极限）
-- 渐近展开
+### Coverage
+- Sequence limit: Existence and calculation of `lim_{n→∞} a_n`
+- Function limit: `lim_{x→a} f(x)` (including `x→∞`)
+- One-sided limits: `lim_{x→a+}`, `lim_{x→a-}`
+- Comparison of infinitesimals: equivalent infinitesimals, higher order/lower order/same order/equivalent
+-Taylor expansion method to find the limit
+- Squeeze Theorem
+- Monotone bounded theorem (monotone bounded must converge)
+- Stolz's theorem (sequence L'Hôpital)
+- L'Hôpital's law (function limits)
+- asymptotic expansion
 
-### 核心定理及适用条件
+### Core theorem and applicable conditions
 
-| 定理 | 适用条件 |
+| Theorem | Applicable conditions |
 |------|----------|
-| 夹逼定理 | `a_n ≤ b_n ≤ c_n` 且 `lim a_n = lim c_n = L` |
-| 单调有界定理 | 数列单调递增且有上界；或单调递减且有下界 |
-| Stolz 定理 | 分母严格单调趋于 `∞`（`∞/∞`型）或分子分母同趋于 `0`（`0/0`型）；需满足极限存在或为 `∞` |
-| L'Hôpital 法则 | 不定式 `0/0` 或 `∞/∞`；导数比值的极限存在或为 `∞` |
-| 泰勒展开 | 函数在展开点附近有足够阶的连续导数 |
+| Pinch Theorem | `a_n ≤ b_n ≤ c_n` and `lim a_n = lim c_n = L` |
+| Monotone bounded theorem | The sequence is monotonically increasing and has an upper bound; or is monotonically decreasing and has a lower bound |
+| Stolz's theorem | The denominator is strictly monotonic to `∞` (type `∞/∞`) or the numerator and denominator tend to `0` (type `0/0`); the limit must exist or be `∞` |
+| L'Hôpital's Law | Infinitive `0/0` or `∞/∞` ; the limit of the derivative ratio exists or is `∞` |
+| Taylor expansion | The function has continuous derivatives of sufficient order near the expansion point |
 
-### 常见陷阱
-1. **Stolz 定理条件不满足**：分母必须是单调无穷大，不能只趋于无穷
-2. **L'Hôpital 循环使用**：反复使用后无法消除不定式，需改用其他方法
-3. **泰勒展开阶数不足**：导致等价无穷小抵消，需要更高阶展开
-4. **忽视了极限不存在的情形**：左右极限不等
-5. **对数列使用 L'Hôpital**：L'Hôpital 仅适用于函数极限
+### Common pitfalls
+1. **Stolz’s theorem conditions are not met**: the denominator must be monotonic infinity and cannot just tend to infinity.
+2. **L'Hôpital recycling**: The infinitive cannot be eliminated after repeated use, and other methods need to be used.
+3. **Insufficient order of Taylor expansion**: It leads to equivalent infinitesimal cancellation and requires higher order expansion.
+4. **Ignoring the situation where the limit does not exist**: The left and right limits are not equal
+5. **Use L'Hôpital for a sequence**: L'Hôpital only works with function limits
 
-### 验算策略
-- **定理条件检查**：逐一验证所用定理的条件是否满足
-- **左右一致性检查**：对于 `x→a` 的极限，检查左右极限是否一致
-- **展开阶数检查**：确认泰勒展开阶数足够，余项可控
-- **数值验证**：取具体数值近似计算，与解析结果比较
-- **夹逼验证**：检查夹逼的上下界是否正确且相等
+### Verification strategy
+- **Theorem Condition Check**: Verify whether the conditions of the theorem used are met one by one.
+- **Left and right consistency check**: For the limit of `x→a`, check whether the left and right limits are consistent
+- **Expansion order check**: Confirm that the Taylor expansion order is sufficient and the remainder is controllable
+- **Numerical verification**: Approximate calculation using specific numerical values ​​and compare with analytical results
+- **Clamp verification**: Check whether the upper and lower bounds of the clamp are correct and equal
 
 ---
 
-## 模块 2：微分学 (Differentiation)
+## Module 2: Differentiation
 
-### 覆盖范围
-- 一元函数导数
-- 偏导数（多元函数）
-- 隐函数求导
-- 参数方程求导
-- 高阶导数
-- 极值与最值（一元和多元）
-- 凹凸性与拐点
-- 泰勒公式（含余项）
-- 方向导数与梯度（基础）
+### Coverage
+- Derivatives of functions of one variable
+- Partial derivatives (multivariate functions)
+- Implicit function derivation
+- Derivation of parametric equations
+- Higher order derivatives
+- Extreme value and maximum value (univariate and multivariate)
+- Concave-convexity and inflection points
+- Taylor formula (including remainder)
+- Directional Derivatives and Gradient (Basic)
 
-### 核心定理及适用条件
+### Core theorem and applicable conditions
 
-| 定理 | 适用条件 |
+| Theorem | Applicable conditions |
 |------|----------|
-| Fermat 定理 | 函数在极值点可导 → 导数为零 |
-| Rolle 定理 | `f(a)=f(b)` 且在 `[a,b]` 连续，`(a,b)` 可导 |
-| Lagrange 中值定理 | 在 `[a,b]` 连续，`(a,b)` 可导 |
-| 隐函数存在定理 | 偏导数连续且 Jacobian 非零 |
-| 多元极值判定 | Hessian 矩阵正定（极小）/负定（极大）/不定（鞍点） |
+| Fermat's theorem | The function is differentiable at the extreme point → the derivative is zero |
+| Rolle's Theorem | `f(a)=f(b)` and continuous at `[a,b]`, `(a,b)` is differentiable |
+| Lagrange's Mean Value Theorem | Continuous at `[a,b]`, Differentiable at `(a,b)` |
+| Existence theorem of implicit functions | Partial derivatives are continuous and Jacobian is non-zero |
+| Multivariate extreme value determination | Hessian matrix positive definite (minimum)/negative definite (maximum)/indefinite (saddle point) |
 
-### 常见陷阱
-1. **隐函数求导时忘记使用链式法则**：`d/dx[f(g(x),h(x))]`
-2. **忘记检查极值的充分条件**：一阶导为零只是必要条件
-3. **边界点遗漏**：闭区间最值可能在端点取到
-4. **Hessian 矩阵半定性**：不能确定极值类型，需要更高阶分析
-5. **线性近似误差估计不足**：泰勒余项的阶数判断错误
+### Common pitfalls
+1. **Forgot to use the chain rule when deriving implicit functions**: `d/dx[f(g(x),h(x))]`
+2. **Forgot to check the sufficient conditions for extreme values**: It is only a necessary condition that the first derivative is zero
+3. **Boundary point missing**: The maximum value of a closed interval may be obtained at the endpoint
+4. **Hessian matrix semi-qualitative**: The extreme value type cannot be determined and higher-order analysis is required.
+5. **Linear approximation error underestimation**: wrong order judgment of Taylor remainder
 
-### 验算策略
-- **逆运算验证**：对求得的不定积分求导，应返回原函数
-- **数值差分验证**：用有限差分 `(f(x+h)-f(x))/h` 与解析导数比较
-- **一阶/二阶条件验证**：检查极值点是否同时满足一阶和二阶条件
-- **边界点穷举**：检查所有候选点（驻点、边界点、不可导点）
-- **Hessian 验证**：对于多元极值，计算 Hessian 并验证正定/负定性
+### Verification strategy
+- **Inverse operation verification**: Derivative of the obtained indefinite integral should return the original function
+- **Numerical Difference Verification**: Compare with analytic derivative using finite difference `(f(x+h)-f(x))/h`
+- **First-order/second-order condition verification**: Check whether the extreme point satisfies both first-order and second-order conditions
+- **Boundary point exhaustion**: Check all candidate points (stationary points, boundary points, non-differentiable points)
+- **Hessian verification**: For multivariate extrema, calculate the Hessian and verify positive/negative definiteness
 
 ---
 
-## 模块 3：积分学 (Integration)
+## Module 3: Integration
 
-### 覆盖范围
-- 不定积分：换元法、分部积分、有理函数积分、三角积分
-- 定积分：Newton-Leibniz 公式
-- 反常积分（广义积分）：收敛性判定
-- 多重积分：累次积分、坐标变换（极坐标、柱坐标、球坐标）
-- 换元积分（含 Jacobian）
-- 分部积分
-- 曲线积分与曲面积分（基础级别）
+### Coverage
+- Indefinite integrals: substitution method, integral by parts, integral of rational functions, trigonometric integral
+- Definite integral: Newton-Leibniz formula
+- Abnormal integral (generalized integral): Convergence determination
+- Multiple integration: cumulative integration, coordinate transformation (polar coordinates, cylindrical coordinates, spherical coordinates)
+- Exchange points (including Jacobian)
+- Division points
+- Curve integral and surface integral (basic level)
 
-### 核心定理及适用条件
+### Core theorem and applicable conditions
 
-| 定理 | 适用条件 |
+| Theorem | Applicable conditions |
 |------|----------|
-| Newton-Leibniz 公式 | 被积函数在积分区间连续，原函数在区间上连续可导 |
-| 换元积分法 | 换元函数连续可导，积分区间变换正确 |
-| 分部积分法 | 两部分分别可导/可积 |
-| 积分中值定理 | 函数在闭区间连续 |
-| 反常积分比较判别法 | 非负被积函数，比较函数已知收敛性 |
+| Newton-Leibniz formula | The integrand is continuous in the integration interval, and the original function is continuously differentiable in the interval |
+| Substitution integral method | The substitution function is continuously differentiable, and the integration interval transformation is correct |
+| Integration by parts method | The two parts can be differentiated/integrated respectively |
+| Integral mean value theorem | Functions are continuous in closed intervals |
+| Abnormal integral comparison and discrimination method | Non-negative integrand, comparison function with known convergence |
 
-### 常见陷阱
-1. **换元时忘记变换积分限**：定积分换元后上下限需对应新变量
-2. **分部积分方向选择不当**：应选择能简化的拆分方向
-3. **反常积分收敛条件遗漏**：先判断是否收敛，再计算
-4. **多重积分次序交换条件未检查**：Fubini 定理需要绝对可积
-5. **坐标变换时 Jacobian 遗漏或算错**：
-6. **有理函数部分分式分解错误**：分母因式分解不全
+### Common pitfalls
+1. **Forgot to transform the integral limit when changing elements**: After changing the element of the definite integral, the upper and lower limits need to correspond to the new variables
+2. **Inappropriate selection of division integration direction**: The splitting direction that can simplify should be selected
+3. **Abnormal integral convergence condition is missing**: first determine whether convergence occurs, and then calculate
+4. **Multiple integration order commutative conditions not checked**: Fubini’s theorem requires absolute integrability
+5. **Jacobian omission or miscalculation during coordinate transformation**:
+6. **Partial fraction decomposition error of rational function**: Incomplete factorization of the denominator
 
-### 验算策略
-- **不定积分求导验证**：对结果求导，应等于被积函数
-- **定积分数值近似**：使用 Simpson 或梯形法估算，与解析结果比较
-- **换元变换验证**：检查积分区间变换是否正确
-- **收敛性验证**：对反常积分，先验收敛性再算值
-- **分部积分逆运算**：可用分部积分的另一方向验证
+### Verification strategy
+- **Indefinite integral derivation verification**: Derivative of the result should be equal to the integrand
+- **Numerical approximation of definite integrals**: estimate using Simpson or trapezoidal method and compare with analytical results
+- **Change transformation verification**: Check whether the integration interval transformation is correct
+- **Convergence Verification**: For anomalous integrals, a priori convergence is required before calculating the value.
+- **Inverse operation of integral by parts**: can be verified by the other direction of integral by parts
 
 ---
 
-## 模块 4：线性代数 (Linear Algebra)
+## Module 4: Linear Algebra (Linear Algebra)
 
-### 覆盖范围
-- 矩阵运算（加、乘、转置、逆）
-- 行列式计算与性质
-- 矩阵的秩
-- 线性方程组求解（齐次/非齐次）
-- 向量空间与子空间
-- 线性相关与线性无关
-- 特征值与特征向量
-- 矩阵对角化
-- Gram-Schmidt 正交化
-- 二次型与正定性
+### Coverage
+- Matrix operations (addition, multiplication, transpose, inversion)
+- Calculation and properties of determinants
+- rank of matrix
+- Solving linear equations (homogeneous/non-homogeneous)
+- Vector spaces and subspaces
+-Linear dependence and linear independence
+- Eigenvalues ​​and eigenvectors
+-Matrix diagonalization
+- Gram-Schmidt orthogonalization
+- Quadratic form and positive certainty
 
-### 核心定理及适用条件
+### Core theorem and applicable conditions
 
-| 定理 | 适用条件 |
+| Theorem | Applicable conditions |
 |------|----------|
-| 秩-零化度定理 | 对任何矩阵 `A`：`rank(A) + nullity(A) = n` |
-| Cramer 法则 | 系数矩阵为方阵且行列式非零 |
-| Cayley-Hamilton 定理 | 任何方阵满足其特征多项式 |
-| 谱定理（实对称） | 实对称矩阵可正交对角化 |
-| 正定二次型判定 | 所有顺序主子式 > 0 |
+| Rank-zero degree theorem | For any matrix `A`: `rank(A) + nullity(A) = n` |
+| Cramer's rule | The coefficient matrix is ​​a square matrix and the determinant is non-zero |
+| Cayley-Hamilton Theorem | Any square matrix satisfies its characteristic polynomial |
+| Spectral theorem (real symmetry) | Real symmetric matrices can be orthogonally diagonalized |
+| Determination of positive definite quadratic form | All sequential principal formulas > 0 |
 
-### 常见陷阱
-1. **特征向量计算错误**：`(A-λI)v=0`，不是 `(A-λ)v=0`
-2. **对角化条件不满足**：矩阵必须可对角化（几何重数 = 代数重数）
-3. **行列式为零时求逆**：应先检查可逆性
-4. **秩的误判**：行秩 = 列秩，但执行行和列操作需谨慎
-5. **线性方程组解的表示不完整**：忘记包含齐次解的通解部分
-6. **Gram-Schmidt 数值不稳定**：在大规模计算中可能失去正交性
+### Common pitfalls
+1. **Feature vector calculation error**: `(A-λI)v=0`, not `(A-λ)v=0`
+2. **Diagonalization condition is not met**: The matrix must be diagonalizable (geometric multiplicity = algebraic multiplicity)
+3. **Inverse when the determinant is zero**: Reversibility should be checked first
+4. **Misjudgment of rank**: row rank = column rank, but you need to be careful when performing row and column operations
+5. **Incomplete representation of solutions to linear equations**: Forgot to include the general solution part of the homogeneous solution
+6. **Gram-Schmidt numerical instability**: possible loss of orthogonality in large-scale calculations
 
-### 验算策略
-- **维数验证**：`rank + nullity = n`
-- **回代验证**：解代入原方程，验证 `Ax = b`
-- **特征值验证**：验证 `det(A - λI) = 0` 对每个特征值
-- **特征向量验证**：验证 `Av = λv`
-- **对角化验证**：验证 `A = PDP^{-1}` 或 `P^T A P = D`
-- **逆矩阵验证**：验证 `A A^{-1} = I`
-- **正交性验证**：验证 `Q^T Q = I`
+### Verification strategy
+- **Dimension Validation**: `rank + nullity = n`
+- **Back substitution verification**: Substitute the solution into the original equation and verify `Ax = b`
+- **Eigenvalue Validation**: Verify `det(A - λI) = 0` for each eigenvalue
+- **Feature Vector Validation**: Validation `Av = λv`
+- **Diagonal Verification**: Verify `A = PDP^{-1}` or `P^T A P = D`
+- **Inverse Matrix Verification**: Verification `A A^{-1} = I`
+- **Orthogonality Verification**: Verify `Q^T Q = I`
 
 ---
 
-## 模块 5：常微分方程 (ODEs)
+## Module 5: Ordinary Differential Equations (ODEs)
 
-### 覆盖范围
-- 可分离变量方程
-- 一阶线性微分方程
-- 齐次方程
-- 常系数线性微分方程（齐次/非齐次）
-- 初值问题 (IVP)
-- 简单微分方程组
+### Coverage
+- Equations of separable variables
+- First order linear differential equation
+- Homogeneous equations
+- Linear differential equations with constant coefficients (homogeneous/non-homogeneous)
+- Initial value problem (IVP)
+- System of simple differential equations
 
-### 核心定理及适用条件
+### Core theorem and applicable conditions
 
-| 定理 | 适用条件 |
+| Theorem | Applicable conditions |
 |------|----------|
-| 存在唯一性定理 (Picard-Lindelöf) | `f(t,y)` 关于 y 满足 Lipschitz 条件 |
-| 叠加原理（齐次线性） | 解的线性组合仍是解 |
-| 特征方程法 | 常系数齐次线性微分方程 |
-| 待定系数法 | 非齐次项为多项式、指数、三角函数的积/和 |
-| 常数变异法 | 适用于任何非齐次线性 ODE（如果能求齐次解） |
+| Existence and uniqueness theorem (Picard-Lindelöf) | `f(t,y)` satisfies the Lipschitz condition with respect to y |
+| Superposition principle (homogeneous linearity) | A linear combination of solutions is still a solution |
+| Characteristic equation method | Homogeneous linear differential equations with constant coefficients |
+| Undetermined coefficient method | Non-homogeneous terms are the products/sums of polynomials, exponentials, and trigonometric functions |
+| Constant mutation method | Applicable to any non-homogeneous linear ODE (if a homogeneous solution can be found) |
 
-### 常见陷阱
-1. **遗忘积分常数**：不定积分后必须加 `+ C`
-2. **通解与特解混淆**：初值问题需要确定常数
-3. **常数的数量与阶数不匹配**：n 阶 ODE 的通解应有 n 个独立常数
-4. **齐次与非齐次解混淆**：通解 = 齐次通解 + 非齐次特解
-5. **重根情形处理错误**：特征方程有重根时解的构造特殊
-6. **待定系数法形式猜测不全**：非齐次项与齐次解有重叠时需乘以 `t^k`
+### Common pitfalls
+1. **Forgot the integral constant**: `+ C` must be added after the indefinite integral
+2. **Confusion between general solution and special solution**: Initial value problem requires determination of constants
+3. **The number of constants does not match the order**: The general solution of an n-order ODE should have n independent constants
+4. **Confusion between homogeneous and non-homogeneous solutions**: General solution = Homogeneous general solution + Non-homogeneous special solution
+5. **Error in handling multiple root cases**: The solution is specially constructed when the characteristic equation has multiple roots.
+6. **Incomplete guess on the form of the undetermined coefficient method**: When the non-homogeneous term overlaps with the homogeneous solution, it needs to be multiplied by `t^k`
 
-### 验算策略
-- **代入原方程验证**：将求得的解代入 ODE，检查等式是否恒成立
-- **初值条件检查**：将 `t=t_0` 代入解，验证是否满足初值
-- **解的独立性检查**：Wronski 行列式非零
-- **通解完备性**：独立解的数量 = 方程阶数
-- **常数的数量检查**：通解中独立常数的数量 = 方程阶数
+### Verification strategy
+- **Substitute into the original equation to verify**: Substitute the obtained solution into ODE and check whether the equation is always true.
+- **Initial value condition check**: Substitute `t=t_0` into the solution to verify whether the initial value is met
+- **Independence check of solutions**: Wronski determinant is non-zero
+- **General solution completeness**: number of independent solutions = order of equation
+- **Check for the number of constants**: Number of independent constants in the general solution = Order of the equation
 
 ---
 
-## 模块 6：实分析基础 (Real Analysis)
+## Module 6: Basics of Real Analysis (Real Analysis)
 
-### 覆盖范围
-- 数列收敛与发散判定
-- 连续性与一致连续性
-- 可微性与导数
-- Riemann 积分的基本性质
-- 级数收敛性（正项、交错、任意项）
-- 函数序列与函数项级数的一致收敛性
+### Coverage
+- Judgment of convergence and divergence of sequence
+- Continuity and consistent continuity
+- Differentiability and derivatives
+- Basic properties of Riemann integrals
+- Series convergence (positive terms, staggered terms, arbitrary terms)
+- Consistent convergence of function sequences and function term series
 
-### 核心定理及适用条件
+### Core theorem and applicable conditions
 
-| 定理 | 适用条件 |
+| Theorem | Applicable conditions |
 |------|----------|
-| Cauchy 收敛准则 | 完备度量空间（实数、复数） |
-| Bolzano-Weierstrass 定理 | 有界数列必有收敛子列 |
-| 连续函数的介值定理 | 函数在闭区间连续 |
-| 一致连续性定理 | 闭区间上的连续函数必一致连续 |
-| Weierstrass M 判别法 | 函数项级数有收敛的控制级数 |
-| 一致收敛极限的连续性 | 一致收敛的连续函数序列，极限函数连续 |
+| Cauchy Convergence Criterion | Complete Metric Space (Real Numbers, Complex Numbers) |
+| Bolzano-Weierstrass Theorem | A bounded sequence must have a convergent subsequence |
+| Intermediate value theorem of continuous functions | Functions are continuous in closed intervals |
+| Uniform continuity theorem | Continuous functions on closed intervals must be uniformly continuous |
+| Weierstrass M criterion | Control series with convergent function term series |
+| Continuity of uniform convergence limit | Consistently convergent continuous function sequence, limit function continuity |
 
-### 常见陷阱
-1. **量化词顺序颠倒**：一致连续的 `∀ε ∃δ ∀x,y` 和点态连续的 `∀ε ∀x ∃δ` 不同
-2. **ε-δ 与 ε-N 混淆**：数列用 ε-N，函数用 ε-δ
-3. **点态收敛与一致收敛混淆**：一致收敛意味着点态收敛，反之不然
-4. **条件缺乏时使用结论**：如在不连续的闭区间上使用介值定理
-5. **级数级数重排的条件**：绝对收敛才能任意重排
-6. **极限与积分交换**：需要一致收敛或控制收敛定理
+### Common pitfalls
+1. **The order of quantifiers is reversed**: The consistent and continuous `∀ε ∃δ ∀x,y` is different from the point-state continuous `∀ε ∀x ∃δ`
+2. **ε-δ and ε-N are confused**: use ε-N for sequences and ε-δ for functions.
+3. **Confusion between point-state convergence and uniform convergence**: Uniform convergence means point-state convergence, but not vice versa.
+4. **Use conclusions when conditions are lacking**: such as using the intermediate value theorem on discontinuous closed intervals
+5. **Conditions for series rearrangement**: Absolute convergence can lead to arbitrary rearrangement
+6. **Exchange of limits and integrals**: Requires consistent convergence or controlled convergence theorem
 
-### 验算策略
-- **量化词顺序验证**：检查 ε-δ 或 ε-N 的量化词结构
-- **反例构造**：如果对某个推广有怀疑，构造反例测试
-- **逐点收敛 vs 一致收敛**：检查上确界是否趋于零
-- **连续性验证**：检查极限定义和左右极限是否一致
+### Verification strategy
+- **Quantifier order verification**: Check the quantifier structure of ε-δ or ε-N
+- **Counterexample construction**: If you have doubts about a certain promotion, construct a counterexample test
+- **Pointwise Convergence vs Uniform Convergence**: Check if the supremum approaches zero
+- **Continuity Verification**: Check whether the limit definition and the left and right limits are consistent
 
 ---
 
-## 模块 7：抽象代数基础 (Abstract Algebra)
+## Module 7: Abstract Algebra
 
-### 覆盖范围
-- 群：子群、正规子群、商群、同态基本定理
-- 环：子环、理想、商环
-- 域的基本概念
-- 多项式环基础
+### Coverage
+- Groups: subgroups, normal subgroups, quotient groups, fundamental theorem of homomorphism
+- Ring: sub-ring, ideal, business ring
+- Basic concepts of domain
+- Basics of Polynomial Rings
 
-### 核心定理及适用条件
+### Core theorem and applicable conditions
 
-| 定理 | 适用条件 |
+| Theorem | Applicable conditions |
 |------|----------|
-| Lagrange 定理 | 有限群，子群的阶整除群的阶 |
-| Cayley 定理 | 任何群同构于某个置换群的子群 |
-| 同态基本定理 | `G/ker(φ) ≅ Im(φ)` |
-| 第一同构定理 | 子群与正规子群的对应关系 |
-| 中国剩余定理（环论版） | 理想两两互素 |
+| Lagrange's theorem | Finite group, the order of the subgroup is divided by the order of the group |
+| Cayley's theorem | Any group is isomorphic to a subgroup of a permutation group |
+| Fundamental Theorem of Homomorphism | `G/ker(φ) ≅ Im(φ)` |
+| First isomorphism theorem | Correspondence between subgroups and normal subgroups |
+| Chinese Remainder Theorem (Ring Theory Edition) | Ideal pairs are relatively prime |
 
-### 常见陷阱
-1. **子群验证遗漏**：需要验证封闭性、含单位元、含逆元（或等价地 `ab⁻¹ ∈ H`）
-2. **正规子群 vs 子群**：所有子群都是正规子群的说法仅在 Abel 群中成立
-3. **同态验证不完整**：需要验证保持运算且保持单位元
-4. **商群良定性**：需要先确认正规子群
-5. **群的阶与元素阶关系**：元素的阶整除群的阶，逆命题不总是成立
-6. **以偏概全**：在有少量小阶群的结论后直接推广到所有群
+### Common pitfalls
+1. **Subgroup verification missing**: Need to verify closure, identity element, and inverse element (or equivalently `ab⁻¹ ∈ H` )
+2. **Normal subgroup vs subgroup**: The statement that all subgroups are normal subgroups is only true in Abelian groups
+3. **Incomplete homomorphism verification**: It is necessary to verify that the operation is maintained and the unit is maintained
+4. **Goodness of business group**: It is necessary to confirm the formal subgroup first
+5. **Relationship between the order of the group and the order of the elements**: The order of the element divides the order of the group, and the converse proposition is not always true.
+6. **Generalize from partial to complete**: After having a few conclusions about small-order groups, directly generalize to all groups.
 
-### 验算策略
-- **封闭性检查**：生成所有元素对，验证乘积在集合内
-- **逆元检查**：每个元素有唯一逆元
-- **结合律检查**：对特定元素三重积检查
-- **同态结构保持验证**：`φ(ab) = φ(a)φ(b)`
-- **商群良定性验证**：左右陪集相等
-- **优先使用小阶反例**：用小阶群（如 S₃、D₄、Z₆）测试每个猜想
+### Verification strategy
+- **Closedness Check**: Generate all pairs of elements and verify that the product is within the set
+- **Inverse check**: Each element has a unique inverse
+- **Associative Law Check**: Check the triple product of specific elements
+- **Homomorphic structure preservation verification**: `φ(ab) = φ(a)φ(b)`
+- **Good Qualitative Verification of Business Groups**: The left and right cosets are equal
+- **Prefer small-order counterexamples**: test each conjecture with small-order groups (such as S₃, D₄, Z₆)
 
 ---
 
-## 模块 8：拓扑学基础 (Topology Basics)
+## Module 8: Topology Basics
 
-### 覆盖范围
-- 开集、闭集、拓扑空间定义
-- 连续映射的拓扑定义
-- 紧致性（compactness）的基本性质
-- 连通性（connectedness）的基本性质
-- 度量空间基本概念
+### Coverage
+- Definition of open sets, closed sets, and topological spaces
+- Topological definition of continuous mapping
+- Basic properties of compactness
+- Basic properties of connectedness
+- Basic concepts of metric space
 
-### 核心定理及适用条件
+### Core theorem and applicable conditions
 
-| 定理 | 适用条件 |
+| Theorem | Applicable conditions |
 |------|----------|
-| Heine-Borel 定理 | `R^n` 中子集紧致 iff 有界且闭 |
-| 连续函数保持紧致性 | 连续像将紧集映为紧集 |
-| 介值定理（连通性版本） | 连续像将连通集映为连通集 |
-| Tietze 扩张定理 | 正规空间中的闭子集 |
-| Bolzano-Weierstrass 定理（度量空间版） | 列紧与紧致的等价性 |
+| Heine-Borel Theorem | `R^n` The neutron set compact iff is bounded and closed |
+| Continuous functions maintain compactness | Continuous images map compact sets into compact sets |
+| Intermediate value theorem (connectivity version) | Continuous image maps connected sets to connected sets |
+| Tietze's expansion theorem | Closed subsets in normal spaces |
+| Bolzano-Weierstrass theorem (metric space version) | Equivalence of compaction and compactness |
 
-### 常见陷阱
-1. **将欧氏空间的直觉外推到一般拓扑空间**：不是所有拓扑空间都是 Hausdorff 空间
-2. **紧致性等价条件混淆**：
-   - 在度量空间中：紧致 ↔ 列紧 ↔ 完备且全有界
-   - 在一般拓扑空间中：这些等价不一定成立
-3. **开集与闭集的对偶性**：开集的补是闭集，但存在既开又闭、不既开也不闭的集合
-4. **连续映射的序列定义不适用于一般拓扑空间**：需要网的收敛概念
-5. **连通空间不一定是道路连通的**：拓扑学中著名的反例（如拓扑学家的正弦曲线）
-6. **紧致空间的闭子集是紧的**，但需要紧致空间是 Hausdorff 的
+### Common pitfalls
+1. **Extrapolate the intuition of Euclidean spaces to general topological spaces**: Not all topological spaces are Hausdorff spaces
+2. **Confusion of compactness equivalence conditions**:
+- In metric space: compact ↔ compact ↔ complete and fully bounded
+- In general topological spaces: these equivalences do not necessarily hold
+3. **Duality of open sets and closed sets**: The complement of an open set is a closed set, but there are sets that are both open and closed, and neither open nor closed.
+4. **The sequence definition of continuous mapping is not suitable for general topological spaces**: the convergence concept of the network is required
+5. **Connected spaces are not necessarily road-connected**: Famous counterexamples in topology (such as topologists’ sinusoids)
+6. **The closed subset of a compact space is compact**, but the compact space needs to be Hausdorff's
 
-### 验算策略
-- **定义一致性检查**：逐条对照拓扑空间定义中的开集公理
-- **反例搜索**：对每个疑似的推广，在 `R^n` 中或有限拓扑中找反例
-- **度量空间与一般拓扑空间的区分**：注意哪些性质仅适用于度量空间
-- **Hausdorff 条件检查**：某些结论需要 Hausdorff 条件（如紧子集的闭性）
-- **紧致性验证**：检查每个开覆盖是否有有限子覆盖
+### Verification strategy
+- **Definition consistency check**: Check the open set axioms in the definition of topological space item by item
+- **Counterexample search**: For each suspected generalization, find counterexamples in `R^n` or limited topology
+- **The difference between metric spaces and general topological spaces**: Note which properties only apply to metric spaces
+- **Hausdorff condition check**: Some conclusions require Hausdorff conditions (such as closure of compact subsets)
+- **Compactness Verification**: Check whether each open cover has finite subcovers
 
 ---
 
-## 跨模块通用注意事项
+## Common cross-module considerations
 
-### 定义域与条件检查清单
-在解题前强制检查：
-- [ ] 函数的定义域是什么？
-- [ ] 所用定理的条件是否全部满足？
-- [ ] 是否存在退化边界情况（零、无穷、奇点）？
-- [ ] 使用的所有变量是否有明确的范围？
+### Domain and Condition Checklist
+It is mandatory to check before solving the problem:
+- [ ] What is the domain of a function?
+- [ ] Are all the conditions of the theorem used met?
+- [ ] Are there degenerate boundary cases (zero, infinity, singularity)?
+- [ ] Do all variables used have clear scopes?
 
-### 跨领域常见错误
-1. **除法前未检查非零**
-2. **开方前未检查非负**
-3. **在不可导点使用求导**
-4. **在不连续点使用积分**
-5. **在非 Riemann 可积函数上使用 Riemann 积分**
-6. **未检查收敛性就计算级数和**
+### Common cross-domain errors
+1. **Non-zero is not checked before division**
+2. **Non-negative is not checked before formulating**
+3. **Use derivation at non-differentiable points**
+4. **Use integrals at discontinuous points**
+5. **Using Riemann integrals on non-Riemann integrable functions**
+6. **Calculating series sums without checking convergence**
 
-### 验算的跨领域一致性
-- 每个模块的结论应与其他模块的结论自洽
-- 如果有多种方法求解同一问题，用另一种方法验算
-- 特别注意符号、单位、量纲的一致性
+### Cross-domain consistency of verification
+- The conclusions of each module should be consistent with the conclusions of other modules
+- If there are multiple ways to solve the same problem, use another method to check the calculation
+- Pay special attention to the consistency of symbols, units and dimensions

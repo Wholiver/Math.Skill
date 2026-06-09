@@ -1,1567 +1,1567 @@
-# 输入分类模块
+#Input classification module
 
-## 概述
+## Overview
 
-本模块定义了 Math.skill 中输入问题的分类体系。对于每一个输入，系统首先将其归入以下类别之一，然后根据类别的特性选择合适的求解策略和验证方法。
+This module defines the classification system for input problems in Math.skill. For each input, the system first classifies it into one of the following categories and then selects an appropriate solution strategy and verification method based on the characteristics of the category.
 
 ---
 
 ## calculation
 
-**识别特征：**
-- 输入仅包含数值和运算符（$+,-,\times,\div,\hat{\ },\sqrt{}$ 等）
-- 无变量、无等号或不等号
-- 常见表述："计算"、"求值"、"结果是多少"
-- 示例：$\sqrt{169} + 3^4 - 12 \div 4$
+**Identification Features:**
+- Input contains only numeric values ​​and operators (  $+,-,\times,\div,\hat{\ },\sqrt{}$   etc.)
+- No variables, no equal sign or inequality sign
+- Common expressions: "calculation", "evaluation", "what is the result"
+- Example:   $\sqrt{169} + 3^4 - 12 \div 4$
 
-**推荐求解策略：**
-- 按运算优先级逐步计算
-- 使用括号明确运算顺序
-- 对复杂表达式进行分步拆解，每步独立验证
+**Recommended solution strategy:**
+- Calculate step by step according to operation priority
+- Use parentheses to clarify the order of operations
+- Decompose complex expressions step by step, and verify each step independently
 
-**必须检查的条件：**
-- 表达式中的除法分母不为零
-- 偶数次根号下表达式 $\geq 0$
-- 对数底数 $>0$ 且 $\neq 1$，真数 $>0$
-- 指数运算结果是否在合理范围内
+**Conditions that must be checked:**
+- The denominator of the division in the expression is not zero
+- Expression under even-numbered radicals   $\geq 0$
+- base of logarithm   $>0$   and   $\neq 1$   , real number   $>0$
+- Whether the exponential operation result is within a reasonable range
 
-**常见错误：**
-- 运算优先级错误（如先加后乘）
-- 负号处理错误（$(-3)^2 = 9$，不是 $-9$）
-- 分数运算中通分错误
-- 小数与分数混合时精度丢失
-- 大数运算溢出或舍入错误
+**Common mistakes:**
+- Incorrect operation priority (such as addition first and then multiplication)
+- Negative sign handling error (  $(-3)^2 = 9$  , not   $-9$  )
+- Common division errors in fraction operations
+- Precision is lost when decimals and fractions are mixed
+- Large number operation overflow or rounding error
 
-**推荐验证方法：**
-- 逆运算验证（用结果反推）
-- 估算量级是否合理
-- 使用不同计算路径重算
-- 对关键中间结果交叉验证
+**Recommended verification method:**
+- Verification of inverse operation (use the result to infer)
+- Is the estimated magnitude reasonable?
+- Recalculate using different calculation paths
+- Cross-validation of key intermediate results
 
-**输出格式：**
+**Output format:**
+   ```
+Result: [exact value]
+Step-by-step calculation process: [Each step operation and intermediate results]
 ```
-结果: [精确值]
-逐步计算过程: [每步运算及中间结果]
-```
 
-**是否追问用户：** 否
+**Whether to ask the user:** No
 
 ---
 
 ## algebra_simplification
 
-**识别特征：**
-- 包含代数变量的表达式，要求化简、因式分解或展开
-- 关键词："化简"、"因式分解"、"展开"、"合并同类项"
-- 示例：化简 $(x+2)(x-3) - (x-1)^2$
+**Identification Features:**
+- Expressions containing algebraic variables requiring reduction, factorization or expansion
+- Keywords: "simplify", "factorization", "expand", "merge similar terms"
+- Example: Simplify   $(x+2)(x-3) - (x-1)^2$
 
-**推荐求解策略：**
-- 识别表达式结构（多项式、分式、根式等）
-- 应用分配律展开括号
-- 合并同类项
-- 因式分解时先提取公因式，再应用公式
+**Recommended solution strategy:**
+- Recognize expression structures (polynomials, fractions, radicals, etc.)
+- Apply the distributive property to expand the brackets
+- Merge similar items
+- When factoring, first extract the common factors and then apply the formula
 
-**必须检查的条件：**
-- 分母不为零的条件
-- 偶数次根号下表达式 $\geq 0$
-- 因式分解结果是否完全分解
-- 展开结果是否已合并所有同类项
+**Conditions that must be checked:**
+- Conditions when the denominator is not zero
+- Expression under even-numbered roots   $\geq 0$
+- Whether the factorization result is completely decomposed
+- Whether the expansion result has merged all similar items
 
-**常见错误：**
-- 符号处理错误（展开时的正负号）
-- 漏项（忘记展开所有项）
-- 因式分解不完全
-- 平方差/完全平方公式误用
-- 分式化简时忘记定义域约束
+**Common mistakes:**
+- Sign handling error (positive and negative signs on expansion)
+- Missing items (forgot to expand all items)
+- Incomplete factorization
+- Misuse of square difference/perfect square formula
+- Domain constraints are forgotten when simplifying fractions
 
-**推荐验证方法：**
-- 代入特殊值检验两端是否相等
-- 对化简结果重新展开，验证是否等于原式
-- 检查因式分解结果乘回去是否等于原式
-- 验证定义域约束是否一致
+**Recommended verification method:**
+- Substitute special values ​​to check whether both ends are equal
+- Re-expand the simplified results to verify whether they are equal to the original formula
+- Check whether the factored result multiplied back is equal to the original formula
+- Verify that domain constraints are consistent
 
-**输出格式：**
+**Output format:**
+   ```
+Simplification result: [simplest form]
+Key steps: [Transformation of each step]
+Note: [Domain constraints]
 ```
-化简结果: [最简形式]
-关键步骤: [每一步的变换]
-注意: [定义域约束条件]
-```
 
-**是否追问用户：** 仅当表达式有歧义时
+**Whether to ask the user:** Only if the expression is ambiguous
 
 ---
 
 ## equation_solving
 
-**识别特征：**
-- 单个等式，包含一个未知数
-- 关键词："解方程"、"求 $x$"、等式
-- 示例：解方程 $2x^2 - 5x + 2 = 0$
+**Identification Features:**
+- A single equation with one unknown
+- Keywords: "solve equations", "find   $x$  ", equation
+- Example: Solve the equation   $2x^2 - 5x + 2 = 0$
 
-**推荐求解策略：**
-- 判断方程类型（线性、二次、高次、分式、根式、指数、对数、三角等）
-- 线性：移项法求解
-- 二次：判别式法 $\Delta = b^2 - 4ac$，求根公式 $x = \frac{-b \pm \sqrt{\Delta}}{2a}$
-- 高次：因式分解或试根法
-- 分式：去分母后求解，注意增根
-- 根式：平方消根，注意增根
+**Recommended solution strategy:**
+- Determine the type of equation (linear, quadratic, higher degree, fraction, radical, exponential, logarithmic, trigonometric, etc.)
+- Linear: solution using the transfer method
+- Quadratic: discriminant method   $\Delta = b^2 - 4ac$  , root formula   $x = \frac{-b \pm \sqrt{\Delta}}{2a}$
+- Higher order: factorization or root trial method
+- Fraction: solve after removing the denominator, pay attention to adding roots
+- Radical formula: square root elimination, pay attention to root addition
 
-**必须检查的条件：**
-- 是否有增根（代入原方程验证）
-- 二次方程的判别式 $\Delta$ 是否 $\geq 0$
-- 分式方程分母不为零
-- 根式方程被开方数非负
-- 对数方程真数 $>0$，底数 $>0$ 且 $\neq 1$
+**Conditions that must be checked:**
+- Whether there are increasing roots (substitute into the original equation to verify)
+- The discriminant of the quadratic equation   $\Delta$   is   $\geq 0$
+- The denominator of a fractional equation is not zero
+- The radicand of a radical equation is non-negative
+- Logarithmic equations have real numbers   $>0$  , bases   $>0$   and   $\neq 1$
 
-**常见错误：**
-- 忘记验证增根
-- 二次方程漏解（$\Delta > 0$ 时有两个根）
-- 除以可能为零的表达式
-- 根式方程平方后未验根
-- 移项时符号错误
+**Common mistakes:**
+- Forgot to verify root addition
+- Missing solution to quadratic equation (two roots when   $\Delta > 0$  )
+- divide by an expression that may be zero
+- The root of the radical equation is not tested after squaring it
+- Wrong sign when moving items
 
-**推荐验证方法：**
-- 将所有解代入原方程验证成立
-- 检查解是否在定义域内
-- 对二次方程验证 $x_1 + x_2 = -b/a$，$x_1 x_2 = c/a$
-- 图形法验证（函数图像与 $x$ 轴交点）
+**Recommended verification method:**
+- Substitute all solutions into the original equation to verify that they are established
+- Check if the solution is within the domain
+- Verify   $x_1 + x_2 = -b/a$  ,   $x_1 x_2 = c/a$   for quadratic equations
+- Graphical method verification (intersection of function graph and   $x$   axis)
 
-**输出格式：**
+**Output format:**
+   ```
+Equation type: [linear/quadratic/higher degree/fractional/radical/...]
+Solution: $x = [value]$ (or $x_1 = [value], x_2 = [value]$)
+Solution steps: [Key transformation steps]
+Domain constraint: [illegal values ​​to exclude]
+Root verification: [Insert verification result]
 ```
-方程类型: [线性/二次/高次/分式/根式/...]
-解: $x = [值]$ (或 $x_1 = [值], x_2 = [值]$)
-求解步骤: [关键变换步骤]
-定义域约束: [排除的非法值]
-验根: [代入验证结果]
-```
 
-**是否追问用户：** 仅当方程有歧义或缺少约束时
+**Whether to ask the user:** Only if the equation is ambiguous or missing constraints
 
 ---
 
 ## system_of_equations
 
-**识别特征：**
-- 多个等式，包含多个未知数
-- 关键词："方程组"、多个方程用大括号连接
-- 示例：$\begin{cases} 2x + y = 5 \\ x - 3y = -1 \end{cases}$
+**Identification Features:**
+- Multiple equations with multiple unknowns
+- Keywords: "system of equations", multiple equations connected with braces
+- Example:   $\begin{cases} 2x + y = 5 \\ x - 3y = -1 \end{cases}$
 
-**推荐求解策略：**
-- 线性方程组：代入法、消元法、矩阵法
-- 非线性方程组：代入法、消元法、因式分解
-- 对称方程组：利用对称性简化
-- 齐次方程组：设比值法
+**Recommended solution strategy:**
+- System of linear equations: substitution method, elimination method, matrix method
+- Nonlinear equations: substitution method, elimination method, factorization
+- Symmetric systems of equations: Simplification using symmetry
+- System of homogeneous equations: Ratio method
 
-**必须检查的条件：**
-- 方程的个数与未知数个数的关系
-- 线性方程组系数矩阵是否奇异
-- 是否有无穷多解或无解
-- 非线性方程组代入后的增根
+**Conditions that must be checked:**
+- The relationship between the number of equations and the number of unknowns
+- Is the coefficient matrix of the linear equation system singular?
+- Whether there are infinitely many solutions or no solutions
+- Root augmentation after substitution of nonlinear equations
 
-**常见错误：**
-- 消元时系数相乘/加的错误
-- 代入不完整
-- 忽略无解或无穷多解的情况
-- 非线性方程组转换后引入增根
-- 对称性利用时的遗漏
+**Common mistakes:**
+- Error in coefficient multiplication/addition during elimination
+- Incomplete substitution
+- Ignore cases where there are no solutions or infinite solutions
+- Introduction of increasing roots after transformation of nonlinear equations
+- Omissions when exploiting symmetry
 
-**推荐验证方法：**
-- 将所有解代入每个方程验证
-- 矩阵法求线性方程组后验证 $A\vec{x} = \vec{b}$
-- 对二元一次方程组用克莱姆法则交叉验证
+**Recommended verification method:**
+- Verify by substituting all solutions into each equation
+- Verification after solving linear equations using matrix method   $A\vec{x} = \vec{b}$
+- Cross-validation using Clem's rule for systems of linear equations in two variables
 
-**输出格式：**
+**Output format:**
+   ```
+System type: [Linear/Nonlinear]
+Solution: $(x, y) = ([value], [value])$ (or $x = [value], y = [value], z = [value]$)
+Solution method: [Substitution method/Elimination method/Matrix method]
+Number of solutions: [unique solution/infinitely many solutions/no solutions]
+Verification: [Results inserted into each equation]
 ```
-方程组类型: [线性/非线性]
-解: $(x, y) = ([值], [值])$（或 $x = [值], y = [值], z = [值]$）
-求解方法: [代入法/消元法/矩阵法]
-解的个数: [唯一解/无穷多解/无解]
-验证: [代入各方程的结果]
-```
 
-**是否追问用户：** 仅当方程不满秩时确认处理方式
+**Whether to ask the user:** Confirm the processing method only when the equation is not satisfied with the rank
 
 ---
 
 ## inequality_solving
 
-**识别特征：**
-- 包含不等号（$>, <, \geq, \leq$）的式子
-- 关键词："解不等式"、"求 $x$ 的范围"、"不等式组"
-- 示例：解不等式 $\frac{x-1}{x+2} \geq 0$
+**Identification Features:**
+- Expressions containing the inequality sign (  $>, <, \geq, \leq$  )
+- Keywords: "solve inequalities", "find the range of   $x$  ", "inequality group"
+- Example: Solving Inequalities   $\frac{x-1}{x+2} \geq 0$
 
-**推荐求解策略：**
-- 一元一次不等式：移项，注意乘除负号方向反转
-- 一元二次不等式：判别式 + 根分布，数轴穿根法
-- 分式不等式：移项通分后分子分母同号分析
-- 绝对值不等式：分类讨论或几何意义
-- 不等式组：分别求解后取交集
-- 高次不等式：数轴穿根法（奇穿偶不穿）
+**Recommended solution strategy:**
+- First degree inequalities of one variable: shift terms, pay attention to the reverse direction of the negative signs in multiplication and division
+- Quadratic inequalities of one variable: discriminant + root distribution, number axis through root method
+- Fractional inequality: analysis of the same sign in the numerator and denominator after the common denominator is transferred.
+- Absolute value inequalities: classification discussion or geometric significance
+- Group of inequalities: solve them separately and find the intersection
+- Higher-order inequalities: Number axis threading method (odd threads and even threads are not threaded)
 
-**必须检查的条件：**
-- 乘除负数时不等式方向是否反转
-- 分式不等式分母不为零
-- 绝对值不等式所有分支是否完整
-- 区间端点是否包含（等号是否成立）
+**Conditions that must be checked:**
+- Whether the direction of the inequality is reversed when multiplying or dividing negative numbers
+- The denominator of the fraction inequality is not zero
+- Are all branches of the absolute value inequality complete?
+- Whether the endpoint of the interval is included (whether the equal sign is true)
 
-**常见错误：**
-- 乘以负数忘记反转不等号方向
-- 分式不等式直接交叉相乘
-- 平方两边时忘记讨论符号
-- 绝对值分类讨论不完整
-- 区间表示错误（开闭区间混淆）
+**Common mistakes:**
+- Forgetting to reverse the direction of the inequality sign when multiplying negative numbers
+- Direct cross multiplication of fractional inequalities
+- Forgetting to discuss symbols when squaring both sides
+- Incomplete discussion of absolute value classification
+- Wrong interval representation (confusion of open and closed intervals)
 
-**推荐验证方法：**
-- 在解区间内取测试点验证原不等式
-- 在解区间外取测试点确认不成立
-- 检查区间端点（代入等于的情况）
-- 数轴验证法
+**Recommended verification method:**
+- Take test points within the solution interval to verify the original inequality
+- Take test points outside the solution interval to confirm that it is not established.
+- Check the endpoints of the interval (substitute the equal case)
+- Number line verification method
 
-**输出格式：**
+**Output format:**
+   ```
+Inequality type: [primary/quadratic/fraction/absolute value/inequality group]
+Solution set: $x \in [interval expression]$
+Key steps: [Classification discussion process]
 ```
-不等式类型: [一次/二次/分式/绝对值/不等式组]
-解集: $x \in [区间表达式]$
-关键步骤: [分类讨论过程]
-```
 
-**是否追问用户：** 否
+**Whether to ask the user:** No
 
 ---
 
 ## function_analysis
 
-**识别特征：**
-- 给定函数表达式，要求分析其性质
-- 关键词："定义域"、"值域"、"单调性"、"奇偶性"、"极值"、"最值"、"图像"
-- 示例：分析函数 $f(x) = \frac{x^2-1}{x-2}$ 的性质
+**Identification Features:**
+- Given a function expression, ask to analyze its properties
+- Keywords: "definition domain", "range", "monotonicity", "parity", "extreme value", "maximum value", "image"
+- Example: Analyze the properties of function   $f(x) = \frac{x^2-1}{x-2}$
 
-**推荐求解策略：**
-- 定义域：排除分母为零、根号下为负、对数真数 $\leq 0$ 等
-- 值域：求反函数、配方法、求导法、图像法
-- 单调性：求导判断符号、复合函数单调性法则
-- 奇偶性：验证 $f(-x) = f(x)$（偶）或 $f(-x) = -f(x)$（奇）
-- 极值：求导找临界点，二阶导判断极值类型
-- 图像：找关键点（零点、极值点、拐点、渐近线），描绘趋势
+**Recommended solution strategy:**
+- Domain: exclude denominator zero, negative root sign, true logarithm number   $\leq 0$  , etc.
+- Value range: inverse function, combination method, derivation method, image method
+- Monotonicity: derivation judgment symbol, monotonicity rule of composite functions
+- Parity: Verify   $f(-x) = f(x)$   (even) or   $f(-x) = -f(x)$   (odd)
+- Extreme value: Find the critical point by taking the derivative, and determine the type of extreme value by using the second-order derivative.
+- Image: find key points (zero points, extreme points, inflection points, asymptotes) and depict trends
 
-**必须检查的条件：**
-- 定义域内所有约束条件
-- 导数存在性（不可导点可能是极值点）
-- 渐近线：水平、垂直、斜渐近线
-- 分段函数的连续性
+**Conditions that must be checked:**
+- Define all constraints within the domain
+- Existence of derivatives (non-differentiable points may be extreme points)
+- Asymptotes: horizontal, vertical, oblique asymptotes
+- Continuity of piecewise functions
 
-**常见错误：**
-- 定义域遗漏（只考虑分母，忽略根号或对数）
-- 复合函数定义域错误
-- 极值点混淆（驻点不一定是极值点）
-- 单调区间端点处理错误
-- 忽略奇函数在 $x=0$ 处 $f(0)=0$
+**Common mistakes:**
+- Missing domain (only denominator is considered, root sign or logarithm is ignored)
+- Composite function domain error
+- Confusion of extreme points (stationary points are not necessarily extreme points)
+- Error in endpoint handling of monotonic intervals
+- Ignore odd functions at   $x=0$     $f(0)=0$
 
-**推荐验证方法：**
-- 取特殊点验证函数值
-- 求导结果对积分验证
-- 利用对称性验证奇偶性
-- 用单调性验证极值点
+**Recommended verification method:**
+- Take special points to verify function values
+- Validation of derivation results against integrals
+- Use symmetry to verify parity
+- Verify extreme points using monotonicity
 
-**输出格式：**
+**Output format:**
+   ```
+Function: $f(x) = [expression]$
+Domain: $x \in [interval]$
+Range: $f(x) \in [interval]$
+Monotonicity: [increasing and decreasing intervals]
+Parity: [odd function/even function/neither odd nor even]
+Extreme value: [Extreme point coordinates]
+Asymptote: [Asymptote equation]
 ```
-函数: $f(x) = [表达式]$
-定义域: $x \in [区间]$
-值域: $f(x) \in [区间]$
-单调性: [增区间和减区间]
-奇偶性: [奇函数/偶函数/非奇非偶]
-极值: [极值点坐标]
-渐近线: [渐近线方程]
-```
 
-**是否追问用户：** 仅当函数定义不清晰时
+**Whether to ask the user:** Only when the function definition is not clear
 
 ---
 
 ## geometry
 
-**识别特征：**
-- 涉及平面几何图形：三角形、四边形、圆等
-- 关键词："证明"、"求证"、"求面积"、"全等"、"相似"、"角度"
-- 示例：在 $\triangle ABC$ 中，$AB=AC$，求证 $\angle B = \angle C$
+**Identification Features:**
+- Involving plane geometric figures: triangles, quadrilaterals, circles, etc.
+- Keywords: "proof", "verification", "area", "congruence", "similarity", "angle"
+- Example: In   $\triangle ABC$  ,   $AB=AC$  , verify   $\angle B = \angle C$
 
-**推荐求解策略：**
-- 画图辅助理解
-- 标识已知条件和求证目标
-- 全等判定：SSS、SAS、ASA、AAS、HL
-- 相似判定：AA、SAS、SSS
-- 面积法、向量法、坐标法
-- 辅助线构造（中点连线、垂线、平行线）
+**Recommended solution strategy:**
+- Draw pictures to aid understanding
+- Identify known conditions and verification goals
+- Congruent judgment: SSS, SAS, ASA, AAS, HL
+- Similarity determination: AA, SAS, SSS
+- Area method, vector method, coordinate method
+- Auxiliary line construction (midpoint line, perpendicular line, parallel line)
 
-**必须检查的条件：**
-- 三角形不等式（任意两边之和大于第三边）
-- 角度和约束（三角形内角和 $180^\circ$）
-- 全等/相似的对应关系是否正确
-- 辅助线构造的合理性
+**Conditions that must be checked:**
+- Triangle inequality (the sum of any two sides is greater than the third side)
+- Angle sum constraints (triangle angle sum   $180^\circ$   )
+- Is the congruent/similar correspondence correct?
+- The rationality of the auxiliary line construction
 
-**常见错误：**
-- 全等/相似对应顶点顺序错误
-- 辅助线构造不合理或多余
-- 忽略共线、共点等特殊情况
-- 角度计算时单位混淆（度与弧度）
-- 面积公式误用
+**Common mistakes:**
+- Congruent/similar corresponding vertices are in the wrong order
+- The construction of auxiliary lines is unreasonable or redundant
+- Ignore special cases such as collinearity and common points
+- Unit confusion (degrees and radians) when calculating angles
+- Misuse of area formula
 
-**推荐验证方法：**
-- 构造具体数值验证（特殊三角形）
-- 使用不同方法交叉验证
-- 量角器或坐标法验证角度
-- 逆推法验证
+**Recommended verification method:**
+- Construct specific numerical verification (special triangle)
+- Cross-validation using different methods
+- Protractor or coordinate method to verify angles
+- Backward verification
 
-**输出格式：**
+**Output format:**
+   ```
+Known: [condition]
+Proof/Solution: [Objective]
+Proof/Solution Steps: [Reasoning Process]
+Auxiliary lines: [Description of added auxiliary lines]
+Conclusion: [Final Result]
 ```
-已知: [条件]
-求证/求解: [目标]
-证明/求解步骤: [推理过程]
-辅助线: [添加的辅助线说明]
-结论: [最终结果]
-```
 
-**是否追问用户：** 是，需要确认是否有附图或补充条件
+**Whether to ask the user:** Yes, you need to confirm whether there are attached pictures or supplementary conditions
 
 ---
 
 ## analytic_geometry
 
-**识别特征：**
-- 坐标系中的几何问题，涉及点、直线、圆、圆锥曲线
-- 关键词："坐标"、"直线方程"、"圆的方程"、"椭圆"、"双曲线"、"抛物线"
-- 示例：求过点 $(1,2)$ 且与直线 $2x-y+3=0$ 平行的直线方程
+**Identification Features:**
+- Geometric problems in coordinate systems, involving points, straight lines, circles, and conics
+- Keywords: "coordinates", "equation of a straight line", "equation of a circle", "ellipse", "hyperbola", "parabola"
+- Example: Find the equation of the straight line passing through the point   $(1,2)$   and parallel to the straight line   $2x-y+3=0$
 
-**推荐求解策略：**
-- 建立合适的坐标系
-- 利用距离公式、斜率公式
-- 圆的方程：$(x-a)^2 + (y-b)^2 = r^2$
-- 直线位置关系：平行（斜率相等）、垂直（斜率乘积为 $-1$）
-- 距离：点到直线 $d = \frac{|Ax_0+By_0+C|}{\sqrt{A^2+B^2}}$
-- 圆锥曲线定义和标准方程
+**Recommended solution strategy:**
+- Establish a suitable coordinate system
+- Use distance formula and slope formula
+- Equation of a circle:   $(x-a)^2 + (y-b)^2 = r^2$
+- Line position relationship: parallel (slopes are equal), perpendicular (the product of slopes is   $-1$   )
+- Distance: point to line   $d = \frac{|Ax_0+By_0+C|}{\sqrt{A^2+B^2}}$
+- Definition and standard equations of conic sections
 
-**必须检查的条件：**
-- 斜率不存在的情况（竖直线）
-- 两点重合时无法确定直线
-- 圆与直线相切/相交/相离的判断
-- 圆锥曲线的标准形式是否正确
+**Conditions that must be checked:**
+- Case where slope does not exist (vertical line)
+- A straight line cannot be determined when two points coincide
+- Judgment of tangency/intersection/separation between circles and straight lines
+- Is the standard form of a conic section correct?
 
-**常见错误：**
-- 斜率公式分母为零时未处理
-- 距离公式忘加绝对值
-- 两直线夹角公式用错
-- 圆的方程配方错误
-- 椭圆/双曲线中 $a,b,c$ 关系混淆
+**Common mistakes:**
+- The denominator of the slope formula is not processed when it is zero.
+- Forgot to add the absolute value in the distance formula
+- The formula for the angle between two straight lines is used incorrectly
+- Wrong formula for circle equation
+-   $a,b,c$   relation confusion in ellipse/hyperbola
 
-**推荐验证方法：**
-- 代入点验证是否在曲线上
-- 对称性验证
-- 不同方法求解同一问题交叉验证
-- 画图直观检验
+**Recommended verification method:**
+- Verify whether the substitution point is on the curve
+- Symmetry verification
+- Cross-validation of different methods to solve the same problem
+- Visual inspection of drawings
 
-**输出格式：**
+**Output format:**
+   ```
+Coordinate system: [Rectangular coordinates/polar coordinates]
+The equation of the geometric object sought: [equation]
+Solution steps: [Derivation process]
+Key properties: [Focus/Directrix/Circle Center/Radius, etc.]
 ```
-坐标系: [直角坐标/极坐标]
-所求几何对象方程: [方程]
-求解步骤: [推导过程]
-关键性质: [焦点/准线/圆心/半径等]
-```
 
-**是否追问用户：** 仅当坐标系或条件不明确时
+**Whether to ask the user:** Only when the coordinate system or conditions are unclear
 
 ---
 
 ## trigonometry
 
-**识别特征：**
-- 涉及三角函数 $\sin, \cos, \tan$ 等
-- 关键词："三角函数"、"三角恒等式"、"解三角形"、"正弦定理"、"余弦定理"
-- 示例：证明 $\sin^2\theta + \cos^2\theta = 1$
+**Identification Features:**
+- Involves trigonometric functions   $\sin, \cos, \tan$   etc.
+- Keywords: "Trigonometric functions", "Trigonometric identities", "Solution of triangles", "Sine theorem", "Cosine theorem"
+- Example: Proof   $\sin^2\theta + \cos^2\theta = 1$
 
-**推荐求解策略：**
-- 记忆和应用基本恒等式
-- 和差公式：$\sin(A \pm B), \cos(A \pm B)$
-- 倍角公式：$\sin 2\theta = 2\sin\theta\cos\theta$
-- 解三角形：正弦定理 $\frac{a}{\sin A} = 2R$，余弦定理 $a^2 = b^2 + c^2 - 2bc\cos A$
-- 三角方程：利用周期性求通解
+**Recommended solution strategy:**
+- Memorize and apply basic identities
+- Sum and difference formula:   $\sin(A \pm B), \cos(A \pm B)$
+- Double angle formula:   $\sin 2\theta = 2\sin\theta\cos\theta$
+- Solve triangles: sine theorem   $\frac{a}{\sin A} = 2R$  , cosine theorem   $a^2 = b^2 + c^2 - 2bc\cos A$
+- Trigonometric equations: using periodicity to find general solutions
 
-**必须检查的条件：**
-- 角度范围（锐角、$[0, 2\pi)$ 等）
-- 三角函数定义域（$\tan\theta$ 中 $\theta \neq \frac{\pi}{2}+k\pi$）
-- 三角形的解的情况（一解/两解/无解）
-- 弧度与角度的单位统一
+**Conditions that must be checked:**
+- Angle range (acute angle,   $[0, 2\pi)$  , etc.)
+- Trigonometric function domain (  $\tan\theta$   in   $\theta \neq \frac{\pi}{2}+k\pi$  )
+- Solutions of triangles (one solution/two solutions/no solution)
+- Units for radians and angles are unified
 
-**常见错误：**
-- 正弦定理/余弦定理套用错误
-- 三角形解的个数判断错误（SSA 情况）
-- 诱导公式符号错误
-- 通解遗漏
-- 弧度与度混用
+**Common mistakes:**
+- Sine theorem/cosine theorem application errors
+- Incorrect determination of the number of triangle solutions (SSA case)
+-Induced formula symbol errors
+- Missing general explanation
+- Mixing radians and degrees
 
-**推荐验证方法：**
-- 代入特殊角验证恒等式
-- 三角恒等式两边对同一角度计算数值
-- 验证三角形内角和 $180^\circ$
-- 用不同方法求同一量交叉验证
+**Recommended verification method:**
+- Verify the identity by substituting special angles
+- Calculate the same angle on both sides of the trigonometric identity
+- Verify triangle angle sum   $180^\circ$
+- Use different methods to find the same amount of cross-validation
 
-**输出格式：**
+**Output format:**
+   ```
+Solve/Prove: [Objective]
+Use the formula: [sine theorem/cosine theorem/sum and difference formula/...]
+Steps: [Derivation process]
+Result: [angle value/side length/identity proof]
+Number of solutions: [One solution/Two solutions/No solution]
 ```
-求解/证明: [目标]
-使用公式: [正弦定理/余弦定理/和差公式/...]
-步骤: [推导过程]
-结果: [角度值/边长/恒等式证明]
-解的个数: [一解/两解/无解]
-```
 
-**是否追问用户：** 仅当角度范围不明确时
+**Whether to ask the user:** Only when the angle range is unclear
 
 ---
 
 ## sequence
 
-**识别特征：**
-- 涉及数列的定义、通项、求和
-- 关键词："等差数列"、"等比数列"、"通项公式"、"前 $n$ 项和"、"递推"
-- 示例：已知 $\{a_n\}$ 为等差数列，$a_3=5$，$a_7=13$，求 $a_n$ 和 $S_n$
+**Identification Features:**
+- Involving the definition, general terms and summation of sequence
+- Keywords: "arithmetic sequence", "geometric sequence", "general formula", "sum of first   $n$   terms", "recursion"
+- Example: Given that   $\{a_n\}$   is an arithmetic sequence,   $a_3=5$   ,   $a_7=13$   , find   $a_n$   and   $S_n$
 
-**推荐求解策略：**
-- 等差：$a_n = a_1 + (n-1)d$，$S_n = \frac{n(a_1+a_n)}{2} = na_1 + \frac{n(n-1)}{2}d$
-- 等比：$a_n = a_1 q^{n-1}$，$S_n = \frac{a_1(1-q^n)}{1-q}$（$q \neq 1$）
-- 递推数列：特征根法、累加/累乘法、不动点法
-- 通项与求和关系：$a_n = S_n - S_{n-1}$（$n \geq 2$）
+**Recommended solution strategy:**
+- Equal differences:   $a_n = a_1 + (n-1)d$  ,   $S_n = \frac{n(a_1+a_n)}{2} = na_1 + \frac{n(n-1)}{2}d$
+- Equivalent:   $a_n = a_1 q^{n-1}$  ,   $S_n = \frac{a_1(1-q^n)}{1-q}$   (  $q \neq 1$  )
+- Recursive sequence: characteristic root method, accumulation/accumulation multiplication method, fixed point method
+- General term and summation relationship:   $a_n = S_n - S_{n-1}$   (  $n \geq 2$  )
 
-**必须检查的条件：**
-- $n$ 的范围（$n \in \mathbb{N}^*$）
-- 等比数列公比 $q=1$ 的特殊情况
-- 递推公式的初始条件
-- 特征根为复根的情况
-- 无穷递缩等比数列（$|q| < 1$）的和
+**Conditions that must be checked:**
+- Range of   $n$   (   $n \in \mathbb{N}^*$   )
+- Special case of geometric sequence common ratio   $q=1$
+- Initial conditions for recursive formulas
+- The case where the characteristic root is a complex root
+- The sum of infinite decreasing geometric sequences (  $|q| < 1$  )
 
-**常见错误：**
-- 等差/等比公式混淆
-- 递推数列初始项代入范围错误
-- 等比求和漏掉 $q=1$ 的特例
-- 分组求和时项数计算错误
-- 错位相减法符号错误
+**Common mistakes:**
+- Confusion with equal difference/equal ratio formulas
+- The initial item of the recursive sequence is incorrectly substituted into the range
+- The special case of missing   $q=1$   in proportional summation
+- Wrong calculation of number of terms when summing by groups
+- Misplaced subtraction sign error
 
-**推荐验证方法：**
-- 代入前几项验证通项公式
-- 直接列举前几项求和对比
-- 利用 $a_n = S_n - S_{n-1}$ 验证
-- 数学归纳法验证
+**Recommended verification method:**
+- Substitute the first few items to verify the general formula
+- Directly list the first few items and compare them
+- Verify using   $a_n = S_n - S_{n-1}$
+- Mathematical induction verification
 
-**输出格式：**
+**Output format:**
+   ```
+Sequence type: [arithmetic/equal ratio/recursion]
+General formula: $a_n = [expression]$
+Sum of first $n$ terms: $S_n = [expression]$
+Derivation steps: [Process]
 ```
-数列类型: [等差/等比/递推]
-通项公式: $a_n = [表达式]$
-前 $n$ 项和: $S_n = [表达式]$
-推导步骤: [过程]
-```
 
-**是否追问用户：** 仅当初始条件不完整时
+**Whether to ask the user:** Only if the initial conditions are incomplete
 
 ---
 
 ## combinatorics
 
-**识别特征：**
-- 涉及计数问题、排列组合
-- 关键词："排列"、"组合"、"有多少种"、"选法"、"排法"
-- 示例：从 5 个男生和 4 个女生中选 3 人组成委员会，要求至少 1 名女生，有多少种选法？
+**Identification Features:**
+- Involving counting problems, permutations and combinations
+- Keywords: "arrangement", "combination", "how many types", "selection method", "arrangement method"
+- Example: Select 3 people from 5 boys and 4 girls to form a committee, requiring at least 1 girl. How many choices are there?
 
-**推荐求解策略：**
-- 排列：有顺序，$A_n^m = \frac{n!}{(n-m)!}$ 或 $P_n^m$
-- 组合：无顺序，$C_n^m = \binom{n}{m} = \frac{n!}{m!(n-m)!}$
-- 分类计数原理（加法原理）和分步计数原理（乘法原理）
-- 补集法：总数减去不满足条件的
-- 捆绑法、插空法处理相邻/不相邻问题
+**Recommended solution strategy:**
+- Arrangement: in order,   $A_n^m = \frac{n!}{(n-m)!}$   or   $P_n^m$
+- Combination: no order,   $C_n^m = \binom{n}{m} = \frac{n!}{m!(n-m)!}$
+- Principle of classification counting (addition principle) and step counting principle (multiplication principle)
+- Complement method: subtract the total number that does not meet the conditions
+- Bundling method and interpolation method to deal with adjacent/non-adjacent problems
 
-**必须检查的条件：**
-- 是否有重复元素
-- 是否考虑顺序（排列 vs 组合）
-- 是否允许重复选取
-- 分类是否完备且不重叠
+**Conditions that must be checked:**
+- Are there duplicate elements?
+- Whether to consider order (permutation vs combination)
+- Whether to allow repeated selection
+- Whether the classification is complete and non-overlapping
 
-**常见错误：**
-- 排列和组合混淆
-- 分类有重叠导致重复计数
-- 分类遗漏
-- 相邻/不相邻问题的插入位置计算错误
-- 隔板法适用条件判断错误
+**Common mistakes:**
+- Confusion of permutations and combinations
+- Overlapping categories lead to double counting
+- Classification missing
+- Wrong calculation of insertion position for adjacent/non-adjacent questions
+- Wrong judgment on the applicable conditions of the Partition Law
 
-**推荐验证方法：**
-- 对较小规模枚举验证
-- 补集法交叉验证
-- 递推公式验证
-- 使用不同分类方式得到相同结果
+**Recommended verification method:**
+- Validation of smaller enumerations
+- Complementary set method cross-validation
+- Recursive formula verification
+- Use different classification methods to get the same results
 
-**输出格式：**
+**Output format:**
+   ```
+Question Type: [Permutation/Combination/Mixed]
+Method: [Classification counting/step counting/complement method/bundling method/...]
+Calculation: [Formula Substitution]
+Result: [numeric value]
+Enumeration verification (small scale): [enumeration result]
 ```
-问题类型: [排列/组合/混合]
-方法: [分类计数/分步计数/补集法/捆绑法/...]
-计算: [公式代入]
-结果: [数值]
-枚举验证 (小规模): [枚举结果]
-```
 
-**是否追问用户：** 仅当"相同"和"不同"元素有歧义时
+**Whether to ask the user:** Only if there is ambiguity between "same" and "different" elements
 
 ---
 
 ## probability_statistics
 
-**识别特征：**
-- 涉及概率计算、随机变量、分布、统计量
-- 关键词："概率"、"期望"、"方差"、"分布"、"贝叶斯"、"正态分布"
-- 示例：掷两枚骰子，求点数之和为 7 的概率
+**Identification Features:**
+- Involving probability calculations, random variables, distributions, statistics
+- Keywords: "probability", "expectation", "variance", "distribution", "Bayes", "normal distribution"
+- Example: Roll two dice and find the probability that the sum of the points is 7
 
-**推荐求解策略：**
-- 古典概型：$P(A) = \frac{\text{有利情况数}}{\text{总情况数}}$
-- 条件概率：$P(A|B) = \frac{P(AB)}{P(B)}$，贝叶斯公式
-- 独立事件：$P(AB) = P(A) \cdot P(B)$
-- 二项分布：$P(X=k) = C_n^k p^k (1-p)^{n-k}$
-- 期望：$E(X) = \sum x_i p_i$，方差：$D(X) = E(X^2) - [E(X)]^2$
+**Recommended solution strategy:**
+- Classical profile: $P(A) = \frac{\text{Number of favorable situations}}{\text{Number of total situations}}$
+- Conditional probability:   $P(A|B) = \frac{P(AB)}{P(B)}$  , Bayesian formula
+- Independent event:   $P(AB) = P(A) \cdot P(B)$
+- Binomial distribution:   $P(X=k) = C_n^k p^k (1-p)^{n-k}$
+- Expectation:   $E(X) = \sum x_i p_i$  , Variance:   $D(X) = E(X^2) - [E(X)]^2$
 
-**必须检查的条件：**
-- 事件是否互斥（$P(A+B) = P(A) + P(B)$）
-- 事件是否独立
-- 全概率公式中划分是否完备
-- 样本空间是否等可能
-- 几何概型中的测度定义
+**Conditions that must be checked:**
+- Whether events are mutually exclusive (  $P(A+B) = P(A) + P(B)$  )
+- Whether the events are independent
+- Is the division in the total probability formula complete?
+- Is the sample space equal to possibility?
+- Definition of measures in geometric concepts
 
-**常见错误：**
-- 加法公式误用（未减去交的概率）
-- 条件概率与无条件概率混淆
-- 期望的线性性质条件忽略
-- 二项分布成功概率 $p$ 恒定条件忽略
-- 各阶矩计算错误
+**Common mistakes:**
+- Misuse of the addition formula (not subtracting the probability of intersection)
+- Confusion between conditional probability and unconditional probability
+- Expected linearity conditions ignored
+- Binomial distribution probability of success   $p$   constant conditions ignored
+- Calculation errors of each order moment
 
-**推荐验证方法：**
-- 概率总和是否等于 1
-- 期望和方差公式验证
-- 用简单枚举验证小规模问题
-- 不同解法得到一致结果
+**Recommended verification method:**
+- Whether the sum of probabilities equals 1
+- Validation of expectation and variance formulas
+- Verify small-scale problems with simple enumerations
+- Different solutions get consistent results
 
-**输出格式：**
+**Output format:**
+   ```
+Probability type: [classical concept/conditional probability/geometric concept]
+Sample space: [description]
+Advantages: [Description and Count]
+Probability: $P = [fraction or decimal]$
+Expectation (if any): $E(X) = [value]$
 ```
-概率类型: [古典概型/条件概率/几何概型]
-样本空间: [描述]
-有利情况: [描述与计数]
-概率: $P = [分数或小数]$
-期望 (如有): $E(X) = [值]$
-```
 
-**是否追问用户：** 仅当"随机"或"等可能"的含义不明确时
+**Whether to ask the user:** Only if the meaning of "random" or "equally possible" is unclear
 
 ---
 
 ## word_problem
 
-**识别特征：**
-- 用自然语言描述的实际问题，需要建立数学模型
-- 关键词：实际问题场景（行程、工程、浓度、利润、年龄等）
-- 示例：甲、乙两人从 A、B 两地相向而行，甲的速度是乙的 1.5 倍，3 小时后相遇，求两人速度
+**Identification Features:**
+- Practical problems described in natural language require the establishment of mathematical models
+- Keywords: Actual problem scenarios (trip, project, concentration, profit, age, etc.)
+- Example: Two people A and B are traveling towards each other from A and B. The speed of A is 1.5 times that of B. They will meet after 3 hours. Find the speed of the two people.
 
-**推荐求解策略：**
-1. 仔细阅读，提取关键信息
-2. 设未知数（明确物理意义）
-3. 根据等量关系列方程/不等式
-4. 求解数学模型
-5. 检验解的合理性（是否符合实际）
+**Recommended solution strategy:**
+1. Read carefully and extract key information
+2. Assume unknown numbers (clear physical meaning)
+3. Series of equations/inequality based on equivalence relations
+4. Solve mathematical models
+5. Test the rationality of the solution (whether it is consistent with reality)
 
-**必须检查的条件：**
-- 隐含条件（速度 $>0$，年龄为正整数等）
-- 单位是否统一
-- 解的物理意义是否合理
-- 是否存在多解或模型不唯一
+**Conditions that must be checked:**
+- Implied conditions (speed   $>0$   , age a positive integer, etc.)
+- Is the unit unified?
+- Is the physical meaning of the solution reasonable?
+- Whether there are multiple solutions or the model is not unique
 
-**常见错误：**
-- 设未知数不当导致方程复杂
-- 忽略隐含条件
-- 单位不统一
-- 实际问题中的取整要求忽略
-- 关系式列错（如速度 = 路程/时间）
+**Common mistakes:**
+- Improper assumption of unknowns leads to complicated equations
+- Ignore implicit conditions
+- Units are not unified
+- Rounding requirements in actual questions are ignored
+- The relationship is incorrectly listed (e.g. speed = distance/time)
 
-**推荐验证方法：**
-- 将解代入原问题场景验证
-- 估算合理性
-- 量纲分析
-- 用不同设未知数方式重新建模求解
+**Recommended verification method:**
+- Substitute the solution into the original problem scenario to verify
+- Reasonableness of estimates
+- Dimensional analysis
+- Re-model and solve using different methods of setting unknowns
 
-**输出格式：**
+**Output format:**
+   ```
+Problem analysis: [Extracted known quantities and unknown quantities]
+Assume unknown number: [variable definition]
+Modeling: [Equations/Inequalities]
+Solution: [Calculation process]
+Result: [Answer with units]
+Actual plausibility test: [Verification]
 ```
-问题分析: [提取的已知量和未知量]
-设未知数: [变量定义]
-建立模型: [方程/不等式]
-求解: [计算过程]
-结果: [带单位的答案]
-实际合理性检验: [验证]
-```
 
-**是否追问用户：** 是，当条件有歧义或缺少必要信息时
+**Whether to ask the user:** Yes, when the conditions are ambiguous or necessary information is missing
 
 ---
 
 ## limit
 
-**识别特征：**
-- 涉及数列极限或函数极限
-- 关键词："极限"、"$\lim$"、"趋于"、"趋向"、"收敛"
-- 示例：求 $\lim_{x \to 0} \frac{\sin x}{x}$
+**Identification Features:**
+- Involving sequence limits or function limits
+- Keywords: "limit", "  $\lim$  ", "tend to", "tendency", "convergence"
+- Example: Find   $\lim_{x \to 0} \frac{\sin x}{x}$
 
-**推荐求解策略：**
-- 代入法（若能直接代入且无不定式）
-- 不定式类型识别（$\frac{0}{0}, \frac{\infty}{\infty}, 0\cdot\infty, \infty-\infty, 1^\infty, 0^0, \infty^0$）
-- 等价无穷小替换：$\sin x \sim x, \tan x \sim x, \ln(1+x) \sim x, e^x-1 \sim x$（$x \to 0$）
-- 洛必达法则（$0/0$ 或 $\infty/\infty$ 型）
-- 重要极限：$\lim_{x\to 0}\frac{\sin x}{x}=1$，$\lim_{x\to\infty}(1+\frac{1}{x})^x=e$
-- 夹逼定理
+**Recommended solution strategy:**
+- Substitution method (if it can be substituted directly and there is no infinitive)
+- Infinitive type identification (  $\frac{0}{0}, \frac{\infty}{\infty}, 0\cdot\infty, \infty-\infty, 1^\infty, 0^0, \infty^0$  )
+- Equivalent infinitesimal substitution:   $\sin x \sim x, \tan x \sim x, \ln(1+x) \sim x, e^x-1 \sim x$   (   $x \to 0$   )
+- Lópida's Law (Type   $0/0$   or   $\infty/\infty$  )
+- Important limits:   $\lim_{x\to 0}\frac{\sin x}{x}=1$  ,   $\lim_{x\to\infty}(1+\frac{1}{x})^x=e$
+- Pinch theorem
 
-**必须检查的条件：**
-- 洛必达法则条件（分子分母可导，极限为 $0/0$ 或 $\infty/\infty$）
-- 等价无穷小替换仅在乘除中使用（加减不直接用）
-- 左右极限是否相等
-- 函数在极限点的定义域
+**Conditions that must be checked:**
+- Conditions of Lópida's law (the numerator and denominator are differentiable, the limit is   $0/0$   or   $\infty/\infty$   )
+- Equivalent infinitesimal substitution is only used in multiplication and division (not directly used in addition and subtraction)
+- Are the left and right limits equal?
+- The domain of the function at the limit point
 
-**常见错误：**
-- 等价无穷小在加减法中直接使用
-- 洛必达法则条件不满足时使用
-- 忽略左右极限
-- 极限不存在但错误地得出结论
-- 夹逼定理上下界选择不当
+**Common mistakes:**
+- Equivalent infinitesimals are used directly in addition and subtraction
+- Used when the conditions of Lópida's Law are not met
+- Ignore left and right limits
+- Wrong conclusion that limit does not exist
+- Improper selection of upper and lower bounds for the pinch theorem
 
-**推荐验证方法：**
-- 数值逼近（代入趋近值计算）
-- 泰勒展开验证
-- 洛必达法则结果验证 $f'(x)/g'(x)$ 的极限
-- 夹逼定理构造验证
+**Recommended verification method:**
+- Numerical approximation (substitute the approximate value for calculation)
+-Taylor expanded verification
+- The result of L'Block's law verifies the limit of   $f'(x)/g'(x)$
+- Construction verification of the pinching theorem
 
-**输出格式：**
+**Output format:**
+   ```
+Limit: $\lim_{x \to [value]} [expression]$
+Type: [deterministic / infinitive $\frac{0}{0}$ / ...]
+Method: [equivalent replacement/Lópida/pinch/...]
+Result: [limit value]
+Verification: [Numerical approximation or alternative method results]
 ```
-极限: $\lim_{x \to [值]} [表达式]$
-类型: [确定型 / 不定式 $\frac{0}{0}$ / ...]
-方法: [等价替换/洛必达/夹逼/...]
-结果: [极限值]
-验证: [数值逼近或替代方法结果]
-```
 
-**是否追问用户：** 否
+**Whether to ask the user:** No
 
 ---
 
 ## differentiation
 
-**识别特征：**
-- 涉及求导、切线、变化率
-- 关键词："求导"、"导数"、"$f'(x)$"、"$\frac{dy}{dx}$"、"切线方程"、"变化率"
-- 示例：求 $f(x) = x^3\ln x$ 的导数
+**Identification Features:**
+- Involves derivation, tangent, rate of change
+- Keywords: "derivative", "derivative", "  $f'(x)$  ", "  $\frac{dy}{dx}$  ", "tangent equation", "rate of change"
+- Example: Find the derivative of   $f(x) = x^3\ln x$
 
-**推荐求解策略：**
-- 基本求导公式记忆
-- 四则运算法则：$(u \pm v)' = u' \pm v'$，$(uv)' = u'v + uv'$，$(\frac{u}{v})' = \frac{u'v-uv'}{v^2}$
-- 链式法则：$y = f(g(x)) \Rightarrow y' = f'(g(x)) \cdot g'(x)$
-- 隐函数求导
-- 参数方程求导：$\frac{dy}{dx} = \frac{dy/dt}{dx/dt}$
-- 高阶导数
+**Recommended solution strategy:**
+- Memorize basic derivation formulas
+- Four arithmetic operations:   $(u \pm v)' = u' \pm v'$  ,   $(uv)' = u'v + uv'$  ,   $(\frac{u}{v})' = \frac{u'v-uv'}{v^2}$
+- Chain Rule:   $y = f(g(x)) \Rightarrow y' = f'(g(x)) \cdot g'(x)$
+- Implicit function derivation
+- Derivative of parametric equations:   $\frac{dy}{dx} = \frac{dy/dt}{dx/dt}$
+- Higher order derivatives
 
-**必须检查的条件：**
-- 函数在求导点是否可导
-- 链式法则内层函数可导性
-- 隐函数存在定理条件
-- 分式求导分母不为零
+**Conditions that must be checked:**
+- Whether the function is differentiable at the derivation point
+- Chain rule inner function differentiability
+- Theorem conditions for the existence of implicit functions
+- The denominator of the derivative of a fraction is not zero.
 
-**常见错误：**
-- 链式法则遗漏（复合函数求导不完整）
-- 乘积求导公式符号错误
-- 隐函数求导遗漏 $\frac{dy}{dx}$ 项
-- 对数求导法定义域检查遗漏
-- 高阶导数计算中项遗漏
+**Common mistakes:**
+- Missing chain rule (incomplete derivation of composite functions)
+- The sign of the product derivative formula is wrong
+- Implicit function derivation misses   $\frac{dy}{dx}$   items
+- Logarithmic derivation domain check missing
+- Missing terms in the calculation of higher-order derivatives
 
-**推荐验证方法：**
-- 积分验证（导数的积分还原为原函数）
-- 数值求导验证（差分近似）
-- 对简单点代入验证
-- 使用求导公式对称性验证
+**Recommended verification method:**
+- Integral verification (the integral of the derivative is restored to the original function)
+- Numerical derivation verification (differential approximation)
+- Substitute verification for simple points
+- Symmetry verification using derivation formulas
 
-**输出格式：**
+**Output format:**
+   ```
+Function: $f(x) = [expression]$
+Derivative: $f'(x) = [expression]$
+Method: [direct derivation/chain rule/implicit function derivation/...]
+Key steps: [Main transformation process]
+(Optional) Tangent equation: $y = f'(x_0)(x - x_0) + f(x_0)$
 ```
-函数: $f(x) = [表达式]$
-导数: $f'(x) = [表达式]$
-方法: [直接求导/链式法则/隐函数求导/...]
-关键步骤: [主要变换过程]
-(可选) 切线方程: $y = f'(x_0)(x - x_0) + f(x_0)$
-```
 
-**是否追问用户：** 仅当对哪个变量求导不明确时
+**Whether to ask the user:** Only if it is unclear which variable to derive the derivative from
 
 ---
 
 ## integration
 
-**识别特征：**
-- 涉及不定积分、定积分、面积、体积
-- 关键词："积分"、"$\int$"、"原函数"、"面积"、"体积"、"不定积分"、"定积分"
-- 示例：计算 $\int_0^1 x e^x \,dx$
+**Identification Features:**
+- Involving indefinite integrals, definite integrals, area, and volume
+- Keywords: "integral", "  $\int$  ", "original function", "area", "volume", "indefinite integral", "definite integral"
+- Example: Calculate   $\int_0^1 x e^x \,dx$
 
-**推荐求解策略：**
-- 基本积分公式记忆
-- 换元积分法（第一类/凑微分，第二类/三角换元）
-- 分部积分法：$\int u\,dv = uv - \int v\,du$
-- 有理函数积分：部分分式分解
-- 三角有理式积分：万能公式
-- 定积分：牛顿-莱布尼茨公式 $\int_a^b f(x)dx = F(b) - F(a)$
+**Recommended solution strategy:**
+- Memory of basic integral formulas
+- Integral method with substitution of elements (first type/differentiation, second type/trigonometric substitution)
+- Integration by parts method:   $\int u\,dv = uv - \int v\,du$
+- Integral of rational functions: partial fraction decomposition
+- Trigonometric Rational Integration: Universal Formula
+- Definite integral: Newton-Leibniz formula   $\int_a^b f(x)dx = F(b) - F(a)$
 
-**必须检查的条件：**
-- 被积函数在积分区间上是否连续
-- 反常积分的收敛性
-- 换元后上下限的对应变换
-- 分部积分中 $u$ 和 $dv$ 的选取策略（LIATE 原则）
+**Conditions that must be checked:**
+- Whether the integrand is continuous on the integration interval
+- Convergence of anomalous integrals
+- Corresponding transformation of upper and lower limits after substitution
+- Selection strategy of   $u$   and   $dv$   in partial integration (LIATE principle)
 
-**常见错误：**
-- 换元后忘记变换积分上下限
-- 分部积分方向选择不当导致更复杂
-- 部分分式分解遗漏项
-- 反常积分不检验收敛性
-- 绝对值函数积分忽略分段
+**Common mistakes:**
+- Forgot to change the upper and lower limits of the points after changing yuan
+- Improper selection of the direction of partial integration leads to more complexity
+- Missing items in partial fraction decomposition
+- Abnormal integration does not test convergence
+- Integration of absolute value functions ignores segmentation
 
-**推荐验证方法：**
-- 求导验证不定积分结果
-- 数值积分近似验证定积分
-- 换元法与原方法交叉验证
-- 对称性利用验证
+**Recommended verification method:**
+- Derivation to verify indefinite integral results
+- Approximate verification of definite integrals by numerical integration
+- Cross-validation between the substitution method and the original method
+- Symmetry exploit verification
 
-**输出格式：**
+**Output format:**
+   ```
+Integral: $\int [expression] \,dx$ (or upper and lower limits of definite integral)
+Method: [Substitution method/integration by parts/partial fractions/...]
+Key steps: [Change setting / $u, dv$ selection / decomposition]
+Original function: $F(x) = [expression] + C$
+Definite integral value (if any): [value]
 ```
-积分: $\int [表达式] \,dx$ (或定积分上下限)
-方法: [换元法/分部积分/部分分式/...]
-关键步骤: [换元设置 / $u, dv$ 选择 / 分解]
-原函数: $F(x) = [表达式] + C$
-定积分值 (如有): [值]
-```
 
-**是否追问用户：** 仅当积分范围不明确时
+**Whether to ask the user:** Only when the point range is unclear
 
 ---
 
 ## multivariable_calculus
 
-**识别特征：**
-- 涉及多元函数的偏导数、全微分、重积分
-- 关键词："偏导数"、"$\frac{\partial}{\partial x}$"、"全微分"、"二重积分"、"三重积分"、"梯度"
-- 示例：求 $f(x,y) = x^2y + e^{xy}$ 的偏导数 $\frac{\partial f}{\partial x}$ 和 $\frac{\partial f}{\partial y}$
+**Identification Features:**
+- Partial derivatives, total differentials, and heavy integrals involving multivariate functions
+- Keywords: "Partial derivative", "  $\frac{\partial}{\partial x}$  ", "Total differential", "Double integral", "Triple integral", "Gradient"
+- Example: Find the partial derivatives   $\frac{\partial f}{\partial x}$   and   $\frac{\partial f}{\partial y}$   of   $f(x,y) = x^2y + e^{xy}$
 
-**推荐求解策略：**
-- 偏导数：对某一变量求导时其他变量视为常数
-- 链式法则：$\frac{\partial z}{\partial t} = \frac{\partial z}{\partial x}\frac{\partial x}{\partial t} + \frac{\partial z}{\partial y}\frac{\partial y}{\partial t}$
-- 全微分：$dz = \frac{\partial f}{\partial x}dx + \frac{\partial f}{\partial y}dy$
-- 方向导数与梯度：$\nabla f = (\frac{\partial f}{\partial x}, \frac{\partial f}{\partial y})$
-- 二重积分：选择积分次序，直角坐标与极坐标互换
-- 三重积分：直角坐标、柱坐标、球坐标
+**Recommended solution strategy:**
+- Partial derivatives: When deriving the derivative of a certain variable, other variables are treated as constants
+- Chain Rule:   $\frac{\partial z}{\partial t} = \frac{\partial z}{\partial x}\frac{\partial x}{\partial t} + \frac{\partial z}{\partial y}\frac{\partial y}{\partial t}$
+- Full differential:   $dz = \frac{\partial f}{\partial x}dx + \frac{\partial f}{\partial y}dy$
+- Directional derivatives and gradients:   $\nabla f = (\frac{\partial f}{\partial x}, \frac{\partial f}{\partial y})$
+- Double integral: select the order of integration, interchange rectangular coordinates and polar coordinates
+- Triple integral: rectangular coordinates, cylindrical coordinates, spherical coordinates
 
-**必须检查的条件：**
-- 混合偏导数的可交换条件（$f_{xy} = f_{yx}$，当二阶偏导连续）
-- 重积分积分区域的正确描述
-- 雅可比行列式的计算（换元时）
-- 极坐标/球坐标的 $r$ 因子
+**Conditions that must be checked:**
+- Commutative conditions for mixed partial derivatives (  $f_{xy} = f_{yx}$  , when second-order partial derivatives are continuous)
+- Correct description of the integration area for heavy integration
+- Calculation of Jacobian (when changing elements)
+-   $r$   factor for polar/spherical coordinates
 
-**常见错误：**
-- 偏导数时忘记其他变量视为常数
-- 二重积分交换次序时区域描述错误
-- 极坐标换元漏掉 $r\,dr\,d\theta$ 中的 $r$
-- 雅可比行列式计算错误
-- 格林公式/斯托克斯公式方向判断错误
+**Common mistakes:**
+- Forget about treating other variables as constants when taking partial derivatives
+- Wrong area description when double integral exchange order
+- Polar coordinate substitution misses   $r$   in   $r\,dr\,d\theta$
+- Jacobian calculation error
+- Green's formula/Stokes' formula direction error
 
-**推荐验证方法：**
-- 验证 $f_{xy} = f_{yx}$（二阶偏导）
-- 数值积分验证重积分
-- 换元与直接计算交叉验证
-- 对称性利用验证
+**Recommended verification method:**
+- Verify   $f_{xy} = f_{yx}$   (second-order partial derivative)
+- Numerical integration to verify re-integration
+- Substitution and direct calculation cross-validation
+- Symmetry exploit verification
 
-**输出格式：**
+**Output format:**
+   ```
+Function: $f(x,y,\dots) = [expression]$
+Partial derivatives: $\frac{\partial f}{\partial x} = [expression], \frac{\partial f}{\partial y} = [expression]$
+(optional) gradient: $\nabla f = ([value], [value])$
+(optional) reintegration value: [value]
+Method: [Rectangular coordinates/polar coordinates/cylindrical coordinates/spherical coordinates]
 ```
-函数: $f(x,y,\dots) = [表达式]$
-偏导数: $\frac{\partial f}{\partial x} = [表达式], \frac{\partial f}{\partial y} = [表达式]$
-(可选) 梯度: $\nabla f = ([值], [值])$
-(可选) 重积分值: [值]
-方法: [直角坐标/极坐标/柱坐标/球坐标]
-```
 
-**是否追问用户：** 仅当积分区域不明确时
+**Whether to ask the user:** Only when the points area is unclear
 
 ---
 
 ## linear_algebra
 
-**识别特征：**
-- 涉及矩阵、向量、线性方程组、行列式、特征值
-- 关键词："矩阵"、"行列式"、"特征值"、"特征向量"、"秩"、"线性相关"、"对角化"
-- 示例：求矩阵 $A = \begin{pmatrix} 2 & 1 \\ 1 & 2 \end{pmatrix}$ 的特征值和特征向量
+**Identification Features:**
+- Involving matrices, vectors, linear equations, determinants, and eigenvalues
+- Keywords: "matrix", "determinant", "eigenvalue", "eigenvector", "rank", "linear correlation", "diagonalization"
+- Example: Find the eigenvalues ​​and eigenvectors of matrix   $A = \begin{pmatrix} 2 & 1 \\ 1 & 2 \end{pmatrix}$
 
-**推荐求解策略：**
-- 行列式计算：展开法、初等变换、特殊矩阵公式
-- 矩阵运算：加法、乘法、转置、逆矩阵
-- 特征值：解 $|A - \lambda I| = 0$
-- 特征向量：解 $(A - \lambda I)\vec{x} = \vec{0}$
-- 对角化：$A = PDP^{-1}$（$P$ 的列是特征向量，$D$ 是对角矩阵）
-- 秩的计算：初等变换化为行阶梯形
+**Recommended solution strategy:**
+- Determinant calculation: expansion method, elementary transformation, special matrix formula
+- Matrix operations: addition, multiplication, transpose, inverse matrix
+- Eigenvalue: Solution   $|A - \lambda I| = 0$
+- Eigenvector: Solution   $(A - \lambda I)\vec{x} = \vec{0}$
+- Diagonalization:   $A = PDP^{-1}$   (the columns of   $P$   are eigenvectors and   $D$   is the diagonal matrix)
+- Calculation of rank: elementary transformation into row echelon form
 
-**必须检查的条件：**
-- 矩阵乘法是否可乘（维度匹配）
-- 逆矩阵存在条件（$|A| \neq 0$）
-- 对角化条件（是否有 $n$ 个线性无关的特征向量）
-- 实对称矩阵必然可对角化
+**Conditions that must be checked:**
+- Is matrix multiplication multiplicable (dimension matching)
+- Condition for the existence of inverse matrix (  $|A| \neq 0$  )
+- Diagonalization condition (whether there are   $n$   linearly independent eigenvectors)
+- A real symmetric matrix must be diagonalizable
 
-**常见错误：**
-- 矩阵乘法不可交换（$AB \neq BA$）
-- 行列式计算时符号错误
-- 特征方程求解错误
-- 特征向量自由变量设值不当
-- 正交化过程计算错误
+**Common mistakes:**
+- Matrix multiplication is not commutative (  $AB \neq BA$  )
+- Wrong sign during determinant calculation
+- Error in solving characteristic equation
+- Improper setting of eigenvector free variables
+- Calculation errors in the orthogonalization process
 
-**推荐验证方法：**
-- 验证 $A\vec{v} = \lambda\vec{v}$ 对每个特征对
-- 验证 $P^{-1}AP = D$
-- 验证 $A \cdot A^{-1} = I$
-- 迹与特征值和的关系验证
+**Recommended verification method:**
+- Verify   $A\vec{v} = \lambda\vec{v}$   for each feature pair
+- Verify   $P^{-1}AP = D$
+- Verify   $A \cdot A^{-1} = I$
+- Verification of the relationship between trace and eigenvalue sum
 
-**输出格式：**
+**Output format:**
+   ```
+matrix/vector: [representation]
+Determinant (if any): $|A| = [value]$
+Eigenvalues: $\lambda_1 = [value], \lambda_2 = [value], \dots$
+Feature vector: $\vec{v}_1 = ([], \dots)^T, \dots$
+Inverse matrix (if any): $A^{-1} = [matrix]$
+Rank: $r(A) = [value]$
 ```
-矩阵/向量: [表示]
-行列式 (如有): $|A| = [值]$
-特征值: $\lambda_1 = [值], \lambda_2 = [值], \dots$
-特征向量: $\vec{v}_1 = ([], \dots)^T, \dots$
-逆矩阵 (如有): $A^{-1} = [矩阵]$
-秩: $r(A) = [值]$
-```
 
-**是否追问用户：** 否
+**Whether to ask the user:** No
 
 ---
 
 ## ordinary_differential_equation
 
-**识别特征：**
-- 涉及含有导数的方程
-- 关键词："微分方程"、"通解"、"特解"、"初始条件"、"$y'$"、"$\frac{dy}{dx}$"
-- 示例：解微分方程 $y' + 2xy = x$，满足 $y(0) = 1$
+**Identification Features:**
+- Involves equations containing derivatives
+- Keywords: "differential equation", "general solution", "particular solution", "initial conditions", "   $y'$   ", "   $\frac{dy}{dx}$   "
+- Example: Solve differential equation   $y' + 2xy = x$  , satisfying   $y(0) = 1$
 
-**推荐求解策略：**
-- 识别方程类型：可分离变量、一阶线性、齐次、伯努利、恰当方程等
-- 可分离变量：$\frac{dy}{dx} = f(x)g(y) \Rightarrow \int \frac{dy}{g(y)} = \int f(x)dx$
-- 一阶线性：$y' + P(x)y = Q(x)$，积分因子 $\mu = e^{\int P(x)dx}$
-- 二阶常系数线性：特征方程 $r^2 + pr + q = 0$
-- 常数变易法
-- 初始条件确定特解
+**Recommended solution strategy:**
+- Identify equation types: separable variables, first-order linear, homogeneous, Bernoulli, proper equation, etc.
+- Detachable variable:   $\frac{dy}{dx} = f(x)g(y) \Rightarrow \int \frac{dy}{g(y)} = \int f(x)dx$
+- First-order linear:   $y' + P(x)y = Q(x)$  , integration factor   $\mu = e^{\int P(x)dx}$
+- Second-order linear with constant coefficients: characteristic equation   $r^2 + pr + q = 0$
+- Constant variation method
+- Initial conditions determine the specific solution
 
-**必须检查的条件：**
-- $g(y) = 0$ 是否产生奇解
-- 积分因子是否有定义
-- 特征根类型（实根/重根/复根）对应的解形式
-- 方程是否为线性
+**Conditions that must be checked:**
+-   $g(y) = 0$   Whether a strange solution is generated
+- Is the integration factor defined?
+- The solution form corresponding to the characteristic root type (real root/multiple root/complex root)
+- Is the equation linear?
 
-**常见错误：**
-- 可分离变量时漏掉 $g(y) = 0$ 的解
-- 积分因子计算错误
-- 特征方程的解形式选错（实根/重根/复根）
-- 线性无关解判断错误
-- 特解形式设错
+**Common mistakes:**
+- Missing solution to   $g(y) = 0$   when variables are separable
+- Calculation error of integration factor
+- The solution form of the characteristic equation is wrongly selected (real roots/multiple roots/complex roots)
+- Error in judging linearly independent solutions
+- Wrong setting of special solution form
 
-**推荐验证方法：**
-- 将解代入原方程验证
-- 验证通解包含所有线性无关解
-- 验证特解满足初始条件
-- 数值解法近似验证
+**Recommended verification method:**
+- Substitute the solution into the original equation to verify
+- Verify that the general solution contains all linearly independent solutions
+- Verify that the particular solution satisfies the initial conditions
+- Approximate verification of numerical solutions
 
-**输出格式：**
+**Output format:**
+   ```
+Equation type: [separable variable/first-order linear/second-order constant coefficient/...]
+General solution: $y = [expression] + C$
+(optional) Special solution: $y = [expression]$
+Solution method: [Integral factor/Characteristic equation/Constant variation method]
+Steps: [Main transformation]
 ```
-方程类型: [可分离变量/一阶线性/二阶常系数/...]
-通解: $y = [表达式] + C$
-(可选) 特解: $y = [表达式]$
-求解方法: [积分因子/特征方程/常数变易法]
-步骤: [主要变换]
-```
 
-**是否追问用户：** 仅当缺少初始条件时
+**Whether to ask the user:** Only if initial conditions are missing
 
 ---
 
 ## complex_analysis
 
-**识别特征：**
-- 涉及复数函数、留数、围道积分
-- 关键词："复数"、"复变函数"、"留数"、"解析"、"$e^{iz}$"、"围道积分"
-- 示例：计算留数 $\operatorname{Res}\left(\frac{e^z}{z^2}, 0\right)$
+**Identification Features:**
+- Involving complex functions, residues, and circumferential integrals
+- Keywords: "complex number", "complex function", "residue", "analysis", "  $e^{iz}$  ", "circuit integral"
+- Example: Calculate residue   $\operatorname{Res}\left(\frac{e^z}{z^2}, 0\right)$
 
-**推荐求解策略：**
-- 判断函数是否解析（柯西-黎曼方程）
-- 留数计算：$\operatorname{Res}(f, z_0) = \frac{1}{(m-1)!}\lim_{z\to z_0}\frac{d^{m-1}}{dz^{m-1}}[(z-z_0)^m f(z)]$（$m$ 阶极点）
-- 围道积分：$\oint_C f(z)dz = 2\pi i \sum \operatorname{Res}(f, z_k)$
-- 洛朗展开
-- 利用柯西积分公式
+**Recommended solution strategy:**
+- Determine whether the function is analytical (Cauchy-Riemann equation)
+- Residue calculation:   $\operatorname{Res}(f, z_0) = \frac{1}{(m-1)!}\lim_{z\to z_0}\frac{d^{m-1}}{dz^{m-1}}[(z-z_0)^m f(z)]$   (  $m$   order pole)
+-Block points:   $\oint_C f(z)dz = 2\pi i \sum \operatorname{Res}(f, z_k)$
+- Laurent Expand
+-Use the Cauchy integral formula
 
-**必须检查的条件：**
-- 极点阶数判断
-- 围道内包含的奇点
-- 函数是否在围道内除孤立奇点外解析
-- 分支切割的处理
+**Conditions that must be checked:**
+- Judgment of pole order
+- Singularities contained within the enclosure
+- Whether the function is analytic in the enclosure except for isolated singularities
+- Processing of branch cutting
 
-**常见错误：**
-- 极点阶数判断错误
-- 留数计算公式使用不当
-- 围道内奇点遗漏
-- 围道方向与符号关系搞反
-- 洛朗级数展开错误
+**Common mistakes:**
+- Wrong judgment of pole order
+- Improper use of the residue calculation formula
+- Omission of singular points in the enclosure
+- The direction of the enclosure and the relationship between symbols are reversed
+- Laurent series expansion error
 
-**推荐验证方法：**
-- 直接积分与留数定理结果对比
-- 柯西积分公式验证
-- 级数展开交叉验证
+**Recommended verification method:**
+- Comparison of direct integration and residue theorem results
+- Cauchy integral formula verification
+- Series expansion cross validation
 
-**输出格式：**
+**Output format:**
+   ```
+Function: $f(z) = [expression]$
+Singularity: $z = [value]$ (type: [pole/nature singularity/removable singularity])
+Residue: $\operatorname{Res}(f, z_0) = [value]$
+(optional) perimeter integral value: [value]
 ```
-函数: $f(z) = [表达式]$
-奇点: $z = [值]$ (类型: [极点/本性奇点/可去奇点])
-留数: $\operatorname{Res}(f, z_0) = [值]$
-(可选) 围道积分值: [值]
-```
 
-**是否追问用户：** 否
+**Whether to ask the user:** No
 
 ---
 
 ## real_analysis
 
-**识别特征：**
-- 涉及严格的实分析概念证明
-- 关键词："$\epsilon$-$\delta$ 定义"、"一致连续"、"一致收敛"、"勒贝格"、"测度"、"完备性"
-- 示例：用 $\epsilon$-$\delta$ 语言证明 $\lim_{x\to 2} x^2 = 4$
+**Identification Features:**
+- Involves rigorous real-analytic proof of concept
+- Keywords: "  $\epsilon$   -   $\delta$   definition", "consistent continuity", "consistent convergence", "Lebesgue", "measure", "completeness"
+- Example: Prove   $\lim_{x\to 2} x^2 = 4$   in   $\epsilon$   -   $\delta$   language
 
-**推荐求解策略：**
-- 理解并应用 $\epsilon$-$\delta$（$\epsilon$-$N$）定义
-- 从 $|f(x)-L|<\epsilon$ 出发反推 $|x-a|<\delta$
-- 利用放缩技巧
-- 确界原理、单调有界定理等实数完备性定理
-- 一致连续性的判定：闭区间上连续则一致连续
+**Recommended solution strategy:**
+- Understand and apply   $\epsilon$   -   $\delta$   (   $\epsilon$   -   $N$   ) definitions
+- Starting from   $|f(x)-L|<\epsilon$   and working backward to   $|x-a|<\delta$
+- Utilize zooming techniques
+- Real number completeness theorems such as the certainty principle and the monotonic bounded theorem
+- Judgment of consistent continuity: If it is continuous on a closed interval, it is consistent and continuous.
 
-**必须检查的条件：**
-- $\epsilon$ 的任意性
-- $\delta$ 对 $\epsilon$ 的依赖关系
-- 定义域是否为闭区间
-- 函数连续性的严格定义
+**Conditions that must be checked:**
+- Arbitrariness of   $\epsilon$
+- Dependency of   $\delta$   on   $\epsilon$
+- Whether the domain is a closed interval
+- Strict definition of function continuity
 
-**常见错误：**
-- $\delta$ 只与 $\epsilon$ 有关，不应依赖于 $x$
-- 放缩过度导致 $\delta$ 不满足要求
-- 混淆一致连续与逐点连续
-- 实数完备性定理的逻辑推理链断裂
-- 反证法的假设不当
+**Common mistakes:**
+-   $\delta$   is only related to   $\epsilon$   and should not depend on   $x$
+- Excessive scaling causes   $\delta$   to not meet the requirements
+- Confusing uniform continuity with point-wise continuity
+- The logical reasoning chain of the real number completeness theorem is broken
+- Improper assumptions in proof by contradiction
 
-**推荐验证方法：**
-- 逻辑推导每一步检查
-- 构造具体 $\epsilon$ 值验证
-- 反例检验
+**Recommended verification method:**
+- Logical derivation for each step check
+-Construct concrete   $\epsilon$   value validation
+- Counterexample test
 
-**输出格式：**
+**Output format:**
+   ```
+proposition: [statement]
+Proof method: [$\epsilon$-$\delta$ / proof by contradiction / certainty / ...]
+Proof: [Strict derivation process]
+Conclusion: [The proposition is true/not true]
 ```
-命题: [陈述]
-证明方法: [$\epsilon$-$\delta$ / 反证法 / 确界 / ...]
-证明: [严格推导过程]
-结论: [命题成立/不成立]
-```
 
-**是否追问用户：** 是，需要确认所需严格程度
+**Whether to ask the user:** Yes, you need to confirm the required strictness
 
 ---
 
 ## abstract_algebra
 
-**识别特征：**
-- 涉及群、环、域等代数结构的定义和性质
-- 关键词："群"、"环"、"域"、"同态"、"同构"、"子群"、"正规子群"、"理想"
-- 示例：证明 $G$ 的子群 $H$ 是正规子群当且仅当 $\forall g \in G, gHg^{-1} = H$
+**Identification Features:**
+- Involving the definition and properties of algebraic structures such as groups, rings, fields, etc.
+- Keywords: "group", "ring", "domain", "homomorphism", "isomorphism", "subgroup", "normal subgroup", "ideal"
+- Example: Prove that the subgroup   $H$   of   $G$   is a normal subgroup if and only if   $\forall g \in G, gHg^{-1} = H$
 
-**推荐求解策略：**
-- 验证群公理（封闭性、结合律、单位元、逆元）
-- 子群判定：$H \leq G \iff \forall a,b \in H, ab^{-1} \in H$
-- 正规子群：$\forall g\in G, gH = Hg$ 或 $gHg^{-1} \subseteq H$
-- 同态基本定理：$G/\ker\phi \cong \operatorname{Im}\phi$
-- 拉格朗日定理：子群的阶整除群的阶
-- 环的理想判断
+**Recommended solution strategy:**
+- Verify group axioms (closure, associativity, identity element, inverse element)
+- Subgroup determination:   $H \leq G \iff \forall a,b \in H, ab^{-1} \in H$
+- Regular subgroup:   $\forall g\in G, gH = Hg$   or   $gHg^{-1} \subseteq H$
+- Fundamental theorem of homomorphism:   $G/\ker\phi \cong \operatorname{Im}\phi$
+- Lagrange's theorem: The order of a subgroup divides the order of the group
+- Ideal judgment of the ring
 
-**必须检查的条件：**
-- 运算是否封闭
-- 群元素的阶
-- 子群与正规子群的区别
-- 同态映射是否良定义
+**Conditions that must be checked:**
+- Whether the operation is closed
+- order of group elements
+- The difference between subgroups and regular subgroups
+- Is homomorphic mapping well defined?
 
-**常见错误：**
-- 群公理验证遗漏
-- 正规子群与子群混淆
-- 商群构造时正规子群条件缺失
-- 同态映射定义的良定性忽略
-- 拉格朗日定理逆命题误用
+**Common mistakes:**
+- Missing group axiom verification
+- Confusion between normal subgroups and subgroups
+- The normal subgroup condition is missing when constructing the quotient group
+- Well-qualified neglect of homomorphic mapping definitions
+- Misuse of the converse of Lagrange's theorem
 
-**推荐验证方法：**
-- 逐条验证公理
-- 构造反例验证非性质
-- 用具体群（$\mathbb{Z}_n, S_3$ 等）测试一般结论
-- 同构映射双向验证
+**Recommended verification method:**
+- Verify the axioms one by one
+- Construct counterexamples to verify non-properties
+- Test general conclusions with specific groups (  $\mathbb{Z}_n, S_3$  , etc.)
+- Two-way verification of isomorphic mapping
 
-**输出格式：**
+**Output format:**
+   ```
+Algebraic structure: [group/ring/field/module]
+Known: [given conditions]
+Proof: [Property to be proved]
+Proof: [logical deduction]
+Key theorem: [name of theorem used]
 ```
-代数结构: [群/环/域/模]
-已知: [给定条件]
-求证: [要证明的性质]
-证明: [逻辑推导]
-关键定理: [使用的定理名称]
-```
 
-**是否追问用户：** 是，确认代数结构的精确定义
+**Whether to ask the user:** Yes, confirm the precise definition of the algebraic structure
 
 ---
 
 ## topology
 
-**识别特征：**
-- 涉及开集、闭集、连续性、紧致性、连通性等拓扑概念
-- 关键词："开集"、"闭集"、"紧致"、"连通"、"同胚"、"拓扑空间"、"豪斯多夫"
-- 示例：证明紧致空间的连续像是紧致的
+**Identification Features:**
+- Involving topological concepts such as open sets, closed sets, continuity, compactness, and connectivity
+- Keywords: "open set", "closed set", "compact", "connected", "homeomorphism", "topological space", "Hausdorff"
+- Example: Prove that the continuity of a compact space is compact
 
-**推荐求解策略：**
-- 理解拓扑空间的定义（开集公理）
-- 连续性：开集的原像是开集（或闭集的原像是闭集）
-- 紧致性：任意开覆盖存在有限子覆盖
-- 连通性：不能表示为两个不相交非空开集的并
-- 豪斯多夫空间：任意两点存在不相交的开邻域
+**Recommended solution strategy:**
+- Understand the definition of topological space (open set axiom)
+- Continuity: The original shape of an open set is an open set (or the original shape of a closed set is a closed set)
+- Compactness: Any open cover has finite subcovers
+- Connectivity: cannot be expressed as the union of two disjoint non-empty open sets
+- Hausdorff space: any two points have disjoint open neighborhoods
 
-**必须检查的条件：**
-- 空间的拓扑是否明确给定
-- 是否为度量空间诱导的拓扑
-- 映射的连续性定义是否正确
-- 子空间拓扑的继承
+**Conditions that must be checked:**
+- Is the topology of the space clearly given?
+- Is it a metric space induced topology?
+- Is the mapping continuity defined correctly?
+- Inheritance of subspace topology
 
-**常见错误：**
-- 混淆度量空间与一般拓扑空间的性质
-- 紧致性判定中开覆盖遗漏
-- 连通与道路连通混淆
-- 闭集在连续映射下的像不一定闭
-- 紧致空间与有界闭集的混淆
+**Common mistakes:**
+- Confusing the properties of metric spaces and general topological spaces
+- Omission of open coverage in tightness judgment
+- Confusion between connectivity and road connectivity
+- The image of a closed set under continuous mapping is not necessarily closed
+- Confusion between compact spaces and bounded closed sets
 
-**推荐验证方法：**
-- 在具体拓扑空间中验证一般定理
-- 构造反例验证非性质
-- 逐条检查公理和定义
+**Recommended verification method:**
+- Verify general theorems in specific topological spaces
+- Construct counterexamples to verify non-properties
+- Check the axioms and definitions one by one
 
-**输出格式：**
+**Output format:**
+   ```
+Space: $(X, \tau)$ / specific space
+Property/proposition: [statement]
+Proof idea: [Core strategy]
+Proof: [strict derivation]
+Counterexample (if any): [Explanation]
 ```
-空间: $(X, \tau)$ / 具体空间
-性质/命题: [陈述]
-证明思路: [核心策略]
-证明: [严格推导]
-反例 (如有): [说明]
-```
 
-**是否追问用户：** 是，确认拓扑空间定义
+**Whether to ask the user:** Yes, confirm the topological space definition
 
 ---
 
 ## number_theory
 
-**识别特征：**
-- 涉及整数的整除性、素数、同余
-- 关键词："整除"、"素数"、"同余"、"$\pmod{n}$"、"费马小定理"、"欧拉定理"、"中国剩余定理"
-- 示例：证明不存在最大的素数
+**Identification Features:**
+- Involving divisibility of integers, prime numbers, and congruence
+- Keywords: "Divisibility", "Prime Numbers", "Congruence", "  $\pmod{n}$  ", "Fermat's Little Theorem", "Euler's Theorem", "Chinese Remainder Theorem"
+- Example: Prove that there is no largest prime number
 
-**推荐求解策略：**
-- 带余除法：$a = bq + r$，$0 \leq r < |b|$
-- 最大公因数：欧几里得算法
-- 同余运算和性质
-- 费马小定理：$a^{p-1} \equiv 1 \pmod{p}$（$p$ 为素数，$p \nmid a$）
-- 欧拉定理：$a^{\varphi(n)} \equiv 1 \pmod{n}$（$\gcd(a,n)=1$）
-- 中国剩余定理求解同余方程组
+**Recommended solution strategy:**
+- Division with remainder:   $a = bq + r$  ,   $0 \leq r < |b|$
+- Greatest common factor: Euclidean algorithm
+- Congruence operations and properties
+- Fermat's Little Theorem:   $a^{p-1} \equiv 1 \pmod{p}$   (  $p$   is a prime number,   $p \nmid a$  )
+- Euler's Theorem:   $a^{\varphi(n)} \equiv 1 \pmod{n}$   (   $\gcd(a,n)=1$   )
+- Chinese Remainder Theorem to solve the system of congruence equations
 
-**必须检查的条件：**
-- 模运算中模数是否为正
-- 费马小定理中 $p$ 是否为素数
-- 欧拉定理中 $\gcd(a,n) = 1$
-- 中国剩余定理中模数两两互素
+**Conditions that must be checked:**
+- Whether the modulus in modular operation is positive
+- Whether   $p$   in Fermat's Little Theorem is a prime number
+- Euler's theorem   $\gcd(a,n) = 1$
+- In the Chinese Remainder Theorem, the modulus are pairwise prime
 
-**常见错误：**
-- 同余运算时模运算忘记取模
-- 费马小定理条件不满足时误用
-- 中国剩余定理使用时模数不互素
-- 整除符号混淆（$a \mid b$ vs $b \mid a$）
-- 素数判定忽略 $2$ 的特殊性
+**Common mistakes:**
+- Forgetting to take the modulus in the modulo operation during congruence operation
+- Misuse when the conditions of Fermat’s Little Theorem are not met
+- Modules are not mutually prime when using the Chinese Remainder Theorem
+- Divisor confusion (  $a \mid b$   vs   $b \mid a$  )
+- Prime number determination ignores the specialness of   $2$
 
-**推荐验证方法：**
-- 代入具体数值验证
-- 不同方法交叉求解同余方程
-- 逆元验证（$a \cdot a^{-1} \equiv 1 \pmod{n}$）
+**Recommended verification method:**
+- Substitute specific numerical values ​​for verification
+- Cross-solve congruence equations using different methods
+- Inverse element verification (  $a \cdot a^{-1} \equiv 1 \pmod{n}$  )
 
-**输出格式：**
+**Output format:**
+   ```
+Question Type: [Divisibility/Congruence/Prime Numbers/Diophantine Equation]
+Theorem reference: [Fermat's Little Theorem/Euler's Theorem/Chinese Remainder Theorem/...]
+Solution/Proof: [Step]
+Result: [numeric value or conclusion]
 ```
-问题类型: [整除/同余/素数/丢番图方程]
-定理引用: [费马小定理/欧拉定理/中国剩余定理/...]
-求解/证明: [步骤]
-结果: [数值或结论]
-```
 
-**是否追问用户：** 否
+**Whether to ask the user:** No
 
 ---
 
 ## discrete_math
 
-**识别特征：**
-- 涉及图论、逻辑、集合论、布尔代数、关系
-- 关键词："图"、"顶点"、"边"、"逻辑"、"命题"、"集合"、"关系"、"格"、"布尔代数"
-- 示例：证明在任意 6 个人中，必存在 3 个人互相认识或互相不认识
+**Identification Features:**
+- Involving graph theory, logic, set theory, Boolean algebra, relations
+- Keywords: "graph", "vertex", "edge", "logic", "proposition", "set", "relation", "lattice", "Boolean algebra"
+- Example: Prove that among any 6 people, there must be 3 people who know each other or do not know each other
 
-**推荐求解策略：**
-- 图论：握手定理、欧拉路径条件、平面图欧拉公式、着色
-- 逻辑：真值表、逻辑等价、范式转换
-- 集合论：文氏图、集合运算、基数
-- 鸽巢原理
-- 布尔代数的化简（卡诺图）
+**Recommended solution strategy:**
+- Graph theory: handshake theorem, Euler path conditions, Euler formula for plane graphs, coloring
+- Logic: truth table, logical equivalence, paradigm shift
+- Set theory: Venn diagram, set operations, cardinality
+- Pigeonhole principle
+- Simplification of Boolean algebra (Karnaugh map)
 
-**必须检查的条件：**
-- 图是否有重边/自环
-- 逻辑命题的真值定义
-- 集合运算的定义域（全集）
-- 鸽巢原理中鸽子和鸽巢的对应
+**Conditions that must be checked:**
+- Whether the graph has multiple edges/self-loops
+- Definition of truth value of logical propositions
+- Domain of set operations (complete set)
+- The correspondence between pigeons and pigeon nests in the pigeon nest principle
 
-**常见错误：**
-- 握手定理的度数计算错误
-- 哈密顿图/欧拉图条件混淆
-- 逻辑等价变换遗漏步骤
-- 集合包含关系方向搞反
-- 鸽巢原理应用不当
+**Common mistakes:**
+- Degree calculation error for handshake theorem
+- Hamiltonian graph/Eulerian graph condition confusion
+- Missing steps in logical equivalent transformation
+- The direction of the collection inclusion relationship is reversed
+- Improper application of the pigeonhole principle
 
-**推荐验证方法：**
-- 小规模枚举
-- 真值表验证逻辑等价
-- 具体图实例测试定理
-- 反例构造
+**Recommended verification method:**
+- Small-scale enumeration
+- Truth table to verify logical equivalence
+- Test theorems with specific graph examples
+- Counterexample construction
 
-**输出格式：**
+**Output format:**
+   ```
+Branch: [Graph Theory/Logic/Set Theory/Relationship]
+proposition: [statement]
+Method: [Handshake theorem/truth table/pigeon nest principle/...]
+Proof/Solution: [Step]
+Conclusion: [result]
 ```
-分支: [图论/逻辑/集合论/关系]
-命题: [陈述]
-方法: [握手定理/真值表/鸽巢原理/...]
-证明/求解: [步骤]
-结论: [结果]
-```
 
-**是否追问用户：** 仅当图的定义有歧义时
+**Whether to ask the user:** Only if the definition of the graph is ambiguous
 
 ---
 
 ## optimization
 
-**识别特征：**
-- 涉及在约束条件下求最大值或最小值
-- 关键词："最大化"、"最小化"、"最优"、"约束条件"、"线性规划"、"非线性规划"
-- 示例：在 $x+y \leq 10, x \geq 0, y \geq 0$ 条件下，求 $z = 3x + 2y$ 的最大值
+**Identification Features:**
+- Involves finding the maximum or minimum value under constraints
+- Keywords: "maximization", "minimization", "optimality", "constraints", "linear programming", "nonlinear programming"
+- Example: Under the condition of   $x+y \leq 10, x \geq 0, y \geq 0$  , find the maximum value of   $z = 3x + 2y$
 
-**推荐求解策略：**
-- 线性规划：单纯形法或图解法（二维）
-- 等式约束极值：拉格朗日乘数法
-- 不等式约束：KKT 条件
-- 无约束极值：梯度为零 + Hessian 矩阵判断
-- 动态规划（多阶段决策）
+**Recommended solution strategy:**
+- Linear programming: simplex method or graphical method (2D)
+- Equality constrained extreme values: Lagrange multiplier method
+- Inequality constraints: KKT conditions
+- Unconstrained extreme value: gradient is zero + Hessian matrix judgment
+- Dynamic programming (multi-stage decision-making)
 
-**必须检查的条件：**
-- 可行域是否非空
-- 线性规划是否有界
-- KKT 条件是否充分
-- 约束条件是否线性无关
-- 目标函数的凸性
+**Conditions that must be checked:**
+- Whether the feasible region is non-empty
+- Is linear programming bounded?
+- Are the KKT conditions sufficient?
+- Whether the constraints are linearly independent
+- Convexity of the objective function
 
-**常见错误：**
-- 可行域画错或描述错误
-- 忘记检查边界和顶点
-- 拉格朗日乘数法解错
-- KKT 条件遗漏
-- 局部最优与全局最优混淆
+**Common mistakes:**
+- The feasible region is incorrectly drawn or described incorrectly
+- Forgot to check bounds and vertices
+- Lagrange multiplier method solution error
+- KKT condition missing
+- Confusion between local optimal and global optimal
 
-**推荐验证方法：**
-- 二维问题画图验证
-- 代入可行域边界点检验
-- 对偶问题交叉验证
-- 敏感度分析
+**Recommended verification method:**
+- Two-dimensional problem drawing verification
+- Substitute into feasible region boundary point test
+- Dual problem cross-validation
+- Sensitivity analysis
 
-**输出格式：**
+**Output format:**
+   ```
+Optimization type: [Linear programming/nonlinear programming/integer programming/dynamic programming]
+Objective function: [expression]
+Constraints: [Inequalities/Equations]
+Method: [Simplex method/Lagrangian method/KKT/Graphic method]
+Optimal solution: $(x^*, y^*) = ([value], [value])$
+Optimal value: $z^* = [value]$
 ```
-优化类型: [线性规划/非线性规划/整数规划/动态规划]
-目标函数: [表达式]
-约束条件: [不等式组/方程组]
-方法: [单纯形法/拉格朗日法/KKT/图解法]
-最优解: $(x^*, y^*) = ([值], [值])$
-最优值: $z^* = [值]$
-```
 
-**是否追问用户：** 仅当约束不明确时
+**Whether to ask the user:** Only if the constraint is unclear
 
 ---
 
 ## mathematical_modeling
 
-**识别特征：**
-- 要求根据描述构建数学模型
-- 关键词："建立模型"、"数学模型"、"建模"、无现成公式套用的开放问题
-- 示例：建立传染病传播的数学模型
+**Identification Features:**
+- Required to construct a mathematical model based on the description
+- Keywords: "model building", "mathematical model", "modeling", open problems without ready-made formulas
+- Example: Building a mathematical model of the spread of infectious diseases
 
-**推荐求解策略：**
-1. 理解问题背景，识别关键变量
-2. 做出合理假设（简化现实）
-3. 建立变量间的关系（微分方程、差分方程、概率模型等）
-4. 确定参数
-5. 求解和分析模型
-6. 验证模型是否合理
+**Recommended solution strategy:**
+1. Understand the problem background and identify key variables
+2. Make reasonable assumptions (simplifying reality)
+3. Establish relationships between variables (differential equations, difference equations, probability models, etc.)
+4. Determine parameters
+5. Solve and analyze the model
+6. Verify whether the model is reasonable
 
-**必须检查的条件：**
-- 假设是否合理且被明确陈述
-- 量纲是否一致
-- 模型是否有解
-- 参数是否有实际意义
-- 模型的适用范围
+**Conditions that must be checked:**
+- Are the assumptions reasonable and clearly stated?
+- Are the dimensions consistent?
+- Does the model have a solution?
+-Whether the parameters have actual meaning
+- Scope of application of the model
 
-**常见错误：**
-- 假设过于简化导致模型无意义
-- 关键变量遗漏
-- 因果关系搞反
-- 未考虑量纲一致性
-- 参数取值无依据
+**Common mistakes:**
+- Assumptions are oversimplified and make the model meaningless
+- Key variables missing
+- The causal relationship is reversed
+- Dimensional consistency is not considered
+- There is no basis for parameter values
 
-**推荐验证方法：**
-- 敏感性分析（参数微小变化对结果的影响）
-- 极端情况测试
-- 与实际数据对比
-- 量纲分析
+**Recommended verification method:**
+- Sensitivity analysis (the impact of small changes in parameters on the results)
+- Extreme case testing
+- Compare with actual data
+- Dimensional analysis
 
-**输出格式：**
+**Output format:**
+   ```
+Problem Description: [Overview]
+Assumptions: [List all assumptions]
+Variable definition: [Meaning and unit of each variable]
+model: [mathematical expression]
+Solution: [Method]
+Result analysis: [Model prediction]
+Limitations: [Model limitations]
 ```
-问题描述: [概述]
-假设: [列出所有假设]
-变量定义: [每个变量的含义和单位]
-模型: [数学表达式]
-求解: [方法]
-结果分析: [模型预测]
-局限性: [模型局限]
-```
 
-**是否追问用户：** 是，需要确认建模目标和可接受的简化程度
+**Do you want to ask the user:** Yes, you need to confirm the modeling goals and the acceptable level of simplification
 
 ---
 
 ## proof
 
-**识别特征：**
-- 要求证明某个数学命题
-- 关键词："证明"、"求证"、"试证"、"证明或否定"
-- 示例：证明 $\sqrt{2}$ 是无理数
+**Identification Features:**
+- Ask to prove a certain mathematical proposition
+- Keywords: "proof", "verification", "test", "prove or deny"
+- Example: Prove that   $\sqrt{2}$   is an irrational number
 
-**推荐求解策略：**
-- 确定证明方法：直接证明、反证法、数学归纳法、构造法、等价变换
-- 数学归纳法：验证 $n=1$ 成立，假设 $n=k$ 成立推出 $n=k+1$ 成立
-- 反证法：假设结论不成立，推导矛盾
-- 构造法：构造满足条件的具体对象
-- 分析命题结构，确定前提和结论
+**Recommended solution strategy:**
+- Determine the proof method: direct proof, proof by contradiction, mathematical induction, construction method, equivalent transformation
+- Mathematical induction: verify that   $n=1$   is established, assume that   $n=k$   is established and conclude that   $n=k+1$   is established
+- Evidence by contradiction: Assume that the conclusion is not valid and derive contradictions
+- Construction method: Construct specific objects that meet the conditions
+- Analyze the structure of propositions and determine premises and conclusions
 
-**必须检查的条件：**
-- 前提条件是否完整
-- 推理每一步是否有依据
-- 反证法的矛盾是否确实与已知矛盾
-- 数学归纳法的基础步骤和归纳步骤是否完备
-- 是否隐含使用了未验证的假设
+**Conditions that must be checked:**
+- Are the prerequisites complete?
+- Reasoning whether there is a basis for each step
+- Whether the contradiction in proof by contradiction is indeed contradictory to what is known
+- Whether the basic steps and induction steps of mathematical induction are complete
+- Whether untested assumptions are implicitly used
 
-**常见错误：**
-- 循环论证（用结论证明前提）
-- 反证法中假设的反面不完整（忘掉边界情况）
-- 数学归纳法省略基础步骤
-- 推理跳跃，缺少中间步骤
-- 使用未证明的定理
+**Common mistakes:**
+- Circular argument (use conclusion to prove premise)
+- The opposite of the hypothesis in proof by contradiction is incomplete (forget about edge cases)
+- Mathematical induction omits basic steps
+- Jumps in reasoning, missing intermediate steps
+- Use of unproven theorems
 
-**推荐验证方法：**
-- 每一步推理的逻辑检查
-- 特殊值代入验证结论
-- 尝试寻找反例
-- 用不同方法再次证明
+**Recommended verification method:**
+- Logic check for each step of reasoning
+-Special value substitution verification conclusion
+- Try to find counterexamples
+- Prove it again in different ways
 
-**输出格式：**
+**Output format:**
+   ```
+proposition: [statement]
+Proof method: [direct proof/contradiction/mathematical induction/construction method/...]
+Hypothesis (such as proof by contradiction): [hypothesis by contradiction]
+Proof: [Step-by-step derivation]
+Conclusion: The proposition holds $\square$
 ```
-命题: [陈述]
-证明方法: [直接证明/反证法/数学归纳法/构造法/...]
-假设 (如反证法): [反证假设]
-证明: [逐步推导]
-结论: 命题成立 $\square$
-```
 
-**是否追问用户：** 仅当命题陈述有歧义时
+**Whether to ask the user:** Only if the propositional statement is ambiguous
 
 ---
 
 ## counterexample
 
-**识别特征：**
-- 要求找出反例来反驳某个命题
-- 关键词："反例"、"不成立"、"举出反例"、"是否成立"、"举出...反驳"
-- 示例：命题"若 $f'(x_0)=0$，则 $x_0$ 是 $f(x)$ 的极值点"是否成立？若不成立请举反例。
+**Identification Features:**
+- Ask for counterexamples to refute a certain proposition
+- Keywords: "counterexample", "not established", "cite counterexamples", "whether it is established", "cite...refutation"
+- Example: Is the proposition "If   $f'(x_0)=0$   , then   $x_0$   is the extreme point of   $f(x)$  " true? If this is not true, please give a counterexample.
 
-**推荐求解策略：**
-1. 分析命题的条件和结论
-2. 找出条件满足但结论不成立的情形
-3. 从边界情况、退化情况开始寻找
-4. 选择尽可能简单的反例
-5. 验证反例满足条件但不满足结论
+**Recommended solution strategy:**
+1. Analyze the conditions and conclusions of propositions
+2. Find situations where the conditions are met but the conclusion is not true
+3. Start looking for boundary conditions and degradation conditions
+4. Choose the simplest possible counterexample
+5. Verify that the counterexample satisfies the condition but does not satisfy the conclusion
 
-**必须检查的条件：**
-- 反例是否满足命题的所有条件
-- 反例是否确实违反结论
-- 反例是否在合理的定义域内
-- 反例是否是最简形式
+**Conditions that must be checked:**
+- Does the counterexample satisfy all the conditions of the proposition?
+-Whether the counterexample actually violates the conclusion
+- Whether the counterexample is within a reasonable definition domain
+- Whether the counterexample is in its simplest form
 
-**常见错误：**
-- 反例不满足命题条件
-- 反例虽然违反结论但定义域不符
-- 反例过于复杂
-- 把"命题成立"错误判断为"命题不成立"
-- 遗漏命题隐含条件
+**Common mistakes:**
+- The counterexample does not satisfy the propositional condition
+- Although the counterexample violates the conclusion, the definition domain does not match
+- Counterexamples are too complex
+- Misjudge "the proposition is true" as "the proposition is not true"
+- Missing propositional implicit conditions
 
-**推荐验证方法：**
-- 逐条检查条件是否满足
-- 逐一检查结论是否违反
-- 简化反例是否能保持反例性质
+**Recommended verification method:**
+- Check whether the conditions are met one by one
+- Check whether the conclusions are violated one by one
+- Whether simplifying counterexamples can maintain the properties of counterexamples
 
-**输出格式：**
+**Output format:**
+   ```
+proposition: [original proposition statement]
+Analysis: [Why this proposition may not be true]
+Counterexample: [Specific counterexample construction]
+Verification conditions: [Check whether the conditions are met one by one]
+Verification conclusion: [Explanation that the conclusion is not valid]
+Minimal counterexample: [Can it be simpler]
 ```
-命题: [原始命题陈述]
-分析: [为什么这个命题可能不成立]
-反例: [具体的反例构造]
-验证条件: [逐条检查条件是否满足]
-验证结论: [说明结论不成立]
-最小反例: [是否还能更简单]
-```
 
-**是否追问用户：** 否
+**Whether to ask the user:** No
 
 ---
 
 ## solution_checking
 
-**识别特征：**
-- 给定一个解答（可能是学生答案），要求检查对错
-- 关键词："对吗"、"是否正确"、"检查"、"批改"、"有没有错误"、"这个解法"
-- 示例：检查下面解法的正误：解 $x^2=4$ 得 $x=2$
+**Identification Features:**
+- Given a solution (possibly a student answer), ask to check if it is correct or incorrect
+- Keywords: "is it right", "is it correct", "check", "correct", "are there any errors", "this solution"
+- Example: Check whether the following solution is correct or incorrect: solve   $x^2=4$   to get   $x=2$
 
-**推荐求解策略：**
-1. 重新独立求解该问题
-2. 将给定解答与标准解逐行对比
-3. 检查逻辑推导的每一步
-4. 验证最终结果
-5. 分类错误类型（计算错误、逻辑错误、概念错误、遗漏）
+**Recommended solution strategy:**
+1. Solve the problem independently again
+2. Compare the given solution line by line with the standard solution.
+3. Check every step of logical derivation
+4. Verify final results
+5. Classification error types (calculation errors, logical errors, conceptual errors, omissions)
 
-**必须检查的条件：**
-- 最终结果是否正确
-- 推导过程是否有逻辑跳跃
-- 定义域/约束条件是否被满足
-- 有无遗漏解
-- 计算过程是否正确
+**Conditions that must be checked:**
+- Is the final result correct?
+- Are there any logical jumps in the derivation process?
+- Whether the domain/constraint conditions are satisfied
+- Are there any missing solutions?
+- Is the calculation process correct?
 
-**常见错误（批改者错误）：**
-- 只看结果不看过程
-- 等价解（不同形式）判为错误
-- 忽略合理的不同解法
-- 末步错误忽略前面的正确推导
+**Common mistakes (corrector errors):**
+- Only look at the results and not the process
+- Equivalent solutions (different forms) are judged as errors
+- Ignore legitimate alternative solutions
+- The final step error ignores the previous correct derivation
 
-**推荐验证方法：**
-- 代入验证最终结果
-- 用不同方法得到同一问题答案
-- 检查每一步变换的等价性
-- 对数值结果估算合理性
+**Recommended verification method:**
+- Substitute the final result of verification
+- Get the answer to the same question in different ways
+- Check the equivalence of each transformation step
+- Estimating plausibility of numerical results
 
-**输出格式：**
+**Output format:**
+   ```
+Question: [original question]
+Given solution: [Solution to be checked]
+Independent solution result: [Correct answer]
+Judgment: [Correct/Partially Correct/Incorrect]
+Error location: [Error in step X, specific error description]
+Error type: [Calculation error/Logical error/Conceptual error/Omission/Inappropriate presentation]
+Correction suggestions: [How to correct it]
 ```
-问题: [原问题]
-给定解答: [待检查的解答]
-独立求解结果: [正确答案]
-判断: [正确 / 部分正确 / 错误]
-错误定位: [第 X 步错误，具体错误描述]
-错误类型: [计算错误/逻辑错误/概念错误/遗漏/表述不当]
-修正建议: [应当如何改正]
-```
 
-**是否追问用户：** 仅当解答模糊不清或笔迹难辨时
+**Whether to question the user:** Only if the answer is unclear or the handwriting is difficult to read
 
 ---
 
 ## problem_generation
 
-**识别特征：**
-- 要求生成新的数学问题
-- 关键词："出题"、"生成题目"、"帮我出一题"、"编一道题"、"设计题目"
-- 示例：生成一道二次函数最值问题的应用题，难度为高考中等
+**Identification Features:**
+- Ask to generate new math problems
+- Keywords: "give a question", "generate a question", "help me give a question", "make up a question", "design a question"
+- Example: Generate an application question of the maximum value of a quadratic function, with a difficulty level of College Entrance Examination Medium
 
-**推荐求解策略：**
-1. 确定题目主题和知识点
-2. 设计题目结构和已知条件
-3. 构造数值（确保数值合理且计算简洁）
-4. 自己先求解一遍验证可解性
-5. 提供参考答案
+**Recommended solution strategy:**
+1. Determine the topic and knowledge points of the question
+2. Design the question structure and known conditions
+3. Construct the numerical value (make sure the numerical value is reasonable and the calculation is simple)
+4. Solve it yourself first to verify the solvability
+5. Provide reference answers
 
-**必须检查的条件：**
-- 题目条件是否完整且自洽
-- 是否有解且解唯一（如需唯一）
-- 数值是否合理（不会出现奇怪的小数）
-- 难度是否符合要求
-- 条件之间无矛盾
+**Conditions that must be checked:**
+- Are the question conditions complete and self-consistent?
+- Whether there is a solution and the solution is unique (if unique)
+- Are the values ​​reasonable (no strange decimals will appear)
+- Whether the difficulty meets the requirements
+- There is no contradiction between the conditions
 
-**常见错误：**
-- 条件不足导致多解或无解
-- 条件矛盾
-- 数值构造不合理导致计算复杂
-- 超出指定难度范围
-- 题目表述有歧义
+**Common mistakes:**
+- Insufficient conditions lead to multiple or no solutions
+- Contradictory conditions
+- Unreasonable numerical construction leads to complicated calculations
+- Beyond the specified difficulty range
+- There is ambiguity in the title description
 
-**推荐验证方法：**
-- 独立求解生成的题目
-- 检查是否有非预期解法
-- 验证数值的合理性
-- 试做估计用时
+**Recommended verification method:**
+- Solve generated questions independently
+- Check for unexpected solutions
+- Verify the rationality of the values
+- Estimated trial time
 
-**输出格式：**
+**Output format:**
+   ```
+Knowledge points: [Knowledge points covered]
+Title: [Full title description]
+Difficulty: [Easy/Medium/Hard]
+Reference answer: [Complete solution process]
+Answer: [final result]
+Examination points: [What is the main examination of the question]
 ```
-知识点: [涵盖的知识点]
-题目: [完整题目描述]
-难度: [简单/中等/困难]
-参考答案: [完整解答过程]
-答案: [最终结果]
-考察要点: [题目主要考察什么]
-```
 
-**是否追问用户：** 是，确认难度、知识点范围、题型偏好
+**Whether to ask the user:** Yes, confirm the difficulty, knowledge point range, and question type preference
 
 ---
 
 ## research_level_problem
 
-**识别特征：**
-- 极高难度，可能接近竞赛决赛、数学研究或开放问题
-- 关键词：涉及费马大定理、黎曼猜想级别的引用，或明显超出标准课程
-- 示例：证明黎曼 $\zeta$ 函数的非平凡零点都位于 $\operatorname{Re}(s) = 1/2$ 上
+**Identification Features:**
+- Very high level of difficulty, possibly close to competition finals, mathematical studies or open questions
+- Keywords: References involving Fermat’s Last Theorem and Riemann Hypothesis, or that are obviously beyond the standard curriculum
+- Example: Prove that the non-trivial zeros of Riemann's   $\zeta$   function are located on   $\operatorname{Re}(s) = 1/2$
 
-**推荐求解策略：**
-- 首先判断问题是否已知被解决
-- 若为已知结果，提供该结果的概述和相关文献
-- 若为开放问题，诚实告知
-- 提供可能的思路或相关子结果
-- 引用权威来源
+**Recommended solution strategy:**
+- First determine whether the problem is known to have been solved
+- If the result is known, provide a summary of the result and relevant literature
+- If it’s an open question, tell it honestly
+- Provide possible ideas or related sub-results
+- Citing authoritative sources
 
-**必须检查的条件：**
-- 问题是否等价于已知的开放问题
-- 问题是否有已知的部分进展
-- 用户是否理解问题的难度
-- 是否有必要降级为近似或特殊情形
+**Conditions that must be checked:**
+- Is the problem equivalent to a known open problem?
+- Is there any known partial progress on the issue?
+- Whether the user understands the difficulty of the question
+- Whether it is necessary to downgrade to approximate or special circumstances
 
-**常见错误：**
-- 对开放问题给出错误证明
-- 低估问题难度
-- 忽略已知的进展
-- 使用不成熟的推理
+**Common mistakes:**
+- Provide error proofs for open questions
+- Underestimating the difficulty of the problem
+- Ignore known progress
+- Use premature reasoning
 
-**推荐验证方法：**
-- 查阅文献验证结论
-- 检查证明中是否有漏洞
-- 与已知结果对比
+**Recommended verification method:**
+- Review the literature to verify the conclusion
+- Check the proof for holes
+- Compare with known results
 
-**输出格式：**
+**Output format:**
+   ```
+Problem Assessment: [Known Result/Partially Solved/Open Issue]
+Known progress: [Related theorems and partial results]
+References: [Key Citation]
+Suggestions: [Possible ideas or simplification directions]
+Note: [Question Difficulty Description]
 ```
-问题评估: [已知结果 / 部分解决 / 开放问题]
-已知进展: [相关定理和部分结果]
-参考文献: [关键引用]
-建议: [可能的思路或简化方向]
-注意事项: [问题难度说明]
-```
 
-**是否追问用户：** 是，确认用户期望的处理方式和深度
+**Whether to ask the user:** Yes, confirm the processing method and depth expected by the user
 
 ---
 
 ## ambiguous_or_incomplete
 
-**识别特征：**
-- 条件缺失、表述有歧义、信息不足
-- 关键词：模糊的指代、未定义的符号、自相矛盾的条件
-- 示例："求这个函数的最大值"（未给出函数）
+**Identification Features:**
+- Missing conditions, ambiguous expressions, and insufficient information
+- Keywords: vague reference, undefined symbols, contradictory conditions
+- Example: "Find the maximum value of this function" (no function given)
 
-**推荐求解策略：**
-- 指出缺失/模糊的具体内容
-- 给出合理假设下的可能解释
-- 请求用户补充信息
-- 在用户回复前不擅自作答
+**Recommended solution strategy:**
+- Point out missing/ambiguous specific content
+- Give possible explanations under reasonable assumptions
+- Request additional information from the user
+- Do not answer without permission before the user replies
 
-**必须检查的条件：**
-- 问题中所有符号是否已定义
-- 数值范围是否明确
-- 假设是否自洽
-- 是否有多种合理解释
+**Conditions that must be checked:**
+- Are all symbols in the question defined?
+- Is the numerical range clear?
+- Is the hypothesis self-consistent?
+- Are there multiple reasonable explanations?
 
-**常见错误：**
-- 自行脑补条件并给出错误答案
-- 忽略歧义直接作答
-- 未将所有歧义列出
-- 补充了不合理的假设
+**Common mistakes:**
+- Make up the conditions on your own and give wrong answers
+- Ignore the ambiguity and answer directly
+- Not all ambiguities are listed
+- Added unreasonable assumptions
 
-**推荐验证方法：**
-- 列出所有可能的解释
-- 检查每种解释下的答案是否一致
+**Recommended verification method:**
+- List all possible explanations
+- Check whether the answers under each explanation are consistent
 
-**输出格式：**
+**Output format:**
+   ```
+Question: [Original user input]
+Ambiguities/missing points: [itemize]
+Possible explanation:
+Explanation 1: [Description] → In this explanation the answer is [Value]
+Explanation 2: [Description] → In this explanation the answer is [Value]
+Confirmation required: [Specific content needs to be clarified by the user]
 ```
-问题: [用户原始输入]
-歧义/缺失点: [逐条列举]
-可能的解释:
-  解释1: [描述] → 在此解释下答案为 [值]
-  解释2: [描述] → 在此解释下答案为 [值]
-需要确认: [具体需要用户明确的内容]
-```
 
-**是否追问用户：** 是，必须追问
+**Whether to ask the user:** Yes, must ask
 
 ---
 
 ## out_of_scope
 
-**识别特征：**
-- 输入不是数学问题
-- 涉及非数学学科、日常对话、无法归类的内容
-- 示例："今天天气怎么样"、"帮我写一封邮件"
+**Identification Features:**
+- Input is not a math problem
+- Involving non-mathematical subjects, daily conversations, and content that cannot be classified
+- Examples: "How is the weather today", "Write an email for me"
 
-**推荐求解策略：**
-- 礼貌说明 Math.skill 的职责范围
-- 如果知道答案可简要回复
-- 建议用户使用其他更合适的工具
+**Recommended solution strategy:**
+- Polite description of Math.skill’s scope of responsibilities
+- If you know the answer, please give a brief reply
+- Recommend users to use other more suitable tools
 
-**必须检查的条件：**
-- 是否包含任何数学内容
-- 是否可被重新表述为数学问题
-- 用户是否有意测试系统边界
+**Conditions that must be checked:**
+- Does it contain any mathematical content?
+- Can it be reformulated as a mathematical problem
+- Whether the user is interested in testing system boundaries
 
-**常见错误：**
-- 强行将非数学问题当作数学问题处理
-- 误判边缘问题（如物理中的数学推导）
+**Common mistakes:**
+- Forcing non-mathematical problems to be treated as mathematical problems
+- Misjudgment of edge problems (such as mathematical derivation in physics)
 
-**推荐验证方法：**
-- 确认输入确实不包含可处理的数学内容
+**Recommended verification method:**
+- Confirm that the input does not contain processable mathematical content
 
-**输出格式：**
+**Output format:**
+   ```
+Judgment: The input does not belong to the category of mathematical problems
+Specific reason: [Explanation]
+Recommendation: [Recommend user to use other tools or rephrase if applicable]
 ```
-判断: 该输入不属于数学问题范畴
-具体原因: [说明]
-建议: [如果适用，建议用户使用其他工具或重新表述]
-```
 
-**是否追问用户：** 是，建议重新表述或确认意图
+**Whether to ask the user:** Yes, it is recommended to rephrase or confirm the intention
 
 ---
 
-最后更新: 2026-05-30
+Last updated: 2026-05-30

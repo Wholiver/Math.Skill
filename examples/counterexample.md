@@ -1,120 +1,120 @@
-# 反例构造：可导但导数不连续
+# Counterexample construction: Differentiable but the derivative is discontinuous
 
-## 用户输入
-有人断言："如果函数 $f$ 在开区间 $(a, b)$ 上可导，则其导函数 $f'$ 在 $(a, b)$ 上连续。" 请判断该断言是否正确。
+## User input
+Someone asserts: "If function $f$ is differentiable on the open interval $(a, b)$, then its derivative function $f'$ is continuous on $(a, b)$." Please determine whether this assertion is correct.
 
-## Skill 分类
-实分析 / 反例构造
+## Skill Category
+Real analysis/counterexample construction
 
-## 题意解析
-- **断言**：可导 $\implies$ 导数连续
-- **目标**：判断真伪；若为伪，构造反例
-- **需要检查的条件**：
-  1. 函数在定义域每点可导
-  2. 导函数在某点不连续（极限不存在或极限不等于函数值）
-- **常见认知偏差**：许多初学者误认为可导函数的导数"应该"是连续的，但可导性只保证函数本身连续，不保证导数的连续性
-- **解的多重性**：反例不唯一，但经典反例最具教学价值
+## Question meaning analysis
+- **Assertion**: Differentiable $\implies$ derivative is continuous
+- **Goal**: Determine authenticity; if false, construct a counterexample
+- **Conditions to be checked**:
+1. The function is differentiable at every point in the domain
+2. The derivative function is discontinuous at a certain point (the limit does not exist or the limit is not equal to the function value)
+- **Common cognitive bias**: Many beginners mistakenly believe that the derivative of a differentiable function "should" be continuous, but differentiability only guarantees the continuity of the function itself, not the continuity of the derivative.
+- **Multiplicity of Solutions**: Counterexamples are not unique, but classic counterexamples have the most teaching value
 
-## 方法选择
-采用**构造反例法**，构造一个处处可导但导数在一点不连续的函数。经典反例为：
+## Method selection
+Use the **Construction of Counterexample Method** to construct a function that is differentiable everywhere but has a discontinuous derivative at one point. The classic counterexample is:
 
-$$f(x) = \begin{cases} x^2 \sin(1/x), & x \neq 0 \\ 0, & x = 0 \end{cases}$$
+ $$f(x) = \begin{cases} x^2 \sin(1/x), & x \neq 0 \\ 0, & x = 0 \end{cases}$$
 
-选择该例的理由：$x^2$ 提供可导性（平方项在零点可导），$\sin(1/x)$ 提供导数振荡（导致不连续），两者乘积极为巧妙。
+The reason for choosing this example: $x^2$ provides differentiability (the square term is differentiable at the zero point), $\sin(1/x)$ provides derivative oscillation (leading to discontinuity), and the positive multiplication of the two is clever.
 
-## 解题过程
+## Problem solving process
 
-**断言：错误。可导不蕴含导数连续。**
+**Assertion: False. Differentiability does not imply continuity of derivatives. **
 
-### 构造反例
+### Constructing counterexamples
 
-定义函数 $f: \mathbb{R} \to \mathbb{R}$：
+Define function $f: \mathbb{R} \to \mathbb{R}$:
 
-$$f(x) = \begin{cases} x^2 \sin\left(\dfrac{1}{x}\right), & x \neq 0 \\[12pt] 0, & x = 0 \end{cases}$$
+ $$f(x) = \begin{cases} x^2 \sin\left(\dfrac{1}{x}\right), & x \neq 0 \\[12pt] 0, & x = 0 \end{cases}$$
 
-### Step 1：证明 $f$ 在 $x \neq 0$ 处可导
+### Step 1: Prove that $f$ is derivable at $x \neq 0$
 
-当 $x \neq 0$ 时，$f(x)$ 是可导函数 $x^2$ 和 $\sin(1/x)$ 的乘积（复合函数可导，因 $\sin$ 处处可导，$1/x$ 在 $x \neq 0$ 可导），由乘积法则：
+When $x \neq 0$, $f(x)$ is the product of differentiable functions $x^2$ and $\sin(1/x)$ (the composite function is differentiable, because $\sin$ is differentiable everywhere and $1/x$ is differentiable at $x \neq 0$), according to the product rule:
 
-$$f'(x) = 2x \cdot \sin\left(\frac{1}{x}\right) + x^2 \cdot \cos\left(\frac{1}{x}\right) \cdot \left(-\frac{1}{x^2}\right)$$
+ $$f'(x) = 2x \cdot \sin\left(\frac{1}{x}\right) + x^2 \cdot \cos\left(\frac{1}{x}\right) \cdot \left(-\frac{1}{x^2}\right)$$
 
-$$f'(x) = 2x \sin\left(\frac{1}{x}\right) - \cos\left(\frac{1}{x}\right), \quad x \neq 0$$
+ $$f'(x) = 2x \sin\left(\frac{1}{x}\right) - \cos\left(\frac{1}{x}\right), \quad x \neq 0$$
 
-### Step 2：证明 $f$ 在 $x = 0$ 处可导
+### Step 2: Prove that $f$ is derivable at $x = 0$
 
-由导数定义：
+Defined by the derivative:
 
-$$f'(0) = \lim_{h \to 0} \frac{f(0 + h) - f(0)}{h} = \lim_{h \to 0} \frac{h^2 \sin(1/h) - 0}{h} = \lim_{h \to 0} h \cdot \sin\left(\frac{1}{h}\right)$$
+ $$f'(0) = \lim_{h \to 0} \frac{f(0 + h) - f(0)}{h} = \lim_{h \to 0} \frac{h^2 \sin(1/h) - 0}{h} = \lim_{h \to 0} h \cdot \sin\left(\frac{1}{h}\right)$$
 
-由于 $\left|\sin(1/h)\right| \leq 1$，有 $0 \leq |h \cdot \sin(1/h)| \leq |h|$，由夹逼定理（squeeze theorem），
+Since $\left|\sin(1/h)\right| \leq 1$ , there is $0 \leq |h \cdot \sin(1/h)| \leq |h|$ , by squeeze theorem,
 
-$$\lim_{h \to 0} h \cdot \sin\left(\frac{1}{h}\right) = 0$$
+ $$\lim_{h \to 0} h \cdot \sin\left(\frac{1}{h}\right) = 0$$
 
-故 $f'(0) = 0$。$f$ 在 $x = 0$ 处可导。
+Hence $f'(0) = 0$ . $f$ is derivable at $x = 0$.
 
-### Step 3：证明 $f'$ 在 $x = 0$ 处不连续
+### Step 3: Prove that $f'$ is discontinuous at $x = 0$
 
-要证明 $f'$ 在 $x = 0$ 不连续，需证 $\lim_{x \to 0} f'(x)$ 不存在（或存在但不等于 $f'(0) = 0$）。
+To prove that $f'$ is discontinuous at $x = 0$, you need to prove that $\lim_{x \to 0} f'(x)$ does not exist (or exists but is not equal to $f'(0) = 0$).
 
-考察 $f'(x) = 2x\sin(1/x) - \cos(1/x)$（$x \neq 0$）：
+Examine $f'(x) = 2x\sin(1/x) - \cos(1/x)$ ( $x \neq 0$ ):
 
-- 第一项 $\lim_{x \to 0} 2x\sin(1/x) = 0$（夹逼定理）
-- 第二项 $\lim_{x \to 0} \cos(1/x)$ **不存在**
+- The first term $\lim_{x \to 0} 2x\sin(1/x) = 0$ (pinch theorem)
+- The second item $\lim_{x \to 0} \cos(1/x)$ **does not exist**
 
-当 $x \to 0$ 时，$1/x \to \infty$，$\cos(1/x)$ 在 $[-1, 1]$ 之间无限振荡，极限不存在。
+When $x \to 0$, $1/x \to \infty$, $\cos(1/x)$ oscillate infinitely between $[-1, 1]$, the limit does not exist.
 
-例如：取序列 $x_n = \frac{1}{2n\pi}$，则 $\cos(1/x_n) = \cos(2n\pi) = 1$，$f'(x_n) \to -1$。
-取序列 $x_n = \frac{1}{(2n+1)\pi}$，则 $\cos(1/x_n) = \cos((2n+1)\pi) = -1$，$f'(x_n) \to 1$。
+For example: take the sequence $x_n = \frac{1}{2n\pi}$, then $\cos(1/x_n) = \cos(2n\pi) = 1$, $f'(x_n) \to -1$.
+Take the sequence $x_n = \frac{1}{(2n+1)\pi}$, then $\cos(1/x_n) = \cos((2n+1)\pi) = -1$, $f'(x_n) \to 1$.
 
-两个子序列趋于不同极限，因此 $\lim_{x \to 0} f'(x)$ 不存在。
+The two subsequences tend to different limits, so $\lim_{x \to 0} f'(x)$ does not exist.
 
-**结论**：$f'$ 在 $x = 0$ 处不连续（甚至极限都不存在），但 $f$ 在 $x = 0$ 处可导。原断言被证伪。
+**Conclusion**: $f'$ is discontinuous at $x = 0$ (not even the limit exists), but $f$ is differentiable at $x = 0$. The original assertion was falsified.
 
-## 验算
+## Check calculation
 
-**验算方法 1：验证 $f'(0)$ 的计算**
+**Verification method 1: Verify the calculation of $f'(0)$**
 
-$$\lim_{h \to 0} \frac{h^2 \sin(1/h)}{h} = \lim_{h \to 0} h \sin\left(\frac{1}{h}\right)$$
+ $$\lim_{h \to 0} \frac{h^2 \sin(1/h)}{h} = \lim_{h \to 0} h \sin\left(\frac{1}{h}\right)$$
 
-夹逼定理：$-|h| \leq h\sin(1/h) \leq |h|$，当 $h \to 0$ 时两端均趋于 $0$，故极限为 $0$ ✓
+Pinch theorem: $-|h| \leq h\sin(1/h) \leq |h|$, when $h \to 0$, both ends tend to $0$, so the limit is $0$ ✓
 
-**验算方法 2：验证导数公式的求导**
+**Check calculation method 2: Verify the derivation of the derivative formula**
 
-对 $x \neq 0$：
-$$f'(x) = \frac{d}{dx}[x^2] \cdot \sin(1/x) + x^2 \cdot \frac{d}{dx}[\sin(1/x)]$$
-$$= 2x \cdot \sin(1/x) + x^2 \cdot \cos(1/x) \cdot (-1/x^2)$$
-$$= 2x\sin(1/x) - \cos(1/x)$$
+For $x \neq 0$ :
+ $$f'(x) = \frac{d}{dx}[x^2] \cdot \sin(1/x) + x^2 \cdot \frac{d}{dx}[\sin(1/x)]$$
+ $$= 2x \cdot \sin(1/x) + x^2 \cdot \cos(1/x) \cdot (-1/x^2)$$
+ $$= 2x\sin(1/x) - \cos(1/x)$$
 
-求导正确 ✓
+The derivation is correct ✓
 
-**验算方法 3：验证 $f'$ 的不连续性——两点序列法**
+**Check method 3: Verify the discontinuity of $f'$ - two-point sequence method**
 
-- 序列 $x_n^{(1)} = 1/(2n\pi)$：$f'(x_n^{(1)}) = \frac{2}{2n\pi}\sin(2n\pi) - \cos(2n\pi) = 0 - 1 = -1$
-- 序列 $x_n^{(2)} = 1/((2n+1)\pi)$：$f'(x_n^{(2)}) = \frac{2}{(2n+1)\pi}\sin((2n+1)\pi) - \cos((2n+1)\pi) = 0 - (-1) = 1$
+- Sequence $x_n^{(1)} = 1/(2n\pi)$ : $f'(x_n^{(1)}) = \frac{2}{2n\pi}\sin(2n\pi) - \cos(2n\pi) = 0 - 1 = -1$
+- Sequence $x_n^{(2)} = 1/((2n+1)\pi)$ : $f'(x_n^{(2)}) = \frac{2}{(2n+1)\pi}\sin((2n+1)\pi) - \cos((2n+1)\pi) = 0 - (-1) = 1$
 
-$\lim_{n \to \infty} f'(x_n^{(1)}) = -1$，$\lim_{n \to \infty} f'(x_n^{(2)}) = 1$，两极限不等，$\lim_{x \to 0} f'(x)$ 不存在 ✓
+$\lim_{n \to \infty} f'(x_n^{(1)}) = -1$, $\lim_{n \to \infty} f'(x_n^{(2)}) = 1$, the two limits are not equal, $\lim_{x \to 0} f'(x)$ does not exist ✓
 
-**验算方法 4：确认反例有效性的完整清单**
+**Check method 4: Complete list to confirm the validity of counterexamples**
 
-| 检查项 | 结果 |
+| Check items | Results |
 |--------|------|
-| $f$ 在 $x \neq 0$ 可导 | ✓ 初等函数的乘积和复合 |
-| $f$ 在 $x = 0$ 可导 | ✓ $f'(0) = 0$ |
-| $f'$ 在 $x \neq 0$ 的表达式正确 | ✓ 已验证求导 |
-| $\lim_{x \to 0} f'(x)$ 不存在 | ✓ 序列法证明 |
-| 因此 $f'$ 在 $x=0$ 不连续 | ✓ |
+| $f$ is differentiable in $x \neq 0$ | ✓ Product and composition of elementary functions |
+| $f$ is differentiable from $x = 0$ | ✓ $f'(0) = 0$ |
+| The expression of $f'$ in $x \neq 0$ is correct | ✓ Derivative verified |
+| $\lim_{x \to 0} f'(x)$ does not exist | ✓ Sequence method proof |
+| Therefore $f'$ is discontinuous at $x=0$ | ✓ |
 
-## 最终答案
+## Final answer
 
-原断言 **错误**。反例：函数
+The original assertion was **wrong**. Counterexample: function
 
-$$f(x) = \begin{cases} x^2 \sin(1/x), & x \neq 0 \\ 0, & x = 0 \end{cases}$$
+ $$f(x) = \begin{cases} x^2 \sin(1/x), & x \neq 0 \\ 0, & x = 0 \end{cases}$$
 
-处处可导，$f'(0) = 0$，但 $\lim_{x \to 0} f'(x)$ 不存在，故 $f'$ 在 $x=0$ 不连续。
+It is derivable everywhere, $f'(0) = 0$, but $\lim_{x \to 0} f'(x)$ does not exist, so $f'$ is not continuous in $x=0$.
 
-## 易错点
-1. **混淆条件与结论**：可导 $\implies$ $f$ 连续，但导数的连续性需要额外的条件（如 $f$ 属于 $C^1$ 类）
-2. **误以为反例的特殊性**：这个反例不是"病态"的边界情况，而是标准教材中的经典反例，深刻说明了"可导"与"导数连续"之间的差距
-3. **夹逼定理的条件**：使用夹逼定理求 $f'(0)$ 时，需要确认 $\sin(1/h)$ 确实有界（$|\sin(\cdot)| \leq 1$），这是正确使用的关键
-4. **极限不存在的判定**：不能仅凭"振荡"就断言极限不存在，需要严格构造两个趋于不同极限的子序列
-5. **不要过度推广**：虽然存在反例，但达布定理（Darboux's theorem）保证导数具有介值性质——导数即使不连续，也不能有第一类间断点
+## Easy to make mistakes
+1. **Confusing conditions and conclusions**: Differentiable $\implies$ $f$ is continuous, but the continuity of the derivative requires additional conditions (such as $f$ belongs to the $C^1$ class)
+2. **Mistake on the particularity of the counterexample**: This counterexample is not a "pathological" boundary situation, but a classic counterexample in standard textbooks, which profoundly illustrates the gap between "differentiable" and "derivative continuous"
+3. **Conditions of the pinch theorem**: When using the pinch theorem to find $f'(0)$, you need to confirm that $\sin(1/h)$ is indeed bounded ($|\sin(\cdot)| \leq 1$). This is the key to correct use.
+4. **Determination of the non-existence of the limit**: It cannot be concluded that the limit does not exist based on "oscillation" alone. It is necessary to strictly construct two subsequences tending to different limits.
+5. **Don’t overgeneralize**: Although there are counterexamples, Darboux’s theorem guarantees that the derivative has intermediate properties—even if the derivative is discontinuous, it cannot have the first type of discontinuity.

@@ -1,89 +1,89 @@
-# 极限计算 —— Taylor 展开法
+# Limit calculation - Taylor expansion method
 
-## 用户输入
-求极限：
+## User input
+Find the limit:
 
-$$\lim_{x \to 0} \frac{e^x - 1 - \sin x}{x^2}$$
+     $$\lim_{x \to 0} \frac{e^x - 1 - \sin x}{x^2}$$
 
-## Skill 分类
-微积分
+## Skill Category
+Calculus
 
-## 题意解析
-- **极限类型**：$x \to 0$ 时分子分母均趋于 $0$，为 $\frac{0}{0}$ 型不定式。
-- **分子结构**：$e^x - 1 - \sin x$。当 $x \to 0$ 时，$e^x \to 1$，$\sin x \to 0$，所以分子 $\to 1 - 1 - 0 = 0$。
-- **分母结构**：$x^2 \to 0$。
-- **关键观察**：$e^x$ 和 $\sin x$ 在 $x = 0$ 处均有 Taylor 展开式，展开到 $x^2$ 的阶数即可消去低阶项。
-- **展开阶数的选择**：分母为 $x^2$，展开到 $x^2$ 项（即 $O(x^3)$）以捕获分子中与 $x^2$ 同阶的项。
+## Question meaning analysis
+- **Limit type**: When     $x \to 0$    , both the numerator and denominator tend to     $0$    , which is the     $\frac{0}{0}$     type infinitive.
+- **Molecular Structure**:     $e^x - 1 - \sin x$    . When     $x \to 0$     ,     $e^x \to 1$     ,     $\sin x \to 0$     , so the numerator is     $\to 1 - 1 - 0 = 0$     .
+- **Denominator Structure**:     $x^2 \to 0$     .
+- **Key Observation**:     $e^x$     and     $\sin x$     both have Taylor expansions at     $x = 0$    , which can be expanded to the order of     $x^2$     to eliminate the lower-order terms.
+- **Choice of expansion order**: Denominator is     $x^2$    , expand to     $x^2$     terms (i.e.     $O(x^3)$    ) to capture terms in the numerator with the same order as     $x^2$    .
 
-## 方法选择
-**首选方法**：Taylor 展开法。将 $e^x$ 和 $\sin x$ 分别展开到足够高阶，代入后化简，低阶项相互抵消，余下主导项即极限值。
+## Method selection
+**Preferred method**: Taylor expansion. Expand     $e^x$     and     $\sin x$     to a sufficiently high order and simplify after substitution. The low-order terms cancel each other out, and the remaining dominant terms are the limit values.
 
-**备选方法**：洛必达法则。本题也可用洛必达法则求解，但需要求导两次，计算量较大且容易出错，Taylor 展开更直接。数值逼近可作为数值验证。
+**Alternative Method**: Lópida's Law. This problem can also be solved by L'Hôpital's rule, but it requires two derivatives, which requires a large amount of calculation and is prone to errors. Taylor expansion is more direct. Numerical approximations serve as numerical verification.
 
-**理由**：形如 $e^x - \text{多项式}$ 的极限，Taylor 展开通常比洛必达法则更高效，尤其是当分子含多个函数时。
+**Rationale**: As a limit of the form $e^x - \text{Polynomial}$ , Taylor's expansion is often more efficient than L'Hobida's rule, especially when the molecule contains multiple functions.
 
-## 解题过程
+## Problem solving process
 
-### 第一步：写出 Taylor 展开式
+### Step 1: Write the Taylor expansion
 
-$e^x$ 在 $x = 0$ 处的展开（到 $x^3$ 项）：
+Expansion of     $e^x$     at     $x = 0$     (to     $x^3$     item):
 
-$$e^x = 1 + x + \frac{x^2}{2} + \frac{x^3}{6} + O(x^4)$$
+     $$e^x = 1 + x + \frac{x^2}{2} + \frac{x^3}{6} + O(x^4)$$
 
-$\sin x$ 在 $x = 0$ 处的展开（到 $x^3$ 项）：
+Expansion of     $\sin x$     at     $x = 0$     (to     $x^3$     item):
 
-$$\sin x = x - \frac{x^3}{6} + O(x^5)$$
+     $$\sin x = x - \frac{x^3}{6} + O(x^5)$$
 
-### 第二步：代入分子
+### Step 2: Substitute the numerator
 
-$$e^x - 1 - \sin x = \left(1 + x + \frac{x^2}{2} + \frac{x^3}{6} + O(x^4)\right) - 1 - \left(x - \frac{x^3}{6} + O(x^5)\right)$$
+     $$e^x - 1 - \sin x = \left(1 + x + \frac{x^2}{2} + \frac{x^3}{6} + O(x^4)\right) - 1 - \left(x - \frac{x^3}{6} + O(x^5)\right)$$
 
-消去常数项和一次项：
+Eliminate constant and linear terms:
 
-$$= x + \frac{x^2}{2} + \frac{x^3}{6} - x + \frac{x^3}{6} + O(x^4)$$
+     $$= x + \frac{x^2}{2} + \frac{x^3}{6} - x + \frac{x^3}{6} + O(x^4)$$
 
-$$= \frac{x^2}{2} + \frac{x^3}{3} + O(x^4)$$
+     $$= \frac{x^2}{2} + \frac{x^3}{3} + O(x^4)$$
 
-### 第三步：求极限
+### Step 3: Find the limit
 
-$$\frac{e^x - 1 - \sin x}{x^2} = \frac{\frac{x^2}{2} + \frac{x^3}{3} + O(x^4)}{x^2} = \frac{1}{2} + \frac{x}{3} + O(x^2)$$
+     $$\frac{e^x - 1 - \sin x}{x^2} = \frac{\frac{x^2}{2} + \frac{x^3}{3} + O(x^4)}{x^2} = \frac{1}{2} + \frac{x}{3} + O(x^2)$$
 
-令 $x \to 0$：
+Let     $x \to 0$     :
 
-$$\lim_{x \to 0} \frac{e^x - 1 - \sin x}{x^2} = \frac{1}{2}$$
+     $$\lim_{x \to 0} \frac{e^x - 1 - \sin x}{x^2} = \frac{1}{2}$$
 
-## 验算
+## Check calculation
 
-### 方法一：洛必达法则
+### Method 1: Lópida’s Law
 
-第一次应用（$\frac{0}{0}$ 型，条件满足：$x \to 0$，$e^x - 1 - \sin x$ 和 $x^2$ 均可导）：
+First application (    $\frac{0}{0}$     type, conditions are met:     $x \to 0$    ,     $e^x - 1 - \sin x$     and     $x^2$     can all be derived):
 
-$$\lim_{x \to 0} \frac{e^x - 1 - \sin x}{x^2} = \lim_{x \to 0} \frac{e^x - \cos x}{2x}$$
+     $$\lim_{x \to 0} \frac{e^x - 1 - \sin x}{x^2} = \lim_{x \to 0} \frac{e^x - \cos x}{2x}$$
 
-仍为 $\frac{0}{0}$ 型（$\frac{1 - 1}{0}$），第二次应用洛必达：
+Still of type     $\frac{0}{0}$     (     $\frac{1 - 1}{0}$     ), apply Lupida for the second time:
 
-$$= \lim_{x \to 0} \frac{e^x + \sin x}{2} = \frac{1 + 0}{2} = \frac{1}{2}$$
+     $$= \lim_{x \to 0} \frac{e^x + \sin x}{2} = \frac{1 + 0}{2} = \frac{1}{2}$$
 
-结果一致。✓
+The results are consistent. ✓
 
-（注意：虽然洛必达在此题可行，但当分子含更多函数时，求导将变得繁琐；Taylor 展开的优势在于统一处理。）
+(Note: Although Lupida is feasible in this problem, when the molecule contains more functions, the derivation will become cumbersome; the advantage of Taylor expansion is that it can be processed uniformly.)
 
-### 方法二：数值逼近
+### Method 2: Numerical approximation
 
-| $x$ | $\frac{e^x - 1 - \sin x}{x^2}$ |
+|      $x$      |      $\frac{e^x - 1 - \sin x}{x^2}$      |
 |-----|--------------------------------|
-| 0.1 | $\frac{1.1051709 - 1 - 0.0998334}{0.01} = \frac{0.0053375}{0.01} \approx 0.5338$ |
-| 0.01 | $\frac{1.0100502 - 1 - 0.0099998}{0.0001} = \frac{0.0000504}{0.0001} \approx 0.504$ |
-| 0.001 | $\frac{1.0010005 - 1 - 0.0010000}{0.000001} = \frac{0.0000005}{0.000001} \approx 0.500$ |
+| 0.1 |      $\frac{1.1051709 - 1 - 0.0998334}{0.01} = \frac{0.0053375}{0.01} \approx 0.5338$      |
+| 0.01 |      $\frac{1.0100502 - 1 - 0.0099998}{0.0001} = \frac{0.0000504}{0.0001} \approx 0.504$      |
+| 0.001 |      $\frac{1.0010005 - 1 - 0.0010000}{0.000001} = \frac{0.0000005}{0.000001} \approx 0.500$      |
 
-当 $x \to 0$ 时，数值逼近 $0.5$。✓
+When     $x \to 0$    , the value approaches     $0.5$    . ✓
 
-## 最终答案
+## Final answer
 
-$$\boxed{\lim_{x \to 0} \frac{e^x - 1 - \sin x}{x^2} = \frac{1}{2}}$$
+     $$\boxed{\lim_{x \to 0} \frac{e^x - 1 - \sin x}{x^2} = \frac{1}{2}}$$
 
-## 易错点
-1. **展开阶数不足**：本题只展开到 $x$ 次是不够的（$e^x$ 和 $\sin x$ 的一次项相互抵消），至少要展开到 $x^2$ 项才能得到非零结果。
-2. **O 记号的处理**：$O(x^4)/x^2 = O(x^2) \to 0$（当 $x \to 0$），但不能简单写为 0 而丢失信息。关键是确保主导项被正确保留。
-3. **洛必达法则适用条件**：每次应用前必须确认分子分母在 $x \to 0$ 时均趋于 $0$（或均趋于 $\infty$），且导数存在、导数之比极限存在。
-4. **$\sin x$ 的展开**：$\sin x = x - x^3/6 + \cdots$，注意是减去 $x^3/6$ 而非加。
+## Easy to make mistakes
+1. **Insufficient expansion order**: It is not enough to expand this question to     $x$     times (the linear terms of     $e^x$     and     $\sin x$     cancel each other out). It must be expanded to at least     $x^2$     items to obtain a non-zero result.
+2. **O token processing**:     $O(x^4)/x^2 = O(x^2) \to 0$     (when     $x \to 0$    ), but cannot simply be written as 0 without losing information. The key is to ensure that the dominant term is preserved correctly.
+3. **Applicable conditions for Lópida's law**: Before each application, it must be confirmed that the numerator and denominator tend to     $0$     (or both tend to     $\infty$    ) when they are at     $x \to 0$    , and the derivative exists and the ratio limit of the derivative exists.
+4. **Expansion of     $\sin x$    **:     $\sin x = x - x^3/6 + \cdots$    . Note that     $x^3/6$     is subtracted instead of added.

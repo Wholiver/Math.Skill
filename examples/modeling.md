@@ -1,142 +1,142 @@
-# 数学建模：河边围栏最大面积问题
+#Mathematical modeling: Maximum area problem of riverside fence
 
-## 用户输入
-一位农民有 100 米篱笆，想靠河围一个矩形区域（靠河的一边不需要篱笆）。求使面积最大的矩形尺寸。
+## User input
+A farmer has a 100 meter fence and wants to enclose a rectangular area close to the river (no fence is needed on the river side). Find the size of the rectangle that maximizes the area.
 
-## Skill 分类
-数学建模 / 优化问题
+## Skill Category
+Mathematical modeling/optimization problems
 
-## 题意解析
+## Question meaning analysis
 
-**问题翻译**：
-- **资源**：100 米篱笆
-- **区域形状**：矩形
-- **约束**：矩形的一条边临河，该边不需篱笆（即只有三条边需要建篱笆）
-- **目标**：最大化矩形面积
+**Question translation**:
+- **RESOURCE**: 100m Fence
+- **Area Shape**: Rectangle
+- **Constraint**: One side of the rectangle faces the river, and no fence is needed on this side (that is, only three sides need to build fences)
+- **Goal**: Maximize the area of ​​the rectangle
 
-**变量定义**：
-- 设 $x$：垂直于河岸的边长（宽度，共两条）
-- 设 $y$：平行于河岸的边长（长度，一条，靠河不需篱笆）
+**Variable definition**:
+- Let     $x$    : the length of the side perpendicular to the river bank (width, two in total)
+- Let     $y$    : the length of the side parallel to the river bank (length, one piece, no fence is needed near the river)
 
-**约束条件**：
-- 篱笆总长：$2x + y = 100$
-- 物理意义：$x > 0$，$y > 0$（边长为正）
-- 隐含定义域：$x \in (0, 50)$（因为 $y = 100 - 2x > 0$ 要求 $x < 50$；$x > 0$ 是必要条件）
+**Constraints**:
+- Total fence length:     $2x + y = 100$
+- Physical meaning:     $x > 0$    ,     $y > 0$     (side length is positive)
+- Implied domain:     $x \in (0, 50)$     (because     $y = 100 - 2x > 0$     requires     $x < 50$    ;     $x > 0$     is a necessary condition)
 
-**目标函数**：面积 $A = xy$
+**Objective function**: Area     $A = xy$
 
-**解的约束**：最大面积时 $x$ 应为定义域的内点（非边界）
+**Solution constraints**: When the maximum area is,     $x$     should be the interior point of the domain (not the boundary)
 
-## 方法选择
+## Method selection
 
-**主方法：单变量优化（消元 + 求导）**
+**Main method: single variable optimization (elimination + derivation)**
 
-利用约束 $y = 100 - 2x$，将二元优化问题化为单变量优化问题，然后使用导数求极值。
+Use the constraint     $y = 100 - 2x$     to convert the binary optimization problem into a univariate optimization problem, and then use derivatives to find the extreme value.
 
-选择理由：该问题只有一个等式约束，消元后得到一元二次函数，求导即可。这是典型的建模-消元-求极值三步流程。
+Reason for selection: This problem has only one equality constraint. After elimination, a quadratic function of one variable can be obtained and just need to be differentiated. This is a typical three-step process of modeling-elimination-finding extreme values.
 
-**备选方法**：
-1. **配方法（完全平方）**：将 $A(x) = 100x - 2x^2$ 配方，直接读出最大值
-2. **不等式法（AM-GM）**：利用 $2x + y = 100$ 约束下的 $A = xy$ 最大化
-3. **Lagrange 乘数法**：二元约束优化的一般方法（此处稍显过度）
+**Alternative Method**:
+1. **Preparation method (complete square)**: Use the     $A(x) = 100x - 2x^2$     formula and directly read the maximum value
+2. **Inequality method (AM-GM)**: Maximize     $A = xy$     using     $2x + y = 100$     constraints
+3. **Lagrange multiplier method**: a general method for binary constrained optimization (a little excessive here)
 
-本文展示消元求导法（主方法）和配方法（验算），并进行全面验证。
+This article demonstrates the elimination derivation method (main method) and combination method (check calculation), and conducts comprehensive verification.
 
-## 解题过程
+## Problem solving process
 
-### Step 1：建立数学模型
+### Step 1: Establish mathematical model
 
-**模型要素**：
+**Model elements**:
 
-| 要素 | 内容 |
+| Elements | Content |
 |------|------|
-| 决策变量 | $x$（宽度），$y$（长度） |
-| 目标函数 | $A = x \cdot y$（最大化） |
-| 约束条件 | $2x + y = 100$，$x > 0$，$y > 0$ |
+| Decision variables |     $x$     (width),     $y$     (length) |
+| Objective function |     $A = x \cdot y$     (maximize) |
+| Constraints |     $2x + y = 100$    ,     $x > 0$    ,     $y > 0$     |
 
-**模型类型**：线性约束下的二次目标函数最大化问题（连续优化）。
+**Model type**: Quadratic objective function maximization problem under linear constraints (continuous optimization).
 
-### Step 2：消元化为一元问题
+### Step 2: Eliminate into a univariate problem
 
-由约束 $2x + y = 100$ 得 $y = 100 - 2x$。
+From the constraint     $2x + y = 100$    , we get     $y = 100 - 2x$    .
 
-代入目标函数：
-$$A(x) = x \cdot (100 - 2x) = 100x - 2x^2$$
+Substitute into the objective function:
+     $$A(x) = x \cdot (100 - 2x) = 100x - 2x^2$$
 
-定义域：$x \in (0, 50)$（因为 $y = 100 - 2x > 0$）。
+Domain:     $x \in (0, 50)$     (because     $y = 100 - 2x > 0$     ).
 
-问题转化为：求一元函数 $A(x) = 100x - 2x^2$ 在 $(0, 50)$ 上的最大值。
+The problem is transformed into: find the maximum value of the unary function     $A(x) = 100x - 2x^2$     on     $(0, 50)$    .
 
-### Step 3：求导找临界点
+### Step 3: Find the critical point by derivation
 
-$$A'(x) = 100 - 4x$$
+     $$A'(x) = 100 - 4x$$
 
-令 $A'(x) = 0$：
-$$100 - 4x = 0 \implies x = 25$$
+Let     $A'(x) = 0$     :
+     $$100 - 4x = 0 \implies x = 25$$
 
-在定义域 $(0, 50)$ 内，只有一个临界点 $x = 25$。
+Within the domain     $(0, 50)$    , there is only one critical point     $x = 25$    .
 
-### Step 4：判定极值类型
+### Step 4: Determine the extreme value type
 
-**二阶导数检验**：
-$$A''(x) = -4 < 0$$
+**Second Derivative Test**:
+     $$A''(x) = -4 < 0$$
 
-$A''(25) = -4 < 0$，故 $x = 25$ 是极大值点。由于函数在 $(0, 50)$ 上只有一个临界点且二阶导数恒为负，这是全局最大值。
+    $A''(25) = -4 < 0$    , so     $x = 25$     is the maximum value point. Since the function has only one critical point on     $(0, 50)$     and the second derivative is always negative, this is the global maximum.
 
-### Step 5：计算最优解
+### Step 5: Calculate the optimal solution
 
-$$x = 25 \text{ m}$$
-$$y = 100 - 2 \times 25 = 50 \text{ m}$$
-$$A_{\max} = 25 \times 50 = 1250 \text{ m}^2$$
+     $$x = 25 \text{ m}$$
+     $$y = 100 - 2 \times 25 = 50 \text{ m}$$
+     $$A_{\max} = 25 \times 50 = 1250 \text{ m}^2$$
 
-### Step 6：边界行为确认
+### Step 6: Boundary behavior confirmation
 
-- 当 $x \to 0^+$：$y \to 100$，$A \to 0$（退化为一维线段，面积为零）
-- 当 $x \to 50^-$：$y \to 0$，$A \to 0$（退化为二维线段，面积为零）
+- When     $x \to 0^+$     :     $y \to 100$     ,     $A \to 0$     (degenerate into a one-dimensional line segment with zero area)
+- When     $x \to 50^-$     :     $y \to 0$     ,     $A \to 0$     (degenerated into a two-dimensional line segment with zero area)
 
-边界值均为 0，小于内点 $x=25$ 处的 $1250$，确认这是全局最大值。
+The boundary values ​​are all 0, which is less than     $1250$     at the interior point     $x=25$    , confirming that this is the global maximum.
 
-## 验算
+## Check calculation
 
-### 验算方法 1：配方法（代数验证）
+### Verification method 1: Matching method (algebraic verification)
 
-$$A(x) = 100x - 2x^2 = -2(x^2 - 50x)$$
-$$= -2\left[(x^2 - 50x + 625) - 625\right] = -2(x - 25)^2 + 1250$$
+     $$A(x) = 100x - 2x^2 = -2(x^2 - 50x)$$
+     $$= -2\left[(x^2 - 50x + 625) - 625\right] = -2(x - 25)^2 + 1250$$
 
-由于 $-2(x - 25)^2 \leq 0$ 且当 $x = 25$ 时取 0，故：
-$$A_{\max} = 1250, \quad \text{在 } x = 25 \text{ 时取得}$$
+Since     $-2(x - 25)^2 \leq 0$     takes 0 when     $x = 25$    , therefore:
+$$A_{\max} = 1250, \quad \text{obtained}$$ when } x = 25 \text{
 
-与求导结果一致 ✓
+Consistent with the derivation result ✓
 
-### 验算方法 2：邻域验证
+### Verification method 2: Neighborhood verification
 
-| $x$ | $y = 100 - 2x$ | $A = xy$ | 说明 |
+|     $x$     |     $y = 100 - 2x$     |     $A = xy$     | Description |
 |-----|----------------|----------|------|
-| 24 | 52 | 1248 | 小于 1250 |
-| 25 | 50 | 1250 | 最大值 |
-| 26 | 48 | 1248 | 小于 1250 |
+| 24 | 52 | 1248 | Less than 1250 |
+| 25 | 50 | 1250 | Maximum value |
+| 26 | 48 | 1248 | Less than 1250 |
 
-验证了 $x=25$ 确实比邻近点给出更大的面积 ✓
+Verified that     $x=25$     indeed gives a larger area than neighboring points ✓
 
-### 验算方法 3：量纲检查
+### Calculation method 3: Dimension check
 
-- 篱笆长度：$2x + y = 2 \times 25 + 50 = 100$ m ✓
-- 面积单位：$A = 25 \text{ m} \times 50 \text{ m} = 1250 \text{ m}^2$ ✓
-- 变量量纲一致：$x$ 和 $y$ 的单位均为米，$A$ 的单位为平方米 ✓
+- Fence length:     $2x + y = 2 \times 25 + 50 = 100$     m ✓
+- Area unit:     $A = 25 \text{ m} \times 50 \text{ m} = 1250 \text{ m}^2$     ✓
+- The variables have the same dimensions:     $x$     and     $y$     are both in meters, and     $A$     is in square meters ✓
 
-### 验算方法 4：等周问题的类比验证
+### Verification method 4: Analogous verification of isoperiodic problems
 
-对于固定周长的矩形面积最大化：
-- 封闭矩形（四面篱笆）：周长 $P = 2x + 2y$ 固定时，$x = y$ 时面积最大（正方形）
-- 半封闭矩形（三面篱笆，一面靠河）：$2x + y = 100$，得出 $y = 2x$ 时面积最大
+Maximizing the area of ​​a rectangle with fixed perimeter:
+- Closed rectangle (four-sided fence): When the perimeter is fixed at     $P = 2x + 2y$    , the area is the largest (square) when     $x = y$
+- Semi-closed rectangle (with fences on three sides and one side by the river):     $2x + y = 100$    , the largest area is obtained when     $y = 2x$     is obtained
 
-这与直觉一致：靠河面"免费"，所以应该让靠河面（$y$）更宽——两边各建一半宽度的篱笆用于形成两翼。结果 $y:x = 50:25 = 2:1$ 符合此直觉 ✓
+This is consistent with intuition: the river front is "free", so the river front (     $y$     ) should be made wider - with half-width fences on each side to form the wings. The result     $y:x = 50:25 = 2:1$     fits this intuition ✓
 
-### 验算方法 5：枚举法粗略验证
+### Verification method 5: Rough verification by enumeration method
 
-用步长 $\Delta x = 5$ 枚举几个值：
+Enumerate several values ​​with step size     $\Delta x = 5$    :
 
-| $x$ | $y$ | $A$ |
+|      $x$      |      $y$      |      $A$      |
 |-----|-----|-----|
 | 5 | 90 | 450 |
 | 10 | 80 | 800 |
@@ -148,19 +148,19 @@ $$A_{\max} = 1250, \quad \text{在 } x = 25 \text{ 时取得}$$
 | 40 | 20 | 800 |
 | 45 | 10 | 450 |
 
-$A$ 在 $x=25$ 处最大 ✓
+    $A$     is maximum at     $x=25$     ✓
 
-## 最终答案
+## Final answer
 
-最优方案：垂直于河岸的宽度 $x = 25$ 米，平行于河岸的长度 $y = 50$ 米，最大面积为 $1250$ 平方米。
+Optimal solution: width perpendicular to the river bank     $x = 25$     meters, length parallel to the river bank     $y = 50$     meters, maximum area     $1250$     square meters.
 
-数学表达：
-$$x^* = 25 \text{ m}, \quad y^* = 50 \text{ m}, \quad A_{\max} = 1250 \text{ m}^2$$
+Mathematical expression:
+     $$x^* = 25 \text{ m}, \quad y^* = 50 \text{ m}, \quad A_{\max} = 1250 \text{ m}^2$$
 
-## 易错点
-1. **约束等式写错**：靠河面不需篱笆，故篱笆总长为 $2x + y = 100$（不是 $2x + 2y = 100$），这是最容易掉入的陷阱
-2. **忽略物理约束**：$x$ 和 $y$ 必须为正，导致定义域为 $(0, 50)$ 而非 $\mathbb{R}$。$x=0$ 和 $x=50$ 虽然在数学上对应退化情况，但物理意义上不可接受
-3. **极值与最值的区分**：一阶导数为零给出的是极值点，需要二阶导数检验 + 边界检查才能确认是全局最大值
-4. **求导错误**：$A(x) = 100x - 2x^2$ 的导数是 $100 - 4x$（注意 $2x^2$ 的导数是 $4x$，不是 $2x$）
-5. **题目条件的过度推广**：该结论（$y = 2x$）仅在矩形且一面靠河时成立。如果形状不是矩形，或靠河面不止一面，结论会完全不同
-6. **优化问题的完整性**：除了给出最优解，还应给出最优值（最大面积），这是数学建模题目的常见扣分点
+## Easy to make mistakes
+1. **The constraint equation is written incorrectly**: There is no need for a fence near the river, so the total length of the fence is     $2x + y = 100$     (not     $2x + 2y = 100$    ). This is the easiest trap to fall into.
+2. **Ignore physical constraints**:     $x$     and     $y$     must be positive, causing the domain to be     $(0, 50)$     instead of     $\mathbb{R}$    . Although     $x=0$     and     $x=50$     correspond to degenerate situations mathematically, they are not acceptable in a physical sense
+3. **Distinguishing between extreme values ​​and maximum values**: The first-order derivative of zero gives the extreme point, and second-order derivative test + boundary check is required to confirm that it is the global maximum.
+4. **derivative error**: The derivative of     $A(x) = 100x - 2x^2$     is     $100 - 4x$     (note that the derivative of     $2x^2$     is     $4x$    , not     $2x$    )
+5. **Excessive generalization of question conditions**: This conclusion (    $y = 2x$    ) is only true when it is a rectangle and one side is close to the river. If the shape is not rectangular, or if it is close to the river on more than one side, the conclusion will be completely different.
+6. **Completeness of the optimization problem**: In addition to giving the optimal solution, the optimal value (maximum area) should also be given. This is a common deduction point for mathematical modeling questions.

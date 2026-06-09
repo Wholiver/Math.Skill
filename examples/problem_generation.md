@@ -1,204 +1,204 @@
-# 二次方程练习题生成（含答案与评分标准）
+# Generation of quadratic equation practice questions (including answers and scoring standards)
 
-## 用户输入
-生成 3 道二次方程题目，难度递增，包含完整解答和评分标准。
+## User input
+Generate 3 quadratic equation questions with increasing difficulty, including complete solutions and scoring criteria.
 
-## Skill 分类
-代数 / 题目生成与评估
+## Skill Category
+Algebra/Question Generation and Assessment
 
-## 题意解析
-- **目标**：生成 3 道难度递增的二次方程（或二次方程相关）题目
-- **要求**：每道题需包含题目陈述、完整解答、常见错误、评分标准
-- **难度递增路径**：
-  - Easy：直接因式分解
-  - Medium：需用求根公式，系数非 1
-  - Hard：含参数讨论，需分析判别式
+## Question meaning analysis
+- **Goal**: Generate 3 quadratic equation (or quadratic equation related) questions of increasing difficulty
+- **Requirements**: Each question must include a problem statement, complete answer, common mistakes, and scoring criteria.
+- **Ascending Difficulty Paths**:
+- Easy: direct factorization
+- Medium: The root formula needs to be used, and the coefficient is not 1
+- Hard: Contains parameter discussion and needs to analyze the discriminant
 
 ---
 
-## Problem 1（简单）— 因式分解法
+## Problem 1 (Simple) — Factoring
 
-### 题目
-解方程：$x^2 - 7x + 12 = 0$
+### Title
+Solve the equation:     $x^2 - 7x + 12 = 0$
 
-### 解题过程
+### Problem solving process
 
-**Step 1：因式分解**
+**Step 1: Factorization**
 
-找两个数，和为 $-7$，积为 $12$。这两个数是 $-3$ 和 $-4$。
+Find two numbers whose sum is     $-7$     and their product is     $12$    . The two numbers are     $-3$     and     $-4$     .
 
-$$x^2 - 7x + 12 = (x - 3)(x - 4) = 0$$
+     $$x^2 - 7x + 12 = (x - 3)(x - 4) = 0$$
 
-验证：$(x-3)(x-4) = x^2 - 4x - 3x + 12 = x^2 - 7x + 12$ ✓
+Verification:     $(x-3)(x-4) = x^2 - 4x - 3x + 12 = x^2 - 7x + 12$     ✓
 
-**Step 2：零因子性质**
+**Step 2: Zero factor property**
 
-$$(x - 3)(x - 4) = 0 \implies x - 3 = 0 \text{ 或 } x - 4 = 0$$
+$$(x - 3)(x - 4) = 0 \implies x - 3 = 0 \text{ or } x - 4 = 0$$
 
-$$x = 3 \quad \text{或} \quad x = 4$$
+$$x = 3 \quad \text{or} \quad x = 4$$
 
-**验算**：
-- $x = 3$：$3^2 - 7 \times 3 + 12 = 9 - 21 + 12 = 0$ ✓
-- $x = 4$：$4^2 - 7 \times 4 + 12 = 16 - 28 + 12 = 0$ ✓
+**Check**:
+-      $x = 3$     ：     $3^2 - 7 \times 3 + 12 = 9 - 21 + 12 = 0$      ✓
+-      $x = 4$     ：     $4^2 - 7 \times 4 + 12 = 16 - 28 + 12 = 0$      ✓
 
-### 最终答案
-$$x = 3 \quad \text{或} \quad x = 4$$
+### Final answer
+$$x = 3 \quad \text{or} \quad x = 4$$
 
-### 常见错误
-1. 找因数时符号错误，写成 $(x+3)(x+4)$，和变成了 $+7$ 而非 $-7$
-2. 因式分解后忘记设每个因子为 0
-3. 只给出一个根
+### Common mistakes
+1. The sign is wrong when finding the factors, it is written as     $(x+3)(x+4)$    , and the sum becomes     $+7$     instead of     $-7$
+2. Forgetting to set each factor to 0 after factoring
+3. Only one root is given
 
-### 评分标准（共 10 分）
+### Scoring criteria (total 10 points)
 
-| 评分项 | 分值 | 说明 |
+| Rating items | Points | Description |
 |--------|------|------|
-| 正确因式分解 | 4 分 | 写出 $(x-3)(x-4)=0$ |
-| 应用零因子性质 | 3 分 | 分别设 $x-3=0$ 和 $x-4=0$ |
-| 得出正确解 | 2 分 | $x=3$ 和 $x=4$ |
-| 验算 | 1 分 | 将解代入原方程验证 |
+| Correct factorization | 4 points | Write     $(x-3)(x-4)=0$     |
+| Apply the zero factor property | 3 points | Let     $x-3=0$     and     $x-4=0$     respectively |
+| Get the correct solution | 2 points |     $x=3$     and     $x=4$     |
+| Check calculation | 1 point | Substitute the solution into the original equation to verify |
 
 ---
 
-## Problem 2（中等）— 求根公式法
+## Problem 2 (medium) - Root formula method
 
-### 题目
-解方程：$2x^2 + 3x - 2 = 0$
+### Title
+Solve the equation:     $2x^2 + 3x - 2 = 0$
 
-### 解题过程
+### Problem solving process
 
-**分析**：系数 $a=2$，直接因式分解不易，使用求根公式。
+**Analysis**: Coefficient     $a=2$    , direct factorization is not easy, use the root formula.
 
-**Step 1：计算判别式**
+**Step 1: Calculate the discriminant**
 
-$$\Delta = b^2 - 4ac = 3^2 - 4 \times 2 \times (-2) = 9 + 16 = 25$$
+     $$\Delta = b^2 - 4ac = 3^2 - 4 \times 2 \times (-2) = 9 + 16 = 25$$
 
-$\Delta = 25 > 0$，有两个不等实根。
+    $\Delta = 25 > 0$     , has two unequal real roots.
 
-**Step 2：应用求根公式**
+**Step 2: Apply the root formula**
 
-$$x = \frac{-b \pm \sqrt{\Delta}}{2a} = \frac{-3 \pm \sqrt{25}}{2 \times 2} = \frac{-3 \pm 5}{4}$$
+     $$x = \frac{-b \pm \sqrt{\Delta}}{2a} = \frac{-3 \pm \sqrt{25}}{2 \times 2} = \frac{-3 \pm 5}{4}$$
 
-$$x_1 = \frac{-3 + 5}{4} = \frac{2}{4} = \frac{1}{2}$$
+     $$x_1 = \frac{-3 + 5}{4} = \frac{2}{4} = \frac{1}{2}$$
 
-$$x_2 = \frac{-3 - 5}{4} = \frac{-8}{4} = -2$$
+     $$x_2 = \frac{-3 - 5}{4} = \frac{-8}{4} = -2$$
 
-**备选方法（因式分解）**：
+**Alternative method (factorization)**:
 
-$$2x^2 + 3x - 2 = (2x - 1)(x + 2) = 0$$
+     $$2x^2 + 3x - 2 = (2x - 1)(x + 2) = 0$$
 
-验证展开：$2x^2 + 4x - x - 2 = 2x^2 + 3x - 2$ ✓
+Verify expansion:     $2x^2 + 4x - x - 2 = 2x^2 + 3x - 2$     ✓
 
-得 $2x - 1 = 0$ 或 $x + 2 = 0$，即 $x = \frac{1}{2}$ 或 $x = -2$，与求根公式一致。
+Get     $2x - 1 = 0$     or     $x + 2 = 0$    , that is,     $x = \frac{1}{2}$     or     $x = -2$    , which is consistent with the root formula.
 
-**验算**：
-- $x = \frac{1}{2}$：$2 \times \frac{1}{4} + 3 \times \frac{1}{2} - 2 = \frac{1}{2} + \frac{3}{2} - 2 = 0$ ✓
-- $x = -2$：$2 \times 4 + 3 \times (-2) - 2 = 8 - 6 - 2 = 0$ ✓
+**Check**:
+-      $x = \frac{1}{2}$     ：     $2 \times \frac{1}{4} + 3 \times \frac{1}{2} - 2 = \frac{1}{2} + \frac{3}{2} - 2 = 0$      ✓
+-      $x = -2$     ：     $2 \times 4 + 3 \times (-2) - 2 = 8 - 6 - 2 = 0$      ✓
 
-### 最终答案
-$$x = \frac{1}{2} \quad \text{或} \quad x = -2$$
+### Final answer
+$$x = \frac{1}{2} \quad \text{or} \quad x = -2$$
 
-### 常见错误
-1. 求根公式中分母写成 $a$ 而非 $2a$，即 $x = (-b \pm \sqrt{\Delta})/a$
-2. 计算 $\Delta$ 时 $4ac$ 的符号搞错（$c=-2$，$4 \times 2 \times (-2) = -16$，减去负数为加）
-3. 忘记化简分数
+### Common mistakes
+1. The denominator in the root formula is written as     $a$     instead of     $2a$    , that is,     $x = (-b \pm \sqrt{\Delta})/a$
+2. The sign of     $4ac$     is wrong when calculating     $\Delta$     (    $c=-2$    ,     $4 \times 2 \times (-2) = -16$    , subtracting negative numbers is adding)
+3. Forgetting to simplify fractions
 
-### 评分标准（共 10 分）
+### Scoring criteria (total 10 points)
 
-| 评分项 | 分值 | 说明 |
+| Rating items | Points | Description |
 |--------|------|------|
-| 正确识别系数 $a, b, c$ | 2 分 | $a=2, b=3, c=-2$ |
-| 计算 $\Delta$ 正确 | 2 分 | $\Delta=25$ |
-| 正确代入求根公式 | 3 分 | $x = \frac{-3\pm 5}{4}$ |
-| 得出正确解 | 2 分 | $x=1/2$ 和 $x=-2$ |
-| 验算 | 1 分 | 代入验证 |
+| Correct identification coefficient     $a, b, c$     | 2 points |     $a=2, b=3, c=-2$     |
+| Calculate     $\Delta$     Correct | 2 points |     $\Delta=25$     |
+| Correctly substitute the root formula | 3 points |     $x = \frac{-3\pm 5}{4}$     |
+| Get the correct solution | 2 points |     $x=1/2$     and     $x=-2$     |
+| Verification | 1 point | Substitution verification |
 
 ---
 
-## Problem 3（困难）— 含参数与判别式分析
+## Problem 3 (difficult)—including parameter and discriminant analysis
 
-### 题目
-求所有实数 $k$，使方程 $x^2 + 2kx + k + 2 = 0$ 有实根。
+### Title
+Find all real numbers     $k$     such that the equation     $x^2 + 2kx + k + 2 = 0$     has real roots.
 
-### 解题过程
+### Problem solving process
 
-**分析**：这是一个含参数 $k$ 的二次方程（首项系数 $1 \neq 0$，确为二次）。有实根的条件是判别式非负。
+**Analysis**: This is a quadratic equation with parameter     $k$     (the first coefficient is     $1 \neq 0$    , which is indeed quadratic). The condition for having real roots is that the discriminant is non-negative.
 
-**Step 1：识别系数**
+**Step 1: Identification coefficient**
 
-$$a = 1, \quad b = 2k, \quad c = k + 2$$
+     $$a = 1, \quad b = 2k, \quad c = k + 2$$
 
-**Step 2：写出判别式并化简**
+**Step 2: Write the discriminant and simplify it**
 
-$$\Delta = b^2 - 4ac = (2k)^2 - 4 \times 1 \times (k + 2)$$
+     $$\Delta = b^2 - 4ac = (2k)^2 - 4 \times 1 \times (k + 2)$$
 
-$$\Delta = 4k^2 - 4(k + 2) = 4k^2 - 4k - 8$$
+     $$\Delta = 4k^2 - 4(k + 2) = 4k^2 - 4k - 8$$
 
-$$\Delta = 4(k^2 - k - 2)$$
+     $$\Delta = 4(k^2 - k - 2)$$
 
-**Step 3：因式分解判别式表达式**
+**Step 3: Factor the discriminant expression**
 
-$$k^2 - k - 2 = (k - 2)(k + 1)$$
+     $$k^2 - k - 2 = (k - 2)(k + 1)$$
 
-验证：$(k-2)(k+1) = k^2 + k - 2k - 2 = k^2 - k - 2$ ✓
+Verification:     $(k-2)(k+1) = k^2 + k - 2k - 2 = k^2 - k - 2$     ✓
 
-$$\Delta = 4(k - 2)(k + 1)$$
+     $$\Delta = 4(k - 2)(k + 1)$$
 
-**Step 4：解不等式 $\Delta \geq 0$**
+**Step 4: Solve the inequality     $\Delta \geq 0$     **
 
-需要有实根，即 $\Delta \geq 0$：
+Requires a real root, i.e.     $\Delta \geq 0$     :
 
-$$4(k - 2)(k + 1) \geq 0$$
+     $$4(k - 2)(k + 1) \geq 0$$
 
-由于 $4 > 0$，不等式等价于：
+Because of     $4 > 0$     , the inequality is equivalent to:
 
-$$(k - 2)(k + 1) \geq 0$$
+     $$(k - 2)(k + 1) \geq 0$$
 
-**Step 5：解二次不等式**
+**Step 5: Solve the quadratic inequality**
 
-零点：$k = -1$ 和 $k = 2$。
+Zero points:     $k = -1$     and     $k = 2$     .
 
-二次项系数为正，抛物线开口向上。因子 $(k-2)(k+1) \geq 0$ 的解为：
+The coefficient of the quadratic term is positive, and the parabola opens upward. The solution for factor     $(k-2)(k+1) \geq 0$     is:
 
-$$k \leq -1 \quad \text{或} \quad k \geq 2$$
+$$k \leq -1 \quad \text{or} \quad k \geq 2$$
 
-即 $k \in (-\infty, -1] \cup [2, +\infty)$。
+That is     $k \in (-\infty, -1] \cup [2, +\infty)$     .
 
-**Step 6：边界验证**
+**Step 6: Boundary verification**
 
-- $k = -1$：方程变为 $x^2 - 2x + 1 = 0 \implies (x-1)^2 = 0 \implies x = 1$（重根，$\Delta = 0$）✓
-- $k = 2$：方程变为 $x^2 + 4x + 4 = 0 \implies (x+2)^2 = 0 \implies x = -2$（重根，$\Delta = 0$）✓
-- $k = 0$（中间值，不应有实根）：方程变为 $x^2 + 0x + 2 = 0 \implies x^2 = -2$（无实根，$\Delta = -8$）✓
-- $k = -2$（小于 $-1$）：$\Delta = 4 \times (-4) \times (-1) = 16 > 0$，有实根 ✓
-- $k = 3$（大于 $2$）：$\Delta = 4 \times 1 \times 4 = 16 > 0$，有实根 ✓
+-     $k = -1$     : the equation becomes     $x^2 - 2x + 1 = 0 \implies (x-1)^2 = 0 \implies x = 1$     (double root,     $\Delta = 0$     ) ✓
+-     $k = 2$     : the equation becomes     $x^2 + 4x + 4 = 0 \implies (x+2)^2 = 0 \implies x = -2$     (double root,     $\Delta = 0$     ) ✓
+-     $k = 0$     (intermediate value, should not have real roots): equation becomes     $x^2 + 0x + 2 = 0 \implies x^2 = -2$     (no real roots,     $\Delta = -8$     )✓
+-     $k = -2$     (less than     $-1$     ):     $\Delta = 4 \times (-4) \times (-1) = 16 > 0$     , has real roots ✓
+-     $k = 3$     (greater than     $2$     ):     $\Delta = 4 \times 1 \times 4 = 16 > 0$     , has real roots ✓
 
-### 最终答案
-$$k \in (-\infty, -1] \cup [2, +\infty)$$
+### Final answer
+     $$k \in (-\infty, -1] \cup [2, +\infty)$$
 
-即 $k \leq -1$ 或 $k \geq 2$。
+That is     $k \leq -1$     or     $k \geq 2$     .
 
-### 常见错误
-1. 忘记判别式是 "非负"（$\geq 0$），只考虑严格大于（遗漏边界值 $k=-1$ 和 $k=2$，此时有重根）
-2. 解不等式 $(k-2)(k+1) \geq 0$ 时写反方向（写为 $-1 \leq k \leq 2$），混淆了两侧和中间的关系
-3. 化简判别式时忘记提取公因子，导致不等式难解
-4. 误以为 $a=0$ 也要讨论（此处 $a=1$ 恒不为零，无需讨论退化为一次方程的情况）
+### Common mistakes
+1. Forget that the discriminant is "non-negative" (     $\geq 0$     ), only consider strictly greater than (missing boundary values ​​    $k=-1$     and     $k=2$     , in which case there are multiple roots)
+2. When solving the inequality     $(k-2)(k+1) \geq 0$    , write the opposite direction (written as     $-1 \leq k \leq 2$    ), confusing the relationship between the two sides and the middle
+3. Forgetting to extract common factors when simplifying the discriminant, making the inequality difficult to solve
+4. Mistakenly thinking that     $a=0$     also needs to be discussed (here     $a=1$     is always not zero, so there is no need to discuss the situation of degenerating into a linear equation)
 
-### 评分标准（共 10 分）
+### Scoring criteria (total 10 points)
 
-| 评分项 | 分值 | 说明 |
+| Rating items | Points | Description |
 |--------|------|------|
-| 正确识别 $a,b,c$ | 1 分 | $a=1, b=2k, c=k+2$ |
-| 写出判别式并化简 | 3 分 | $\Delta = 4k^2 - 4k - 8 = 4(k^2 - k - 2)$ |
-| 因式分解判别式 | 2 分 | $\Delta = 4(k-2)(k+1)$ |
-| 解不等式 $\Delta \geq 0$ | 3 分 | 正确得出 $k \leq -1$ 或 $k \geq 2$ |
-| 边界验证 | 1 分 | 验证 $k=-1$ 和 $k=2$ 时有重根 |
+| Correct identification of     $a,b,c$     | 1 point |     $a=1, b=2k, c=k+2$     |
+| Write the discriminant and simplify it | 3 points |     $\Delta = 4k^2 - 4k - 8 = 4(k^2 - k - 2)$     |
+| Factoring discriminant | 2 points |     $\Delta = 4(k-2)(k+1)$     |
+| Solve the inequality     $\Delta \geq 0$     | 3 points | Correctly derive     $k \leq -1$     or     $k \geq 2$     |
+| Bounds verification | 1 point | Verify that     $k=-1$     and     $k=2$     have duplicate roots |
 
 ---
 
-## 整体难度递进说明
+## Overall difficulty progression description
 
-| 难度 | 核心方法 | 认知要求 |
+| Difficulty | Core Methods | Cognitive Requirements |
 |------|----------|----------|
-| Easy | 因式分解 | 找出两个和为 $-7$ 积为 $12$ 的数 |
-| Medium | 求根公式 | 识别系数、计算判别式、代入公式、化简分数 |
-| Hard | 参数分析 | 含参判别式、因式分解、二次不等式求解、边界检查 |
+| Easy | Factorization | Find two numbers whose sum is     $-7$     and whose product is     $12$     |
+| Medium | Root formula | Identify coefficients, calculate discriminants, substitute formulas, simplify fractions |
+| Hard | Parametric analysis | Parametric discriminant, factorization, quadratic inequality solution, boundary checking |

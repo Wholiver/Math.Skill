@@ -1,139 +1,139 @@
-# 常系数线性微分方程的初值问题
+# Initial value problem of linear differential equations with constant coefficients
 
-## 用户输入
-求解微分方程初值问题：
+## User input
+Solve the initial value problem of differential equations:
 
-$$y'' - 3y' + 2y = e^x,\quad y(0) = 0,\; y'(0) = 1$$
+ $$y'' - 3y' + 2y = e^x,\quad y(0) = 0,\; y'(0) = 1$$
 
-## Skill 分类
-常微分方程
+## Skill Category
+ordinary differential equations
 
-## 题意解析
-- **方程类型**：二阶常系数线性非齐次 ODE，形如 $y'' + py' + qy = g(x)$，其中 $p = -3$，$q = 2$，$g(x) = e^x$。
-- **求解目标**：满足初始条件 $y(0) = 0$ 和 $y'(0) = 1$ 的特解。
-- **解的结构**：通解 = 齐次解 $y_h$ + 特解 $y_p$。齐次解含 2 个待定常数，由初始条件确定。
-- **关键观察**：非齐次项 $g(x) = e^x$。需检查 $e^x$ 是否出现在齐次解中（即 $r = 1$ 是否为特征根）。
-- **定义域**：$x \in \mathbb{R}$，整个实数轴。
+## Question meaning analysis
+- **Equation type**: Second-order constant coefficient linear non-homogeneous ODE, in the form of $y'' + py' + qy = g(x)$, where $p = -3$, $q = 2$, $g(x) = e^x$.
+- **Solution Goal**: A special solution that satisfies the initial conditions $y(0) = 0$ and $y'(0) = 1$.
+- **Structure of solution**: General solution = homogeneous solution $y_h$ + special solution $y_p$. The homogeneous solution contains 2 undetermined constants, determined by the initial conditions.
+- **Key Observation**: The non-homogeneous term $g(x) = e^x$ . It is necessary to check whether $e^x$ appears in the homogeneous solution (that is, whether $r = 1$ is a characteristic root).
+- **Domain**: $x \in \mathbb{R}$, the entire real axis.
 
-## 方法选择
-**首选方法**：先求齐次解（特征方程法），再求非齐次特解（待定系数法）。这是处理常系数线性 ODE 的标准化流程。
+## Method selection
+**Preferred method**: First find the homogeneous solution (characteristic equation method), and then find the non-homogeneous special solution (undetermined coefficient method). This is a standardized procedure for handling linear ODEs with constant coefficients.
 
-**备选方法**：变参数法（参数变易法）、拉普拉斯变换法。待定系数法在右端函数为指数、多项式、正弦余弦时最简洁。
+**Alternative methods**: variable parameter method (parameter change method), Laplace transform method. The undetermined coefficient method is the most concise when the right-hand function is exponential, polynomial, sine and cosine.
 
-## 解题过程
+## Problem solving process
 
-### 第一步：求齐次解 $y_h$
+### Step 1: Find the homogeneous solution $y_h$
 
-特征方程：
+Characteristic equation:
 
-$$r^2 - 3r + 2 = 0$$
+ $$r^2 - 3r + 2 = 0$$
 
-$$(r - 1)(r - 2) = 0$$
+ $$(r - 1)(r - 2) = 0$$
 
-特征根：$r_1 = 1$，$r_2 = 2$。
+Characteristic roots: $r_1 = 1$, $r_2 = 2$.
 
-齐次解：
+Homogeneous solution:
 
-$$y_h(x) = C_1 e^{x} + C_2 e^{2x}$$
+ $$y_h(x) = C_1 e^{x} + C_2 e^{2x}$$
 
-### 第二步：求非齐次特解 $y_p$
+### Step 2: Find non-homogeneous special solution $y_p$
 
-非齐次项 $g(x) = e^x$。注意 $r = 1$ 是特征根，因此标准尝试形式 $y_p = Ae^x$ 已经在齐次解中。
+Non-homogeneous term $g(x) = e^x$ . Note that $r = 1$ is a characteristic root, so the standard attempt form $y_p = Ae^x$ is already in the homogeneous solution.
 
-根据待定系数法的修正规则，$e^x$ 对应于 $m = 1$ 重根，尝试形式应乘以 $x^m = x$：
+According to the modified rules of the method of undetermined coefficients, $e^x$ corresponds to the $m = 1$ multiple root, and the tried form should be multiplied by $x^m = x$ :
 
-$$y_p = A x e^x$$
+ $$y_p = A x e^x$$
 
-求导：
+Find the derivative:
 
-$$y_p' = A e^x + A x e^x = A e^x(1 + x)$$
+ $$y_p' = A e^x + A x e^x = A e^x(1 + x)$$
 
-$$y_p'' = A e^x(1 + x) + A e^x = A e^x(2 + x)$$
+ $$y_p'' = A e^x(1 + x) + A e^x = A e^x(2 + x)$$
 
-代入原方程 $y_p'' - 3y_p' + 2y_p = e^x$：
+Substitute into the original equation $y_p'' - 3y_p' + 2y_p = e^x$:
 
-$$A e^x(2 + x) - 3A e^x(1 + x) + 2A x e^x = e^x$$
+ $$A e^x(2 + x) - 3A e^x(1 + x) + 2A x e^x = e^x$$
 
-除以 $e^x$（恒正）：
+Divide by $e^x$ (constant):
 
-$$A(2 + x) - 3A(1 + x) + 2Ax = A(2 + x - 3 - 3x + 2x) = A(-1) = 1$$
+ $$A(2 + x) - 3A(1 + x) + 2Ax = A(2 + x - 3 - 3x + 2x) = A(-1) = 1$$
 
-$$A = -1$$
+ $$A = -1$$
 
-因此：
+therefore:
 
-$$y_p(x) = -x e^x$$
+ $$y_p(x) = -x e^x$$
 
-### 第三步：写出通解并应用初始条件
+### Step 3: Write the general solution and apply initial conditions
 
-通解：
+General explanation:
 
-$$y(x) = y_h(x) + y_p(x) = C_1 e^x + C_2 e^{2x} - x e^x$$
+ $$y(x) = y_h(x) + y_p(x) = C_1 e^x + C_2 e^{2x} - x e^x$$
 
-应用 $y(0) = 0$：
+Apply $y(0) = 0$:
 
-$$C_1 e^0 + C_2 e^0 - 0 \cdot e^0 = C_1 + C_2 = 0 \quad \Rightarrow \quad C_2 = -C_1$$
+ $$C_1 e^0 + C_2 e^0 - 0 \cdot e^0 = C_1 + C_2 = 0 \quad \Rightarrow \quad C_2 = -C_1$$
 
-求导：
+Find the derivative:
 
-$$y'(x) = C_1 e^x + 2C_2 e^{2x} - e^x - x e^x$$
+ $$y'(x) = C_1 e^x + 2C_2 e^{2x} - e^x - x e^x$$
 
-应用 $y'(0) = 1$：
+Apply $y'(0) = 1$:
 
-$$C_1 + 2C_2 - 1 - 0 = 1 \quad \Rightarrow \quad C_1 + 2C_2 = 2$$
+ $$C_1 + 2C_2 - 1 - 0 = 1 \quad \Rightarrow \quad C_1 + 2C_2 = 2$$
 
-代入 $C_2 = -C_1$：
+Substitute $C_2 = -C_1$:
 
-$$C_1 + 2(-C_1) = -C_1 = 2 \quad \Rightarrow \quad C_1 = -2,\; C_2 = 2$$
+ $$C_1 + 2(-C_1) = -C_1 = 2 \quad \Rightarrow \quad C_1 = -2,\; C_2 = 2$$
 
-### 第四步：写出最终特解
+### Step 4: Write the final special solution
 
-$$y(x) = -2e^x + 2e^{2x} - x e^x = 2e^{2x} - (x + 2)e^x$$
+ $$y(x) = -2e^x + 2e^{2x} - x e^x = 2e^{2x} - (x + 2)e^x$$
 
-## 验算
+## Check calculation
 
-### 方法一：代入原方程验证
+### Method 1: Substitute into the original equation to verify
 
-计算 $y$、$y'$、$y''$ 并代入 $y'' - 3y' + 2y$：
+Calculate $y$ , $y'$ , $y''$ and substitute $y'' - 3y' + 2y$ :
 
-$$y = 2e^{2x} - (x + 2)e^x$$
+ $$y = 2e^{2x} - (x + 2)e^x$$
 
-$$y' = 4e^{2x} - e^x - (x + 2)e^x = 4e^{2x} - (x + 3)e^x$$
+ $$y' = 4e^{2x} - e^x - (x + 2)e^x = 4e^{2x} - (x + 3)e^x$$
 
-$$y'' = 8e^{2x} - e^x - (x + 3)e^x = 8e^{2x} - (x + 4)e^x$$
+ $$y'' = 8e^{2x} - e^x - (x + 3)e^x = 8e^{2x} - (x + 4)e^x$$
 
-代入左端：
+Substitute into the left end:
 
-$$y'' - 3y' + 2y = [8e^{2x} - (x + 4)e^x] - 3[4e^{2x} - (x + 3)e^x] + 2[2e^{2x} - (x + 2)e^x]$$
+ $$y'' - 3y' + 2y = [8e^{2x} - (x + 4)e^x] - 3[4e^{2x} - (x + 3)e^x] + 2[2e^{2x} - (x + 2)e^x]$$
 
-$$= 8e^{2x} - (x + 4)e^x - 12e^{2x} + 3(x + 3)e^x + 4e^{2x} - 2(x + 2)e^x$$
+ $$= 8e^{2x} - (x + 4)e^x - 12e^{2x} + 3(x + 3)e^x + 4e^{2x} - 2(x + 2)e^x$$
 
-合并 $e^{2x}$ 项：$(8 - 12 + 4)e^{2x} = 0 \cdot e^{2x} = 0$
+Merge $e^{2x}$ items: $(8 - 12 + 4)e^{2x} = 0 \cdot e^{2x} = 0$
 
-合并 $e^x$ 项：$[-(x + 4) + 3(x + 3) - 2(x + 2)]e^x = [-x - 4 + 3x + 9 - 2x - 4]e^x$
+Merge $e^x$ items: $[-(x + 4) + 3(x + 3) - 2(x + 2)]e^x = [-x - 4 + 3x + 9 - 2x - 4]e^x$
 
-$$= [(-x + 3x - 2x) + (-4 + 9 - 4)]e^x = [0x + 1]e^x = e^x$$
+ $$= [(-x + 3x - 2x) + (-4 + 9 - 4)]e^x = [0x + 1]e^x = e^x$$
 
-左端 = $e^x$ = 右端。✓
+Left end = $e^x$ = Right end. ✓
 
-### 方法二：验证初始条件
+### Method 2: Verify initial conditions
 
-$$y(0) = 2e^0 - (0 + 2)e^0 = 2 - 2 = 0$$
+ $$y(0) = 2e^0 - (0 + 2)e^0 = 2 - 2 = 0$$
 
-$$y'(0) = 4e^0 - (0 + 3)e^0 = 4 - 3 = 1$$
+ $$y'(0) = 4e^0 - (0 + 3)e^0 = 4 - 3 = 1$$
 
 ✓
 
-### 方法三：通解含 2 个常数验证
+### Method 3: General solution contains 2 constants verification
 
-齐次解 $y_h$ 含两个线性无关的基函数 $e^x$ 和 $e^{2x}$（Wronskian 非零），通解的自由度为 2，匹配方程阶数。✓
+The homogeneous solution $y_h$ contains two linearly independent basis functions $e^x$ and $e^{2x}$ (Wronskian non-zero), and the degree of freedom of the general solution is 2, matching the order of the equation. ✓
 
-## 最终答案
+## Final answer
 
-$$\boxed{y(x) = 2e^{2x} - (x + 2)e^x}$$
+ $$\boxed{y(x) = 2e^{2x} - (x + 2)e^x}$$
 
-## 易错点
-1. **待定系数法中 $Axe^x$ 的阶数**：由于 $r = 1$ 是特征根，特解形式是 $A x e^x$ 而非 $A e^x$。若错误地设为 $A e^x$，代入后左端为零，无法匹配右端的 $e^x$。
-2. **求导 $A x e^x$**：$y_p = Axe^x$ 的导数为 $Ae^x(1+x)$，二导为 $Ae^x(2+x)$。忘记乘积法则（漏掉 $x e^x$ 中 $x$ 的导数贡献）是常见错误。
-3. **特征根符号**：$r^2 - 3r + 2 = 0$ 的解是 $r = 1$ 和 $r = 2$（均为正），不是 $-1$ 和 $-2$。注意因式分解 $(\lambda - 1)(\lambda - 2)$ 的符号。
-4. **初始条件的应用顺序**：先求 $C_1, C_2$ 的通解表达式，再代入 $y(0)$ 和 $y'(0)$；不要在使用待定系数法前就代入初始条件。
+## Easy to make mistakes
+1. **Order of $Axe^x$ in the undetermined coefficient method**: Since $r = 1$ is a characteristic root, the special solution form is $A x e^x$ instead of $A e^x$. If it is set to $A e^x$ by mistake, the left end will be zero after substitution and cannot match $e^x$ on the right end.
+2. **Derivative $A x e^x$ **: The derivative of $y_p = Axe^x$ is $Ae^x(1+x)$ and the second derivative is $Ae^x(2+x)$. Forgetting the product rule (missing the derivative contribution of $x$ in $x e^x$) is a common mistake.
+3. **Characteristic root symbol**: The solutions of $r^2 - 3r + 2 = 0$ are $r = 1$ and $r = 2$ (both positive), not $-1$ and $-2$. Note the sign of factorization $(\lambda - 1)(\lambda - 2)$.
+4. **Sequence of application of initial conditions**: First find the general solution expression of $C_1, C_2$, and then substitute $y(0)$ and $y'(0)$; do not substitute initial conditions before using the undetermined coefficient method.

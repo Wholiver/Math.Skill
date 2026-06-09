@@ -1,100 +1,100 @@
-# 不定积分：$\int x \sin x \, dx$ 的计算
+# Indefinite integral: calculation of $\int x \sin x \, dx$
 
-## 用户输入
-计算不定积分 $\displaystyle \int x \sin x \, dx$
+## User input
+Compute indefinite integrals $\displaystyle \int x \sin x \, dx$
 
-## Skill 分类
-微积分 / 不定积分
+## Skill Category
+Calculus / Indefinite integral
 
-## 题意解析
-- **被积函数**：$x \sin x$，是两个函数的乘积
-- **目标**：求原函数（不定积分），需包含积分常数 $C$
-- **方法选择依据**：被积函数是多项式 $x$ 和三角函数 $\sin x$ 的乘积，这是**分部积分法**的典型适用情境
-- **隐含条件**：积分变量为 $x$，积分区间未指定（不定积分）
-- **解的唯一性**：原函数不唯一（相差常数），但表示为标准形式即可
+## Question meaning analysis
+- **integrand**: $x \sin x$, is the product of two functions
+- **Goal**: Find the original function (indefinite integral), which must include the integration constant $C$
+- **Method selection basis**: The integrand is the product of the polynomial $x$ and the trigonometric function $\sin x$. This is a typical application situation of the **integration by parts method**
+- **Implicit condition**: The integration variable is $x$ and the integration interval is not specified (indefinite integral)
+- **Uniqueness of solution**: The original function is not unique (difference constant), but it can be expressed in standard form
 
-## 方法选择
+## Method selection
 
-**主方法：分部积分法（Integration by Parts）**
+**Main method: Integration by Parts**
 
-选择理由：分部积分法适用于两类不同函数乘积的积分，特别是当其中一个函数求导后简化（$x \to 1$）、另一个函数容易积分（$\sin x \to -\cos x$）时。
+Reason for selection: The integral method by parts is suitable for the integration of the product of two different types of functions, especially when one of the functions is simplified after derivation ($x \to 1$) and the other function is easy to integrate ($\sin x \to -\cos x$).
 
-分部积分公式：
-$$\int u \, dv = uv - \int v \, du$$
+Integral by parts formula:
+ $$\int u \, dv = uv - \int v \, du$$
 
-**LIATE 规则**：选取 $u$ 的优先级为 Logarithmic > Inverse trig > Algebraic > Trigonometric > Exponential。此处 $x$ 是代数函数（A），$\sin x$ 是三角函数（T），根据 LIATE 规则应选择 $u = x$，$dv = \sin x \, dx$。
+**LIATE Rule**: The priority for selecting $u$ is Logarithmic > Inverse trig > Algebraic > Trigonometric > Exponential. Here $x$ is an algebraic function (A), $\sin x$ is a trigonometric function (T), and according to LIATE rules $u = x$ , $dv = \sin x \, dx$ should be chosen.
 
-备选方法：不存在——$x \sin x$ 没有简单的变元代换方法，分部积分是唯一的标准方法。
+Alternative methods: None - $x \sin x$ There is no simple method of substitution of variables, integration by parts is the only standard method.
 
-## 解题过程
+## Problem solving process
 
-**Step 1：选定 $u$ 和 $dv$**
+**Step 1: Select $u$ and $dv$ **
 
-令：
-$$u = x, \quad dv = \sin x \, dx$$
+make:
+ $$u = x, \quad dv = \sin x \, dx$$
 
-**Step 2：计算 $du$ 和 $v$**
+**Step 2: Calculate $du$ and $v$ **
 
-$$du = dx, \quad v = \int \sin x \, dx = -\cos x$$
+ $$du = dx, \quad v = \int \sin x \, dx = -\cos x$$
 
-**Step 3：代入分部积分公式**
+**Step 3: Substitute the integral of parts formula**
 
-$$\int x \sin x \, dx = uv - \int v \, du$$
+ $$\int x \sin x \, dx = uv - \int v \, du$$
 
-$$= x \cdot (-\cos x) - \int (-\cos x) \, dx$$
+ $$= x \cdot (-\cos x) - \int (-\cos x) \, dx$$
 
-$$= -x \cos x + \int \cos x \, dx$$
+ $$= -x \cos x + \int \cos x \, dx$$
 
-**Step 4：计算剩余积分**
+**Step 4: Calculate remaining points**
 
-$$\int \cos x \, dx = \sin x$$
+ $$\int \cos x \, dx = \sin x$$
 
-**Step 5：得出最终结果**
+**Step 5: Get the final result**
 
-$$\int x \sin x \, dx = -x \cos x + \sin x + C$$
+ $$\int x \sin x \, dx = -x \cos x + \sin x + C$$
 
-其中 $C$ 为积分常数。
+Where $C$ is the integration constant.
 
-## 验算
+## Check calculation
 
-**验算方法 1：对结果求导验证**
+**Verification method 1: Derivative verification of the results**
 
-对 $F(x) = -x \cos x + \sin x + C$ 求导：
+Derivative of $F(x) = -x \cos x + \sin x + C$:
 
-$$\frac{d}{dx}[-x \cos x] = -1 \cdot \cos x + (-x) \cdot (-\sin x) = -\cos x + x \sin x$$
-（使用了乘积法则：$(fg)' = f'g + fg'$）
+ $$\frac{d}{dx}[-x \cos x] = -1 \cdot \cos x + (-x) \cdot (-\sin x) = -\cos x + x \sin x$$
+(Used the product rule: $(fg)' = f'g + fg'$ )
 
-$$\frac{d}{dx}[\sin x] = \cos x$$
+ $$\frac{d}{dx}[\sin x] = \cos x$$
 
-$$\frac{d}{dx}[C] = 0$$
+ $$\frac{d}{dx}[C] = 0$$
 
-求和：
-$$F'(x) = (-\cos x + x \sin x) + \cos x + 0 = x \sin x$$
+Sum:
+ $$F'(x) = (-\cos x + x \sin x) + \cos x + 0 = x \sin x$$
 
-恰好等于被积函数 $x \sin x$ ✓
+Exactly equal to the integrand $x \sin x$ ✓
 
-**验算方法 2：分部积分的反向推导**
+**Check Calculation Method 2: Backward Derivation of Integral by Parts**
 
-从结果出发，分部积分应为：
-$$\int x \sin x \, dx = -x \cos x - \int (-\cos x) \cdot 1 \, dx = -x \cos x + \sin x + C$$
+Starting from the result, the integral of parts should be:
+ $$\int x \sin x \, dx = -x \cos x - \int (-\cos x) \cdot 1 \, dx = -x \cos x + \sin x + C$$
 
-与计算过程一致 ✓
+Consistent with the calculation process ✓
 
-**验算方法 3：数值验证（取 $C=0$）**
+**Verification method 3: Numerical verification (take $C=0$)**
 
-令 $F(x) = -x \cos x + \sin x$：
-- $F(0) = -0 \cdot 1 + 0 = 0$
-- $F(\pi/2) = -\frac{\pi}{2} \cdot 0 + 1 = 1$
+Let $F(x) = -x \cos x + \sin x$ :
+-  $F(0) = -0 \cdot 1 + 0 = 0$
+-  $F(\pi/2) = -\frac{\pi}{2} \cdot 0 + 1 = 1$
 
-而 $\int_0^{\pi/2} x \sin x \, dx = [-x \cos x + \sin x]_0^{\pi/2} = 1 - 0 = 1$ ✓
+And $\int_0^{\pi/2} x \sin x \, dx = [-x \cos x + \sin x]_0^{\pi/2} = 1 - 0 = 1$ ✓
 
-数值 $\int_0^{\pi/2} x \sin x \, dx$ 可近似：在 $[0, \pi/2]$ 上 $x \sin x$ 为正函数，积分 $1$ 合理 ✓
+Numerical $\int_0^{\pi/2} x \sin x \, dx$ can be approximated: $x \sin x$ is a positive function on $[0, \pi/2]$, and the integral $1$ is reasonable ✓
 
-## 最终答案
-$$\int x \sin x \, dx = -x \cos x + \sin x + C$$
+## Final answer
+ $$\int x \sin x \, dx = -x \cos x + \sin x + C$$
 
-## 易错点
-1. **$u$ 和 $dv$ 的选择错误**：若选 $u = \sin x$，$dv = x \, dx$，则 $du = \cos x \, dx$，$v = x^2/2$，积分变为 $\frac{1}{2}x^2\sin x - \frac{1}{2}\int x^2 \cos x \, dx$，反而更复杂——说明 LIATE 规则的重要性
-2. **$v$ 的符号**：$\int \sin x \, dx = -\cos x$（不是 $\cos x$），符号错误会导致验证失败
-3. **忘记积分常数 $C$**：不定积分必须包含积分常数，遗漏会扣分
-4. **乘积法则方向反了**：求导验证时注意 $(uv)' = u'v + uv'$，不要写错顺序
+## Easy to make mistakes
+1. **Wrong selection of $u$ and $dv$**: If you select $u = \sin x$, $dv = x \, dx$, then $du = \cos x \, dx$, $v = x^2/2$, the points become $\frac{1}{2}x^2\sin x - \frac{1}{2}\int x^2 \cos x \, dx$, which is more complicated - indicating the importance of the LIATE rule
+2. **Symbol of $v$**: $\int \sin x \, dx = -\cos x$ (not $\cos x$). Symbol error will cause verification to fail.
+3. **Forgot the integral constant $C$ **: Indefinite integral must contain the integral constant, points will be deducted if omitted
+4. **The direction of the product rule is reversed**: Pay attention to $(uv)' = u'v + uv'$ when deriving and verifying, and do not write in the wrong order.

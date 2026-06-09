@@ -1,95 +1,95 @@
-# 解题过程审查：二次方程求解
+# Problem-solving process review: solving quadratic equations
 
-## 用户输入
-一位学生解方程 $x^2 - 5x + 6 = 0$，写出 $(x-2)(x-3) = 0$，得到 $x = 2, 3$。然后学生写道："再看 $(x-6)^2 = x^2 - 12x + 36 = 0$，似乎不一样，所以 $x = 6$ 不是解。" 请检查这个解题过程。
+## User input
+A student solves the equation     $x^2 - 5x + 6 = 0$    , writes     $(x-2)(x-3) = 0$    , and gets     $x = 2, 3$    . Then the student writes: "Looking at     $(x-6)^2 = x^2 - 12x + 36 = 0$     again, it seems different, so     $x = 6$     is not the solution." Please check this problem-solving process.
 
-## Skill 分类
-代数 / 解题审核
+## Skill Category
+Algebra/Problem Solving Review
 
-## 题意解析
-- **学生答案**：$x = 2, 3$（正确）
-- **需要审核的内容**：
-  1. 主要解题步骤是否正确
-  2. 学生对 $x = 6$ 的检验是否正确（推理逻辑是否合理）
-  3. 是否有不必要的步骤
-- **目标**：指出正确之处、纠正错误推理、给出标准验证方式
+## Question meaning analysis
+- **Student Answer**:     $x = 2, 3$     (Correct)
+- **Content that needs to be reviewed**:
+1. Are the main problem-solving steps correct?
+2. Whether the student’s test of     $x = 6$     is correct (whether the reasoning logic is reasonable)
+3. Are there any unnecessary steps?
+- **Objective**: Point out what is correct, correct wrong reasoning, and give standard verification methods
 
-## 方法选择
-采用**逐步骤分析法**：逐一审查学生的每一步推理，区分正确步骤与错误/冗余步骤，然后给出标准答案和验证。
+## Method selection
+Use the **step-by-step analysis method**: review each step of the student's reasoning one by one, distinguish the correct steps from the wrong/redundant steps, and then give standard answers and verifications.
 
-## 解题过程
+## Problem solving process
 
-### 审查学生的解题
+### Review student solutions
 
-**步骤 1：因式分解** $(x-2)(x-3) = 0$
+**Step 1: Factorization**     $(x-2)(x-3) = 0$
 
-审查：$x^2 - 5x + 6 = (x-2)(x-3)$ ✓
+Review:     $x^2 - 5x + 6 = (x-2)(x-3)$     ✓
 
-验证：展开 $(x-2)(x-3) = x^2 - 3x - 2x + 6 = x^2 - 5x + 6$，完全正确。
+Verification: Expand     $(x-2)(x-3) = x^2 - 3x - 2x + 6 = x^2 - 5x + 6$     , absolutely correct.
 
-**步骤 2：应用零因子性质** → $x = 2$ 或 $x = 3$
+**Step 2: Apply the zero-factor property** →     $x = 2$     or     $x = 3$
 
-审查：零因子性质——若两个实数乘积为零，则至少一个因子为零。即 $(x-2)(x-3) = 0 \iff x-2=0 \text{ 或 } x-3=0 \iff x=2 \text{ 或 } x=3$ ✓
+Review: Zero Factor Property - If the product of two real numbers is zero, then at least one factor is zero. That is $(x-2)(x-3) = 0 \iff x-2=0 \text{ or } x-3=0 \iff x=2 \text{ or } x=3$ ✓
 
-**步骤 3：检验 $x = 6$**
+**Step 3: Verify     $x = 6$     **
 
-审查：学生写 "$(x-6)^2 = x^2 - 12x + 36 = 0$ 似乎不一样，所以 $x = 6$ 不是解"
+Review: Student writes "    $(x-6)^2 = x^2 - 12x + 36 = 0$     seems different, so     $x = 6$     is not the solution"
 
-这段推理有问题：
-1. **逻辑错误**：$(x-6)$ 不是原始多项式 $x^2-5x+6$ 的因式，展开 $(x-6)^2$ 与原始方程没有任何关系（除非试图比较两个不同的多项式，而这本身不是有效的验证方法）
-2. **不必要的步骤**：正确答案 $x=2,3$ 已由因式分解得出，额外检验 $x=6$ 纯属多余
-3. **验证方法不对**：正确的验证是将 $x=6$ 代入原方程计算 $6^2 - 5 \cdot 6 + 6$ 是否等于 $0$
+There is a problem with this reasoning:
+1. **Logic Error**:     $(x-6)$     is not a factor of the original polynomial     $x^2-5x+6$    , and the expansion     $(x-6)^2$     has nothing to do with the original equation (unless you are trying to compare two different polynomials, which in itself is not a valid verification method)
+2. **Unnecessary step**: The correct answer     $x=2,3$     is already factored, and the additional check     $x=6$     is purely redundant
+3. **Incorrect verification method**: The correct verification is to substitute     $x=6$     into the original equation to calculate whether     $6^2 - 5 \cdot 6 + 6$     is equal to     $0$
 
-### 正确的验证方法
+### Correct verification method
 
-**验证 $x = 2$：**
-$$2^2 - 5 \cdot 2 + 6 = 4 - 10 + 6 = 0 \quad \checkmark$$
+**Verify     $x = 2$    :**
+     $$2^2 - 5 \cdot 2 + 6 = 4 - 10 + 6 = 0 \quad \checkmark$$
 
-**验证 $x = 3$：**
-$$3^2 - 5 \cdot 3 + 6 = 9 - 15 + 6 = 0 \quad \checkmark$$
+**Verify     $x = 3$    :**
+     $$3^2 - 5 \cdot 3 + 6 = 9 - 15 + 6 = 0 \quad \checkmark$$
 
-**验证 $x = 6$（说明为何不是解）：**
-$$6^2 - 5 \cdot 6 + 6 = 36 - 30 + 6 = 12 \neq 0 \quad \text{确实不是解}$$
+**Verify     $x = 6$     (explain why it is not a solution):**
+$$6^2 - 5 \cdot 6 + 6 = 36 - 30 + 6 = 12 \neq 0 \quad \text{It is indeed not a solution}$$
 
-### 为什么因式分解就够了？
+### Why is factoring enough?
 
-二次多项式 $x^2 - 5x + 6$ 最多有两个根（代数学基本定理）。因式分解得到两个根 $2$ 和 $3$，它们**已经穷举了所有可能的根**。不需要（也没有理由）检验 $x=6$——除非你怀疑因式分解有误（此时应验证 $x=2$ 和 $x=3$，而非随便选一个其他数）。
+A quadratic polynomial     $x^2 - 5x + 6$     has at most two roots (Fundamental Theorem of Algebra). Factoring yields two roots     $2$     and     $3$     , which exhaustively exhaust all possible roots. There is no need (and no reason) to check     $x=6$     - unless you suspect that the factorization is wrong (in which case you should check     $x=2$     and     $x=3$     rather than picking any other number).
 
-## 验算
+## Check calculation
 
-**验算方法 1：直接代入验证**
+**Verification method 1: Directly enter the verification**
 
-| $x$ | $x^2$ | $-5x$ | $+6$ | 合计 | 判定 |
+|     $x$     |     $x^2$     |     $-5x$     |     $+6$     | Total | Judgment |
 |-----|-------|-------|------|------|------|
-| $2$ | $4$ | $-10$ | $6$ | $0$ | ✓ 是根 |
-| $3$ | $9$ | $-15$ | $6$ | $0$ | ✓ 是根 |
-| $6$ | $36$ | $-30$ | $6$ | $12$ | ✗ 不是根 |
+|     $2$     |     $4$     |     $-10$     |     $6$     |     $0$     | ✓ is the root |
+|     $3$     |     $9$     |     $-15$     |     $6$     |     $0$     | ✓ is the root |
+|     $6$     |     $36$     |     $-30$     |     $6$     |     $12$     | ✗ Not a root |
 
-**验算方法 2：求根公式验证**
+**Verification method 2: Verification of root formula**
 
-对于 $ax^2 + bx + c = 0$（$a=1, b=-5, c=6$）：
+For     $ax^2 + bx + c = 0$     (     $a=1, b=-5, c=6$     ):
 
-$$x = \frac{-b \pm \sqrt{b^2 - 4ac}}{2a} = \frac{5 \pm \sqrt{25 - 24}}{2} = \frac{5 \pm 1}{2}$$
+     $$x = \frac{-b \pm \sqrt{b^2 - 4ac}}{2a} = \frac{5 \pm \sqrt{25 - 24}}{2} = \frac{5 \pm 1}{2}$$
 
-得 $x = 3$ 或 $x = 2$，与因式分解一致 ✓
+Get     $x = 3$     or     $x = 2$    , consistent with factoring ✓
 
-**验算方法 3：韦达定理验证**
+**Check Calculation Method 3: Verification of Vedic Theorem**
 
-设两根为 $x_1, x_2$，则：
-- $x_1 + x_2 = 5$ ✓（$2+3=5$，等于 $-b/a$）
-- $x_1 \cdot x_2 = 6$ ✓（$2 \times 3 = 6$，等于 $c/a$）
+Assume the two roots are     $x_1, x_2$     , then:
+-     $x_1 + x_2 = 5$     ✓ (     $2+3=5$     , equal to     $-b/a$     )
+-     $x_1 \cdot x_2 = 6$     ✓ (     $2 \times 3 = 6$     , equal to     $c/a$     )
 
-## 最终答案
+## Final answer
 
-学生得出的答案 $x = 2$ 或 $x = 3$ **正确**。但解题过程中：
-- 因式分解和零因子性质的应用 **正确** ✓
-- 对 $x=6$ 的检验 **不必要且推理不当** ✗（$(x-6)^2$ 与原始方程无关，不是有效验证）
+The student's answer     $x = 2$     or     $x = 3$     is **correct**. But in the process of solving the problem:
+- Application of factorization and zero factor property **Correct** ✓
+- Test of     $x=6$     **unnecessary and poorly reasoned** ✗ (    $(x-6)^2$     has nothing to do with the original equation and is not a valid verification)
 
-正确的验证方法是直接将候选解代入原方程计算。
+The correct verification method is to directly substitute the candidate solution into the original equation for calculation.
 
-## 易错点
-1. **混淆因式与验证**：用 $(x-6)^2$ 去"比较"是无效方法——验证应始终回到**原方程**
-2. **画蛇添足**：根已经正确求出后，无需额外检验与问题无关的数字
-3. **零因子性质的适用范围**：$(x-2)(x-3)=0 \iff x=2 \text{ 或 } x=3$ 正确的前提是在实数（或复数）域中，且因式分解是精确的（不是近似的）
-4. **验证的通用原则**：任何声称的解 $x_0$ 必须满足 $f(x_0) = 0$，只需代入验证即可，无需构造无关多项式
-5. **二次方程根的个数**：n 次多项式最多有 n 个不同的根，找到 n 个后即穷举完毕
+## Easy to make mistakes
+1. **Confusing Factors and Verification**: Using     $(x-6)^2$     to "compare" is an invalid method - verification should always go back to the **original equation**
+2. **Superfluous**: After the roots have been found correctly, there is no need to additionally check numbers that are irrelevant to the problem.
+3. **Applicable scope of zero factor property**: $(x-2)(x-3)=0 \iff x=2 \text{ or } x=3$ The correct premise is that it is in the real number (or complex number) domain, and the factorization is exact (not approximate)
+4. **General principles of verification**: Any claimed solution     $x_0$     must satisfy     $f(x_0) = 0$    , which can be verified by substituting it without constructing an irrelevant polynomial.
+5. **The number of roots of a quadratic equation**: A polynomial of degree n can have at most n different roots. Once n are found, the exhaustive list is complete.

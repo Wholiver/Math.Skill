@@ -1,133 +1,133 @@
-# 困难问题协议：哥德巴赫猜想
+# Protocol on Hard Problems: Goldbach’s Conjecture
 
-## 用户输入
-大于 2 的每个偶数是否都是两个素数之和？
+## User input
+Is every even number greater than 2 the sum of two prime numbers?
 
-## Skill 分类
-数论 / 困难问题协议
+## Skill Category
+Number Theory/Hard Problem Protocol
 
-## 题意解析
-- **问题的性质**：这不是一道普通的习题，而是**哥德巴赫猜想（Goldbach's conjecture）**——数论中最为著名的未解决问题之一
-- **问题历史**：1742 年由 Christian Goldbach 在致 Euler 的信中提出
-- **当前状态**：截止 2024 年，该猜想**仍未被证明或否定**
-- **核心约束**：AI 绝不能声称已证明或解决该猜想，必须严格遵守数学界的已知结论
+## Question meaning analysis
+- **Nature of the problem**: This is not an ordinary exercise, but **Goldbach's conjecture** - one of the most famous unsolved problems in number theory
+- **Question History**: 1742 by Christian Goldbach in a letter to Euler
+- **Current Status**: As of 2024, this conjecture **has not yet been proven or disproven**
+- **Core Constraints**: AI must not claim to have proven or solved the conjecture, and must strictly adhere to known conclusions in the mathematical community
 
-## 方法选择
+## Method selection
 
-根据 **困难问题协议（Hard Problem Protocol）**，对于未解决的数学猜想，应采取以下方法：
+According to the **Hard Problem Protocol**, the following approach should be taken for unsolved mathematical conjectures:
 
-1. **分类与确认**：确认这是已知的开放问题
-2. **陈述已知事实**：区分已验证结果、部分结果、等价命题
-3. **避免造假**：严禁伪造证明或声称已解决
-4. **提供探索路径**：如果用户有兴趣，可介绍已知的尝试方法
+1. **Classification and Confirmation**: Confirm that this is a known open issue
+2. **State known facts**: distinguish between verified results, partial results, and equivalent propositions
+3. **Avoid forgery**: It is strictly prohibited to forge certificates or claim to have solved the problem
+4. **Provide exploration paths**: If the user is interested, you can introduce known attempts.
 
-## 解题过程
+## Problem solving process
 
-### Step 1：问题分类
+### Step 1: Problem classification
 
-这是**哥德巴赫猜想**（强哥德巴赫猜想），一个自 1742 年以来的开放问题。
+This is Goldbach's Conjecture, an open problem since 1742.
 
-**问题正式陈述**：每个大于 2 的偶数都可以表示为两个素数之和。
+**Formal Statement of the Problem**: Every even number greater than 2 can be expressed as the sum of two prime numbers.
 
-### Step 2：明确当前状态
+### Step 2: Clarify the current status
 
-**哥德巴赫猜想尚未被证明。** 截至 2024 年，它在数学上仍然是一个开放问题。
+**Goldbach's conjecture has not been proven. ** As of 2024, it remains mathematically an open problem.
 
-### Step 3：已验证的范围
+### Step 3: Verified range
 
-尽管未被证明，猜想已被**计算机验证**对于极大的范围成立：
+Although not proven, the conjecture has been verified by computers to hold for very large scales:
 
-- **已验证范围**：所有偶数 $n \leq 4 \times 10^{18}$ 都满足猜想（Oliveira e Silva, 2014 年及后续工作）
-- **验证方法**：对于范围内的每个偶数，搜索其素数分解
+- **Verified Range**: All even numbers $n \leq 4 \times 10^{18}$ satisfy the conjecture (Oliveira e Silva, 2014 and subsequent work)
+- **Verification Method**: For every even number in the range, search for its prime factorization
 
-注意：有限验证不等于证明。例如，可能存在某个大于 $4 \times 10^{18}$ 的偶数不满足猜想。
+Note: Limited verification is not the same as proof. For example, there may be some even number greater than $4 \times 10^{18}$ that does not satisfy the conjecture.
 
-### Step 4：已知的部分结果
+### Step 4: Known partial results
 
-以下是数学界已严格证明的相关结果：
+The following are relevant results that have been rigorously proven by the mathematical community:
 
-| 结果 | 内容 | 提出者/时间 |
+| Result | Content | Presenter/Time |
 |------|------|------------|
-| Chen 定理 | 每个充分大的偶数可以表示为一个素数和一个至多两个素数乘积的数（半素数）之和 | 陈景润, 1973 |
-| 三素数定理（Ternary Goldbach） | 每个大于 5 的奇数可表示为三个素数之和 | **已证明**（Helfgott, 2013） |
-| 弱哥德巴赫猜想的等价形式 | 每个大于 7 的奇数是三个奇素数之和 | 由三素数定理导出 |
-| Vinogradov 定理 | 所有充分大的奇数可表示为三个素数之和 | Vinogradov, 1937 |
-| 密度结果 | 不满足猜想的偶数（如果存在）的密度为零 | 多个作者的渐进结果 |
+| Chen's theorem | Every sufficiently large even number can be expressed as the sum of a prime number and a number (semi-prime number) that is the product of at most two prime numbers | Chen Jingrun, 1973 |
+| Three Prime Theorem (Ternary Goldbach) | Every odd number greater than 5 can be expressed as the sum of three prime numbers | **Proved** (Helfgott, 2013) |
+| Equivalent form of weak Goldbach's conjecture | Every odd number greater than 7 is the sum of three odd prime numbers | Derived from the three prime number theorem |
+| Vinogradov's theorem | All sufficiently large odd numbers can be expressed as the sum of three prime numbers | Vinogradov, 1937 |
+| Density results | Even integers that do not satisfy the conjecture (if they exist) have a density of zero | Asymptotic results by multiple authors |
 
-**关键区分**：
-- 三素数定理（奇数 = 三个素数之和）→ **已证明** ✓
-- 强哥德巴赫猜想（偶数 = 两个素数之和）→ **未证明** ✗
+**Key distinction**:
+- Three prime numbers theorem (odd number = sum of three prime numbers) → **Proved** ✓
+- Strong Goldbach's conjecture (even number = sum of two prime numbers) → **Unproven** ✗
 
-二者容易混淆，但它们是不等价的：三素数定理成立并不蕴含强哥德巴赫猜想成立。
+The two are easy to confuse, but they are not equivalent: the establishment of the three prime number theorem does not imply the establishment of the Strong Goldbach Conjecture.
 
-### Step 5：已知的主要尝试方法
+### Step 5: Known main methods to try
 
-历史上数学家尝试过的方法包括：
+Methods that mathematicians have tried throughout history include:
 
-1. **圆法（Circle Method）**：Hardy 和 Littlewood 发展，成功应用于三素数定理的证明，但对于两个素数的情况遇到本质困难
-2. **筛法（Sieve Methods）**：Brun, Selberg 等人的工作，陈景润用加权筛法证明了 Chen 定理（"1+2"）
-3. **解析数论方法**：利用 L-函数、指数和等技术
+1. **Circle Method**: Developed by Hardy and Littlewood and successfully applied to the proof of the three prime number theorem, but encountered essential difficulties in the case of two prime numbers
+2. **Sieve Methods**: The work of Brun, Selberg and others, Chen Jingrun used the weighted sieve method to prove Chen's theorem ("1+2")
+3. **Analytical number theory method**: using techniques such as L-function, exponential sum, etc.
 
-### Step 6：为何该问题如此困难？
+### Step 6: Why is this problem so difficult?
 
-- **加法数论的本质困难**：素数主要由乘法性质定义，而"两素数之和"涉及加法结构，二者之间的桥梁极难建立
-- **筛法的局限性**：筛法能控制的误差项似乎有天然的下界（奇偶性问题, parity problem），使其无法直接证明强猜想
-- **需要全新的思想**：许多数学家认为哥德巴赫猜想的证明可能需要与现有方法根本不同的新工具
+- **Essential difficulty of additive number theory**: Prime numbers are mainly defined by multiplicative properties, while "sum of two prime numbers" involves an additive structure, and the bridge between the two is extremely difficult to establish.
+- **Limitations of the sieve method**: The error term that the sieve method can control seems to have a natural lower bound (parity problem, parity problem), making it impossible to directly prove the strong conjecture
+- **Whole new ideas required**: Many mathematicians believe that the proof of Goldbach's conjecture may require new tools that are fundamentally different from existing methods
 
-### Step 7：如果用户想探索
+### Step 7: If the user wants to explore
 
-如果用户想自己尝试理解这个问题，建议：
+If users want to try to understand this problem themselves, it is recommended:
 
-- **从小数字开始**：手动验证 $4=2+2, 6=3+3, 8=3+5, 10=3+7=5+5, \ldots$
-- **学习筛法入门**：理解 Brun 筛和 Selberg 筛的基本思想
-- **阅读 Chen 定理的简化版本**：理解"1+2"的含义和证明思路
-- **清晰的期望管理**：解决这一猜想需要极为深厚的数学功底，历史上最优秀的数学家也未能攻克
+- **Start with a small number**: Manual verification $4=2+2, 6=3+3, 8=3+5, 10=3+7=5+5, \ldots$
+- **Introduction to learning sieve method**: Understand the basic ideas of Brun sieve and Selberg sieve
+- **Read the simplified version of Chen's theorem**: Understand the meaning of "1+2" ​​and the proof idea
+- **Clear Expectation Management**: Solving this conjecture requires extremely deep mathematical skills, and the best mathematicians in history have not been able to overcome it.
 
-### 小程序：验证特定偶数的分解
+### Mini program: Verify the decomposition of a specific even number
 
-对于较小的偶数（如 $\leq 10^6$），可以通过简单算法验证分解。例如：
+For small even numbers (such as $\leq 10^6$ ), the decomposition can be verified by a simple algorithm. For example:
 
-- $100 = 3 + 97 = 11 + 89 = 17 + 83 = 29 + 71 = 41 + 59 = 47 + 53$
-- $1000 = 3 + 997$（还有多种分解方式）
+-  $100 = 3 + 97 = 11 + 89 = 17 + 83 = 29 + 71 = 41 + 59 = 47 + 53$
+- $1000 = 3 + 997$ (there are many ways to decompose it)
 
-如果需要验证某个具体偶数的分解，可以通过编程完成（在较小范围内穷举素数）。
+If you need to verify the decomposition of a specific even number, you can do it through programming (exhaustively enumerate prime numbers in a smaller range).
 
-## 验算
+## Check calculation
 
-**验算方法 1：确认问题分类**
+**Verification method 1: Confirm problem classification**
 
-查阅标准数学文献，哥德巴赫猜想在《Unsolved Problems in Number Theory》（Guy, 2004）及 Clay 数学研究所的千禧年问题综述中均列为开放问题 ✓
+Checking the standard mathematics literature, Goldbach's conjecture is listed as an open problem in "Unsolved Problems in Number Theory" (Guy, 2004) and the Clay Mathematics Institute's Millennium Problem Review ✓
 
-**验算方法 2：交叉验证已知结果**
+**Verification method 2: Cross-validation of known results**
 
-- 三素数定理由 Helfgott (2013) 证明，发表在 *Annals of Mathematics* 上，可查证 ✓
-- Chen 定理由陈景润 (1973) 证明，在数论教材中有标准记述 ✓
-- 验证范围 $4 \times 10^{18}$ 由分布式计算项目确认，文献可查 ✓
+- The triple prime number theorem was proved by Helfgott (2013), published in *Annals of Mathematics*, available for verification ✓
+- Chen's theorem was proved by Chen Jingrun (1973) and has a standard description in number theory textbooks ✓
+- Verification scope $4 \times 10^{18}$ Confirmed by Distributed Computing Project, literature available ✓
 
-**验算方法 3：小范围手工验证**
+**Verification method 3: Small-scale manual verification**
 
-- $4 = 2 + 2$ ✓
-- $6 = 3 + 3$ ✓
-- $8 = 3 + 5$ ✓
-- $10 = 3 + 7 = 5 + 5$ ✓
-- $12 = 5 + 7$ ✓
-- $14 = 3 + 11 = 7 + 7$ ✓
-- $100 = 47 + 53$（均为素数）✓
+-  $4 = 2 + 2$  ✓
+-  $6 = 3 + 3$  ✓
+-  $8 = 3 + 5$  ✓
+-  $10 = 3 + 7 = 5 + 5$  ✓
+-  $12 = 5 + 7$  ✓
+-  $14 = 3 + 11 = 7 + 7$  ✓
+- $100 = 47 + 53$ (all prime numbers) ✓
 
-## 最终答案
+## Final answer
 
-**哥德巴赫猜想（强猜想）至今未被证明。**
+**Goldbach's conjecture (strong conjecture) has not yet been proven. **
 
-已知事实：
-- 对所有偶数 $n \leq 4 \times 10^{18}$ 已验证成立
-- Chen 定理：充分大偶数 = 素数 + 半素数（最接近的已证明结果）
-- 奇数版本（三素数定理）已由 Helfgott (2013) 证明
-- 猜想在数学界普遍认为是正确的，但缺乏严格证明
+Known facts:
+- $n \leq 4 \times 10^{18}$ has been verified to be true for all even numbers
+- Chen's Theorem: Sufficiently large even numbers = prime numbers + semi-prime numbers (nearest proven result)
+- The odd version (three prime numbers theorem) was proved by Helfgott (2013)
+- The conjecture is generally considered correct in the mathematical community, but lacks rigorous proof
 
-**重要提醒**：不要相信任何声称已证明哥德巴赫猜想的非同行评审来源。
+**IMPORTANT NOTE**: Do not trust any non-peer-reviewed source that claims to have proved Goldbach's conjecture.
 
-## 易错点
-1. **混淆强弱猜想**：三素数定理（弱猜想）已证明，不等于强猜想已证明
-2. **有限验证误认为证明**：即使验证了 $10^{18}$ 以内的所有偶数，也不是证明——数学归纳原理只能从 $\forall n: P(n) \implies P(n+1)$ 和 $P(0)$ 推导出 $\forall n: P(n)$，但哥德巴赫猜想没有这样的归纳步骤
-3. **AI 幻觉风险**：AI 模型可能"编造"一个看似合理的证明。用户应始终交叉验证数学声明
-4. **不理解"开放问题"的含义**：这意味着**没有任何人**（包括最顶尖数学家）知道答案，而非"还没学到"或"没有人告诉过你"
+## Easy to make mistakes
+1. **Confusing strong and weak conjectures**: The three prime number theorem (weak conjecture) has been proved, but it does not mean that the strong conjecture has been proved
+2. **Limited verification mistaken for proof**: Even if all even numbers within $10^{18}$ are verified, it is not a proof - the principle of mathematical induction can only deduce $\forall n: P(n)$ from $\forall n: P(n) \implies P(n+1)$ and $P(0)$, but Goldbach's conjecture has no such induction step
+3. **AI Hallucination Risk**: The AI ​​model may "make up" a seemingly reasonable proof. Users should always cross-validate mathematical claims
+4. **Not understanding the meaning of "open question": It means that **no one** (including the top mathematicians) knows the answer, not "hasn't learned it yet" or "no one has told you"

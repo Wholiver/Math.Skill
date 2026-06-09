@@ -1,221 +1,221 @@
-# Math.skill 搜索策略 (Search Policy)
+# Math.skill Search Policy
 
-## 1. 何时搜索 (When to Search)
+## 1. When to Search (When to Search)
 
-遇到以下任一情况时，必须执行搜索：
+A search must be performed when any of the following conditions are encountered:
 
-### 触发条件 1：数学事实不确定
-当对以下内容存在不确定性时：
-- 定理的精确陈述、前提条件或结论
-- 公式的形式、适用范围或推导路径
-- 定义的标准表述或等价形式
-- 数学常数的精确值或近似值
-- 命名定理的作者、年份或标准名称
+### Trigger condition 1: Uncertain mathematical facts
+When there is uncertainty about:
+- precise statement of a theorem, prerequisite or conclusion
+- The form, scope of application or derivation path of the formula
+- A standard expression or equivalent form of a definition
+- Exact or approximate values ​​of mathematical constants
+- author, year or standard name of the naming theorem
 
-**示例**："斯托尔茨定理的精确条件是什么？需要数列严格单调吗？"——应搜索确认。
+**Example**: "What are the precise conditions for Stoltz's theorem? Does the sequence need to be strictly monotonic?" - should be searched for confirmation.
 
-### 触发条件 2：高度专业化的数学对象
-当问题涉及以下内容时：
-- 高度专业化的数学对象（如 p-进数、模形式、同调代数、层论）
-- 近 5 年内发表的论文或研究成果
-- 现代数学研究的前沿课题
-- 非标准记号或领域特定的约定
+### Trigger 2: Highly specialized mathematical objects
+When the question involves:
+- Highly specialized mathematical objects (e.g. p-radical numbers, modular forms, homologous algebra, sheath theory)
+- Papers or research results published in the past 5 years
+- Cutting edge topics in modern mathematics research
+- Non-standard notation or domain-specific conventions
 
-**示例**：用户问到关于 Perverse Sheaves 的性质——应搜索确认定义和已知结论。
+**Example**: User asked about the properties of Perverse Sheaves - should search for confirmed definitions and known conclusions.
 
-### 触发条件 3：用户明确要求
-当用户明确表达以下意图时：
-- "帮我查一下……"
-- "有没有类似的题目？"
-- "这个结果有出处吗？"
-- "能帮我找一下……的原始论文吗？"
-- "网上有没有标准答案？"
-- "帮我验证一下这个定理"
+### Trigger condition 3: User’s explicit request
+When a user explicitly expresses the following intent:
+- "Check it for me..."
+- "Are there any similar questions?"
+- "Is there a source for this result?"
+- "Can you help me find the original paper of...?"
+- "Are there any standard answers online?"
+- "Help me verify this theorem"
 
-### 触发条件 4：怀疑题目来源已知
-当有理由怀疑问题时：
-- 可能来自已知竞赛（IMO、Putnam、中国数学奥林匹克等）
-- 可能来自知名教材的习题（如 Rudin、Artin、同济高数等）
-- 可能来自某篇论文的结论
-- 可能在 Math StackExchange 或 AOPS 上有讨论
+### Trigger condition 4: The source of the suspected question is known
+When there is reason to suspect a problem:
+- May be from known competitions (IMO, Putnam, China Mathematical Olympiad, etc.)
+- Exercises that may come from well-known textbooks (such as Rudin, Artin, Tongji Mathematics, etc.)
+- Conclusions that may come from a paper
+- May be discussed on Math StackExchange or AOPS
 
-### 触发条件 5：需要确认是否为已知未解决问题
-当问题看起来过于困难或与已知猜想有关时：
-- 涉及素数分布、哥德巴赫、黎曼猜想等
-- 涉及 NP vs P、Collatz 猜想等开放问题
-- 结构简单但已知无初等解的问题
+### Trigger condition 5: Need to confirm whether it is a known unresolved issue
+When a problem seems too difficult or involves known conjecture:
+- Involving prime number distribution, Goldbach, Riemann conjecture, etc.
+- Involving NP vs P, Collatz conjecture and other open problems
+- Problems with simple structures but no known elementary solutions
 
-### 触发条件 6：需要查找标准定义或权威表述
-当需要引用公认的数学表述时：
-- 查标准定义（如"紧致性的等价定义"）
-- 查命名定理的权威表述（如"隐函数定理的完整陈述"）
-- 比较不同教材或文献中同一概念的表述差异
+### Trigger condition 6: Need to find standard definitions or authoritative expressions
+When it is necessary to cite a generally accepted mathematical expression:
+- Look up standard definitions (such as "equivalent definition of compactness")
+- Look up the authoritative statement of the naming theorem (such as "the complete statement of the implicit function theorem")
+- Compare the differences in expressions of the same concept in different textbooks or documents
 
-### 触发条件 7：需要比较解题方法或查找已知技术
-当目标是比较不同解法或发现已知技术时：
-- 希望比较 2 种以上的解题路径
-- 需要了解某一类问题的标准解法
-- 需要找到某一定理的标准应用模式
-
----
-
-## 2. 搜索权威层级 (Search Authority Hierarchy)
-
-搜索结果按可信度分为四个层级：
-
-### 优先级 1：最高可信度
-可直接信任并引用的来源：
-- **经典教材**：如 Rudin《数学分析原理》、Artin《代数》、同济《高等数学》等
-- **大学官方讲义**：知名大学发布的课程笔记或讲义（如 MIT OCW、Stanford 课程笔记）
-- **数学百科类权威网站**：如 ProofWiki（严谨证明）、nLab（范畴论等）、Springer Encyclopedia of Mathematics
-
-**使用方式**：直接引用定理编号、页码、标准表述。
-
-### 优先级 2：高可信度
-可信任但需交叉验证的来源：
-- **同行评审的数学论文**：发表在公认期刊上的论文
-- **MathWorld (Wolfram)**：公认的数学参考资源
-- **OEIS (oeis.org)**：数列百科全书，数论/组合问题的权威参考
-- **arXiv**：预印本，需注意是否为正式发表版本
-- **竞赛官方解答**：IMO、Putnam 等官方发布的解答
-- **Terence Tao 博客、Timothy Gowers 博客**等公认数学家维护的博客
-
-**使用方式**：以这些来源为主要参考，但遇到矛盾时以自身推导为准。
-
-### 优先级 3：中等可信度（需谨慎）
-可作为参考但不能盲从的来源：
-- **Math StackExchange**：答案质量参差，需看投票数和评论
-- **MathOverflow**：研究级数学问答，质量通常高于 MSE，但仍需验证
-- **Art of Problem Solving (AoPS)**：竞赛社区解答
-- **Wikipedia（数学条目）**：作为起点可读，但需交叉验证关键陈述
-
-**使用方式**：作为启发参考，关键步骤必须独立重新推导验证。
-
-### 优先级 4：不可使用
-绝对不能使用以下来源：
-- **随机个人博客**：无明显学术资质的个人博客
-- **未经验证的论坛**：如 Zhihu（知乎）、Baidu Zhidao（百度知道）等非专业数学论坛的未经证实的答案
-- **AI 生成内容**：其他 AI 或 LLM 生成的数学内容，ChatGPT 输出等
-- **社交媒体帖子**：微博、Twitter、Reddit 等非结构化讨论
-- **内容农场**：以 SEO 为目的拼凑的数学内容
+### Trigger condition 7: Need to compare problem-solving methods or find known technologies
+When the goal is to compare different solutions or discover known techniques:
+- Want to compare more than 2 problem-solving paths
+- Need to know the standard solution to a certain type of problem
+- Need to find a standard application pattern of a certain theorem
 
 ---
 
-## 3. 搜索伦理与规则 (Search Ethics and Rules)
+## 2. Search Authority Hierarchy
 
-### 规则 1：严禁直接复制
-**绝对禁止**直接复制网上找到的解答。搜索结果只能作为参考，最终呈现的解答必须是从原理出发独立重新推导的。
+Search results are divided into four levels based on credibility:
 
-### 规则 2：搜索结果为参考
-搜索结果仅作为理解问题结构和方向的手段，最终解答必须用自己的语言重新表述，每一步都经过独立验证。
+### Priority 1: Highest credibility
+Sources you can trust and cite directly:
+- **Classic textbooks**: such as Rudin's "Principles of Mathematical Analysis", Artin's "Algebra", Tongji's "Advanced Mathematics", etc.
+- **Official university handouts**: course notes or handouts issued by well-known universities (such as MIT OCW, Stanford course notes)
+- **Mathematical encyclopedia authoritative websites**: such as ProofWiki (rigorous proof), nLab (category theory, etc.), Springer Encyclopedia of Mathematics
 
-### 规则 3：处理冲突
-如果网上找到的答案与自身推导不一致：
-1. 标注冲突存在的每一步
-2. 列出自身推导和网上答案的分歧点
-3. 重新检查两边的每一个条件
-4. 尝试用反例区分两种方法
-5. 如果无法确定哪一方正确，如实说明
+**Usage**: Directly quote the theorem number, page number, and standard expression.
 
-### 规则 4：找不到类似问题时
-如果搜索后找不到任何类似问题或方法：
-1. 从定义出发推导
-2. 使用已知标准定理
-3. 运用基本数学方法（归纳、反证、构造等）
-4. 明确标注"此问题在公开资源中未找到类似题目"
-5. 不因此降低推导的严谨性
+### Priority 2: High Confidence
+Trusted but cross-verified sources:
+- **Peer-reviewed mathematics papers**: papers published in recognized journals
+- **MathWorld (Wolfram)**: The recognized mathematical reference resource
+- **OEIS (oeis.org)**: Encyclopedia of Sequences, the authoritative reference for number theory/combinatorial problems
+- **arXiv**: Preprint, please note whether it is an officially published version
+- **Official answers to the competition**: Answers officially released by IMO, Putnam, etc.
+- Blogs maintained by recognized mathematicians such as **Terence Tao Blog and Timothy Gowers Blog**
 
-### 规则 5：已知开放问题
-如果发现问题是已知的开放问题：
-1. 明确写明"此为已知未解决问题，目前不存在被数学界公认的完整证明。"
-2. 提供该问题的已知标准名称
-3. 概述已知的部分结果（如果有）
-4. 指出已知的证明尝试及其失败原因（如果有）
-5. 绝不对开放问题声称"已解决"
+**How ​​to use**: Use these sources as the main reference, but in the event of conflict, your own derivation shall prevail.
 
-### 规则 6：禁止虚构引用
-**绝对禁止**虚构以下内容：
-- 不存在的论文标题、作者或期刊
-- 不存在的定理编号或名称
-- 不存在的教材引用
-- 不存在的 DOI 或 URL
+### Priority 3: Medium confidence (caution required)
+Sources that can be used as a reference but not to be followed blindly:
+- **Math StackExchange**: The quality of answers varies, depending on the number of votes and comments
+- **MathOverflow**: Research-grade math Q&A, usually higher quality than MSE, but still needs to be verified
+- **Art of Problem Solving (AoPS)**: Contest community answers
+- **Wikipedia (Mathematical Entry)**: Readable as a starting point, but requires cross-validation of key statements
 
-如果确实需要引用但无法找到确切来源，使用"根据已知的数学结论……"的表述方式。
+**How ​​to use**: As a heuristic reference, key steps must be independently re-derived and verified.
+
+### Priority 4: Not available
+The following sources must not be used:
+- **Random Personal Blog**: Personal blog without obvious academic qualifications
+- **Unverified Forum**: Unverified answers from non-professional mathematics forums such as Zhihu (Zhihu) and Baidu Zhidao (Baidu Zhidao)
+- **AI generated content**: mathematical content generated by other AI or LLM, ChatGPT output, etc.
+- **Social media posts**: Unstructured discussions on Weibo, Twitter, Reddit, etc.
+- **Content Farm**: Math content cobbled together for SEO purposes
 
 ---
 
-## 4. 无网络时的应对策略
+## 3. Search Ethics and Rules
 
-当无法访问互联网时，遵循以下策略：
+### Rule 1: Direct copying is strictly prohibited
+**Absolutely prohibited** Directly copying solutions found online. The search results can only be used as a reference, and the final solution must be independently re-derived from the principles.
 
-### 可用的内部资源
-1. **数学推理本身是第一资源**——从第一性原理出发的推导不需要联网
-2. **标准定理的知识储备**——利用训练数据中内化的数学知识
-3. **基本方法的系统性应用**——归纳、反证、构造、变换等方法论不依赖联网
+### Rule 2: Search results are for reference
+Search results only serve as a means of understanding the structure and direction of the question; the final solution must be restated in your own words, with each step independently verified.
 
-### 应对框架
-1. **从定义和公理出发**：写下所有相关定义
-2. **引用已知标准定理**：虽无法查证精确编号，但可使用定理名称和标准表述
-3. **明确陈述假设**：如果某个定理的条件记忆不确定，明确说明"假设……定理的条件被满足"
-4. **标注需要网络验证的部分**：在解答末尾添加`[待联网验证]`标记
+### Rule 3: Handling Conflicts
+If the answer found online is inconsistent with your own derivation:
+1. Mark each step where a conflict exists
+2. List the differences between your own derivation and online answers
+3. Recheck each condition on both sides
+4. Try to use counterexamples to distinguish between the two methods
+5. If you are not sure which side is correct, explain it truthfully.
 
-### 标注规范
+### Rule 4: When no similar questions can be found
+If you can't find any similar questions or methods after searching:
+1. Derivation from the definition
+2. Use known standard theorems
+3. Use basic mathematical methods (induction, disproof, construction, etc.)
+4. Clearly mark "This question has no similar questions found in public resources"
+5. Do not reduce the rigor of the derivation.
+
+### Rule 5: Known Open Issues
+If the issue is found to be a known open issue:
+1. Clearly state that "This is a known unsolved problem, and there is currently no complete proof recognized by the mathematical community."
+2. Provide a known standard name for the problem
+3. Summarize some of the known results (if any)
+4. Indicate known attempts at proof and why they failed (if any)
+5. Never claim that an open issue is "solved"
+
+### Rule 6: No fictitious references allowed
+**Absolutely prohibited** The following fictional content:
+- Non-existent paper title, author or journal
+- non-existent theorem number or name
+- References to non-existent textbooks
+- Non-existent DOI or URL
+
+If you really need to cite but the exact source cannot be found, use the expression "based on known mathematical results..."
+
+---
+
+## 4. Countermeasures when there is no network
+
+When Internet access is not available, follow these strategies:
+
+### Available internal resources
+1. **Mathematical reasoning itself is the first resource** - derivation from first principles does not require an Internet connection
+2. **Knowledge reserve of standard theorems** - using the mathematical knowledge internalized in the training data
+3. **Systematic application of basic methods** - Methodologies such as induction, disproof, construction, and transformation do not rely on the Internet
+
+### Response Framework
+1. **Start with definitions and axioms**: Write down all relevant definitions
+2. **Quoting known standard theorems**: Although the exact number cannot be verified, the theorem name and standard expression can be used
+3. **Explicitly state assumptions**: If the condition memory of a certain theorem is uncertain, clearly state "Assume...the conditions of the theorem are satisfied"
+4. **Mark the part that requires network verification**: Add the `[to be network verified]` mark at the end of the answer
+
+### Labeling specifications
+     ```
+## Internet verification suggestions
+- [ ] Verify the precise requirement of Stoltz's theorem on the monotonicity of the denominator
+- [ ] Confirm whether the analytical solution of the integral exists
+- [ ] Check the standard name of the combined identity
 ```
-## 联网验证建议
-- [ ] 验证斯托尔茨定理对分母单调性的精确要求
-- [ ] 确认该积分的解析解是否存在
-- [ ] 查证该组合恒等式的标准名称
-```
 
 ---
 
-## 5. 搜索查询构造指南 (Search Query Formulation)
+## 5. Search Query Formulation
 
-### 基本原则
-1. **使用英文关键词**：数学文献以英文为主，英文查询的命中率显著高于中文
-2. **包含 LaTeX 语法**：直接在查询中使用`$a_n$`、`$\sum$`等 LaTeX 片段
-3. **特定于目标来源**：如果希望搜索 StackExchange，加上`site:math.stackexchange.com`
-4. **包含定理名称**：如有标准名称，直接使用标准名称查询
+### Basic principles
+1. **Use English keywords**: Mathematics literature is mainly in English, and the hit rate of English queries is significantly higher than that of Chinese
+2. **Contains LaTeX syntax**: Use     `$a_n$`    ,     `$\sum$`     and other LaTeX fragments directly in the query
+3. **Target source specific**: If you want to search StackExchange, add     `site:math.stackexchange.com`
+4. **Contains theorem name**: If there is a standard name, directly use the standard name to query
 
-### 查询构造模板
+### Query construction template
 
-#### 查定义/定理表述
-```
+#### Check definition/theorem expression
+     ```
 "theorem_name" statement conditions
 ```
-示例：`"Stolz Cesaro theorem" statement conditions`
+Example:     `"Stolz Cesaro theorem" statement conditions`
 
-#### 查类似题目
+#### Check similar questions
+     ```
+"[Simplified mathematical expression]" similar problem solution
 ```
-"[简化的数学表达式]" similar problem solution
-```
-示例：`sum_(k=1)^n k*k! similar problem`
+Example:     `sum_(k=1)^n k*k! similar problem`
 
-#### 查是否为开放问题
+#### Check if it is an open issue
+     ```
+"[Problem description]" open problem unsolved conjecture
 ```
-"[问题描述]" open problem unsolved conjecture
-```
-示例：`"is every even number sum of two primes" open problem`
+Example:     `"is every even number sum of two primes" open problem`
 
-#### 查特定竞赛题目
-```
-"[关键词]" IMO OR Putnam OR "Chinese Mathematical Olympiad" problem solution
+#### Check specific competition questions
+     ```
+"[Keywords]" IMO OR Putnam OR "Chinese Mathematical Olympiad" problem solution
 ```
 
-#### 查标准方法
+#### Check the standard method
+     ```
+"[Problem type]" standard technique OR method OR approach
 ```
-"[问题类型]" standard technique OR method OR approach
-```
-示例：`"evaluate improper integral" standard technique contour`
+Example:     `"evaluate improper integral" standard technique contour`
 
-#### 使用 OEIS
+#### Using OEIS
+     ```
+"[First few items of the sequence]" OEIS
 ```
-"[数列前几项]" OEIS
-```
-示例：`1, 1, 2, 3, 5, 8, 13 OEIS`
+Example:     `1, 1, 2, 3, 5, 8, 13 OEIS`
 
-### 搜索后处理
-1. 阅读搜索结果摘要而非逐条点击
-2. 优先阅读 StackExchange 的高赞答案（>10 upvotes）和 MathOverflow 答案
-3. 验证关键公式是否与自身理解一致
-4. 记录搜索到的关键结论和来源
+### Post-search processing
+1. Read summaries of search results instead of clicking through them one by one
+2. Prioritize reading StackExchange’s highly praised answers (>10 upvotes) and MathOverflow answers
+3. Verify whether the key formulas are consistent with your own understanding
+4. Record the key conclusions and sources found

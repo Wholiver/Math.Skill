@@ -1,241 +1,241 @@
-# Math.skill 输出模板 (Output Templates)
+# Math.skill Output Templates
 
-以下定义 6 种输出模板，每种包含：适用场景、标准结构、完整示例、特殊注意事项。
+The following defines 6 output templates, each including: applicable scenarios, standard structure, complete examples, and special considerations.
 
 ---
 
-## 模板 A：标准解答 (Standard Solution)
+## Template A: Standard Solution
 
-### 何时使用
-- 常规数学问题的解答
-- 包含计算、推导、应用定理的标准题型
-- 用户未指定特殊输出格式时，默认使用此模板
+### When to use
+- Answers to general math problems
+- Standard question types including calculation, derivation, and application of theorems
+- This template is used by default when the user does not specify a special output format.
 
-### 标准结构
+### Standard structure
 
-```markdown
-## 题意解析
-[用数学语言重新表述问题，明确已知条件和求解目标]
+     ```markdown
+## Question meaning analysis
+[Reformulate the problem in mathematical language and clarify the known conditions and solution goals]
 
-## 方法选择
-[解释选择该方法的理由，与其他可能方法的对比]
+## Method selection
+[Explain the rationale for choosing this method and compare it with other possible methods]
 
-## 解题过程
-[完整的逐步推导]
+## Problem solving process
+[Full step-by-step derivation]
 
-## 验算
-[代入验证 / 逆运算验证 / 数值近似验证]
+## Check calculation
+[Substitution Verification/Inverse Operation Verification/Numerical Approximation Verification]
 
-## 最终答案
-[明确标注最终结果的格式]
+## Final answer
+[Clearly mark the format of the final result]
 
-## 易错点
-[列出常见的错误思路和避免方法]
+## Easy to make mistakes
+[List common mistakes and how to avoid them]
 ```
 
-### 完整示例
+### Complete example
 
-```markdown
-## 题意解析
-已知函数 f(x) = x³ - 3x² + 2，求 f 在 [-1, 3] 上的最大值和最小值。
+     ```markdown
+## Question meaning analysis
+Given the function f(x) = x³ - 3x² + 2, find the maximum and minimum values ​​of f on [-1, 3].
 
-## 方法选择
-一元闭区间连续函数的最值问题：先求驻点，再结合端点比较。
-选择求导法是因为 f 在 [-1,3] 上处处可导，临界点可以通过 f'(x) = 0 找到。
+## Method selection
+The optimal value problem of a one-variable closed interval continuous function: first find the stationary point, and then compare it with the endpoints.
+The derivation method was chosen because f is differentiable everywhere on [-1,3] and the critical point can be found by f'(x) = 0.
 
-## 解题过程
-**步骤 1**：求导
+## Problem solving process
+**Step 1**: Derivative
 f'(x) = 3x² - 6x = 3x(x - 2)
 
-**步骤 2**：求驻点
-令 f'(x) = 0，解得 x = 0 或 x = 2
-两个驻点均在区间 [-1, 3] 内。
+**Step 2**: Find the stationary point
+Let f'(x) = 0, solve for x = 0 or x = 2
+Both stationary points are in the interval [-1, 3].
 
-**步骤 3**：计算函数值
+**Step 3**: Calculate the function value
 f(-1) = (-1)³ - 3(-1)² + 2 = -1 - 3 + 2 = -2
 f(0) = 0³ - 3·0² + 2 = 2
 f(2) = 2³ - 3·2² + 2 = 8 - 12 + 2 = -2
 f(3) = 3³ - 3·3² + 2 = 27 - 27 + 2 = 2
 
-**步骤 4**：比较得出最值
-最大值 = max{-2, 2, -2, 2} = 2
-最小值 = min{-2, 2, -2, 2} = -2
+**Step 4**: Compare to get the best value
+maximum value = max{-2, 2, -2, 2} = 2
+Minimum value = min{-2, 2, -2, 2} = -2
 
-## 验算
+## Check calculation
 - f(-1) = -2：(-1)³ = -1, -3(-1)² = -3, -1-3+2 = -2 ✓
 - f(0) = 2：0-0+2 = 2 ✓
 - f(2) = -2：8-12+2 = -2 ✓
 - f(3) = 2：27-27+2 = 2 ✓
-- 端点 -1 和 3 已检查
-- 驻点处 f''(0) = -6 < 0（极大值点），f''(2) = 6 > 0（极小值点），与计算结果一致
+- Endpoints -1 and 3 checked
+- At the stationary point, f''(0) = -6 < 0 (maximum point), f''(2) = 6 > 0 (minimum point), consistent with the calculation results
 
-## 最终答案
-最大值为 2，在 x = 0 和 x = 3 处取得。
-最小值为 -2，在 x = -1 和 x = 2 处取得。
+## Final answer
+The maximum value is 2, taken at x = 0 and x = 3.
+The minimum value is -2, taken at x = -1 and x = 2.
 
-## 易错点
-1. 忘记检查端点值——闭区间最值可能在端点取到
-2. 漏掉 f(3) 等于 f(0)，导致认为最大值只在 x=0 取到
-3. 将 f'(x) = 0 的解直接当作最值点，未比较大小
+## Easy to make mistakes
+1. Forget to check the endpoint value - the maximum value of a closed interval may be taken at the endpoint
+2. Missing out that f(3) is equal to f(0) leads to the belief that the maximum value can only be obtained at x=0
+3. The solution of f'(x) = 0 is directly regarded as the maximum point without comparing the size.
 ```
 
-### 特殊注意事项
-- "题意解析"部分避免直接复制用户原话，应展示对问题的理解
-- "验算"部分至少包含一种验证方式
-- "易错点"应基于真实常见错误，不要虚构
+### Special Notes
+- In the "Analysis of Question Meaning" part, avoid directly copying the user's original words, and should show your understanding of the question.
+- The "Verification" section contains at least one verification method
+- "Error prone points" should be based on real common mistakes, not fictional ones
 
 ---
 
-## 模板 B：仅答案 (Answer Only)
+## Template B: Answer Only
 
-### 何时使用
-- 用户明确要求"只要答案"
-- 用户说"直接给结果"、"不需要过程"
-- 用户在对话中已经展示过完整思路，只需最终确认
+### When to use
+- User explicitly asked for "just the answer"
+- Users say "give results directly" and "no process required"
+- The user has already shown the complete idea in the conversation and only needs final confirmation
 
-### 标准结构
+### Standard structure
 
-```markdown
-答案是：[公式或数值]
+     ```markdown
+The answer is: [formula or numerical value]
 
-简单验算：[一行验证]
+Simple verification: [One line verification]
 ```
 
-### 完整示例
+### Complete example
 
-```markdown
-答案是：∬_D (x² + y²) dxdy = 8π/3
+     ```markdown
+The answer is: ∬_D (x² + y²) dxdy = 8π/3
 
-简单验算：利用极坐标，∫₀²∫₀²ᵖⁱ r²·r dθ dr = 2π·[r⁴/4]₀² = 2π·4 = 8π ✓
+Simple calculation: using polar coordinates, ∫₀²∫₀²ᵖⁱ r²·r dθ dr = 2π·[r⁴/4]₀² = 2π·4 = 8π ✓
 ```
 
-### 特殊注意事项
-- 验算行必须存在，保证答案的可信度
-- 如果问题有多解，必须全部列出
-- 如果是近似值，需注明精度
+### Special Notes
+- The verification row must exist to ensure the credibility of the answer
+- If the problem has multiple solutions, all must be listed
+- If it is an approximate value, please indicate the accuracy
 
 ---
 
-## 模板 C：证明 (Proof)
+## Template C: Proof
 
-### 何时使用
-- 用户要求证明某个命题
-- "请证明……"、"求证……"
-- 需要展示逻辑推导链的数学论证
+### When to use
+- The user asks to prove a certain proposition
+- "Please prove...", "Please prove..."
+- Mathematical arguments that need to show logical chains of derivation
 
-### 标准结构
+### Standard structure
 
-```markdown
-## 命题
-[被证明命题的精确陈述]
+     ```markdown
+## Proposition
+[precise statement of the proposition being proved]
 
-## 证明思路
-[证明的整体逻辑结构、关键引理、核心技巧]
+## Proof idea
+[The overall logical structure of the proof, key lemmas, and core techniques]
 
-## 证明
-[完整的逻辑推演，包含所有中间步骤和引用]
+## prove
+[Complete logical deduction, including all intermediate steps and references]
 
-## 反例检查与边界情况
-[检查命题的各种边界情形，验证是否有反例]
+## Counterexample checking and edge cases
+[Check various boundary cases of the proposition and verify whether there are counterexamples]
 
-## 结论
-[命题证明完成的总结]
+## in conclusion
+[Summary of completion of proposition proof]
 ```
 
-### 完整示例
+### Complete example
 
-```markdown
-## 命题
-对于任意正整数 n，证明：n³ - n 能被 6 整除。
+     ```markdown
+## Proposition
+For any positive integer n, prove that: n³ - n is divisible by 6.
 
-## 证明思路
-核心是对 n³ - n = n(n-1)(n+1) 进行因式分解，注意到这是三个连续整数的乘积。
-三个连续整数中必有一个是 2 的倍数，必有一个是 3 的倍数，
-因此乘积必有因子 2 × 3 = 6。
+## Proof idea
+The core is to factor n³ - n = n(n-1)(n+1), noting that this is the product of three consecutive integers.
+One of the three consecutive integers must be a multiple of 2, and one must be a multiple of 3.
+Therefore the product must have factors 2 × 3 = 6.
 
-## 证明
-**步骤 1**：因式分解
+## prove
+**Step 1**: Factorization
 n³ - n = n(n² - 1) = n(n-1)(n+1)
 
-**步骤 2**：三个连续整数的性质
-n-1, n, n+1 是三个连续整数，因此：
-- 其中至少有一个偶数（被 2 整除）
-- 其中恰好有一个被 3 整除
+**Step 2**: Properties of three consecutive integers
+n-1, n, n+1 are three consecutive integers, therefore:
+- There is at least one even number (divisible by 2)
+- Exactly one of them is divisible by 3
 
-**步骤 3**：组合因子
-因为乘积同时含有因子 2 和因子 3，且 2 和 3 互质，
-所以 n³ - n 含有因子 6 = 2 × 3。
+**Step 3**: Combining Factors
+Since the product contains both factors 2 and 3, and 2 and 3 are relatively prime,
+So n³ - n contains the factor 6 = 2 × 3.
 
-即：6 | (n³ - n)，对所有 n ∈ ℕ 成立。
+That is: 6 | (n³ - n), true for all n ∈ ℕ.
 
-## 反例检查与边界情况
-- n = 1：1³ - 1 = 0，0 可被 6 整除 ✓
-- n = 2：8 - 2 = 6，可被 6 整除 ✓
-- n = 3：27 - 3 = 24 = 6×4，可被 6 整除 ✓
-- n = 0：如果 n=0 被认为在正整数范围内（此处不包括），0-0=0 可被 6 整除
+## Counterexample checking and edge cases
+- n = 1: 1³ - 1 = 0, 0 is divisible by 6 ✓
+- n = 2: 8 - 2 = 6, divisible by 6 ✓
+- n = 3: 27 - 3 = 24 = 6×4, divisible by 6 ✓
+- n = 0: 0-0=0 is divisible by 6 if n=0 is considered to be in the range of positive integers (not included here)
 
-无边界反例。
+Unbounded counterexamples.
 
-## 结论
-命题得证：对任意正整数 n，6 | (n³ - n)。∎
+## in conclusion
+Proof of the proposition: For any positive integer n, 6 | (n³ - n). ∎
 ```
 
-### 特殊注意事项
-- 命题陈述必须精确，量化词完整
-- "反例检查与边界"部分必须存在，即使没有反例
-- 使用适当的结束标记（如 ∎ 或 Q.E.D.）
+### Special Notes
+- The proposition statement must be precise and the quantification words must be complete
+- The "Counterexample Checking and Bounds" section must be present even if there is no counterexample
+- Use an appropriate closing tag (such as ∎ or Q.E.D.)
 
 ---
 
-## 模板 D：解答检查 (Solution Checking)
+## Template D: Solution Checking
 
-### 何时使用
-- 用户提供了自己的解答，要求检查是否正确
-- "我这样算对吗？"
-- "看看错在哪里"
-- 需要指出并修正错误
+### When to use
+- Users provided their own answers and asked to check if they are correct
+- "Am I right?"
+- "See what's wrong"
+- Errors need to be pointed out and corrected
 
-### 标准结构
+### Standard structure
 
-```markdown
-## 检查结论
-[总体判断：正确 / 有误 / 部分正确]
+     ```markdown
+## Check conclusion
+[Overall judgment: correct / incorrect / partially correct]
 
-## 问题定位
-[如果有错误，精确指出错误步骤和错误类型]
-[如果正确，确认每一步的合理性]
+## Problem location
+[If there is an error, identify the exact step and type of error]
+[If correct, confirm the rationality of each step]
 
-## 正确做法
-[展示正确推导（如果是部分步骤修正，只需改正错误部分）]
+## Correct approach
+[Show correct derivation (if it is a partial step correction, only correct the wrong part)]
 
-## 验算
-[对正确解答进行独立验证]
+## Check calculation
+[Independent verification of correct answer]
 
-## 最终答案
-[如果是错的，给出正确答案；如果是正确的，确认用户答案]
+## Final answer
+[If it is wrong, give the correct answer; if it is correct, confirm the user's answer]
 ```
 
-### 完整示例
+### Complete example
 
-```markdown
-## 检查结论
-您的解答有误。前两步正确，但在第 3 步出现了关键错误。
+     ```markdown
+## Check conclusion
+Your answer is wrong. The first two steps are correct, but in step 3 a critical error occurs.
 
-## 问题定位
-**第 3 步**：您写了 √(x²) = x
-这是错误的。正确的关系是 √(x²) = |x|。
+## Problem location
+**Step 3**: You write √(x²) = x
+This is wrong. The correct relationship is √(x²) = |x|.
 
-因为平方根函数返回的是非负值，而 x 可能为负。
+Because the square root function returns a nonnegative value, x may be negative.
 
-在这个问题中，积分区间是 [-2, 1]，x 在此区间内可取负值，
-所以 √(x²) 不能简单等于 x。
+In this problem, the integration interval is [-2, 1], and x can take negative values ​​within this interval,
+So √(x²) cannot simply be equal to x.
 
-## 正确做法
-**修正第 3 步起**：
-将积分区间拆分为 [-2, 0] 和 [0, 1]：
+## Correct approach
+**Correction from step 3**:
+Split the integration interval into [-2, 0] and [0, 1]:
 
-在 [-2, 0] 上：√(x²) = |x| = -x（因为 x ≤ 0）
-在 [0, 1] 上：√(x²) = |x| = x（因为 x ≥ 0）
+On [-2, 0]: √(x²) = |x| = -x (since x ≤ 0)
+On [0, 1]: √(x²) = |x| = x (since x ≥ 0)
 
 ∫_{-2}^{1} |x| dx = ∫_{-2}^{0} (-x) dx + ∫_{0}^{1} x dx
 = [-x²/2]_{-2}^{0} + [x²/2]_{0}^{1}
@@ -243,365 +243,365 @@ n-1, n, n+1 是三个连续整数，因此：
 = 2 + 0.5
 = 2.5
 
-## 验算
-几何验证：|x| 在 [-2,0] 下的面积为三角形面积 = 2×2/2 = 2
-|x| 在 [0,1] 下的面积为三角形面积 = 1×1/2 = 0.5
-总面积 = 2 + 0.5 = 2.5 ✓
+## Check calculation
+Geometric verification: The area of ​​|x| under [-2,0] is the area of ​​the triangle = 2×2/2 = 2
+The area of ​​|x| under [0,1] is the area of ​​the triangle = 1×1/2 = 0.5
+Total area = 2 + 0.5 = 2.5 ✓
 
-## 最终答案
-正确答案是 2.5，而不是您得到的 1.5。
+## Final answer
+The correct answer is 2.5, not the 1.5 you got.
 
-您的错误主要在于忽略了平方根函数的非负性约定。
+Your mistake mainly lies in ignoring the non-negativity convention of the square root function.
 ```
 
-### 特殊注意事项
-- 错误定位要具体到行号或步骤编号
-- 指出错误时保持建设性，不说"你太笨了"之类的话
-- 如果解答完全正确，只需确认和给出验算即可
+### Special Notes
+- The error location should be specific to the line number or step number
+- Be constructive when pointing out mistakes and don't say things like "You're so stupid"
+- If the answer is completely correct, just confirm and give the verification
 
 ---
 
-## 模板 E：高等数学解答 (Higher Math)
+## Template E: Higher Math Solutions (Higher Math)
 
-### 何时使用
-- 问题需要使用大学及以上水平的数学工具
-- 涉及实分析、抽象代数、拓扑等高级课程内容
-- 用户明确要求用高等数学方法
+### When to use
+- Questions require the use of college level or above mathematical tools
+- Involving advanced course content such as real analysis, abstract algebra, topology, etc.
+- Users explicitly request advanced mathematical methods
 
-### 标准结构
+### Standard structure
 
-```markdown
-## 问题类型
-[领域分类：实分析 / 抽象代数 / 拓扑 / 高等概率...]
+     ```markdown
+## Question type
+[Field classification: real analysis / abstract algebra / topology / advanced probability...]
 
-## 条件与定义域
-[问题中所有条件的形式化表述，定义域的详细界定]
+## Conditions and domains
+[Formal expression of all conditions in the problem, detailed definition of the domain]
 
-## 使用的定理及适用条件
-[列出的定理名称、陈述、以及在本题中条件满足的验证]
+## Theorems used and applicable conditions
+[Listed theorem names, statements, and verification that the conditions in this question are met]
 
-## 推导
-[基于所选定理的严格推导过程]
+## Derivation
+[Strict derivation process based on selected theorem]
 
-## 验算与一致性检查
-[多种方式交叉验证结果，检查与其他已知结论的一致性]
+## Calculation and consistency check
+[Cross-validate results in multiple ways to check consistency with other known conclusions]
 
-## 最终结论
-[结论的形式化陈述]
+## Final conclusion
+[Formal statement of conclusion]
 ```
 
-### 完整示例
+### Complete example
 
-```markdown
-## 问题类型
-实分析——一致收敛与逐点收敛的关系
+     ```markdown
+## Question type
+Real analysis - the relationship between uniform convergence and point-wise convergence
 
-## 条件与定义域
-设有函数序列 f_n(x) = x^n，定义域 x ∈ [0, 1]。
-讨论 f_n 在 [0, 1] 上是否一致收敛。
+## Conditions and domains
+Let the function sequence f_n(x) = x^n and the domain x ∈ [0, 1].
+Discuss whether f_n converges uniformly on [0, 1].
 
-## 使用的定理及适用条件
-**采用的判定方法**：一致收敛的充要条件是 sup|f_n(x) - f(x)| → 0
-其中 f(x) 是逐点极限。
+## Theorems used and applicable conditions
+**Judgment method adopted**: The necessary and sufficient condition for consistent convergence is sup|f_n(x) - f(x)| → 0
+where f(x) is the pointwise limit.
 
-**逐点极限**：
-对任意 x ∈ [0, 1)：
+**Pointwise Limit**:
+For any x ∈ [0, 1):
   lim_{n→∞} x^n = 0
-对 x = 1：
+For x = 1:
   lim_{n→∞} 1^n = 1
 
-所以 f(x) = { 0, x ∈ [0, 1); 1, x = 1 }
+So f(x) = { 0, x ∈ [0, 1); 1, x = 1 }
 
-## 推导
-计算上确界：
-对任意 n，sup_{x∈[0,1]} |f_n(x) - f(x)|
+## Derivation
+Compute the exact bound:
+For any n, sup_{x∈[0,1]} |f_n(x) - f(x)|
 
-当 x ∈ [0, 1)：|f_n(x) - 0| = x^n
-当 x = 1：|f_n(1) - 1| = |1 - 1| = 0
+When x ∈ [0, 1): |f_n(x) - 0| = x^n
+When x = 1: |f_n(1) - 1| = |1 - 1| = 0
 
-在 [0, 1) 上，x^n 的上确界 = 1（当 x → 1⁻ 时），
-因此 sup |f_n(x) - f(x)| = 1
+On [0, 1), the supremum of x^n = 1 (when x → 1⁻),
+Therefore sup |f_n(x) - f(x)| = 1
 
-由于 lim_{n→∞} 1 = 1 ≠ 0，
-根据充要条件，f_n 在 [0,1] 上**不一致收敛**。
+Since lim_{n→∞} 1 = 1 ≠ 0,
+According to necessary and sufficient conditions, f_n **inconsistently converges** on [0,1].
 
-## 验算与一致性检查
-1. **连续性检验**：每个 f_n(x) = x^n 在 [0,1] 上连续。
-   若一致收敛，极限函数也应连续。
-   但 f(x) 在 x=1 处不连续（极限为 0，函数值为 1）。
-   这反向证实了不一致收敛。——结论自洽 ✓
+## Calculation and consistency check
+1. **Continuity Test**: Every f_n(x) = x^n is continuous on [0,1].
+If there is uniform convergence, the limit function should also be continuous.
+But f(x) is discontinuous at x=1 (the limit is 0 and the function value is 1).
+This inversely confirms inconsistent convergence. ——The conclusion is self-consistent ✓
 
-2. **紧集上的一致收敛**：如果缩小定义域到 [0, c]（c < 1），
-   则 sup x^n = c^n → 0（n → ∞），此时一致收敛。
-   这与理论完全一致 ✓
+2. **Uniform convergence on compact sets**: If the domain is reduced to [0, c] (c < 1),
+Then sup x^n = c^n → 0 (n → ∞), which converges uniformly.
+This is completely consistent with the theory ✓
 
-## 最终结论
-函数序列 f_n(x) = x^n 在 [0, 1] 上逐点收敛但不一致收敛。
-极限函数在 x = 1 处有跳跃间断点，破坏了连续性。
+## Final conclusion
+The sequence of functions f_n(x) = x^n converges pointwise but inconsistently on [0, 1].
+The limit function has a jump discontinuity at x = 1, breaking continuity.
 ```
 
-### 特殊注意事项
-- 定理的条件验证必须逐条完整列出，不可遗漏
-- 需要区分概念（如点态与一致收敛、紧致与列紧）
-- 一致性检查是高等数学解答中不可或缺的环节
+### Special Notes
+- The conditional verification of the theorem must be listed in full one by one and cannot be omitted.
+- Concepts need to be distinguished (such as point state and consistent convergence, compactness and column compaction)
+- Consistency checking is an indispensable part of advanced mathematics solutions
 
 ---
 
-## 模板 F：研究/开放问题 (Research/Open Problem)
+## Template F: Research/Open Problem (Research/Open Problem)
 
-### 何时使用
-- 问题被确认为已知开放问题
-- 问题属于研究级别，没有已知的标准解答
-- 用户的数学水平可能不足以判断问题的难度时，需要诚实说明
+### When to use
+- The issue is confirmed as a known open issue
+- Question is research level and has no known standard answer
+- When the user’s mathematical level may not be sufficient to judge the difficulty of the problem, an honest explanation is required
 
-### 标准结构
+### Standard structure
 
-```markdown
-## 初步判断
-[该问题在当前数学知识体系中的地位]
+     ```markdown
+## Preliminary judgment
+[The status of this problem in the current mathematical knowledge system]
 
-## 已知信息与可能相关理论
-[与该问题相关的已知结论、定理和理论框架]
+## Known information and possible related theories
+[Known conclusions, theorems and theoretical frameworks related to this problem]
 
-## 搜索或查证结果
-[搜索该问题的结果摘要，是否找到类似讨论、相关文献]
+## Search or check results
+[Search the summary of results for this issue and see if similar discussions and related literature are found]
 
-## 从第一原则出发的分析
-[从基本定义出发的分析，展示可做出的严格推导]
+## Analysis from first principles
+[Analysis starting from basic definitions, showing rigorous derivations that can be made]
 
-## 已验证的部分结论
-[在特定条件下确实可证的结论]
+## Some verified conclusions
+[A conclusion that is truly verifiable under specific conditions]
 
-## 反例搜索
-[数值搜索的结果，发现/未发现反例]
+## Counterexample search
+[Results of numerical search, found/not found counterexamples]
 
-## 当前障碍
-[阻碍完整证明的关键步骤，为何现有工具不足]
+## Current obstacle
+[Critical steps that hinder complete proofs, why existing tools are insufficient]
 
-## 可继续推进的方向
-[建议的下一步研究方向]
+## Directions that can be continued
+[Suggested next research directions]
 
-## 结论状态
-[明确该问题的当前状态：开放/部分解决/特定条件下已解决]
+## Conclusion status
+[Specify the current status of this issue: Open/Partially Resolved/Resolved under certain conditions]
 ```
 
-### 完整示例
+### Complete example
 
-```markdown
-## 初步判断
-此问题与 **Collatz 猜想（3n+1 问题）** 本质上等价。
-该问题自 1937 年提出以来，至今未被证明或证否。
-目前已有数值验证到约 2⁶⁸，未发现反例。
+     ```markdown
+## Preliminary judgment
+This problem is essentially equivalent to **Collatz Conjecture (3n+1 problem)**.
+This question has not been proven or disproven since it was raised in 1937.
+At present, it has been numerically verified to about 2⁶⁸, and no counterexamples have been found.
 
-## 已知信息与可能相关理论
-- Jeffery Lagarias (2010) 的综述《The Ultimate Challenge: The 3x+1 Problem》
-- Terence Tao (2019) 证明了对数密度趋于 0 的结果
-- 已有结论：几乎所有数经过 Collatz 迭代最终小于原数
+## Known information and possible related theories
+- Review of "The Ultimate Challenge: The 3x+1 Problem" by Jeffery Lagarias (2010)
+- Terence Tao (2019) proved that the logarithmic density tends to 0
+- It has been concluded that almost all numbers are ultimately smaller than the original number after Collatz iteration
 
-## 搜索或查证结果
-在 MathOverflow 上找到相关讨论（高赞回答 by Tao 等）：
-确认该问题中提出的特例未超出 Collatz 猜想的范围，
-目前无已知的完整证明。
+## Search or check results
+Find related discussions on MathOverflow (highly praised answers by Tao, etc.):
+Confirm that the special case raised in this question is within the scope of Collatz's conjecture,
+No complete proof is known.
 
-## 从第一原则出发的分析
-对您提出的特定形式，可以建立与标准 Collatz 迭代的等价映射：
-设 T(n) = n/2 (n 偶), 3n+1 (n 奇)，则……
-[具体的等价推导]
+## Analysis from first principles
+For the specific form you propose, an equivalent mapping to standard Collatz iterations can be established:
+Assume T(n) = n/2 (n is even), 3n+1 (n is odd), then...
+[Specific equivalent derivation]
 
-这表明您的问题和 Collatz 猜想同时为真或同时为假。
+This shows that both your question and Collatz's conjecture are either true or false at the same time.
 
-## 已验证的部分结论
-对于 n ≤ 10⁶ 范围内的数：
-- 经过有限步迭代后进入 4→2→1 循环
-- 未发现循环长度 > 10⁴ 的其他循环
-使用 Python 验证（需约为 5 秒）可复现此结果。
+## Some verified conclusions
+For numbers in the range n ≤ 10⁶:
+- After finite step iteration, enter the 4→2→1 loop
+- No other loops found with loop length > 10⁴
+This result can be reproduced using Python verification (takes ~5 seconds).
 
-## 反例搜索
-在 n ∈ [1, 10⁶] 范围内未发现反例。
-此结果与已知的大规模数值验证结果一致。
+## Counterexample search
+No counterexamples were found in the range n ∈ [1, 10⁶].
+This result is consistent with known large-scale numerical verification results.
 
-## 当前障碍
-要完成一般性证明，需要处理 Collatz 迭代中的任意长轨道问题，
-目前没有任何已知的数学工具可以完全解决这一问题。
+## Current obstacle
+To complete the general proof, one needs to deal with the problem of arbitrarily long orbits in Collatz iterations,
+There are currently no known mathematical tools that can completely solve this problem.
 
-## 可继续推进的方向
-1. 研究该问题的统计行为（如 Tao 所做的工作）
-2. 探索与 p-进数分析或其他数论工具的联系
-3. 研究特定子集的枚举性质
-4. 如果您对此问题有新的视角，建议查阅 Lagarias 的综述以了解已知进展
+## Directions that can be continued
+1. Study the statistical behavior of the problem (as done by Tao)
+2. Explore connections to p-radical number analysis or other number theory tools
+3. Study the enumeration properties of specific subsets
+4. If you have a new perspective on this issue, it is recommended to check out Lagarias’ review to understand the known progress
 
-## 结论状态
-**该问题目前不存在被数学界公认的完整证明。**
-以上分析为已有知识的整理和特例的数值实验，
-不代表对原问题的证明。
+## Conclusion status
+**There is currently no complete proof of this problem recognized by the mathematical community. **
+The above analysis is a compilation of existing knowledge and numerical experiments of special cases.
+It does not represent a proof of the original question.
 ```
 
-### 特殊注意事项
-- 必须明确标注"目前不存在完整证明"
-- 区分"已验证事实"和"推测"
-- 提供给用户的后续建议应具体可操作
-- 引用文献时必须有具体可查的来源（不要虚构）
+### Special Notes
+- Must be clearly marked "A complete certificate does not currently exist"
+- Distinguish between "verified facts" and "speculations"
+- Follow-up suggestions provided to users should be specific and actionable
+- When citing documents, there must be specific and verifiable sources (no fictitious ones)
 
 ---
 
-## 模板 G：研究级问题深度分析 (Research-Level Deep Analysis)
+## Template G: Research-Level Deep Analysis
 
-### 何时使用
-- 用户明确提出研究级别的数学问题
-- 问题涉及多个数学分支的交叉
-- 需要展示深入的理论分析和多种可能的解决路径
-- 用户具备研究生或以上数学背景
+### When to use
+- Users explicitly ask research-level mathematical questions
+- Questions involving the intersection of multiple branches of mathematics
+- Need to demonstrate in-depth theoretical analysis and multiple possible solution paths
+- Users have a graduate degree or above in mathematics background
 
-### 标准结构
+### Standard structure
 
-```markdown
-## 问题分类与定位
-[问题所属的数学领域，与已知问题的关联]
+     ```markdown
+## Problem classification and positioning
+[The mathematical field to which the problem belongs, and its relationship to known problems]
 
-## 核心难点分析
-[问题的本质困难在哪里，为何标准方法失效]
+## Analysis of core difficulties
+[What is the essential difficulty of the problem and why the standard method fails]
 
-## 相关理论框架
-[可能需要用到的深层理论和工具]
+## Related theoretical framework
+[In-depth theories and tools that may be needed]
 
-## 已知结果综述
-[与该问题最接近的已知定理和结论]
+## Summary of known results
+[The closest known theorem and conclusion to the problem]
 
-## 尝试路径一：[方法名称]
-[第一种解决思路的详细推导]
-### 进展
-[该方法能走多远]
-### 障碍
-[遇到的具体困难]
+## Try path one: [method name]
+[Detailed derivation of the first solution]
+### Progress
+[How far can this approach go]
+### Obstacles
+[Specific difficulties encountered]
 
-## 尝试路径二：[方法名称]
-[第二种解决思路的详细推导]
-### 进展
-### 障碍
+## Try path two: [method name]
+[Detailed derivation of the second solution idea]
+### Progress
+### Obstacles
 
-## 尝试路径三：[方法名称]
-[第三种解决思路的详细推导]
-### 进展
-### 障碍
+## Try path three: [method name]
+[Detailed derivation of the third solution idea]
+### Progress
+### Obstacles
 
-## 部分结果与引理
-[可以严格证明的中间结果]
+## Some results and lemmas
+[Intermediate results that can be rigorously proven]
 
-## 数值/符号计算验证
-[计算机辅助验证的结果]
+## Numerical/symbolic calculation verification
+[Results of computer-aided verification]
 
-## 可能的突破方向
-[基于上述分析，最有希望的研究方向]
+## Possible breakthrough direction
+[Based on the above analysis, the most promising research direction]
 
-## 开放性结论
-[诚实说明当前分析的局限性]
+## Open conclusion
+[Be honest about the limitations of the current analysis]
 ```
 
-### 完整示例
+### Complete example
 
-```markdown
-## 问题分类与定位
-**领域**: 解析数论 × 代数几何  
-**问题类型**: L-函数零点分布与算术对象的关联  
-**关联猜想**:广义 Riemann 假设，Birch and Swinnerton-Dyer 猜想
+     ```markdown
+## Problem classification and positioning
+**Field**: Analytic Number Theory × Algebraic Geometry
+**Problem type**: Association of zero point distribution of L-functions with arithmetic objects
+**Correlation Conjecture**: Generalized Riemann hypothesis, Birch and Swinnerton-Dyer conjecture
 
-## 核心难点分析
-1. **解析延拓的存在性**: 该 L-函数的解析延拓尚未被证明
-2. **函数方程未知**: 缺乏函数方程使得零点分布分析极为困难
-3. **算术信息编码**: L-函数系数与椭圆曲线秩的关系不明确
+## Analysis of core difficulties
+1. **Existence of analytic continuation**: The analytic continuation of this L-function has not been proven yet
+2. **Unknown functional equation**: The lack of functional equation makes zero-point distribution analysis extremely difficult
+3. **Arithmetic Information Encoding**: The relationship between L-function coefficients and elliptic curve rank is unclear
 
-## 相关理论框架
-- **模形式理论**: 若该 L-函数来自模形式，可利用 modularity theorem
-- **Iwasawa 理论**: 研究 p-进 L-函数的性质
-- **Trace formula**: Arthur-Selberg trace formula 可能提供谱信息
+## Related theoretical framework
+- **Modular form theory**: If the L-function comes from modular form, modularity theorem can be used
+- **Iwasawa Theory**: Study of the properties of p-radical L-functions
+- **Trace formula**: Arthur-Selberg trace formula may provide spectral information
 
-## 已知结果综述
-- **最接近的定理**: Wiles (1995) 证明了半稳定椭圆曲线的模性
-- **部分结果**: Kolyvagin (1988) 对秩为 0 或 1 的情况证明了 BSD 猜想
-- **数值证据**: Cremona 数据库验证了 conductor < 500000 的情况
+## Summary of known results
+- **Nearest Theorem**: Wiles (1995) proved the modularity of semi-stable elliptic curves
+- **Partial results**: Kolyvagin (1988) proved the BSD conjecture for the case of rank 0 or 1
+- **Numerical evidence**: Cremona database verified for conductor < 500000
 
-## 尝试路径一：模性提升
-通过已知的模性提升定理，尝试将该椭圆曲线与模形式关联。
+## Try path one: improve modularity
+An attempt is made to relate this elliptic curve to a modular form via the known modularity promotion theorem.
 
-### 进展
-对于 good reduction 的素数 p，可以计算局部因子...
+### Progress
+For a prime p of good reduction, the local factors can be calculated...
 
-### 障碍
-在 p = 2, 3 处的 bad reduction 类型不明，无法应用现有的提升定理。
+### Obstacles
+The bad reduction at p = 2, 3 is of unknown type and the existing lifting theorem cannot be applied.
 
-## 尝试路径二：p-进方法
-构造 p-进 L-函数并研究其零点。
+## Try path two: p-advanced method
+Construct p-adic L-functions and study their zeros.
 
-### 进展
-利用 Klingen-Stackelberg 构造可以得到 p-进插值公式...
+### Progress
+The p-adic interpolation formula can be obtained using the Klingen-Stackelberg construction...
 
-### 障碍
-p-进 L-函数的非平凡零点与原 L-函数的对应关系未明。
+### Obstacles
+The corresponding relationship between the non-trivial zeros of the p-radical L-function and the original L-function is not clear.
 
-## 尝试路径三：平均结果
-考虑一族类似的 L-函数，研究统计性质。
+## Try path three: average results
+Consider a family of similar L-functions and study the statistical properties.
 
-### 进展
-可以证明平均意义下的零点密度估计...
+### Progress
+It can be shown that the zero-point density estimate in the mean sense...
 
-### 障碍
-平均结果无法推出单个 L-函数的性质。
+### Obstacles
+The properties of individual L-functions cannot be deduced from the average results.
 
-## 部分结果与引理
-**引理 1**: 在 Re(s) > 3/2 区域，该 L-函数绝对收敛。
-**引理 2**: 若存在函数方程，则临界线为 Re(s) = 1。
-**命题**: 对于 90% 的素数 p，局部因子满足预期界限。
+## Some results and lemmas
+**Lemma 1**: In the region Re(s) > 3/2, the L-function absolutely converges.
+**Lemma 2**: If there is a functional equation, then the critical line is Re(s) = 1.
+**Proposition**: For 90% of primes p, the local factors satisfy the expected bounds.
 
-## 数值/符号计算验证
-使用 SageMath 计算前 1000 个 Dirichlet 系数：
-- 系数增长符合 Ramanujan-Petersson 猜想
-- 前 100 个非平凡零点均位于临界线上（精度 10⁻¹⁰）
+## Numerical/symbolic calculation verification
+Use SageMath to calculate the first 1000 Dirichlet coefficients:
+- The coefficient growth is consistent with the Ramanujan-Petersson conjecture
+- The first 100 non-trivial zeros are all on the critical line (accuracy 10⁻¹⁰)
 
-## 可能的突破方向
-1. **确定 bad reduction 类型**: 计算 discriminant 和 conductor
-2. **寻找函数方程**: 通过数值拟合猜测函数方程形式
-3. **应用 converse theorem**: 验证足够的 analytic properties 以推出模性
+## Possible breakthrough direction
+1. **Determine bad reduction type**: Calculate discriminant and conductor
+2. **Find function equation**: Guess the form of function equation through numerical fitting
+3. **Application of converse theorem**: Verify sufficient analytic properties to derive modularity
 
-## 开放性结论
-**当前状态**: 该问题的完整解决超出已知数学工具的范围。
-上述分析展示了多种可能的研究路径，但每条路径都存在实质性障碍。
-建议将此问题分解为若干可处理的子问题逐个击破。
+## Open conclusion
+**Current Status**: A complete solution of this problem is beyond the scope of known mathematical tools.
+The above analysis illustrates a variety of possible research paths, each of which presents substantial obstacles.
+It is recommended to decompose this problem into several tractable sub-problems and solve them one by one.
 ```
 
-### 特殊注意事项
-- 必须明确区分"已证明"、"推测"、"数值证据"三种断言强度
-- 引用的定理必须准确陈述条件，不可模糊处理
-- 对于开放问题，不提供虚假的"解答"
-- 建议的研究方向应具体且可行
-- 如涉及计算，应说明所用工具和精度
+### Special Notes
+- It is necessary to clearly distinguish between the three assertion strengths of "proven", "speculation" and "numerical evidence"
+- The cited theorem must state the conditions accurately and cannot be blurred
+- Do not provide false "answers" to open questions
+- Proposed research directions should be specific and feasible
+- If calculations are involved, the tools and precision used should be stated
 
 ---
 
-## 模板选择决策树
+## Template selection decision tree
 
-```
-收到数学问题
+     ```
+received a math question
 │
-├─ 用户指定模板 → 使用指定模板
+├─ User specified template → Use specified template
 │
-├─ 未指定模板 ↓
+├─ No template specified ↓
 │  │
-│  ├─ "只要答案" → 模板 B：仅答案
-│  ├─ "帮我看看对不对" → 模板 D：解答检查
-│  ├─ "证明……" → 模板 C：证明
-│  ├─ 已知开放问题 / 一般研究级 → 模板 F：研究/开放
-│  ├─ 深度研究级问题（多分支交叉） → 模板 G：研究级深度分析
-│  ├─ 高等数学领域 → 模板 E：高等数学
-│  └─ 其他情况 → 模板 A：标准解答（默认）
+│ ├─ "Just the answer" → Template B: Only the answer
+│ ├─ "Help me see if I'm right" → Template D: Answer Check
+│ ├─ "Proof..." → Template C: Proof
+│ ├─ Known Open Issues/General Research Level → Template F: Research/Open
+│ ├─ In-depth research-level problem (multi-branch crossover) → Template G: Research-level in-depth analysis
+│ ├─ Advanced Mathematics Field → Template E: Advanced Mathematics
+│ └─ Other situations → Template A: Standard answer (default)
 ```
 
 ---
 
-## 跨模板通用规范
+## Common specifications across templates
 
-1. **数学符号**：使用标准 LaTeX 语法（$...$ 行内，$$...$$ 独立行）
-2. **格式一致性**：同一模板内部的编号、缩进、标记方式必须一致
-3. **语言**：使用简体中文，专业术语使用中文或英文取决于读者可能更熟悉的表述
-4. **验算**：所有模板都必须包含验算环节（模板 B 以"简单验算"形式存在）
-5. **答案标注**：最终答案必须醒目标注，方便定位
-6. **引用规范**：引用定理时必须注明定理名称，引用外部来源时注明出处
+1. **Mathematical notation**: Use standard LaTeX syntax (    $...$     inline,     $$...$$     independent line)
+2. **Format Consistency**: The numbering, indentation, and marking methods within the same template must be consistent
+3. **Language**: Simplified Chinese is used, and professional terms are used in Chinese or English depending on the expression that the reader may be more familiar with.
+4. **Check Calculation**: All templates must include a verification link (Template B exists in the form of "Simple Calculation")
+5. **Answer Marking**: The final answer must be clearly marked for easy location.
+6. **Citation Standards**: When citing a theorem, the name of the theorem must be indicated, and when citing external sources, the source must be indicated.

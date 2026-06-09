@@ -1,163 +1,163 @@
-# 分数四则混合运算
+#Four mixed operations on fractions
 
-## 用户输入
-计算：$( \frac{2}{3} + \frac{5}{6} ) \times ( 1 - \frac{3}{8} ) \div \frac{7}{12}$
+## User input
+Calculation: $( \frac{2}{3} + \frac{5}{6} ) \times ( 1 - \frac{3}{8} ) \div \frac{7}{12}$
 
-## Skill 分类
-算术（Arithmetic）— 分数四则混合运算
+## Skill Category
+Arithmetic—Four mixed arithmetic operations on fractions
 
-## 题意解析
-本题是一道分数四则混合运算题，涉及分数的加法、减法、乘法和除法。
+## Question meaning analysis
+This question is a mixed operation question on four fractions, involving addition, subtraction, multiplication and division of fractions.
 
-**已知条件：**
-- 表达式：$( \frac{2}{3} + \frac{5}{6} ) \times ( 1 - \frac{3}{8} ) \div \frac{7}{12}$
+**Known conditions:**
+- Expression: $( \frac{2}{3} + \frac{5}{6} ) \times ( 1 - \frac{3}{8} ) \div \frac{7}{12}$
 
-**运算顺序：**
-- 先算括号内的加法和减法
-- 再按从左到右的顺序算乘法和除法
+**Order of operations:**
+- Do the addition and subtraction in parentheses first
+- Then calculate multiplication and division in order from left to right
 
-**变量与定义域：**
-- 所有分母均不为零：$3$, $6$, $8$, $12$ 均为非零常数，定义域无限制。
+**Variables and Domains:**
+- All denominators are non-zero: $3$ , $6$ , $8$ , $12$ are all non-zero constants, and the domain is unlimited.
 
-**解的个数：**
-- 算术表达式的值是唯一确定的。
+**Number of solutions:**
+- The value of an arithmetic expression is uniquely determined.
 
-## 方法选择
-**选择方法：** 通分 + 约分法（标准分数运算方法）
+## Method selection
+**Selection method:** Common fraction + Reduction method (standard fraction operation method)
 
-**理由：**
-- 分数运算是算术中的基础内容，通分和约分是最直接、最标准的方法。
-- 将整数 $1$ 转换为分母为 $8$ 的分数是处理整数与分数混合运算的常规技巧。
-- 除法转换为乘以倒数，可以统一为乘法运算。
+**reason:**
+- Fraction operations are the basic content in arithmetic, and general division and reduction are the most direct and standard methods.
+- Converting an integer $1$ to a fraction with a denominator of $8$ is a common technique for working with mixed integers and fractions.
+- Division is converted to multiplication by the reciprocal, which can be unified into multiplication operations.
 
-**备选方法：**
-- 可以先全部转换为小数计算，但会产生舍入误差，不如分数运算精确。
-- 可以通过通分将整个表达式写成一个分数再约分，但步骤更多。
+**Alternative method:**
+- You can convert everything to decimal calculations first, but this will cause rounding errors and is not as accurate as fractional calculations.
+- It is possible to write the entire expression as a fraction and then reduce it by universal division, but there are more steps.
 
-## 解题过程
+## Problem solving process
 
-### 第一步：计算第一个括号 $A = \frac{2}{3} + \frac{5}{6}$
+### Step 1: Calculate the first bracket $A = \frac{2}{3} + \frac{5}{6}$
 
-通分，分母取 $3$ 和 $6$ 的最小公倍数 $6$：
+Common denominator, the denominator is the least common multiple of $3$ and $6$ $6$:
 
-$$
+ $$
 \frac{2}{3} = \frac{2 \times 2}{3 \times 2} = \frac{4}{6}
 $$
 
-$$
+ $$
 A = \frac{4}{6} + \frac{5}{6} = \frac{4+5}{6} = \frac{9}{6}
 $$
 
-约分（分子分母同时除以 $3$）：
+Reduction (the numerator and denominator are divided by $3$ at the same time):
 
-$$
+ $$
 A = \frac{9 \div 3}{6 \div 3} = \frac{3}{2}
 $$
 
-### 第二步：计算第二个括号 $B = 1 - \frac{3}{8}$
+### Step 2: Calculate the second bracket $B = 1 - \frac{3}{8}$
 
-将整数 $1$ 化为分母为 $8$ 的分数：
+Convert the integer $1$ into a fraction with the denominator $8$:
 
-$$
+ $$
 1 = \frac{8}{8}
 $$
 
-$$
+ $$
 B = \frac{8}{8} - \frac{3}{8} = \frac{8-3}{8} = \frac{5}{8}
 $$
 
-### 第三步：计算乘法 $C = A \times B$
+### Step 3: Calculate multiplication $C = A \times B$
 
-$$
+ $$
 C = \frac{3}{2} \times \frac{5}{8} = \frac{3 \times 5}{2 \times 8} = \frac{15}{16}
 $$
 
-分子分母互质，不需要再约分。
+The numerator and denominator are mutually prime, so no further reduction is needed.
 
-### 第四步：计算除法 $= C \div \frac{7}{12}$
+### Step 4: Calculate division $= C \div \frac{7}{12}$
 
-除以一个分数等于乘以它的倒数：
+Dividing a fraction is equivalent to multiplying by its reciprocal:
 
-$$
+ $$
 \frac{15}{16} \div \frac{7}{12} = \frac{15}{16} \times \frac{12}{7} = \frac{15 \times 12}{16 \times 7} = \frac{180}{112}
 $$
 
-约分：分子分母的最大公约数为 $4$：
+Reduction: The greatest common divisor of the numerator and denominator is $4$:
 
-$$
+ $$
 \frac{180 \div 4}{112 \div 4} = \frac{45}{28}
 $$
 
-$45$ 和 $28$ 的最大公约数为 $1$（$28=2^2\times 7$, $45=3^2\times 5$，无公共质因子），已是最简分数。
+The greatest common divisor of $45$ and $28$ is $1$ ( $28=2^2\times 7$ , $45=3^2\times 5$ , no common prime factors), which is the simplest fraction.
 
-## 验算
+## Check calculation
 
-### 验算方法一：小数近似计算
+### Calculation method one: decimal approximate calculation
 
-将每个分数转换为小数进行验算：
+Convert each fraction to a decimal for verification:
 
-- $\frac{2}{3} \approx 0.666667$
-- $\frac{5}{6} \approx 0.833333$
-- $\frac{2}{3} + \frac{5}{6} \approx 1.500000$
+-  $\frac{2}{3} \approx 0.666667$
+-  $\frac{5}{6} \approx 0.833333$
+-  $\frac{2}{3} + \frac{5}{6} \approx 1.500000$
 
-- $1 - \frac{3}{8} = 0.625000$
+-  $1 - \frac{3}{8} = 0.625000$
 
-- $1.5 \times 0.625 = 0.937500$
+-  $1.5 \times 0.625 = 0.937500$
 
-- $0.9375 \div \frac{7}{12} = 0.9375 \times \frac{12}{7} = 0.9375 \times 1.714286 \approx 1.607143$
+-  $0.9375 \div \frac{7}{12} = 0.9375 \times \frac{12}{7} = 0.9375 \times 1.714286 \approx 1.607143$
 
-计算 $\frac{45}{28}$ 的小数值：
+Compute the decimal value of $\frac{45}{28}$:
 
-$$
+ $$
 \frac{45}{28} = 45 \div 28 \approx 1.607143
 $$
 
-两者一致，验算通过。
+If both are consistent, the calculation passes.
 
-### 验算方法二：逆向验算
+### Verification method two: reverse verification
 
-从答案出发，逆向运算验证是否回到原题给定的数据。
+Starting from the answer, the reverse operation verifies whether it returns to the data given in the original question.
 
-**反推步骤一：** 将最终结果 $\frac{45}{28}$ 乘以 $\frac{7}{12}$ 应得到 $\frac{15}{16}$：
+**Back step one:** Multiply the final result $\frac{45}{28}$ by $\frac{7}{12}$ and you should get $\frac{15}{16}$:
 
-$$
+ $$
 \frac{45}{28} \times \frac{7}{12} = \frac{45 \times 7}{28 \times 12} = \frac{315}{336}
 $$
 
-约分：分子分母同时除以 $3$：
+Reduction: divide both the numerator and denominator by $3$:
 
-$$
+ $$
 \frac{315 \div 3}{336 \div 3} = \frac{105}{112}
 $$
 
-再同时除以 $7$：
+And then divide by $7$ at the same time:
 
-$$
+ $$
 \frac{105 \div 7}{112 \div 7} = \frac{15}{16} \quad ✓
 $$
 
-**反推步骤二：** 将 $\frac{15}{16}$ 除以 $\frac{5}{8}$ 应得到 $\frac{3}{2}$：
+**Reverse Step 2:** Divide $\frac{15}{16}$ by $\frac{5}{8}$ and you should get $\frac{3}{2}$:
 
-$$
+ $$
 \frac{15}{16} \div \frac{5}{8} = \frac{15}{16} \times \frac{8}{5} = \frac{15 \times 8}{16 \times 5} = \frac{120}{80} = \frac{3}{2} \quad ✓
 $$
 
-**反推步骤三：** 将 $\frac{3}{2}$ 减去 $\frac{5}{6}$ 应得到 $\frac{2}{3}$：
+**Back step three:** Subtract $\frac{5}{6}$ from $\frac{3}{2}$ and you should get $\frac{2}{3}$:
 
-$$
+ $$
 \frac{3}{2} - \frac{5}{6} = \frac{9}{6} - \frac{5}{6} = \frac{4}{6} = \frac{2}{3} \quad ✓
 $$
 
-三次逆向运算全部吻合，验证通过。
+The three reverse operations all match and the verification passes.
 
-## 最终答案
+## Final answer
 
-$$
+ $$
 \boxed{\frac{45}{28}}
 $$
 
-## 易错点
-1. **运算顺序错误：** 容易忽略括号内的运算优先于括号外的乘除，直接从左到右算。正确做法是**先算括号，再从左到右算乘除**。
-2. **约分时机：** 有些人习惯在每一步都约分，有些人在最后一步才约分。两种做法都对，但**中间约分可以减小数字，降低计算难度**。例如第一步中 $\frac{9}{6}$ 应约分为 $\frac{3}{2}$，否则后续乘法会得到 $\frac{9 \times 5}{6 \times 8} = \frac{45}{48}$，虽然也能最终化简，但数字更大。
-3. **除法处理：** 除以分数时忘记乘以倒数，或者分子分母颠倒是常见错误。$\frac{a}{b} \div \frac{c}{d} = \frac{a}{b} \times \frac{d}{c}$。
-4. **整数化分数：** $1 - \frac{3}{8}$ 中忘记将 $1$ 通分为 $\frac{8}{8}$，直接算成 $\frac{1-3}{8}$ 导致错误。
+## Easy to make mistakes
+1. **Wrong order of operations:** It is easy to ignore that operations within parentheses take precedence over multiplication and division outside parentheses, and are calculated directly from left to right. The correct approach is to calculate the parentheses first, then calculate multiplication and division from left to right.
+2. **Time to make an appointment:** Some people are used to making an appointment at every step, while some people only make an appointment at the last step. Both approaches are correct, but **intermediate reduction can reduce the number and reduce the difficulty of calculation**. For example, in the first step, $\frac{9}{6}$ should be reduced to $\frac{3}{2}$, otherwise subsequent multiplication will result in $\frac{9 \times 5}{6 \times 8} = \frac{45}{48}$. Although it can be simplified eventually, the number is larger.
+3. **Division Processing:** Forgetting to multiply by the reciprocal when dividing by a fraction, or reversing the numerator and denominator is a common mistake. $\frac{a}{b} \div \frac{c}{d} = \frac{a}{b} \times \frac{d}{c}$ .
+4. **Integer fraction:** In $1 - \frac{3}{8}$, we forget to divide $1$ into $\frac{8}{8}$, and directly calculate it as $\frac{1-3}{8}$, resulting in an error.

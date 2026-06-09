@@ -1,150 +1,150 @@
-# 代数式化简与因式分解
+# Algebraic simplification and factorization
 
-## 用户输入
-化简：$\displaystyle \frac{x^3-8}{x^2-4} \times \frac{x+2}{x^2+2x+4}$
+## User input
+Simplify: $\displaystyle \frac{x^3-8}{x^2-4} \times \frac{x+2}{x^2+2x+4}$
 
-## Skill 分类
-代数（Algebra）— 多项式因式分解与分式化简
+## Skill Category
+Algebra—polynomial factorization and fractional simplification
 
-## 题意解析
+## Question meaning analysis
 
-**已知条件：**
-- 分式表达式：$\frac{x^3-8}{x^2-4} \times \frac{x+2}{x^2+2x+4}$
+**Known conditions:**
+- Fractional expression: $\frac{x^3-8}{x^2-4} \times \frac{x+2}{x^2+2x+4}$
 
-**化简目标：**
-- 通过因式分解将分子分母的公因式约去，得到最简分式。
+**Simplification goal:**
+- Remove the common factors of the numerator and denominator through factorization to obtain the simplest fraction.
 
-**变量与定义域：**
-分式有意义的条件为所有分母 $\neq 0$：
+**Variables and Domains:**
+A fraction is meaningful if all denominators are $\neq 0$ :
 
-- $x^2-4 \neq 0$ 即 $x \neq \pm 2$
-- $x^2+2x+4$ 的判别式 $\Delta = 2^2 - 4 \times 1 \times 4 = 4 - 16 = -12 < 0$，对一切实数 $x \neq 0$ 均不为零（恒正）。
-- 综合：$x \in \mathbb{R} \setminus \{-2, 2\}$
+- $x^2-4 \neq 0$ is $x \neq \pm 2$
+- The discriminant $\Delta = 2^2 - 4 \times 1 \times 4 = 4 - 16 = -12 < 0$ of $x^2+2x+4$ is non-zero (constantly positive) for all real numbers $x \neq 0$.
+- General: $x \in \mathbb{R} \setminus \{-2, 2\}$
 
-**隐式条件：**
-- $x^2+2x+4 = \frac{x^3-8}{x-2}$，这是立方差公式的推论，将在因式分解中用到。
+**Implicit condition:**
+- $x^2+2x+4 = \frac{x^3-8}{x-2}$, which is a corollary of the cubic variance formula and will be used in factorization.
 
-**解的个数：**
-- 化简结果是唯一确定的，定义域内恒成立。
+**Number of solutions:**
+- The simplification result is uniquely certain and always true within the definition domain.
 
-## 方法选择
+## Method selection
 
-**选择方法：** 因式分解 + 约分法
+**Selection method:** Factorization + Reduction method
 
-**理由：**
-- 分子包含 $x^3-8$，是立方差形式 $a^3 - b^3$，可用公式 $a^3-b^3 = (a-b)(a^2+ab+b^2)$ 分解。
-- 分母包含 $x^2-4$，是平方差形式 $a^2 - b^2$，可用公式 $a^2-b^2 = (a-b)(a+b)$ 分解。
-- 两个分式相乘时，分子乘分子、分母乘分母后，公共因子将直接抵消。
+**reason:**
+- The numerator contains $x^3-8$, which is the cubic difference form $a^3 - b^3$, and can be decomposed by the formula $a^3-b^3 = (a-b)(a^2+ab+b^2)$.
+- The denominator contains $x^2-4$, which is the square difference form $a^2 - b^2$, and can be decomposed by the formula $a^2-b^2 = (a-b)(a+b)$.
+- When two fractions are multiplied together, the common factors will cancel directly after multiplying the numerator by the numerator and the denominator by the denominator.
 
-**备选方法：**
-- 直接分子分母展开再因式分解——步骤冗余，且展开 $x^3-8$ 后无法直接看出因式。
-- 长除法验证——适合验证结果，但不适合作为主要化简手段。
+**Alternative method:**
+- Direct numerator and denominator expansion and then factorization - the steps are redundant, and the factors cannot be directly seen after expanding $x^3-8$.
+- Long division verification - suitable for verifying results, but not suitable as a primary means of simplification.
 
-## 解题过程
+## Problem solving process
 
-### 第一步：因式分解各多项式
+### Step 1: Factor each polynomial
 
-**分子 $M_1 = x^3 - 8$：**
+**Numerator $M_1 = x^3 - 8$:**
 
-将 $8$ 写为 $2^3$，应用立方差公式 $a^3 - b^3 = (a-b)(a^2 + ab + b^2)$：
+Write $8$ as $2^3$ and apply the cubic difference formula $a^3 - b^3 = (a-b)(a^2 + ab + b^2)$ :
 
-$$
+ $$
 x^3 - 2^3 = (x-2)(x^2 + x \cdot 2 + 2^2) = (x-2)(x^2 + 2x + 4)
 $$
 
-**分母 $D_1 = x^2 - 4$：**
+**Denominator $D_1 = x^2 - 4$:**
 
-将 $4$ 写为 $2^2$，应用平方差公式 $a^2 - b^2 = (a-b)(a+b)$：
+Write $4$ as $2^2$ and apply the difference of squares formula $a^2 - b^2 = (a-b)(a+b)$ :
 
-$$
+ $$
 x^2 - 2^2 = (x-2)(x+2)
 $$
 
-**分子 $M_2 = x+2$：** 已为最简形式，无需分解。
+**Numerator $M_2 = x+2$:** is in its simplest form and does not need to be decomposed.
 
-**分母 $D_2 = x^2+2x+4$：** 判别式 $\Delta = -12 < 0$，在实数范围内不可再分解。
+**Denominator $D_2 = x^2+2x+4$:** Discriminant $\Delta = -12 < 0$, which cannot be decomposed in the range of real numbers.
 
-### 第二步：代入并组成连乘
+### Step 2: Substitute and form a continuous multiplication
 
-原式 = $\displaystyle \frac{M_1}{D_1} \times \frac{M_2}{D_2} = \frac{(x-2)(x^2+2x+4)}{(x-2)(x+2)} \times \frac{x+2}{x^2+2x+4}$
+Original = $\displaystyle \frac{M_1}{D_1} \times \frac{M_2}{D_2} = \frac{(x-2)(x^2+2x+4)}{(x-2)(x+2)} \times \frac{x+2}{x^2+2x+4}$
 
-### 第三步：约分
+### Step 3: Approximate points
 
-将分子分母写成一行：
+Write the numerator and denominator on one line:
 
-$$
+ $$
 \frac{(x-2)(x^2+2x+4)(x+2)}{(x-2)(x+2)(x^2+2x+4)}
 $$
 
-约去公因式（定义域内这些因子均不为零）：
+Reducing the common factors (none of these factors is zero in the domain):
 
-- 约去 $(x-2)$（因为 $x \neq 2$）
-- 约去 $(x+2)$（因为 $x \neq -2$）
-- 约去 $(x^2+2x+4)$（恒不为零）
+- Make an appointment with $(x-2)$ (because $x \neq 2$ )
+- Make an appointment with $(x+2)$ (because $x \neq -2$ )
+- Make an appointment with $(x^2+2x+4)$ (always not zero)
 
-所有因子全部消去，结果为：
+All factors are eliminated, and the result is:
 
-$$
+ $$
 = 1
 $$
 
-（在 $x \neq \pm 2$ 的条件下。）
+(Conditional to $x \neq \pm 2$.)
 
-## 验算
+## Check calculation
 
-### 验算方法一：数值代入法
+### Verification method one: Numerical substitution method
 
-在定义域内选取三个不同的 $x$ 值，分别代入原式和化简结果 $1$，验证它们相等。
+Select three different $x$ values ​​in the domain, substitute the original formula and the simplified result $1$ respectively, and verify that they are equal.
 
-**取 $x = 3$：**
+**Take $x = 3$:**
 
-- 原式 = $\frac{3^3-8}{3^2-4} \times \frac{3+2}{3^2+2 \times 3+4} = \frac{27-8}{9-4} \times \frac{5}{9+6+4} = \frac{19}{5} \times \frac{5}{19} = 1$ ✓
+- Original = $\frac{3^3-8}{3^2-4} \times \frac{3+2}{3^2+2 \times 3+4} = \frac{27-8}{9-4} \times \frac{5}{9+6+4} = \frac{19}{5} \times \frac{5}{19} = 1$ ✓
 
-**取 $x = 0$：**
+**Take $x = 0$:**
 
-- 原式 = $\frac{0^3-8}{0^2-4} \times \frac{0+2}{0^2+0+4} = \frac{-8}{-4} \times \frac{2}{4} = 2 \times \frac{1}{2} = 1$ ✓
+- Original = $\frac{0^3-8}{0^2-4} \times \frac{0+2}{0^2+0+4} = \frac{-8}{-4} \times \frac{2}{4} = 2 \times \frac{1}{2} = 1$ ✓
 
-**取 $x = -1$：**
+**Take $x = -1$:**
 
-- 原式 = $\frac{(-1)^3-8}{(-1)^2-4} \times \frac{-1+2}{(-1)^2+2\times(-1)+4} = \frac{-1-8}{1-4} \times \frac{1}{1-2+4} = \frac{-9}{-3} \times \frac{1}{3} = 3 \times \frac{1}{3} = 1$ ✓
+- Original = $\frac{(-1)^3-8}{(-1)^2-4} \times \frac{-1+2}{(-1)^2+2\times(-1)+4} = \frac{-1-8}{1-4} \times \frac{1}{1-2+4} = \frac{-9}{-3} \times \frac{1}{3} = 3 \times \frac{1}{3} = 1$ ✓
 
-三个不同的数值验证全部通过。
+Three different numerical verifications all passed.
 
-### 验算方法二：展开还原法
+### Calculation method two: expansion reduction method
 
-将化简结果 $1$ 还原为：化简后的分式应为 $\frac{1}{1}$，这等价于说原分式的分子恒等于分母（在定义域内）。
+Restore the simplified result $1$ to: the simplified fraction should be $\frac{1}{1}$ , which is equivalent to saying that the numerator of the original fraction is always equal to the denominator (within the domain of definition).
 
-验证：原式分子 = $(x^3-8)(x+2)$，分母 = $(x^2-4)(x^2+2x+4)$。
+Verification: The numerator of the original formula = $(x^3-8)(x+2)$, the denominator = $(x^2-4)(x^2+2x+4)$.
 
-展开分子：
+Expand the numerator:
 
-$$
+ $$
 (x^3-8)(x+2) = x^3 \cdot x + x^3 \cdot 2 - 8 \cdot x - 8 \cdot 2 = x^4 + 2x^3 - 8x - 16
 $$
 
-展开分母：
+Expand the denominator:
 
-$$
+ $$
 (x^2-4)(x^2+2x+4) = x^2(x^2+2x+4) - 4(x^2+2x+4)
 $$
-$$
+ $$
 = x^4 + 2x^3 + 4x^2 - 4x^2 - 8x - 16
 $$
-$$
+ $$
 = x^4 + 2x^3 - 8x - 16
 $$
 
-分子 $=$ 分母 $= x^4 + 2x^3 - 8x - 16$，因此在 $x \neq \pm 2$ 时原式 $= 1$。✓
+The numerator $=$ and the denominator $= x^4 + 2x^3 - 8x - 16$ , so at $x \neq \pm 2$ the original formula is $= 1$ . ✓
 
-## 最终答案
+## Final answer
 
-$$
+ $$
 \boxed{1} \quad (x \neq 2,\ x \neq -2)
 $$
 
-## 易错点
-1. **忘记定义域限制：** 化简后结果虽然是 $1$，但原分式在 $x=2$ 和 $x=-2$ 处无定义。答案必须注明 $x \neq \pm 2$。
-2. **立方差公式记错：** $a^3-b^3 = (a-b)(a^2+ab+b^2)$，注意中间 $+ab$ 项，不要误写为 $-ab$。如果是 $a^3+b^3 = (a+b)(a^2-ab+b^2)$。
-3. **平方差公式记错：** $a^2-b^2 = (a-b)(a+b)$，不要误写为 $(a-b)^2$。
-4. **约分合法性：** 只有当因子确实不为零时才能约去。虽然 $x^2+2x+4$ 在实数范围内恒不为零，但做题时要养成检查约去因子是否可能为零的习惯。
-5. **过度约分：** 有人可能在使用立方差公式分解后遗漏 $(x^2+2x+4)$ 项，导致约分不彻底。三个因子 $(x-2)$, $(x+2)$, $(x^2+2x+4)$ 都要约去。
+## Easy to make mistakes
+1. **Forgot domain restriction:** Although the result after simplification is $1$, the original fraction is not defined at $x=2$ and $x=-2$. Answers must be marked with $x \neq \pm 2$.
+2. **Mirror in remembering the cubic difference formula:** $a^3-b^3 = (a-b)(a^2+ab+b^2)$, pay attention to the $+ab$ item in the middle, do not mistakenly write it as $-ab$. if $a^3+b^3 = (a+b)(a^2-ab+b^2)$ .
+3. **The square difference formula is incorrectly remembered:** $a^2-b^2 = (a-b)(a+b)$, do not write it as $(a-b)^2$ by mistake.
+4. **Legality of reduction:** It can be reduced only when the factor is indeed not zero. Although $x^2+2x+4$ is always non-zero in the range of real numbers, you should develop the habit of checking whether the reduction factors may be zero when solving problems.
+5. **Over-reduction:** Someone may miss the $(x^2+2x+4)$ term after using the cubic variance formula to decompose, resulting in incomplete reduction. The three factors $(x-2)$ , $(x+2)$ , $(x^2+2x+4)$ are all required.

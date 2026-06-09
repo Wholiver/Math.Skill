@@ -1,112 +1,112 @@
-# 矩阵的特征值与对角化
+# Eigenvalues ​​and diagonalization of matrices
 
-## 用户输入
-求矩阵 $A = \begin{pmatrix} 3 & 1 \\ 1 & 3 \end{pmatrix}$ 的特征值、特征向量，并求可逆矩阵 $P$ 和对角矩阵 $D$ 使得 $A = PDP^{-1}$。
+## User input
+Find the eigenvalues ​​and eigenvectors of matrix $A = \begin{pmatrix} 3 & 1 \\ 1 & 3 \end{pmatrix}$, and find the invertible matrix $P$ and the diagonal matrix $D$ such that $A = PDP^{-1}$.
 
-## Skill 分类
-线性代数
+## Skill Category
+linear algebra
 
-## 题意解析
-- **已知条件**：$2 \times 2$ 实对称矩阵 $A = \begin{pmatrix} 3 & 1 \\ 1 & 3 \end{pmatrix}$。
-- **求解目标**：(1) 特征值 $\lambda_1, \lambda_2$；(2) 对应的特征向量 $\mathbf{v}_1, \mathbf{v}_2$；(3) 对角化 $A = PDP^{-1}$。
-- **关键性质**：$A$ 是实对称矩阵，因此特征值均为实数，特征向量正交，且一定可对角化。
-- **隐含条件**：$P$ 的列就是特征向量，$D$ 的对角线是特征值（顺序与 $P$ 中的特征向量对应）。
+## Question meaning analysis
+- **Known conditions**: $2 \times 2$ real symmetric matrix $A = \begin{pmatrix} 3 & 1 \\ 1 & 3 \end{pmatrix}$.
+- **Solution objectives**: (1) eigenvalue $\lambda_1, \lambda_2$; (2) corresponding eigenvector $\mathbf{v}_1, \mathbf{v}_2$; (3) diagonalization $A = PDP^{-1}$.
+- **Key Properties**: $A$ is a real symmetric matrix, so the eigenvalues ​​are all real numbers, the eigenvectors are orthogonal, and they must be diagonalizable.
+- **Implicit condition**: The columns of $P$ are the eigenvectors, and the diagonals of $D$ are the eigenvalues ​​(the order corresponds to the eigenvectors in $P$).
 
-## 方法选择
-**首选方法**：求解特征方程 $\det(A - \lambda I) = 0$ 得到特征值，再对每个 $\lambda$ 解齐次方程组 $(A - \lambda I)\mathbf{v} = \mathbf{0}$ 得到特征向量。
+## Method selection
+**Preferred method**: Solve the characteristic equation $\det(A - \lambda I) = 0$ to get the eigenvalues, and then solve the homogeneous system of equations $(A - \lambda I)\mathbf{v} = \mathbf{0}$ for each $\lambda$ to get the eigenvectors.
 
-**备选方法**：利用对称矩阵的谱定理进行正交对角化。对于 $2 \times 2$ 矩阵，也可以直接用迹和行列式求特征值（$\lambda_1 + \lambda_2 = \text{tr}(A) = 6$，$\lambda_1 \lambda_2 = \det(A) = 8$）。
+**Alternative method**: Use the spectral theorem for symmetric matrices to perform orthogonal diagonalization. For the $2 \times 2$ matrix, you can also directly use the trace and determinant to find the eigenvalues ​​($\lambda_1 + \lambda_2 = \text{tr}(A) = 6$, $\lambda_1 \lambda_2 = \det(A) = 8$).
 
-## 解题过程
+## Problem solving process
 
-### 第一步：求特征值
+### Step 1: Find eigenvalues
 
-特征多项式：
+Characteristic polynomial:
 
-$$\det(A - \lambda I) = \begin{vmatrix} 3 - \lambda & 1 \\ 1 & 3 - \lambda \end{vmatrix}$$
+ $$\det(A - \lambda I) = \begin{vmatrix} 3 - \lambda & 1 \\ 1 & 3 - \lambda \end{vmatrix}$$
 
-$$= (3 - \lambda)^2 - 1 = \lambda^2 - 6\lambda + 8 = (\lambda - 4)(\lambda - 2)$$
+ $$= (3 - \lambda)^2 - 1 = \lambda^2 - 6\lambda + 8 = (\lambda - 4)(\lambda - 2)$$
 
-$$(\lambda - 4)(\lambda - 2) = 0$$
+ $$(\lambda - 4)(\lambda - 2) = 0$$
 
-特征值：
+Eigenvalues:
 
-$$\lambda_1 = 2,\quad \lambda_2 = 4$$
+ $$\lambda_1 = 2,\quad \lambda_2 = 4$$
 
-### 第二步：求特征向量
+### Step 2: Find the feature vector
 
-**对 $\lambda_1 = 2$**，解 $(A - 2I)\mathbf{v} = \mathbf{0}$：
+**For $\lambda_1 = 2$ **, solve for $(A - 2I)\mathbf{v} = \mathbf{0}$:
 
-$$\begin{pmatrix} 1 & 1 \\ 1 & 1 \end{pmatrix} \begin{pmatrix} x \\ y \end{pmatrix} = \begin{pmatrix} 0 \\ 0 \end{pmatrix}$$
+ $$\begin{pmatrix} 1 & 1 \\ 1 & 1 \end{pmatrix} \begin{pmatrix} x \\ y \end{pmatrix} = \begin{pmatrix} 0 \\ 0 \end{pmatrix}$$
 
-即 $x + y = 0$，取 $x = 1$ 则 $y = -1$。
+That is $x + y = 0$, take $x = 1$ then $y = -1$.
 
-$$\mathbf{v}_1 = \begin{pmatrix} 1 \\ -1 \end{pmatrix}$$
+ $$\mathbf{v}_1 = \begin{pmatrix} 1 \\ -1 \end{pmatrix}$$
 
-**对 $\lambda_2 = 4$**，解 $(A - 4I)\mathbf{v} = \mathbf{0}$：
+**For $\lambda_2 = 4$**, solve $(A - 4I)\mathbf{v} = \mathbf{0}$:
 
-$$\begin{pmatrix} -1 & 1 \\ 1 & -1 \end{pmatrix} \begin{pmatrix} x \\ y \end{pmatrix} = \begin{pmatrix} 0 \\ 0 \end{pmatrix}$$
+ $$\begin{pmatrix} -1 & 1 \\ 1 & -1 \end{pmatrix} \begin{pmatrix} x \\ y \end{pmatrix} = \begin{pmatrix} 0 \\ 0 \end{pmatrix}$$
 
-即 $-x + y = 0$，取 $x = 1$ 则 $y = 1$。
+That is $-x + y = 0$, take $x = 1$ then $y = 1$.
 
-$$\mathbf{v}_2 = \begin{pmatrix} 1 \\ 1 \end{pmatrix}$$
+ $$\mathbf{v}_2 = \begin{pmatrix} 1 \\ 1 \end{pmatrix}$$
 
-### 第三步：构造 $P$ 和 $D$
+### Step 3: Construct $P$ and $D$
 
-$$P = \begin{pmatrix} \mathbf{v}_1 & \mathbf{v}_2 \end{pmatrix} = \begin{pmatrix} 1 & 1 \\ -1 & 1 \end{pmatrix}$$
+ $$P = \begin{pmatrix} \mathbf{v}_1 & \mathbf{v}_2 \end{pmatrix} = \begin{pmatrix} 1 & 1 \\ -1 & 1 \end{pmatrix}$$
 
-$$D = \begin{pmatrix} \lambda_1 & 0 \\ 0 & \lambda_2 \end{pmatrix} = \begin{pmatrix} 2 & 0 \\ 0 & 4 \end{pmatrix}$$
+ $$D = \begin{pmatrix} \lambda_1 & 0 \\ 0 & \lambda_2 \end{pmatrix} = \begin{pmatrix} 2 & 0 \\ 0 & 4 \end{pmatrix}$$
 
-### 第四步：验证 $A = PDP^{-1}$
+### Step 4: Verify $A = PDP^{-1}$
 
-求 $P^{-1}$：
+Asking for $P^{-1}$:
 
-$$\det(P) = 1 \cdot 1 - 1 \cdot (-1) = 2$$
+ $$\det(P) = 1 \cdot 1 - 1 \cdot (-1) = 2$$
 
-$$P^{-1} = \frac{1}{2} \begin{pmatrix} 1 & -1 \\ 1 & 1 \end{pmatrix}$$
+ $$P^{-1} = \frac{1}{2} \begin{pmatrix} 1 & -1 \\ 1 & 1 \end{pmatrix}$$
 
-验证：
+verify:
 
-$$PDP^{-1} = \frac{1}{2} \begin{pmatrix} 1 & 1 \\ -1 & 1 \end{pmatrix} \begin{pmatrix} 2 & 0 \\ 0 & 4 \end{pmatrix} \begin{pmatrix} 1 & -1 \\ 1 & 1 \end{pmatrix}$$
+ $$PDP^{-1} = \frac{1}{2} \begin{pmatrix} 1 & 1 \\ -1 & 1 \end{pmatrix} \begin{pmatrix} 2 & 0 \\ 0 & 4 \end{pmatrix} \begin{pmatrix} 1 & -1 \\ 1 & 1 \end{pmatrix}$$
 
-$$= \frac{1}{2} \begin{pmatrix} 1 & 1 \\ -1 & 1 \end{pmatrix} \begin{pmatrix} 2 & -2 \\ 4 & 4 \end{pmatrix} = \frac{1}{2} \begin{pmatrix} 6 & 2 \\ 2 & 6 \end{pmatrix} = \begin{pmatrix} 3 & 1 \\ 1 & 3 \end{pmatrix} = A$$
-
-✓
-
-## 验算
-
-### 方法一：验证 $A\mathbf{v}_i = \lambda_i \mathbf{v}_i$
-
-$$A\mathbf{v}_1 = \begin{pmatrix} 3 & 1 \\ 1 & 3 \end{pmatrix} \begin{pmatrix} 1 \\ -1 \end{pmatrix} = \begin{pmatrix} 3 - 1 \\ 1 - 3 \end{pmatrix} = \begin{pmatrix} 2 \\ -2 \end{pmatrix} = 2 \begin{pmatrix} 1 \\ -1 \end{pmatrix} = \lambda_1 \mathbf{v}_1$$
-
-$$A\mathbf{v}_2 = \begin{pmatrix} 3 & 1 \\ 1 & 3 \end{pmatrix} \begin{pmatrix} 1 \\ 1 \end{pmatrix} = \begin{pmatrix} 3 + 1 \\ 1 + 3 \end{pmatrix} = \begin{pmatrix} 4 \\ 4 \end{pmatrix} = 4 \begin{pmatrix} 1 \\ 1 \end{pmatrix} = \lambda_2 \mathbf{v}_2$$
+ $$= \frac{1}{2} \begin{pmatrix} 1 & 1 \\ -1 & 1 \end{pmatrix} \begin{pmatrix} 2 & -2 \\ 4 & 4 \end{pmatrix} = \frac{1}{2} \begin{pmatrix} 6 & 2 \\ 2 & 6 \end{pmatrix} = \begin{pmatrix} 3 & 1 \\ 1 & 3 \end{pmatrix} = A$$
 
 ✓
 
-### 方法二：迹与行列式验证
+## Check calculation
 
-$$\text{tr}(A) = 3 + 3 = 6 = 2 + 4 = \lambda_1 + \lambda_2$$
+### Method 1: Verify $A\mathbf{v}_i = \lambda_i \mathbf{v}_i$
 
-$$\det(A) = 3 \cdot 3 - 1 \cdot 1 = 8 = 2 \cdot 4 = \lambda_1 \lambda_2$$
+ $$A\mathbf{v}_1 = \begin{pmatrix} 3 & 1 \\ 1 & 3 \end{pmatrix} \begin{pmatrix} 1 \\ -1 \end{pmatrix} = \begin{pmatrix} 3 - 1 \\ 1 - 3 \end{pmatrix} = \begin{pmatrix} 2 \\ -2 \end{pmatrix} = 2 \begin{pmatrix} 1 \\ -1 \end{pmatrix} = \lambda_1 \mathbf{v}_1$$
+
+ $$A\mathbf{v}_2 = \begin{pmatrix} 3 & 1 \\ 1 & 3 \end{pmatrix} \begin{pmatrix} 1 \\ 1 \end{pmatrix} = \begin{pmatrix} 3 + 1 \\ 1 + 3 \end{pmatrix} = \begin{pmatrix} 4 \\ 4 \end{pmatrix} = 4 \begin{pmatrix} 1 \\ 1 \end{pmatrix} = \lambda_2 \mathbf{v}_2$$
 
 ✓
 
-### 方法三：特征向量的正交性
+### Method 2: Trace and determinant verification
 
-$$\mathbf{v}_1 \cdot \mathbf{v}_2 = 1 \cdot 1 + (-1) \cdot 1 = 0$$
+ $$\text{tr}(A) = 3 + 3 = 6 = 2 + 4 = \lambda_1 + \lambda_2$$
 
-特征向量正交，符合实对称矩阵的性质。✓
+ $$\det(A) = 3 \cdot 3 - 1 \cdot 1 = 8 = 2 \cdot 4 = \lambda_1 \lambda_2$$
 
-## 最终答案
+✓
 
-$$\boxed{\lambda_1 = 2,\; \mathbf{v}_1 = \begin{pmatrix} 1 \\ -1 \end{pmatrix}}$$
+### Method 3: Orthogonality of eigenvectors
 
-$$\boxed{\lambda_2 = 4,\; \mathbf{v}_2 = \begin{pmatrix} 1 \\ 1 \end{pmatrix}}$$
+ $$\mathbf{v}_1 \cdot \mathbf{v}_2 = 1 \cdot 1 + (-1) \cdot 1 = 0$$
 
-$$\boxed{P = \begin{pmatrix} 1 & 1 \\ -1 & 1 \end{pmatrix},\quad D = \begin{pmatrix} 2 & 0 \\ 0 & 4 \end{pmatrix},\quad A = PDP^{-1}}$$
+The eigenvectors are orthogonal and conform to the properties of real symmetric matrices. ✓
 
-## 易错点
-1. **特征方程的符号**：$\det(A - \lambda I) = 0$ 还是 $\det(\lambda I - A) = 0$？前者展开后特征多项式为 $(-1)^n \det(\lambda I - A)$，两者对求特征值等价，但注意符号细节。
-2. **特征向量的顺序**：$P$ 中特征向量的顺序必须与 $D$ 对角线上特征值的顺序一致。若交换 $\mathbf{v}_1$ 和 $\mathbf{v}_2$ 的位置，$D$ 的对角线也应变为 $\operatorname{diag}(4, 2)$。
-3. **特征向量缩放**：特征向量不唯一（可乘以任意非零标量），但 $PDP^{-1}$ 的结果不变。
-4. **检查可对角化前提**：不是所有矩阵都可对角化（如 Jordan 块）。实对称矩阵天然可对角化，但一般矩阵需要检查几何重数 = 代数重数。
+## Final answer
+
+ $$\boxed{\lambda_1 = 2,\; \mathbf{v}_1 = \begin{pmatrix} 1 \\ -1 \end{pmatrix}}$$
+
+ $$\boxed{\lambda_2 = 4,\; \mathbf{v}_2 = \begin{pmatrix} 1 \\ 1 \end{pmatrix}}$$
+
+ $$\boxed{P = \begin{pmatrix} 1 & 1 \\ -1 & 1 \end{pmatrix},\quad D = \begin{pmatrix} 2 & 0 \\ 0 & 4 \end{pmatrix},\quad A = PDP^{-1}}$$
+
+## Easy to make mistakes
+1. **Symbol of characteristic equation**: $\det(A - \lambda I) = 0$ or $\det(\lambda I - A) = 0$? After the expansion of the former, the characteristic polynomial is $(-1)^n \det(\lambda I - A)$. The two are equivalent to find the eigenvalues, but pay attention to the symbolic details.
+2. **Order of eigenvectors**: The order of eigenvectors in $P$ must be consistent with the order of eigenvalues ​​on the diagonal of $D$. If the positions of $\mathbf{v}_1$ and $\mathbf{v}_2$ are swapped, the diagonal of $D$ should also become $\operatorname{diag}(4, 2)$ .
+3. **Eigenvector Scaling**: The eigenvector is not unique (can be multiplied by any non-zero scalar), but the result of $PDP^{-1}$ remains unchanged.
+4. **Check diagonalizability premise**: Not all matrices are diagonalizable (such as Jordan blocks). Real symmetric matrices are naturally diagonalizable, but general matrices need to check geometric multiplicity = algebraic multiplicity.

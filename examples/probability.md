@@ -1,106 +1,106 @@
-# 超几何分布的概率与期望
+# Probability and expectation of hypergeometric distribution
 
-## 用户输入
-一个袋子里有 5 个红球和 3 个蓝球。从中不放回地抽取 3 个球。求：(1) 恰好抽到 2 个红球的概率；(2) 抽到红球个数的期望。
+## User input
+There are 5 red balls and 3 blue balls in a bag. Draw 3 balls from it without replacement. Find: (1) the probability of drawing exactly 2 red balls; (2) the expectation of the number of red balls drawn.
 
-## Skill 分类
-概率论
+## Skill Category
+probability theory
 
-## 题意解析
-- **已知条件**：总体 $N = 8$ 个球，其中 $K = 5$ 个红球（成功类）、$N - K = 3$ 个蓝球；样本量 $n = 3$，不放回抽样。
-- **求解目标**：(1) $P(X = 2)$，其中 $X$ 为红球个数；(2) $E[X]$。
-- **分布类型识别**：从有限总体中不放回抽样，红球个数 $X$ 服从**超几何分布** $X \sim \text{Hypergeometric}(N=8, K=5, n=3)$。
-- **$X$ 的取值范围**：$\max\{0,\, n - (N - K)\} \leq k \leq \min\{n, K\}$，即 $k \in \{0, 1, 2, 3\}$。
-- **关键前提**：抽样是完全随机的，每个球被抽中的概率相等。
+## Question meaning analysis
+- **Known conditions**: There are     $N = 8$     balls in total, including     $K = 5$     red balls (successful type) and     $N - K = 3$     blue balls; sample size     $n = 3$    , sampling without replacement.
+- **Solution target**: (1)     $P(X = 2)$    , where     $X$     is the number of red balls; (2)     $E[X]$    .
+- **Distribution type identification**: Sampling from a finite population without replacement, the number of red balls     $X$     obeys **Hypergeometric distribution**     $X \sim \text{Hypergeometric}(N=8, K=5, n=3)$    .
+- **The value range of     $X$    **:     $\max\{0,\, n - (N - K)\} \leq k \leq \min\{n, K\}$    , that is,     $k \in \{0, 1, 2, 3\}$    .
+- **Key Premise**: Sampling is completely random, and each ball has an equal probability of being drawn.
 
-## 方法选择
-**首选方法**：超几何分布公式。超几何分布的概率质量函数为
+## Method selection
+**Preferred method**: Hypergeometric distribution formula. The probability mass function of the hypergeometric distribution is
 
-$$P(X = k) = \frac{\binom{K}{k} \binom{N-K}{n-k}}{\binom{N}{n}}$$
+     $$P(X = k) = \frac{\binom{K}{k} \binom{N-K}{n-k}}{\binom{N}{n}}$$
 
-期望公式为
+The expected formula is
 
-$$E[X] = n \cdot \frac{K}{N}$$
+     $$E[X] = n \cdot \frac{K}{N}$$
 
-**备选方法**：古典概率直接列举；指示变量法分解期望（利用线性性）。
+**Alternative methods**: Direct enumeration of classical probabilities; decomposition of expectations by indicator variable method (using linearity).
 
-## 解题过程
+## Problem solving process
 
-### (1) 恰好抽到 2 个红球的概率
+### (1) The probability of drawing exactly 2 red balls
 
-代入超几何分布公式，$k = 2$：
+Substitute into the hypergeometric distribution formula,     $k = 2$    :
 
-$$P(X = 2) = \frac{\binom{5}{2} \binom{3}{1}}{\binom{8}{3}}$$
+     $$P(X = 2) = \frac{\binom{5}{2} \binom{3}{1}}{\binom{8}{3}}$$
 
-分别计算组合数：
+Calculate the number of combinations separately:
 
-$$\binom{5}{2} = \frac{5 \times 4}{2} = 10$$
+     $$\binom{5}{2} = \frac{5 \times 4}{2} = 10$$
 
-$$\binom{3}{1} = 3$$
+     $$\binom{3}{1} = 3$$
 
-$$\binom{8}{3} = \frac{8 \times 7 \times 6}{3 \times 2 \times 1} = 56$$
+     $$\binom{8}{3} = \frac{8 \times 7 \times 6}{3 \times 2 \times 1} = 56$$
 
-代入：
+Substitute:
 
-$$P(X = 2) = \frac{10 \times 3}{56} = \frac{30}{56} = \frac{15}{28}$$
+     $$P(X = 2) = \frac{10 \times 3}{56} = \frac{30}{56} = \frac{15}{28}$$
 
-### (2) 红球个数的期望
+### (2) Expectation of the number of red balls
 
-法一：直接使用超几何分布期望公式
+Method 1: Directly use the expectation formula of hypergeometric distribution
 
-$$E[X] = n \cdot \frac{K}{N} = 3 \cdot \frac{5}{8} = \frac{15}{8} = 1.875$$
+     $$E[X] = n \cdot \frac{K}{N} = 3 \cdot \frac{5}{8} = \frac{15}{8} = 1.875$$
 
-法二：通过分布律计算（用于验证）
+Method 2: Calculation through distribution law (for verification)
 
-先计算完整的分布律：
+First calculate the complete distribution law:
 
-| $k$ | $\binom{5}{k}$ | $\binom{3}{3-k}$ | $P(X=k)$ |
+|      $k$      |      $\binom{5}{k}$      |      $\binom{3}{3-k}$      |      $P(X=k)$      |
 |-----|----------------|-------------------|----------|
-| 0   | 1              | 1                 | $1/56$   |
-| 1   | 5              | 3                 | $15/56$  |
-| 2   | 10             | 3                 | $30/56$  |
-| 3   | 10             | 1                 | $10/56$  |
+| 0   | 1              | 1                 |      $1/56$        |
+| 1   | 5              | 3                 |      $15/56$       |
+| 2   | 10             | 3                 |      $30/56$       |
+| 3   | 10             | 1                 |      $10/56$       |
 
-$$E[X] = 0 \cdot \frac{1}{56} + 1 \cdot \frac{15}{56} + 2 \cdot \frac{30}{56} + 3 \cdot \frac{10}{56} = \frac{15 + 60 + 30}{56} = \frac{105}{56} = \frac{15}{8}$$
+     $$E[X] = 0 \cdot \frac{1}{56} + 1 \cdot \frac{15}{56} + 2 \cdot \frac{30}{56} + 3 \cdot \frac{10}{56} = \frac{15 + 60 + 30}{56} = \frac{105}{56} = \frac{15}{8}$$
 
-两种方法结果一致。
+The results of both methods are consistent.
 
-## 验算
+## Check calculation
 
-### 方法一：概率总和验证
+### Method 1: Probability sum verification
 
-所有可能的 $k$ 值概率之和应为 $1$：
+The sum of the probabilities of all possible     $k$     values ​​should be     $1$     :
 
-$$P(X=0) + P(X=1) + P(X=2) + P(X=3) = \frac{1 + 15 + 30 + 10}{56} = \frac{56}{56} = 1$$
+     $$P(X=0) + P(X=1) + P(X=2) + P(X=3) = \frac{1 + 15 + 30 + 10}{56} = \frac{56}{56} = 1$$
 
-✓ 通过。
+✓ Passed.
 
-### 方法二：期望的指示变量分解
+### Method 2: Decomposition of expected indicator variables
 
-定义指示变量 $Y_i = \mathbb{1}_{\{\text{第 }i\text{ 个球是红色}\}}$，$i = 1,2,3$。则 $X = Y_1 + Y_2 + Y_3$。
+Define indicator variables $Y_i = \mathbb{1}_{\{\text{}i\text{The first ball is red}\}}$ , $i = 1,2,3$ . Then $X = Y_1 + Y_2 + Y_3$ .
 
-由对称性（尽管是不放回抽样，每个位置上的球是红色的概率相同）：
+Due to symmetry (despite sampling without replacement, the ball at each position has the same probability of being red):
 
-$$E[Y_i] = P(\text{第 $i$ 个球是红色}) = \frac{5}{8}$$
+$$E[Y_i] = P(\text{The $i$th ball is red}) = \frac{5}{8}$$
 
-利用期望的线性性：
+Exploiting linearity of expectations:
 
-$$E[X] = E[Y_1] + E[Y_2] + E[Y_3] = 3 \cdot \frac{5}{8} = \frac{15}{8}$$
+     $$E[X] = E[Y_1] + E[Y_2] + E[Y_3] = 3 \cdot \frac{5}{8} = \frac{15}{8}$$
 
-与公式计算结果完全一致。
+The calculation results are completely consistent with the formula.
 
-### 方法三：每个概率在 $[0, 1]$ 内
+### Method 3: Each probability is within     $[0, 1]$
 
-$\frac{1}{56} \approx 0.018$，$\frac{15}{56} \approx 0.268$，$\frac{30}{56} \approx 0.536$，$\frac{10}{56} \approx 0.179$，均在 $[0, 1]$ 内。
+    $\frac{1}{56} \approx 0.018$    ,     $\frac{15}{56} \approx 0.268$    ,     $\frac{30}{56} \approx 0.536$    ,     $\frac{10}{56} \approx 0.179$    , all within     $[0, 1]$    .
 
-## 最终答案
+## Final answer
 
-$$\boxed{P(X = 2) = \frac{15}{28}}$$
+     $$\boxed{P(X = 2) = \frac{15}{28}}$$
 
-$$\boxed{E[X] = \frac{15}{8} = 1.875}$$
+     $$\boxed{E[X] = \frac{15}{8} = 1.875}$$
 
-## 易错点
-1. **放回与不放回的混淆**：本题是不放回抽样，应用超几何分布；若为放回抽样，$X \sim \text{Binomial}(n=3, p=5/8)$，两者期望相同但方差不同。
-2. **组合数计算**：$\binom{8}{3} = 56$ 而非 $8 \times 7 \times 6 = 336$（忘记除以 $3!$）。
-3. **$k$ 取值范围遗漏**：$k = 0$ 是可能的（3 个都是蓝球），不要遗漏。同时 $k=3$ 也是可能的。
-4. **期望公式记忆**：$E[X] = n \cdot \frac{K}{N}$，分子是成功类总数 $K$，不是 $N-K$。
+## Easy to make mistakes
+1. **Confusion between replacement and non-replacement**: This question is about sampling without replacement and applying hypergeometric distribution; if it is sampling with replacement,     $X \sim \text{Binomial}(n=3, p=5/8)$    , the two have the same expectation but different variances.
+2. **Combination number calculation**:     $\binom{8}{3} = 56$     instead of     $8 \times 7 \times 6 = 336$     (forgot to divide by     $3!$    ).
+3. **     $k$     value range is missing**:     $k = 0$     is possible (all 3 are blue balls), don’t miss it. Also     $k=3$     is possible.
+4. **Expected formula memory**:     $E[X] = n \cdot \frac{K}{N}$    , the numerator is the total number of successful classes     $K$    , not     $N-K$    .

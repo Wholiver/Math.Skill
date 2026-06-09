@@ -1,281 +1,281 @@
-# Math.skill 难题处理协议 (Hard Problem Protocol)
+# Math.skill Hard Problem Protocol
 
-当遇到超出标准解题范围的问题时，按以下协议流程处理。
+When encountering problems beyond the scope of standard problem solving, follow the following protocol process.
 
 ---
 
-## 1. 问题分类 (Problem Classification)
+## 1. Problem Classification
 
-在开始解题之前，首先对问题进行分类：
+Before starting to solve the problem, first classify the problem:
 
-| 分类 | 特征 | 示例 |
+| Classification | Features | Examples |
 |------|------|------|
-| **标准教材题** | 有明确的标准解法，可直接应用已知定理 | 计算导数、解常系数微分方程、计算行列式 |
-| **竞赛题** | 需要技巧但不超出初等/高等数学范围，已知有解 | IMO 题目、Putnam 题目、各国家集训队题目 |
-| **研究级别问题** | 涉及前沿数学，可能需要原创性思路 | 某篇论文中提出的猜想、研究生级别的研究问题 |
-| **已知定理** | 是某个已知定理的特例或直接推论 | 用户可能不知道的已知结论 |
-| **已知开放问题** | 数学界尚未解决的问题 | Riemann 猜想、Goldbach 猜想、Collatz 猜想 |
-| **条件缺失** | 问题表述不完整，缺少必要条件 | 缺少定义域、缺少初始条件、缺少收敛性假设 |
+| **Standard textbook questions** | There are clear standard solutions and known theorems can be directly applied | Calculate derivatives, solve differential equations with constant coefficients, and calculate determinants |
+| **Competition questions** | Requires skills but does not exceed the scope of elementary/advanced mathematics, and is known to have solutions | IMO questions, Putnam questions, and national training team questions |
+| **Research level questions** | Involving cutting-edge mathematics, original ideas may be required | Conjectures raised in a certain paper, graduate-level research questions |
+| **Known theorem** | Is a special case or direct corollary of a known theorem | A known conclusion that the user may not know |
+| **Known open problems** | Unsolved problems in mathematics | Riemann conjecture, Goldbach conjecture, Collatz conjecture |
+| **Missing conditions** | The problem statement is incomplete and necessary conditions are missing | The domain is missing, the initial conditions are missing, and the convergence assumption is missing |
 
-### 分类决策流程
+### Classification decision-making process
 
-1. 先检查问题表述是否完整 → 如不完整，归入"条件缺失"
-2. 检查问题是否为已知开放问题的等价形式 → 如是，归入"已知开放问题"
-3. 检查是否存在标准解法或已知定理的直接应用 → 如是，归入"标准教材题"或"已知定理"
-4. 评估问题所需的技术深度 → 判断为"竞赛题"或"研究级别问题"
-
----
-
-## 2. 搜索阶段 (Search Phase)
-
-对非标准教材题，执行以下搜索：
-
-### 搜索关键词构造
-1. 提取问题中的核心数学对象
-2. 构造 2-3 组不同的搜索查询
-3. 使用英文关键词 + LaTeX 语法
-
-### 搜索目标清单
-- [ ] 相关定理及其适用范围
-- [ ] 该问题是否为已知开放问题
-- [ ] 是否有类似结构的已知问题
-- [ ] 是否存在已知反例
-- [ ] 是否有已知的标准解法模式
+1. First check whether the problem statement is complete → If it is incomplete, it will be classified as "missing condition"
+2. Check whether the problem is an equivalent form of a known open problem → If so, classify it as a "known open problem"
+3. Check whether there are standard solutions or direct applications of known theorems → If so, classify them into "standard textbook questions" or "known theorems"
+4. Assess the technical depth required for the problem → Determine it as a "competition question" or "research level question"
 
 ---
 
-## 3. 找到类似问题时的处理 (If Similar Problems Found)
+## 2. Search Phase
 
-### 处理原则
-1. **参考思路，不复制解答**：理解网上解答的逻辑结构，但不逐字复制
-2. **独立重新推导**：关闭搜索页面，从问题本身的定义和条件出发推导
-3. **逐步验算**：每一步都必须通过验算检查
-4. **用自己的语言重新组织**：最终呈现的解答必须是自己的理解
+For non-standard textbook questions, perform the following search:
 
-### 输出格式
-在解答中明确标注搜索结果的影响：
-```
-## 类似问题参考
-- 在 [来源] 中找到结构类似的问题 [简述]
-- 本题采用的方法与参考方案在 [具体方面] 有所不同
-- 以下为独立推导的完整解答
-```
+### Search keyword structure
+1. Extract the core mathematical objects in the problem
+2. Construct 2-3 different sets of search queries
+3. Use English keywords + LaTeX syntax
 
----
-
-## 4. 找不到类似问题的处理（第一原理模式）
-
-如果搜索后未找到任何类似问题，进入**第一原理模式 (First Principles Mode)**。
-
-### 第一原理模式流程
-
-#### 步骤 1：写下全部相关定义
-```
-对象 X 的定义：……
-属性 P 的定义：……
-问题的精确定义：[用数学语言重新表述]
-```
-
-#### 步骤 2：将目标分解为子目标
-```
-目标：证明 P(X)
-子目标 1：证明 Q(X)
-子目标 2：证明 R(X)
-子目标 3：由 Q 和 R 推出 P
-```
-
-#### 步骤 3：尝试简单情形
-- n=1, n=2 等小参数情形
-- 退化情形（如矩阵退化为标量）
-- 对称情形
-- 齐次情形
-
-#### 步骤 4：尝试构造反例
-- 尝试找到使结论不成立的特殊情形
-- 如果找到反例 → 结论不成立，问题到此为止
-- 如果找不到反例 → 增强了对结论为真的信心
-
-#### 步骤 5：尝试归纳法
-- 检查是否可对某个参数（维数、度数、阶数等）做归纳
-- 检查归纳步骤是否需要加强归纳假设
-
-#### 步骤 6：尝试数学变换
-- 变量替换
-- 坐标变换
-- 对偶变换
-- 生成函数
-- Fourier/Laplace 变换
-- 对称化
-
-#### 步骤 7：尝试建立引理
-- 将困难证明拆分为多个独立引理
-- 先证引理，再用引理组合证明主结论
-
-#### 步骤 8：尝试等价重述
-- 逆否命题
-- 对偶形式
-- 几何解释
-- 代数重新表述
-- 用随机变量的语言重新表述
-
-#### 步骤 9：数值实验
-- 对具体参数值做数值计算
-- 观察数值模式
-- 用数值结果指导理论推导方向
-
-#### 步骤 10：尝试特殊情形推广
-- 如果证明了 n=1、n=2、n=3 等情形
-- 检查能否将证明方法推广到一般 n
-
-#### 步骤 11：尝试弱化目标
-- 能否证明更弱的结论？
-- 在额外条件下能否证明？
-- 部分结果也有价值
-
-#### 步骤 12：逐步验证
-- 每一步推导后立即验证逻辑正确性
-- 检查除零、分母为零、不等式方向等细节
+### Search target list
+- [ ] Relevant theorems and their scope of application
+- [ ] Is the issue a known open issue?
+- [ ] Are there any known issues with similar structures?
+- [ ] Whether there are known counterexamples
+- [ ] Is there a known standard solution pattern?
 
 ---
 
-## 5. 疑似开放问题的处理 (Possible Open Problem)
+## 3. Processing when similar problems are found (If Similar Problems Found)
 
-### 识别特征
-- 问题形式极其简单但证明异常困难
-- 涉及数论的素数性质
-- 涉及图论的极值猜想
-- 涉及混沌系统或动力系统
-- 问题陈述类似于已知的 Millenium 问题
+### Processing principles
+1. **Reference ideas, do not copy answers**: Understand the logical structure of online answers, but do not copy verbatim
+2. **Independent re-derivation**: Close the search page and deduce based on the definition and conditions of the problem itself
+3. **Step-by-step verification**: Each step must pass the verification check
+4. **Reorganize in your own words**: The final solution must be your own understanding
 
-### 处理流程
-
-#### 步骤 1：搜索确认
-用问题关键词 + "open problem" 或 "unsolved" 或 "conjecture" 搜索。
-
-#### 步骤 2：如确认为开放问题
-**MUST 执行的声明**：
-```
-## 问题状态
-
-此问题是已知的数学开放问题：[标准名称]
-
-### 已知事实（已验证）
-- [事实 1]
-- [事实 2]
-
-### 猜想内容
-- 该猜想声称：[精确陈述]
-
-### 已知的部分结果
-- [已知结果 1]
-- [已知结果 2]
-
-### 已知的失败尝试及原因
-- [方向 1]：[失败原因]
-- [方向 2]：[失败原因]
-
-### 数值证据
-- 已验证到 n ≤ [范围]
-- 未发现反例
-
-### 声明
-目前不存在被数学界公认的完整证明。以下是基于现有理论的探索性分析，不代表完整证明。
-```
-
-#### 步骤 3：探索性分析
-可以提供：
-- 部分结果（在某些特殊条件下成立）
-- 数值实验的结果
-- 可能的攻克方向（但明确标注为推测）
-- 与已知结论的联系
-
-#### 步骤 4：严禁行为
-- **绝对禁止声称解决了开放问题**（除非提供完整的、可验证的、无间隙的证明）
-- **绝对禁止虚构突破性结论**
-- **绝对禁止声称"我找到了简单证明"**——如果真那么简单，Fermat's Last Theorem 和 Poincaré 猜想就不会流传数百年
-
----
-
-## 6. 迭代推进策略 (Iterative Advancement)
-
-### 持续向前推进
-遇到困难时不停止，尝试：
-1. 改变视角（几何 ↔ 代数 ↔ 分析）
-2. 增加或放松条件
-3. 退回到"如果……成立"的假设推演
-4. 从反方向思考：如果要结果不成立，需要什么条件？
-
-### 达到可验证阶段的标志
-- 得到了一些明确的结论（即使不是最终目标）
-- 能够进行数值检验
-- 能够举出特例验证
-
-### 明确解释障碍
-遇到无法突破的步骤时：
-```
-## 当前障碍
-在第 [X] 步遇到障碍：
-- 我们需要证明 [具体陈述]
-- 问题出在 [具体困难]
-- 已知的 [定理/方法] 不能直接应用，因为 [原因]
-```
-
-### 建议后续方向
-```
-## 可能的突破方向
-1. [方向 1]：[具体原因和预期]
-2. [方向 2]：[具体原因和预期]
-3. [方向 3]：[需要验证的前提条件]
+### Output format
+Clearly label the impact of search results in your answer:
+     ```
+## Reference to similar questions
+- Find similar structured questions in [Source] [Brief Description]
+- The method used in this question is different from the reference plan in [specific aspects]
+- The following is the complete solution of independent derivation
 ```
 
 ---
 
-## 7. 决策树 (Decision Tree)
+## 4. No solution to similar problems can be found (first principles mode)
 
+If the search does not find any similar problems, enter **First Principles Mode**.
+
+### First principles model process
+
+#### Step 1: Write down all relevant definitions
+     ```
+Definition of object X:…
+Definition of property P:…
+Precise definition of the problem: [Restated in mathematical language]
 ```
-收到复杂数学问题
+
+#### Step 2: Break down the goal into sub-goals
+     ```
+Goal: Prove P(X)
+Sub-goal 1: Prove Q(X)
+Subgoal 2: Prove R(X)
+Subgoal 3: deduce P from Q and R
+```
+
+#### Step 3: Try a simple scenario
+- n=1, n=2 and other small parameter cases
+- Degenerate situations (such as matrices degenerating into scalars)
+- Symmetrical situation
+- homogeneous situation
+
+#### Step 4: Try to construct a counterexample
+- Try to find special circumstances that make the conclusion invalid
+- If a counterexample is found → the conclusion is not valid and the problem ends here
+- If no counterexample can be found → Increases confidence that the conclusion is true
+
+#### Step 5: Try induction
+- Check whether a parameter (dimension, degree, order, etc.) can be generalized
+- Check whether the induction step needs to strengthen the inductive hypothesis
+
+#### Step 6: Try mathematical transformations
+- Variable substitution
+- Coordinate transformation
+- Dual transformation
+- Generate function
+- Fourier/Laplace transformation
+- Symmetrization
+
+#### Step 7: Try to establish the lemma
+- Split the difficult proof into multiple independent lemmas
+- Prove the lemma first, and then use the combination of lemmas to prove the main conclusion
+
+#### Step 8: Try an equivalent restatement
+- Converse proposition
+- Dual form
+- Geometric explanation
+- Algebraic reformulation
+- Restated in the language of random variables
+
+#### Step 9: Numerical Experiment
+- Perform numerical calculations on specific parameter values
+- Observe numerical mode
+- Use numerical results to guide the direction of theoretical derivation
+
+#### Step 10: Try Special Situation Promotions
+- If it is proved that n=1, n=2, n=3, etc.
+- Check whether the proof method can be generalized to general n
+
+#### Step 11: Try weakening the target
+- Can a weaker conclusion be proved?
+- Can it be proven under additional conditions?
+- Some results are also valuable
+
+#### Step 12: Step-by-Step Verification
+- Immediately verify the logical correctness after each step of derivation
+- Check details such as division by zero, zero denominator, direction of inequality, etc.
+
+---
+
+## 5. Handling of suspected open problems (Possible Open Problem)
+
+### Identifying features
+- The problem form is extremely simple but the proof is extremely difficult
+- Involving the properties of prime numbers in number theory
+- Extreme value conjecture involving graph theory
+- Involving chaotic systems or dynamical systems
+-Problem statement similar to known Millenium issues
+
+### Processing process
+
+#### Step 1: Search and confirm
+Search with question keyword + "open problem" or "unsolved" or "conjecture".
+
+#### Step 2: If confirmed as an open issue
+**MUST enforce the statement**:
+     ```
+## Problem status
+
+This problem is a known open problem in mathematics: [standard name]
+
+### Known facts (verified)
+- [Fact 1]
+- [Fact 2]
+
+### Guess content
+- The conjecture claims: [precise statement]
+
+### Known partial results
+- [Known Result 1]
+- [Known Result 2]
+
+### Known failed attempts and reasons
+- [Direction 1]: [Reason for failure]
+- [Direction 2]: [Reason for failure]
+
+### Numerical evidence
+- verified to n ≤ [range]
+- No counterexamples found
+
+### Statement
+There is currently no complete proof recognized by the mathematical community. The following is an exploratory analysis based on existing theories and does not represent a complete proof.
+```
+
+#### Step 3: Exploratory Analysis
+Can provide:
+- Partial results (held under certain special conditions)
+- Results of numerical experiments
+- Possible directions of attack (but clearly marked as speculation)
+- Connection to known conclusions
+
+#### Step 4: Strictly Prohibited Behavior
+- **Absolutely prohibited from claiming to solve open problems** (unless complete, verifiable, gap-free proof is provided)
+- **It is absolutely forbidden to make up any groundbreaking conclusions**
+- **Absolutely forbidden to claim "I found a simple proof"** - If it were that simple, Fermat's Last Theorem and Poincaré's conjecture wouldn't have been around for hundreds of years
+
+---
+
+## 6. Iterative Advancement Strategy
+
+### Keep moving forward
+Don't stop when you encounter difficulties, try:
+1. Change perspective (geometry ↔ algebra ↔ analysis)
+2. Increase or relax conditions
+3. Return to the hypothetical deduction of "if... is true"
+4. Think from the opposite direction: If the result does not hold, what conditions are needed?
+
+### Sign of reaching the verifiable stage
+- Got some clear conclusions (if not the ultimate goal)
+- Ability to perform numerical tests
+- Be able to cite special cases for verification
+
+### Clearly explain barriers
+When you encounter a step that you cannot break through:
+     ```
+## Current obstacle
+Encountered an obstacle at step [X]:
+- We need to prove [specific statement]
+- The problem lies in [specific difficulty]
+- Known [theorems/methods] cannot be applied directly because of [reason]
+```
+
+### Suggest follow-up directions
+     ```
+## Possible breakthrough direction
+1. [Direction 1]: [Specific reasons and expectations]
+2. [Direction 2]: [Specific reasons and expectations]
+3. [Direction 3]: [Prerequisites requiring verification]
+```
+
+---
+
+## 7. Decision Tree
+
+     ```
+receive complex math questions
 │
-├─ 问题是否完整？
-│  ├─ 否 → 请求用户补充条件 → 回到判断
-│  └─ 是 ↓
+├─ Are the questions complete?
+│ ├─ No → Request the user to add conditions → Return to judgment
+│ └─ Yes ↓
 │
-├─ 是否为已知开放问题？
-│  ├─ 是 → 执行开放问题协议 → 输出部分结果，声明未解决
-│  └─ 否 ↓
+├─ Is it a known open issue?
+│ ├─ Yes → Execute the open problem protocol → Output partial results and declare unsolved
+│ └─ No ↓
 │
-├─ 是否有标准解法？
-│  ├─ 是 → 执行标准解题流程 → 输出标准解答
-│  └─ 否 ↓
+├─ Is there a standard solution?
+│ ├─ Yes → Execute the standard problem-solving process → Output the standard solution
+│ └─ No ↓
 │
-├─ 搜索是否有类似问题？
-│  ├─ 找到类似问题 → 参考思路，独立推导 → 输出解答
-│  └─ 未找到 ↓
+├─ Search for similar questions?
+│ ├─ Find similar questions → Reference ideas and independent derivation → Output the solution
+│ └─ Not found ↓
 │
-├─ 进入第一原理模式
-│  ├─ 是否能在合理时间内推进？
-│  │  ├─ 能 → 推进至可验证阶段 → 输出部分结果或完整解答
-│  │  └─ 不能 ↓
+├─Enter first principles mode
+│ ├─ Can it be advanced within a reasonable time?
+│ │ ├─ Can → Advance to the verifiable stage → Output partial results or complete answers
+│ │ └─ Can’t ↓
 │  │
-│  └─ 输出当前进展 + 障碍说明 + 后续方向
+│ └─ Output current progress + obstacle description + follow-up direction
 │
-└─ 在任何阶段发现条件缺失 → 返回请求补充
+└─ If conditions are found to be missing at any stage → return to request for supplementation
 ```
 
 ---
 
-## 8. 记录与追溯
+## 8. Recording and Traceability
 
-### 难题记录
-对于每个难题，记录以下信息：
-- 问题分类
-- 搜索的关键词和结果
-- 尝试过的方法及其结果（成功或失败）
-- 当前进展状态
-- 未解决的障碍
+### Problem record
+For each puzzle, record the following information:
+- Problem classification
+- Search keywords and results
+- Methods tried and their results (success or failure)
+- Current progress status
+- unresolved obstacles
 
-### 给用户的建议
-在适当时机，向用户建议：
-- 咨询领域专家（教授、研究员）
-- 在 MathOverflow 上以适当方式提问
-- 查阅特定方向的文献
-- 考虑是否有简化版本可以首先解决
+### Advice to users
+At the appropriate time, suggest to users:
+- Consulting experts (professors, researchers)
+- Ask questions in an appropriate manner on MathOverflow
+- Review literature in a specific direction
+- Consider if there is a simplified version that can be solved first

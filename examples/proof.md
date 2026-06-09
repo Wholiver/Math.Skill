@@ -1,127 +1,127 @@
-# $\sqrt{2}$ 是无理数的证明
+#     $\sqrt{2}$     is a proof of irrational numbers
 
-## 用户输入
-证明 $\sqrt{2}$ 是无理数。
+## User input
+Show that     $\sqrt{2}$     is an irrational number.
 
-## Skill 分类
-数论 / 反证法
+## Skill Category
+Number theory / proof by contradiction
 
-## 题意解析
-- **条件**：定义 $\sqrt{2}$ 为满足 $x^2 = 2$ 的正实数
-- **目标**：证明不存在整数 $p, q$（$q \neq 0$）使得 $\sqrt{2} = p/q$
-- **隐含条件**：$p, q$ 可假设互质（即分数已约分到最简形式）
-- **方法约束**：经典反证法，假设存在有理数表达式然后导出矛盾
-- **边界情况**：$p = 0$ 时 $\sqrt{2} = 0$ 显然不成立，可排除
+## Question meaning analysis
+- **Condition**: Define     $\sqrt{2}$     as a positive real number that satisfies     $x^2 = 2$
+- **Goal**: Prove that there is no integer     $p, q$     (     $q \neq 0$     ) such that     $\sqrt{2} = p/q$
+- **Implicit condition**:     $p, q$     can be assumed to be relatively prime (that is, the fraction has been reduced to its simplest form)
+- **Method Constraints**: Classical proof by contradiction, assuming there is a rational number expression and then deducing a contradiction
+- **Boundary case**: When     $p = 0$    ,     $\sqrt{2} = 0$     is obviously not true and can be excluded
 
-## 方法选择
+## Method selection
 
-**主方法：反证法（standard proof by contradiction）**
+**Main method: standard proof by contradiction**
 
-这是证明无理数最经典的方法。假设 $\sqrt{2}$ 是有理数，写成最简分数形式，然后利用奇偶性导出矛盾。
+This is the most classic way to prove irrational numbers. Assume that     $\sqrt{2}$     is a rational number, write it in the simplest fractional form, and then use parity to derive a contradiction.
 
-**备选方法 1：有理根定理**
+**Alternative 1: Rational Root Theorem**
 
-利用有理根定理：若 $x = p/q$（最简形式）是有理数且满足 $x^2 - 2 = 0$，则 $p \mid 2$ 且 $q \mid 1$。故 $p \in \{\pm 1, \pm 2\}$，$q \in \{\pm 1\}$。验证 $(\pm 1)^2 = 1 \neq 2$，$(\pm 2)^2 = 4 \neq 2$，说明 $\sqrt{2}$ 不是有理数。
+Use the rational roots theorem: If     $x = p/q$     (in its simplest form) is a rational number and satisfies     $x^2 - 2 = 0$     , then     $p \mid 2$     and     $q \mid 1$     . So     $p \in \{\pm 1, \pm 2\}$     ,     $q \in \{\pm 1\}$     . Verify     $(\pm 1)^2 = 1 \neq 2$    ,     $(\pm 2)^2 = 4 \neq 2$    , indicating that     $\sqrt{2}$     is not a rational number.
 
-**备选方法 2：无穷递降法（几何证明）**
+**Alternative 2: Infinite descent method (geometric proof)**
 
-假设 $\sqrt{2} = a/b$（$a > b > 0$），则 $a^2 = 2b^2$。考虑等腰直角三角形，可构造更小的正整数对 $(2b-a, a-b)$ 也满足类似关系，导出无穷递降矛盾。
+Assuming     $\sqrt{2} = a/b$     (     $a > b > 0$     ), then     $a^2 = 2b^2$     . Considering an isosceles right triangle, a smaller positive integer pair     $(2b-a, a-b)$     can be constructed that also satisfies a similar relationship and derives an infinite descending contradiction.
 
-本文展示主方法和有理根定理两种证明。
+This article shows two proofs of the main method and the rational root theorem.
 
-## 解题过程
+## Problem solving process
 
-### 方法一：经典反证法
+### Method 1: Classical proof by contradiction
 
-**Step 1：假设与化简**
+**Step 1: Assumption and Simplification**
 
-假设 $\sqrt{2}$ 是有理数，即存在互质的正整数 $p, q$（$q \neq 0$）使得
-$$\sqrt{2} = \frac{p}{q}, \quad \gcd(p, q) = 1$$
+Assume that     $\sqrt{2}$     is a rational number, that is, there is a relatively prime positive integer     $p, q$     (     $q \neq 0$     ) such that
+     $$\sqrt{2} = \frac{p}{q}, \quad \gcd(p, q) = 1$$
 
-两边平方：
-$$2 = \frac{p^2}{q^2} \implies p^2 = 2q^2$$
+Square both sides:
+     $$2 = \frac{p^2}{q^2} \implies p^2 = 2q^2$$
 
-**Step 2：证明 $p$ 是偶数**
+**Step 2: Prove that     $p$     is an even number**
 
-由 $p^2 = 2q^2$ 知 $p^2$ 是偶数。
+From     $p^2 = 2q^2$    , we know that     $p^2$     is an even number.
 
-**论断**：若 $p^2$ 是偶数，则 $p$ 必为偶数。
+**Conclusion**: If     $p^2$     is an even number, then     $p$     must be an even number.
 
-**论证**：假设 $p$ 是奇数，即存在整数 $k$ 使得 $p = 2k + 1$，则
-$$p^2 = (2k + 1)^2 = 4k^2 + 4k + 1 = 2(2k^2 + 2k) + 1$$
+**Argument**: Suppose     $p$     is an odd number, that is, there is an integer     $k$     such that     $p = 2k + 1$     , then
+     $$p^2 = (2k + 1)^2 = 4k^2 + 4k + 1 = 2(2k^2 + 2k) + 1$$
 
-$p^2$ 为奇数，与 $p^2$ 是偶数矛盾。故 $p$ 必须是偶数。
+    $p^2$     is an odd number, which is inconsistent with     $p^2$     being an even number. Therefore     $p$     must be an even number.
 
-因此存在整数 $k$ 使得 $p = 2k$。
+Therefore there is an integer     $k$     such that     $p = 2k$     .
 
-**Step 3：证明 $q$ 也是偶数**
+**Step 3: Prove that     $q$     is also an even number**
 
-代入 $p = 2k$ 到 $p^2 = 2q^2$：
-$$(2k)^2 = 2q^2 \implies 4k^2 = 2q^2 \implies 2k^2 = q^2$$
+Substitute     $p = 2k$     into     $p^2 = 2q^2$     :
+     $$(2k)^2 = 2q^2 \implies 4k^2 = 2q^2 \implies 2k^2 = q^2$$
 
-所以 $q^2$ 是偶数。同理，$q$ 必为偶数。
+So     $q^2$     is an even number. In the same way,     $q$     must be an even number.
 
-**Step 4：导出矛盾**
+**Step 4: Export contradictions**
 
-$p$ 和 $q$ 都是偶数，则 $\gcd(p, q) \geq 2$，与假设 $\gcd(p, q) = 1$ 矛盾。
+If     $p$     and     $q$     are both even numbers, then     $\gcd(p, q) \geq 2$     is in conflict with the assumption     $\gcd(p, q) = 1$    .
 
-故假设不成立，$\sqrt{2}$ 不是有理数，即 $\sqrt{2}$ 是无理数。$\square$
+Therefore, the assumption does not hold,     $\sqrt{2}$     is not a rational number, that is,     $\sqrt{2}$     is an irrational number.     $\square$
 
-### 方法二：有理根定理
+### Method 2: Rational Root Theorem
 
-**Step 1：构造多项式**
+**Step 1: Construct polynomial**
 
-$\sqrt{2}$ 是方程 $x^2 - 2 = 0$ 的正根。
+    $\sqrt{2}$     is the positive root of the equation     $x^2 - 2 = 0$    .
 
-**Step 2：应用有理根定理**
+**Step 2: Apply the rational root theorem**
 
-设 $x = p/q$（$p, q$ 互质，$q > 0$）是 $x^2 - 2 = 0$ 的有理根，则 $p \mid (-2)$ 且 $q \mid 1$。
+Assume     $x = p/q$     (     $p, q$     is relatively prime,     $q > 0$     ) is a rational root of     $x^2 - 2 = 0$    , then     $p \mid (-2)$     and     $q \mid 1$     .
 
-故 $p \in \{\pm 1, \pm 2\}$，$q \in \{1\}$，$x \in \{\pm 1, \pm 2\}$。
+So     $p \in \{\pm 1, \pm 2\}$     ,     $q \in \{1\}$     ,     $x \in \{\pm 1, \pm 2\}$     .
 
-**Step 3：逐一验证**
+**Step 3: Verify one by one**
 
-- $x = 1$：$1^2 - 2 = -1 \neq 0$ ✗
-- $x = -1$：$(-1)^2 - 2 = -1 \neq 0$ ✗
-- $x = 2$：$2^2 - 2 = 2 \neq 0$ ✗
-- $x = -2$：$(-2)^2 - 2 = 2 \neq 0$ ✗
+-      $x = 1$     ：     $1^2 - 2 = -1 \neq 0$      ✗
+-      $x = -1$     ：     $(-1)^2 - 2 = -1 \neq 0$      ✗
+-      $x = 2$     ：     $2^2 - 2 = 2 \neq 0$      ✗
+-      $x = -2$     ：     $(-2)^2 - 2 = 2 \neq 0$      ✗
 
-无一满足，故 $x^2 - 2 = 0$ 无有理根，$\sqrt{2}$ 是无理数。$\square$
+None of them are satisfied, so     $x^2 - 2 = 0$     has no rational root and     $\sqrt{2}$     is an irrational number.     $\square$
 
-## 验算
+## Check calculation
 
-**验算方法 1：检查反证法每一步逻辑**
+**Check calculation method 1: Check the logic of each step of proof by contradiction**
 
-- 假设 $\sqrt{2} = p/q$，$\gcd(p,q)=1$ — 合理，任何有理数可写为最简分数 ✓
-- $p^2 = 2q^2$ — 平方运算正确 ✓
-- "$p^2$ 偶 $\implies$ $p$ 偶" — 由逆否命题 "$p$ 奇 $\implies$ $p^2$ 奇" 证明，计算 $(2k+1)^2 = 4k^2+4k+1 = 2(2k^2+2k)+1$ 正确 ✓
-- $q^2 = 2k^2$ — 代入 $p=2k$ 得 $4k^2=2q^2$，即 $q^2=2k^2$ ✓
-- "$q^2$ 偶 $\implies$ $q$ 偶" — 同理正确 ✓
-- $\gcd(p,q) \geq 2$ 矛盾 — 两个偶数必有公因子 2 ✓
+- Assumptions     $\sqrt{2} = p/q$    ,     $\gcd(p,q)=1$     — reasonable, any rational number can be written as the simplest fraction ✓
+-     $p^2 = 2q^2$     — Square operation is correct ✓
+- "    $p^2$     even     $\implies$         $p$     even" — proved by the inverse proposition "    $p$     odd     $\implies$         $p^2$     odd", calculate     $(2k+1)^2 = 4k^2+4k+1 = 2(2k^2+2k)+1$     correct ✓
+-     $q^2 = 2k^2$     — Substitute     $p=2k$     to get     $4k^2=2q^2$    , which is     $q^2=2k^2$     ✓
+- "    $q^2$     even     $\implies$         $q$     even" — The same logic is correct ✓
+-     $\gcd(p,q) \geq 2$     Contradiction — Two even numbers must have common factors 2 ✓
 
-**验算方法 2：检查有理根定理的应用**
+**Check method 2: Check the application of the rational root theorem**
 
-- 多项式的首项系数为 $1$，常数项为 $-2$ ✓
-- 有理根定理要求 $p \mid \text{常数项}$，$q \mid \text{首项系数}$ ✓
-- 候选值 $\pm 1, \pm 2$ 完备 ✓
-- 代入验证无误 ✓
+- The leading coefficient of the polynomial is     $1$     and the constant term is     $-2$     ✓
+- The rational root theorem requires $p \mid \text{constant term}$ , $q \mid \text{first term coefficient}$ ✓
+- Candidate value     $\pm 1, \pm 2$     Complete ✓
+- Substitution verification is correct ✓
 
-**验算方法 3：边界检查**
+**Check Calculation Method 3: Boundary Check**
 
-$p = 0$ 时 $\sqrt{2} = 0/q = 0$，但 $0^2 = 0 \neq 2$，故 $\sqrt{2} \neq 0$，$p = 0$ 不可能是解。排除该边界情况。
+    $p = 0$     is     $\sqrt{2} = 0/q = 0$     , but     $0^2 = 0 \neq 2$     , so     $\sqrt{2} \neq 0$     ,     $p = 0$     cannot be solutions. Exclude this edge case.
 
-**验算方法 4：数值验证**
+**Verification method 4: Numerical verification**
 
-$\sqrt{2} \approx 1.4142135623730951$，该数值的小数部分无限不循环（无理数的特征），与结论一致 ✓
+    $\sqrt{2} \approx 1.4142135623730951$    , the decimal part of this value is infinite and non-cyclic (characteristic of irrational numbers), consistent with the conclusion ✓
 
-## 最终答案
+## Final answer
 
-$$\sqrt{2} \notin \mathbb{Q}, \quad \text{即 } \sqrt{2} \text{ 是无理数}$$
+$$\sqrt{2} \notin \mathbb{Q}, \quad \text{i.e. } \sqrt{2} \text{ is an irrational number}$$
 
-两种证明方法均得出相同结论，且验证确认每一步推理正确无误。
+Both proof methods lead to the same conclusion, and verification confirms that each step of reasoning is correct.
 
-## 易错点
-1. **忘记设定 $\gcd(p, q) = 1$**：不假设互质则无法导出矛盾（$p, q$ 都可能是偶数但不矛盾，因为可以同时除以 2 继续约分）
-2. **混淆逆命题与逆否命题**：证明 "$p^2$ 偶 $\implies$ $p$ 偶" 用的是逆否命题 "$p$ 奇 $\implies$ $p^2$ 奇"，不是逆命题 "$p$ 偶 $\implies$ $p^2$ 偶"（后者也是对的但不是这里需要的）
-3. **错误推广**：不要以为用类似方法就能证明所有平方根都是无理数。例如 $\sqrt{4} = 2$ 是有理数，用同样的推理会在 "$p^2 = 4q^2$" 步骤后无法导出奇偶矛盾
-4. **有理根定理使用条件**：有理根定理要求多项式系数为整数，且首项系数不为零，此处 $x^2 - 2$ 满足条件
+## Easy to make mistakes
+1. **Forgot to set     $\gcd(p, q) = 1$     **: Without assuming mutual prime, the contradiction cannot be derived (    $p, q$     may be an even number but is not contradictory, because it can be divided by 2 at the same time to continue the reduction)
+2. **Confusing the inverse proposition and the inverse proposition**: Prove that "    $p^2$     even     $\implies$         $p$     even" uses the inverse proposition "    $p$     odd     $\implies$         $p^2$     odd", not the inverse proposition "    $p$     even"     $\implies$         $p^2$     even" (the latter is also correct but not required here)
+3. **Wrong Generalization**: Do not think that using similar methods can prove that all square roots are irrational. For example,     $\sqrt{4} = 2$     is a rational number. Using the same reasoning, the odd-even contradiction cannot be derived after the "     $p^2 = 4q^2$     " step.
+4. **Conditions for using the rational root theorem**: The rational root theorem requires that the polynomial coefficients are integers and the first coefficient is not zero. Here     $x^2 - 2$     meets the conditions

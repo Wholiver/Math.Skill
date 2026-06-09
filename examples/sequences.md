@@ -1,109 +1,109 @@
-# 递推数列求通项与前 n 项和
+# Find the sum of the general term and the first n terms of the recursive sequence
 
-## 用户输入
-已知数列 $\{a_n\}$ 满足 $a_1 = 1$，$a_{n+1} = 2a_n + 3$，求 $\{a_n\}$ 的通项公式与前 $n$ 项和 $S_n$。
+## User input
+It is known that the sequence $\{a_n\}$ satisfies $a_1 = 1$ and $a_{n+1} = 2a_n + 3$. Find the general formula of $\{a_n\}$ and the first $n$ terms and $S_n$.
 
-## Skill 分类
-数列
+## Skill Category
+Sequence
 
-## 题意解析
-- **已知条件**：首项 $a_1 = 1$，递推关系 $a_{n+1} = 2a_n + 3$（$n \geq 1$）。
-- **求解目标**：通项 $a_n$ 与前 $n$ 项和 $S_n = \sum_{k=1}^n a_k$。
-- **递推类型识别**：一阶线性非齐次递推，形如 $a_{n+1} = pa_n + q$，其中 $p = 2$，$q = 3$，且 $p \neq 1$。
-- **定义域**：$n \in \mathbb{N}^+$。
-- **解的唯一性**：由首项和递推关系唯一确定整个数列。
+## Question meaning analysis
+- **Known conditions**: first item $a_1 = 1$, recursion relationship $a_{n+1} = 2a_n + 3$ ($n \geq 1$).
+- **Solution Objective**: General term $a_n$ and previous $n$ terms and $S_n = \sum_{k=1}^n a_k$.
+- **Recursion type identification**: First-order linear non-homogeneous recursion, in the form of $a_{n+1} = pa_n + q$, where $p = 2$, $q = 3$, and $p \neq 1$.
+- **Domain**: $n \in \mathbb{N}^+$.
+- **Uniqueness of solution**: The entire sequence is uniquely determined by the leading term and the recursion relationship.
 
-## 方法选择
-**首选方法**：特征方程法（待定系数法），通过构造等比数列将非齐次递推转化为齐次递推求解。核心思路：找一个常数 $\lambda$ 使 $a_{n+1} + \lambda = p(a_n + \lambda)$，则 $\{a_n + \lambda\}$ 为等比数列。
+## Method selection
+**Preferred method**: Characteristic equation method (undetermined coefficient method), which converts non-homogeneous recursion into homogeneous recursion solution by constructing a geometric sequence. The core idea: Find a constant $\lambda$ to make $a_{n+1} + \lambda = p(a_n + \lambda)$, then $\{a_n + \lambda\}$ is a geometric sequence.
 
-**备选方法**：迭代展开法，从 $a_n$ 逐项回推到 $a_1$；生成函数法。特征方程法最为简洁高效。
+**Alternative method**: iterative expansion method, from $a_n$ to $a_1$ item by item; generating function method. The characteristic equation method is the most concise and efficient.
 
-## 解题过程
+## Problem solving process
 
-### 第一步：求通项 $a_n$
+### Step 1: Find the general term $a_n$
 
-设存在常数 $\lambda$，使得：
+Suppose there is a constant $\lambda$ such that:
 
-$$a_{n+1} + \lambda = 2(a_n + \lambda)$$
+ $$a_{n+1} + \lambda = 2(a_n + \lambda)$$
 
-展开右边：$a_{n+1} + \lambda = 2a_n + 2\lambda$
+Expand the right side: $a_{n+1} + \lambda = 2a_n + 2\lambda$
 
-与原递推 $a_{n+1} = 2a_n + 3$ 比较得：
+Compare with the original recursion $a_{n+1} = 2a_n + 3$:
 
-$$\lambda = 2\lambda - 3 \quad \Rightarrow \quad \lambda = 3$$
+ $$\lambda = 2\lambda - 3 \quad \Rightarrow \quad \lambda = 3$$
 
-因此：
+therefore:
 
-$$a_{n+1} + 3 = 2(a_n + 3)$$
+ $$a_{n+1} + 3 = 2(a_n + 3)$$
 
-这说明数列 $\{a_n + 3\}$ 是公比为 $2$ 的等比数列。
+This shows that the sequence $\{a_n + 3\}$ is a geometric sequence whose common ratio is $2$.
 
-求 $\{a_n + 3\}$ 的首项：
+Find the first term of $\{a_n + 3\}$:
 
-$$a_1 + 3 = 1 + 3 = 4$$
+ $$a_1 + 3 = 1 + 3 = 4$$
 
-所以：
+so:
 
-$$a_n + 3 = 4 \cdot 2^{n-1} = 2^{n+1}$$
+ $$a_n + 3 = 4 \cdot 2^{n-1} = 2^{n+1}$$
 
-$$a_n = 2^{n+1} - 3 \quad (n \in \mathbb{N}^+)$$
+ $$a_n = 2^{n+1} - 3 \quad (n \in \mathbb{N}^+)$$
 
-### 第二步：求前 $n$ 项和 $S_n$
+### Step 2: Find the first $n$ items and $S_n$
 
-$$S_n = \sum_{k=1}^n a_k = \sum_{k=1}^n (2^{k+1} - 3) = \sum_{k=1}^n 2^{k+1} - \sum_{k=1}^n 3$$
+ $$S_n = \sum_{k=1}^n a_k = \sum_{k=1}^n (2^{k+1} - 3) = \sum_{k=1}^n 2^{k+1} - \sum_{k=1}^n 3$$
 
-第一项是等比数列求和（首项 $2^2 = 4$，公比 $2$，项数 $n$）：
+The first term is the sum of the geometric sequence (first term $2^2 = 4$ , common ratio $2$ , number of terms $n$ ):
 
-$$\sum_{k=1}^n 2^{k+1} = 4 \cdot \frac{2^n - 1}{2 - 1} = 4(2^n - 1) = 2^{n+2} - 4$$
+ $$\sum_{k=1}^n 2^{k+1} = 4 \cdot \frac{2^n - 1}{2 - 1} = 4(2^n - 1) = 2^{n+2} - 4$$
 
-第二项为常数级数：
+The second term is a constant series:
 
-$$\sum_{k=1}^n 3 = 3n$$
+ $$\sum_{k=1}^n 3 = 3n$$
 
-因此：
+therefore:
 
-$$S_n = (2^{n+2} - 4) - 3n = 2^{n+2} - 3n - 4$$
+ $$S_n = (2^{n+2} - 4) - 3n = 2^{n+2} - 3n - 4$$
 
-## 验算
+## Check calculation
 
-### 方法一：逐项验证
+### Method 1: Verify item by item
 
-通过通项公式计算 $a_1, a_2, a_3$，再通过递推公式交叉验证。
+Calculate $a_1, a_2, a_3$ through the general formula, and then cross-validate through the recursive formula.
 
-| $n$ | 通项 $a_n = 2^{n+1} - 3$ | 递推 $a_{n} = 2a_{n-1} + 3$ |
+| $n$ | General term $a_n = 2^{n+1} - 3$ | Recursion $a_{n} = 2a_{n-1} + 3$ |
 |-----|---------------------------|------------------------------|
-| 1   | $2^2 - 3 = 4 - 3 = 1$     | （已知 $a_1 = 1$）            |
-| 2   | $2^3 - 3 = 8 - 3 = 5$     | $2 \cdot 1 + 3 = 5$          |
-| 3   | $2^4 - 3 = 16 - 3 = 13$    | $2 \cdot 5 + 3 = 13$         |
+| 1 | $2^2 - 3 = 4 - 3 = 1$ | (known as $a_1 = 1$ ) |
+| 2   |  $2^3 - 3 = 8 - 3 = 5$      |  $2 \cdot 1 + 3 = 5$           |
+| 3   |  $2^4 - 3 = 16 - 3 = 13$     |  $2 \cdot 5 + 3 = 13$          |
 
-全部一致。
+All consistent.
 
-### 方法二：代入验证
+### Method 2: Substitution verification
 
-将 $a_n = 2^{n+1} - 3$ 代入原递推式：
+Substitute $a_n = 2^{n+1} - 3$ into the original recursion:
 
-$$a_{n+1} = 2^{(n+1)+1} - 3 = 2^{n+2} - 3$$
+ $$a_{n+1} = 2^{(n+1)+1} - 3 = 2^{n+2} - 3$$
 
-$$2a_n + 3 = 2(2^{n+1} - 3) + 3 = 2^{n+2} - 6 + 3 = 2^{n+2} - 3$$
+ $$2a_n + 3 = 2(2^{n+1} - 3) + 3 = 2^{n+2} - 6 + 3 = 2^{n+2} - 3$$
 
-左边 = 右边，递推式成立。
+Left side = right side, the recursion holds.
 
-### 方法三：前 $n$ 项和验证
+### Method 3: First $n$ items and verification
 
-$n = 1$：$S_1 = a_1 = 1$，公式给出 $2^{3} - 3 \cdot 1 - 4 = 8 - 3 - 4 = 1$。✓
+$n = 1$ : $S_1 = a_1 = 1$ , the formula gives $2^{3} - 3 \cdot 1 - 4 = 8 - 3 - 4 = 1$ . ✓
 
-$n = 2$：$S_2 = 1 + 5 = 6$，公式给出 $2^{4} - 3 \cdot 2 - 4 = 16 - 6 - 4 = 6$。✓
+$n = 2$ : $S_2 = 1 + 5 = 6$ , the formula gives $2^{4} - 3 \cdot 2 - 4 = 16 - 6 - 4 = 6$ . ✓
 
-$n = 3$：$S_3 = 1 + 5 + 13 = 19$，公式给出 $2^{5} - 3 \cdot 3 - 4 = 32 - 9 - 4 = 19$。✓
+$n = 3$ : $S_3 = 1 + 5 + 13 = 19$ , the formula gives $2^{5} - 3 \cdot 3 - 4 = 32 - 9 - 4 = 19$ . ✓
 
-## 最终答案
+## Final answer
 
-$$\boxed{a_n = 2^{n+1} - 3 \quad (n \in \mathbb{N}^+)}$$
+ $$\boxed{a_n = 2^{n+1} - 3 \quad (n \in \mathbb{N}^+)}$$
 
-$$\boxed{S_n = 2^{n+2} - 3n - 4 \quad (n \in \mathbb{N}^+)}$$
+ $$\boxed{S_n = 2^{n+2} - 3n - 4 \quad (n \in \mathbb{N}^+)}$$
 
-## 易错点
-1. **待定系数求解 $\lambda$**：方程是 $\lambda = p\lambda - q$ 而非 $\lambda = p\lambda + q$，注意符号。
-2. **$\lambda$ 和 $p\lambda - q$ 的关系**：在推导 $\lambda = 2\lambda - 3$ 时，$\lambda = a_{n+1} + \lambda$ 方程中的 $\lambda$ 既是未知数又出现在两边，不要弄混。
-3. **等比数列求和**：求 $\sum 2^{k+1}$ 时首项不是 $2$ 而是 $2^2 = 4$，公比 $2$，项数 $n$，而非 $n-1$。
-4. **$p = 1$ 的特殊情况**：当 $p = 1$ 时（如 $a_{n+1} = a_n + 3$），不能用此方法构造等比数列，应直接用等差数列处理。
+## Easy to make mistakes
+1. **Undetermined coefficient solution $\lambda$ **: The equation is $\lambda = p\lambda - q$ instead of $\lambda = p\lambda + q$, pay attention to the sign.
+2. **Relationship between $\lambda$ and $p\lambda - q$**: When deriving $\lambda = 2\lambda - 3$, $\lambda$ in the $\lambda = a_{n+1} + \lambda$ equation is both an unknown variable and appears on both sides, so don’t get confused.
+3. **Sum of geometric sequence**: When finding $\sum 2^{k+1}$, the first term is not $2$ but $2^2 = 4$, the common ratio is $2$, and the number of terms is $n$, not $n-1$.
+4. **Special case of $p = 1$**: When $p = 1$ (such as $a_{n+1} = a_n + 3$), this method cannot be used to construct a geometric sequence, and it should be processed directly with an arithmetic sequence.

@@ -1,183 +1,183 @@
-# 分式方程的解法
+#Solution of fractional equations
 
-## 用户输入
-解方程：$\displaystyle \frac{x}{x-1} + \frac{1}{x+2} = \frac{3}{x^2+x-2}$
+## User input
+Solve the equation:     $\displaystyle \frac{x}{x-1} + \frac{1}{x+2} = \frac{3}{x^2+x-2}$
 
-## Skill 分类
-方程（Equations）— 分式方程与增根检验
+## Skill Category
+Equations — Fractional equations and root-increasing tests
 
-## 题意解析
+## Question meaning analysis
 
-**已知条件：**
-- 分式方程：$\frac{x}{x-1} + \frac{1}{x+2} = \frac{3}{x^2+x-2}$
+**Known conditions:**
+- Fractional equation:     $\frac{x}{x-1} + \frac{1}{x+2} = \frac{3}{x^2+x-2}$
 
-**求解目标：**
-- 求满足方程的实数 $x$。
+**Solution goal:**
+- Find the real number     $x$     that satisfies the equation.
 
-**变量与定义域：**
-分式有意义的条件为所有分母 $\neq 0$：
+**Variables and Domains:**
+A fraction is meaningful if all denominators are     $\neq 0$     :
 
-- $x-1 \neq 0$，即 $x \neq 1$
-- $x+2 \neq 0$，即 $x \neq -2$
-- $x^2+x-2 = (x-1)(x+2) \neq 0$，即 $x \neq 1$ 且 $x \neq -2$
+-     $x-1 \neq 0$     , which is     $x \neq 1$
+-     $x+2 \neq 0$     , which is     $x \neq -2$
+-     $x^2+x-2 = (x-1)(x+2) \neq 0$     , that is,     $x \neq 1$     and     $x \neq -2$
 
-综合定义域：$x \in \mathbb{R} \setminus \{-2, 1\}$
+Comprehensive domain:     $x \in \mathbb{R} \setminus \{-2, 1\}$
 
-**隐式条件：**
-- 观察第三个分母 $x^2+x-2$ 可分解为 $(x-1)(x+2)$，正好是前两个分母的乘积，这是本题设计的核心。
+**Implicit condition:**
+- Observe that the third denominator     $x^2+x-2$     can be decomposed into     $(x-1)(x+2)$    , which is exactly the product of the first two denominators. This is the core of the design of this question.
 
-**解的个数：**
-- 去分母后得一元二次方程，最多两个根，需检验是否在定义域内。
+**Number of solutions:**
+- After removing the denominator, a quadratic equation of one variable is obtained, with up to two roots. It needs to be checked whether it is within the definition domain.
 
-## 方法选择
+## Method selection
 
-**选择方法：** 去分母法（乘以各分母的最小公倍式）+ 增根检验
+**Selection method:** Denominator removal method (multiply by the least common multiple of each denominator) + root-increasing test
 
-**理由：**
-- 分式方程的标准解法是两边同乘所有分母的 LCM（最小公倍式），将分式方程转化为整式方程。
-- 本题中 $x^2+x-2 = (x-1)(x+2)$，恰好是前两个分母的乘积，消元非常简洁。
+**reason:**
+- The standard solution to a fractional equation is to multiply both sides by the LCM (least common multiple) of all denominators, converting the fractional equation into an integer equation.
+- In this question,     $x^2+x-2 = (x-1)(x+2)$     happens to be the product of the first two denominators, and elimination is very simple.
 
-**备选方法：**
-- 通分法：左边先通分后与右边比较——步骤等价，最终结果相同。
-- 换元法：不适用于本题，没有明显的可换元结构。
+**Alternative method:**
+- Common division method: first divide the left side and then compare it with the right side - the steps are equivalent and the final result is the same.
+- Substitution method: Not applicable to this question, there is no obvious substitutable structure.
 
-**风险评估：**
-- 去分母可能引入增根（使原分母为零的根），必须在解出后逐个代入原方程检验。
+**risk assessment:**
+- Removing the denominator may introduce additional roots (roots that make the original denominator zero), which must be substituted into the original equation one by one after solving.
 
-## 解题过程
+## Problem solving process
 
-### 第一步：确定定义域
+### Step 1: Determine the domain of definition
 
-解出使分母为零的 $x$ 值：
+Solve for the value of     $x$     such that the denominator is zero:
 
-- $x-1=0 \Rightarrow x=1$
-- $x+2=0 \Rightarrow x=-2$
+-      $x-1=0 \Rightarrow x=1$
+-      $x+2=0 \Rightarrow x=-2$
 
-定义域：$x \neq 1$ 且 $x \neq -2$
+Domain:     $x \neq 1$     and     $x \neq -2$
 
-### 第二步：因式分解第三个分母
+### Step 2: Factor the third denominator
 
-注意到 $x^2+x-2$ 可因式分解：
+Notice that     $x^2+x-2$     can be factored:
 
-$$
+     $$
 x^2 + x - 2 = (x-1)(x+2)
 $$
 
-验证：$(x-1)(x+2) = x^2 + 2x - x - 2 = x^2 + x - 2$ ✓
+Verification:     $(x-1)(x+2) = x^2 + 2x - x - 2 = x^2 + x - 2$     ✓
 
-### 第三步：去分母
+### Step 3: Remove the denominator
 
-方程两边同乘 $(x-1)(x+2)$（在定义域内不为零）：
+Multiply both sides of the equation by     $(x-1)(x+2)$     (not zero in the domain):
 
-$$
+     $$
 \frac{x}{x-1} \cdot (x-1)(x+2) + \frac{1}{x+2} \cdot (x-1)(x+2) = \frac{3}{(x-1)(x+2)} \cdot (x-1)(x+2)
 $$
 
-各项化简：
+Various simplifications:
 
-- 第一项：$x \cdot (x+2) = x(x+2)$
-- 第二项：$1 \cdot (x-1) = x-1$
-- 右边：$3$
+- First item:     $x \cdot (x+2) = x(x+2)$
+- Second item:     $1 \cdot (x-1) = x-1$
+- Right:     $3$
 
-得到整式方程：
+Get the integral equation:
 
-$$
+     $$
 x(x+2) + (x-1) = 3
 $$
 
-### 第四步：化简并求解
+### Step 4: Simplify and solve
 
-展开：
+Expand:
 
-$$
+     $$
 x^2 + 2x + x - 1 = 3
 $$
 
-合并同类项：
+Merge similar items:
 
-$$
+     $$
 x^2 + 3x - 1 = 3
 $$
 
-移项：
+Move items:
 
-$$
+     $$
 x^2 + 3x - 4 = 0
 $$
 
-因式分解：
+Factoring:
 
-$$
+     $$
 (x+4)(x-1) = 0
 $$
 
-解得：
+Solution:
 
+     $$
+x = -4 \quad \text{or} \quad x = 1
 $$
-x = -4 \quad \text{或} \quad x = 1
-$$
 
-### 第五步：检验增根
+### Step 5: Check the root increase
 
-**检验 $x = 1$：**
+**Check     $x = 1$    :**
 
-代入原方程，分母 $x-1 = 0$，分式无意义。**$x=1$ 是增根，舍去。**
+Substituting into the original equation, the denominator is     $x-1 = 0$    , and the fraction is meaningless. **     $x=1$     is to increase the root and discard it. **
 
-**检验 $x = -4$：**
+**Check     $x = -4$    :**
 
-左式 $= \frac{-4}{-4-1} + \frac{1}{-4+2} = \frac{-4}{-5} + \frac{1}{-2} = \frac{4}{5} - \frac{1}{2}$
+Left style     $= \frac{-4}{-4-1} + \frac{1}{-4+2} = \frac{-4}{-5} + \frac{1}{-2} = \frac{4}{5} - \frac{1}{2}$
 
-通分：$\frac{4}{5} = \frac{8}{10}$，$\frac{1}{2} = \frac{5}{10}$
+Common scores:     $\frac{4}{5} = \frac{8}{10}$    ,     $\frac{1}{2} = \frac{5}{10}$
 
-左式 $= \frac{8}{10} - \frac{5}{10} = \frac{3}{10}$
+Left style     $= \frac{8}{10} - \frac{5}{10} = \frac{3}{10}$
 
-右式 $= \frac{3}{(-4)^2 + (-4) - 2} = \frac{3}{16 - 4 - 2} = \frac{3}{10}$
+Right style     $= \frac{3}{(-4)^2 + (-4) - 2} = \frac{3}{16 - 4 - 2} = \frac{3}{10}$
 
-左式 $=$ 右式 $= \frac{3}{10}$ ✓
+Left style     $=$     Right style     $= \frac{3}{10}$     ✓
 
-## 验算
+## Check calculation
 
-### 验算方法一：代入原方程（增根检验）
+### Calculation method one: Substitute into the original equation (increased root test)
 
-已在上步完成，$x=-4$ 满足原方程。
+Completed in the previous step,     $x=-4$     satisfies the original equation.
 
-### 验算方法二：将原方程通分验证
+### Calculation method two: Verify the original equation by dividing it into two parts
 
-对 $x = -4$，验证原方程等价于恒等式：
+For     $x = -4$     , verify that the original equation is equivalent to the identity:
 
-左式通分：$\frac{x}{x-1} + \frac{1}{x+2} = \frac{x(x+2) + (x-1)}{(x-1)(x+2)} = \frac{x^2+3x-1}{(x-1)(x+2)}$
+Common participle of left-hand formula:     $\frac{x}{x-1} + \frac{1}{x+2} = \frac{x(x+2) + (x-1)}{(x-1)(x+2)} = \frac{x^2+3x-1}{(x-1)(x+2)}$
 
-右式：$\frac{3}{x^2+x-2} = \frac{3}{(x-1)(x+2)}$
+Right form:     $\frac{3}{x^2+x-2} = \frac{3}{(x-1)(x+2)}$
 
-原方程等价于：$\frac{x^2+3x-1}{(x-1)(x+2)} = \frac{3}{(x-1)(x+2)}$
+The original equation is equivalent to:     $\frac{x^2+3x-1}{(x-1)(x+2)} = \frac{3}{(x-1)(x+2)}$
 
-即 $x^2+3x-1 = 3$（在 $x \neq 1, -2$ 时），即 $x^2+3x-4=0$。
+That is     $x^2+3x-1 = 3$     (at     $x \neq 1, -2$     ), which is     $x^2+3x-4=0$     .
 
-当 $x=-4$ 时：$(-4)^2 + 3(-4) - 4 = 16 - 12 - 4 = 0$，满足。✓
+When     $x=-4$    :     $(-4)^2 + 3(-4) - 4 = 16 - 12 - 4 = 0$    , satisfied. ✓
 
-### 验算方法三：逆向推理
+### Calculation method three: reverse reasoning
 
-从 $x=-4$ 出发反推：
+Starting from     $x=-4$     and working backwards:
 
-若 $x=-4$，则方程等价形式 $x^2+3x-4=0$ 成立。
+If     $x=-4$     , then the equivalent form of the equation     $x^2+3x-4=0$     holds.
 
-原方程等价于 $\frac{x^2+3x-1}{(x-1)(x+2)} = \frac{3}{(x-1)(x+2)}$
+The original equation is equivalent to     $\frac{x^2+3x-1}{(x-1)(x+2)} = \frac{3}{(x-1)(x+2)}$
 
-代入 $x=-4$，两边分母均为 $(-5)(-2)=10$，分子左边为 $16-12-1=3$，右边为 $3$，两边相等。
+Substituting     $x=-4$    , the denominator on both sides is     $(-5)(-2)=10$    , the left side of the numerator is     $16-12-1=3$    , and the right side is     $3$    , both sides are equal.
 
-综上，$x=-4$ 确为原方程的解。
+In summary,     $x=-4$     is indeed the solution to the original equation.
 
-## 最终答案
+## Final answer
 
-$$
+     $$
 \boxed{x = -4}
 $$
 
-（$x=1$ 为增根，舍去。）
+(    $x=1$     is to increase the root, discard it.)
 
-## 易错点
-1. **忘记检验增根：** 去分母后解得两个根 $x=-4$ 和 $x=1$，若不做检验直接将 $x=1$ 也当作答案，会丢分。**所有分式方程都必须检验增根。**
-2. **定义域分析缺失：** 未在解题开始时写下 $x \neq 1$ 且 $x \neq -2$，后续检验容易遗漏。
-3. **去分母操作错误：** 忘了每项都要乘，尤其是右边整式 $3$ 也要乘 $(x-1)(x+2)$。
-4. **因式分解错误：** $x^2+x-2$ 容易误分解为 $(x-1)(x-2)$，正确的交叉验算可以避免此错误。
-5. **增根类型混淆：** 增根 $x=1$ 恰好与定义域排除值重合，不是碰巧——去分母时乘的因子恰为 $(x-1)(x+2)$，所以 $x=1$ 和 $x=-2$ 都是潜在增根（虽然本题中 $x=-2$ 不是方程的根）。
+## Easy to make mistakes
+1. **Forgot to check for root addition:** After removing the denominator, we get two roots     $x=-4$     and     $x=1$    . If we don’t do the test and directly use     $x=1$     as the answer, we will lose points. **All fractional equations must be tested for increasing roots. **
+2. **Loss of domain analysis:** If     $x \neq 1$     and     $x \neq -2$     are not written down at the beginning of solving the problem, it is easy to miss them in subsequent tests.
+3. **Error in removing the denominator:** Forgot to multiply each item, especially the integer     $3$     on the right must also be multiplied by     $(x-1)(x+2)$    .
+4. **Factorization error:**     $x^2+x-2$     is easily decomposed into     $(x-1)(x-2)$     by mistake. Correct cross-checking can avoid this error.
+5. **Confusion of augmented root types:** The augmented root     $x=1$     happens to coincide with the domain exclusion value. It is not a coincidence - the factor multiplied when removing the denominator is exactly     $(x-1)(x+2)$    , so     $x=1$     and     $x=-2$     are both potential augmented roots (although     $x=-2$     in this question is not a root of the equation).

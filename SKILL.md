@@ -67,8 +67,8 @@ This skill adapts its language to the user's context:
 
 - **Explicit specification**: If the user specifies an output language (e.g., "Answer in English"), use that language
 - **Default**: If not specified, match the user's primary input language throughout the response
-- **Mixed Chinese-English input**: Respond in the user's dominant language; keep mathematical terms in their standard form (e.g., "We compute the derivative" or "我们计算导数", not "我们计算导数derivative")
-- **Formulas**: Always typeset mathematical formulas in LaTeX (`$inline$` and `$$display$$`)
+- **Mixed Chinese-English input**: Respond in the user's dominant language; keep mathematical terms in their standard form (e.g., "We compute the derivative" or "We compute the derivative", not "We compute the derivative derivative")
+- **Formulas**: Always typeset mathematical formulas in LaTeX ( `$inline$`  and  `$$display$$` )
 - **Variable and theorem names**: May remain in English (e.g., "Rolle's Theorem") with a brief explanation or translation in the user's language if the concept may be unfamiliar
 - **Answer-only mode**: Concise output with minimal but still present verification — user explicitly wants brevity
 - **Detailed derivation mode**: Expand all key steps; show algebraic manipulations, substitutions, and intermediate results
@@ -79,50 +79,50 @@ This skill adapts its language to the user's context:
 
 Every input is first classified into one of the following categories. This classification determines the reasoning strategy, output template, and required verification methods.
 
-For detailed classification rules including borderline cases and multi-category problems, see `modules/classification.md`.
+For detailed classification rules including borderline cases and multi-category problems, see  `modules/classification.md` .
 
 | Category | Description | Typical Verification Methods |
 |---|---|---|
-| `calculation` | Pure numerical or symbolic computation | A, E |
-| `algebra_simplification` | Simplify algebraic expressions | A, E, G |
-| `equation_solving` | Solve a single equation | A, B, G |
-| `system_of_equations` | Solve a system of equations | A, B, E |
-| `inequality_solving` | Solve an inequality | B, C, E, G |
-| `function_analysis` | Analyze function properties | E, G, H |
-| `geometry` | Plane or solid geometry | B, G, H |
-| `analytic_geometry` | Coordinate geometry problems | A, E, H |
-| `trigonometry` | Trigonometric problems | A, E, G |
-| `sequence` | Sequences and series | E, G, H |
-| `combinatorics` | Counting and combinatorial problems | E, H, I |
-| `probability_statistics` | Probability or statistics problems | E, H, K |
-| `word_problem` | Word problems stated in natural language | A, E, F, H |
-| `limit` | Limit evaluation | B, E, G, H |
-| `differentiation` | Derivative computation or application | E, H, K |
-| `integration` | Integral evaluation or application | D, E, H |
-| `multivariable_calculus` | Partial derivatives, multiple integrals | E, H, K |
-| `linear_algebra` | Matrix/vector/space problems | A, E, H, K |
-| `ordinary_differential_equation` | ODE problems | A, E, H |
-| `complex_analysis` | Complex function problems | E, H, K |
-| `real_analysis` | Real analysis problems | G, H, J |
-| `abstract_algebra` | Group/ring/field problems | A, H, J |
-| `topology` | Topological space problems | H, I, J |
-| `number_theory` | Number theory problems | E, H, I |
-| `discrete_math` | Graph theory, recurrences, Boolean algebra | E, H, I |
-| `optimization` | Optimization problems | A, C, E, H |
-| `mathematical_modeling` | Model construction/validation | E, H, K |
-| `proof` | Prove a statement | D, I, J |
-| `counterexample` | Find a counterexample | A, I |
-| `solution_checking` | Verify an existing solution | A, B, E, H |
-| `problem_generation` | Generate a well-posed problem | A, E, H |
-| `research_level_problem` | Open or partially solved problems | All applicable |
-| `ambiguous_or_incomplete` | Problem is underspecified | N/A — request clarification first |
-| `out_of_scope` | Not a mathematical task | N/A — decline or redirect |
+|  `calculation`  | Pure numerical or symbolic computation | A, E |
+|  `algebra_simplification`  | Simplify algebraic expressions | A, E, G |
+|  `equation_solving`  | Solve a single equation | A, B, G |
+|  `system_of_equations`  | Solve a system of equations | A, B, E |
+|  `inequality_solving`  | Solve an inequality | B, C, E, G |
+|  `function_analysis`  | Analyze function properties | E, G, H |
+|  `geometry`  | Plane or solid geometry | B, G, H |
+|  `analytic_geometry`  | Coordinate geometry problems | A, E, H |
+|  `trigonometry`  | Trigonometric problems | A, E, G |
+|  `sequence`  | Sequences and series | E, G, H |
+|  `combinatorics`  | Counting and combinatorial problems | E, H, I |
+|  `probability_statistics`  | Probability or statistics problems | E, H, K |
+|  `word_problem`  | Word problems stated in natural language | A, E, F, H |
+|  `limit`  | Limit evaluation | B, E, G, H |
+|  `differentiation`  | Derivative computation or application | E, H, K |
+|  `integration`  | Integral evaluation or application | D, E, H |
+|  `multivariable_calculus`  | Partial derivatives, multiple integrals | E, H, K |
+|  `linear_algebra`  | Matrix/vector/space problems | A, E, H, K |
+|  `ordinary_differential_equation`  | ODE problems | A, E, H |
+|  `complex_analysis`  | Complex function problems | E, H, K |
+|  `real_analysis`  | Real analysis problems | G, H, J |
+|  `abstract_algebra`  | Group/ring/field problems | A, H, J |
+|  `topology`  | Topological space problems | H, I, J |
+|  `number_theory`  | Number theory problems | E, H, I |
+|  `discrete_math`  | Graph theory, recurrences, Boolean algebra | E, H, I |
+|  `optimization`  | Optimization problems | A, C, E, H |
+|  `mathematical_modeling`  | Model construction/validation | E, H, K |
+|  `proof`  | Prove a statement | D, I, J |
+|  `counterexample`  | Find a counterexample | A, I |
+|  `solution_checking`  | Verify an existing solution | A, B, E, H |
+|  `problem_generation`  | Generate a well-posed problem | A, E, H |
+|  `research_level_problem`  | Open or partially solved problems | All applicable |
+|  `ambiguous_or_incomplete`  | Problem is underspecified | N/A — request clarification first |
+|  `out_of_scope`  | Not a mathematical task | N/A — decline or redirect |
 
-If a problem spans multiple categories, classify by the primary mathematical operation required. If the problem is ambiguous (missing conditions, unclear goal, contradictory requirements), classify as `ambiguous_or_incomplete` and request clarification before proceeding.
+If a problem spans multiple categories, classify by the primary mathematical operation required. If the problem is ambiguous (missing conditions, unclear goal, contradictory requirements), classify as  `ambiguous_or_incomplete`  and request clarification before proceeding.
 
 ## Mathematical Reasoning Workflow
 
-All problems, regardless of difficulty, pass through this seven-step workflow. For step-by-step expansion of each step including worked examples, see `modules/reasoning_workflow.md`.
+All problems, regardless of difficulty, pass through this seven-step workflow. For step-by-step expansion of each step including worked examples, see  `modules/reasoning_workflow.md` .
 
 ### Step 1: Problem Parsing
 
@@ -195,7 +195,7 @@ If verification reveals an error:
 ### Step 7: Final Answer
 
 Present the final answer with:
-- The answer itself in its simplest form (exact before approximate; e.g., `$\sqrt{2}$` not `$1.414$` unless explicitly requested)
+- The answer itself in its simplest form (exact before approximate; e.g.,  `$\sqrt{2}$`  not  `$1.414$`  unless explicitly requested)
 - All conditions and domain restrictions explicitly stated
 - A brief verification summary (which methods passed)
 - Optional: notable pitfalls or common mistakes related to this problem type
@@ -204,7 +204,7 @@ Present the final answer with:
 
 Verification is the core of Math.skill. Every solution must pass at least two verification methods before being output. Never output an unverified solution.
 
-For detailed procedures, worked examples, and method selection heuristics, see `modules/verification_engine.md`.
+For detailed procedures, worked examples, and method selection heuristics, see  `modules/verification_engine.md` .
 
 ### Method A: Back-Substitution
 
@@ -286,12 +286,12 @@ For problems involving computation (matrix operations, numerical integration, st
 
 ## Higher Mathematics Modules
 
-Advanced mathematical domains require specialized knowledge and additional verification rigor. For complete domain-specific protocols, see `modules/higher_math_modules.md`.
+Advanced mathematical domains require specialized knowledge and additional verification rigor. For complete domain-specific protocols, see  `modules/higher_math_modules.md` .
 
 ### Limits
 
 - Always check both left-hand and right-hand limits when the function behavior may differ
-- For indeterminate forms ($\frac{0}{0}$, $\frac{\infty}{\infty}$, $0 \cdot \infty$, $\infty - \infty$, $0^0$, $\infty^0$, $1^\infty$), apply L'Hôpital's rule, Taylor expansion, or algebraic manipulation
+- For indeterminate forms ( $\frac{0}{0}$ ,  $\frac{\infty}{\infty}$ ,  $0 \cdot \infty$ ,  $\infty - \infty$ ,  $0^0$ ,  $\infty^0$ ,  $1^\infty$ ), apply L'Hôpital's rule, Taylor expansion, or algebraic manipulation
 - Verify that L'Hôpital's conditions are met: the limit must be of indeterminate form and the derivatives must exist near the point
 - For sequences, verify convergence before computing limits
 
@@ -305,7 +305,7 @@ Advanced mathematical domains require specialized knowledge and additional verif
 
 ### Integration
 
-- Always add "$+ C$" for indefinite integrals
+- Always add " $+ C$ " for indefinite integrals
 - For definite integrals, check that the integrand is continuous (or integrable) over the interval
 - For improper integrals, evaluate the limit explicitly — do not treat infinity as a number
 - Verify integration results by differentiation (Method D)
@@ -314,9 +314,9 @@ Advanced mathematical domains require specialized knowledge and additional verif
 ### Linear Algebra
 
 - Check matrix dimension compatibility before every multiplication
-- Verify eigenvalues/eigenvectors by computing $A\mathbf{v} - \lambda\mathbf{v} = \mathbf{0}$
-- For diagonalization, check that eigenvectors are linearly independent and that the diagonalization $A = PDP^{-1}$ reconstructs $A$
-- For systems $A\mathbf{x} = \mathbf{b}$, state whether the solution is unique, infinite, or nonexistent based on rank analysis
+- Verify eigenvalues/eigenvectors by computing  $A\mathbf{v} - \lambda\mathbf{v} = \mathbf{0}$
+- For diagonalization, check that eigenvectors are linearly independent and that the diagonalization  $A = PDP^{-1}$  reconstructs  $A$
+- For systems  $A\mathbf{x} = \mathbf{b}$ , state whether the solution is unique, infinite, or nonexistent based on rank analysis
 - Verify orthogonality claims by computing inner products
 
 ### Ordinary Differential Equations
@@ -330,7 +330,7 @@ Advanced mathematical domains require specialized knowledge and additional verif
 ### Real Analysis
 
 - State all theorem hypotheses and verify each before applying the theorem
-- For epsilon-delta proofs, maintain rigorous quantifier order: $\forall \varepsilon > 0, \exists \delta > 0, \ldots$
+- For epsilon-delta proofs, maintain rigorous quantifier order:  $\forall \varepsilon > 0, \exists \delta > 0, \ldots$
 - Distinguish between pointwise and uniform convergence
 - Check compactness, completeness, and connectedness assumptions explicitly
 - For continuity proofs, check at all points in the domain, including boundary points
@@ -338,7 +338,7 @@ Advanced mathematical domains require specialized knowledge and additional verif
 ### Abstract Algebra
 
 - Verify closure, associativity, identity, and inverses when checking group/ring/field axioms
-- For homomorphisms, verify the homomorphism property explicitly: $\phi(ab) = \phi(a)\phi(b)$
+- For homomorphisms, verify the homomorphism property explicitly:  $\phi(ab) = \phi(a)\phi(b)$
 - Check normal subgroup conditions before forming quotient groups
 - Verify ideal properties before forming quotient rings
 - Explicitly state whether a structure is finite or infinite, abelian or non-abelian
@@ -353,7 +353,7 @@ Advanced mathematical domains require specialized knowledge and additional verif
 
 ## Search Strategy
 
-When external information is needed, follow this search policy. For detailed search heuristics, source evaluation criteria, and plagiarism avoidance protocols, see `modules/search_policy.md`.
+When external information is needed, follow this search policy. For detailed search heuristics, source evaluation criteria, and plagiarism avoidance protocols, see  `modules/search_policy.md` .
 
 ### When to Search
 
@@ -362,7 +362,7 @@ When external information is needed, follow this search policy. For detailed sea
 - **User explicitly requests**: If the user asks "search the web for..."
 - **Known competition problems**: IMO, Putnam, national olympiads — search to verify the problem statement and check if it has a standard solution approach
 - **Open problems**: Search to confirm whether a problem is known to be open, partially solved, or recently resolved
-- **Standard definitions**: If the notation is ambiguous (e.g., $\mathbb{N}$ may or may not include $0$)
+- **Standard definitions**: If the notation is ambiguous (e.g.,  $\mathbb{N}$  may or may not include  $0$ )
 - **Comparing methods**: Multiple plausible solution approaches exist and external validation of the recommended method is valuable
 
 ### When NOT to Search
@@ -381,7 +381,7 @@ When external information is needed, follow this search policy. For detailed sea
 
 ## Hard Problem Protocol
 
-For difficult problems (competition-level, advanced undergraduate/graduate, or research-level), apply this enhanced protocol. For complete procedures including worked examples and escalation heuristics, see `modules/hard_problem_protocol.md`.
+For difficult problems (competition-level, advanced undergraduate/graduate, or research-level), apply this enhanced protocol. For complete procedures including worked examples and escalation heuristics, see  `modules/hard_problem_protocol.md` .
 
 ### Initial Assessment
 
@@ -418,18 +418,18 @@ For difficult problems (competition-level, advanced undergraduate/graduate, or r
 - Counterexample search results (if applicable)
 - Obstacles encountered and their nature (missing technique, computational barrier, conceptual gap)
 - Directions for further investigation
-- Conclusion status: Solved / Partially solved with $n$ open sub-questions / Unsolved
+- Conclusion status: Solved / Partially solved with  $n$  open sub-questions / Unsolved
 
 ## Error Prevention Mechanisms
 
-Mathematical reasoning is error-prone. This skill includes proactive error prevention at each stage. For comprehensive checklists and failure mode catalogs, see `modules/error_prevention.md`.
+Mathematical reasoning is error-prone. This skill includes proactive error prevention at each stage. For comprehensive checklists and failure mode catalogs, see  `modules/error_prevention.md` .
 
 ### Algebraic Errors
 
 - After factoring, re-expand to verify correctness
 - Before dividing by an expression, verify it is non-zero — handle the zero case separately
 - When squaring both sides of an equation, flag that this may introduce extraneous roots; verify all solutions afterward
-- When taking square roots, account for both signs: $\sqrt{x^2} = |x|$
+- When taking square roots, account for both signs:  $\sqrt{x^2} = |x|$
 - For rational equations, identify all values that make denominators zero BEFORE solving, then exclude them from the solution set
 - For logarithmic and exponential expressions, explicitly state the domain before manipulating
 
@@ -444,13 +444,13 @@ Mathematical reasoning is error-prone. This skill includes proactive error preve
 
 - Find the domain BEFORE analyzing any other property
 - Check non-differentiable points (cusps, corners, discontinuities) when finding extrema
-- A critical point ($f'(x) = 0$ or $f'(x)$ undefined) is not necessarily an extremum — apply the first or second derivative test
+- A critical point ( $f'(x) = 0$  or  $f'(x)$  undefined) is not necessarily an extremum — apply the first or second derivative test
 - The range of a function depends on its domain — state the domain before stating the range
 
 ### Geometry Errors
 
 - Do not rely on visual intuition or "the diagram shows"; always use stated facts
-- State the hypothesis of every geometric theorem before applying it (e.g., "Since $\triangle ABC$ is right-angled at $C$, by the Pythagorean theorem...")
+- State the hypothesis of every geometric theorem before applying it (e.g., "Since  $\triangle ABC$  is right-angled at  $C$ , by the Pythagorean theorem...")
 - When adding auxiliary lines, explain the construction and justify its validity
 - Cite the specific congruence/similarity criterion used (SSS, SAS, ASA, AAS, HL)
 
@@ -458,41 +458,41 @@ Mathematical reasoning is error-prone. This skill includes proactive error preve
 
 - Define the sample space explicitly before computing probabilities
 - Distinguish between sampling with and without replacement
-- Verify that all probabilities are in $[0, 1]$
-- Verify that the sum of probabilities over the sample space equals $1$
+- Verify that all probabilities are in  $[0, 1]$
+- Verify that the sum of probabilities over the sample space equals  $1$
 - Variance must be non-negative — a negative variance indicates a computational error
 
 ### Calculus Errors
 
 - For limits at a point, check both left-hand and right-hand limits when the function changes behavior
-- Before applying L'Hôpital's rule, verify the limit is of indeterminate form $\frac{0}{0}$ or $\frac{\infty}{\infty}$
-- For Taylor expansions, state the order of the remainder term (e.g., $O(x^4)$) and justify the truncation
-- For indefinite integrals, always add "$+ C$" — omitting it is a logical error
-- For improper integrals, explicitly evaluate the limit; do not plug in $\infty$ as if it were a number
+- Before applying L'Hôpital's rule, verify the limit is of indeterminate form  $\frac{0}{0}$  or  $\frac{\infty}{\infty}$
+- For Taylor expansions, state the order of the remainder term (e.g.,  $O(x^4)$ ) and justify the truncation
+- For indefinite integrals, always add " $+ C$ " — omitting it is a logical error
+- For improper integrals, explicitly evaluate the limit; do not plug in  $\infty$  as if it were a number
 
 ### Linear Algebra Errors
 
 - Check matrix dimension compatibility before multiplication
-- After finding eigenvalues and eigenvectors, verify by computing $A\mathbf{v} - \lambda\mathbf{v}$
+- After finding eigenvalues and eigenvectors, verify by computing  $A\mathbf{v} - \lambda\mathbf{v}$
 - Before claiming a matrix is diagonalizable, verify that eigenvectors are linearly independent and span the space
-- For $A\mathbf{x} = \mathbf{b}$, check $\operatorname{rank}(A)$ vs. $\operatorname{rank}([A|\mathbf{b}])$ to determine solution existence
+- For  $A\mathbf{x} = \mathbf{b}$ , check  $\operatorname{rank}(A)$  vs.  $\operatorname{rank}([A|\mathbf{b}])$  to determine solution existence
 
 ### Abstract Math Errors
 
 - Verify that all definitions are satisfied completely, not partially
-- Check quantifier order: $\forall \varepsilon > 0, \exists \delta > 0$ is not the same as $\exists \delta > 0, \forall \varepsilon > 0$
+- Check quantifier order:  $\forall \varepsilon > 0, \exists \delta > 0$  is not the same as  $\exists \delta > 0, \forall \varepsilon > 0$
 - Check that constructions are well-defined (independent of choices made during construction)
 - Check special assumptions: Is the space Hausdorff? Complete? Compact? Finite-dimensional? These matter critically
 
 ## Output Format
 
-Select the output template based on the problem classification and user's mode preference. For complete templates with formatting examples and mode selection rules, see `modules/output_templates.md`.
+Select the output template based on the problem classification and user's mode preference. For complete templates with formatting examples and mode selection rules, see  `modules/output_templates.md` .
 
 ### Template A: Standard Solution
 
-For typical computational or problem-solving tasks (`calculation`, `equation_solving`, `integration`, `linear_algebra`, etc.).
+For typical computational or problem-solving tasks ( `calculation` ,  `equation_solving` ,  `integration` ,  `linear_algebra` , etc.).
 
-```
+ ```
 ## Problem Analysis
 [Classification, conditions, goal, domain]
 
@@ -516,7 +516,7 @@ For typical computational or problem-solving tasks (`calculation`, `equation_sol
 
 For users who explicitly request brevity.
 
-```
+ ```
 **Answer**: [Result]
 
 *Verification*: [Single-line verification summary]
@@ -524,9 +524,9 @@ For users who explicitly request brevity.
 
 ### Template C: Proof
 
-For `proof` and `counterexample` classifications.
+For  `proof`  and  `counterexample`  classifications.
 
-```
+ ```
 ## Proposition
 [Statement to prove]
 
@@ -545,9 +545,9 @@ For `proof` and `counterexample` classifications.
 
 ### Template D: Solution Checking
 
-For `solution_checking` classification.
+For  `solution_checking`  classification.
 
-```
+ ```
 ## Verdict
 [Correct / Incorrect / Partially Correct]
 
@@ -568,7 +568,7 @@ For `solution_checking` classification.
 
 For advanced undergraduate/graduate topics.
 
-```
+ ```
 ## Problem Classification
 [Domain, subfield, required theorems]
 
@@ -590,9 +590,9 @@ For advanced undergraduate/graduate topics.
 
 ### Template F: Research / Open Problem
 
-For `research_level_problem` classification (see **Hard Problem Protocol** section).
+For  `research_level_problem`  classification (see **Hard Problem Protocol** section).
 
-```
+ ```
 ## Preliminary Assessment
 [Difficulty, known status, related problems]
 
@@ -617,11 +617,11 @@ For `research_level_problem` classification (see **Hard Problem Protocol** secti
 
 ## Interaction Strategies
 
-This skill adapts its interaction style based on the problem context and user needs. For the complete catalog of 18 scenarios with criteria, response strategies, verification requirements, and example replies, see `modules/interaction_policy.md`.
+This skill adapts its interaction style based on the problem context and user needs. For the complete catalog of 18 scenarios with criteria, response strategies, verification requirements, and example replies, see  `modules/interaction_policy.md` .
 
 Key interaction principles:
 
-- **Incomplete problems**: If the problem statement is missing critical information (e.g., domain of a variable, initial conditions for an ODE, specification of "real" vs. "integer" solutions), explicitly classify as `ambiguous_or_incomplete` and request the missing information before proceeding. Do not guess.
+- **Incomplete problems**: If the problem statement is missing critical information (e.g., domain of a variable, initial conditions for an ODE, specification of "real" vs. "integer" solutions), explicitly classify as  `ambiguous_or_incomplete`  and request the missing information before proceeding. Do not guess.
 - **Contradictory conditions**: If the given conditions are mutually contradictory (e.g., "a positive number less than -5"), point out the contradiction and ask for clarification rather than attempting to solve.
 - **Multiple valid interpretations**: If a problem statement is ambiguous but each interpretation is well-posed, enumerate the interpretations, solve for each, and clearly label which answer corresponds to which interpretation.
 - **User asks "is this correct?"**: Apply the solution-checking workflow (Template D) — never simply say "yes" or "no" without verification.
@@ -632,7 +632,7 @@ Key interaction principles:
 
 ## Test Standards
 
-All mathematical reasoning must pass the test assertions defined in the `tests/` directory. The test suite covers:
+All mathematical reasoning must pass the test assertions defined in the  `tests/`  directory. The test suite covers:
 
 - Basic arithmetic and algebraic accuracy
 - Edge case detection (division by zero, domain violations, sign errors)
@@ -680,15 +680,15 @@ This SKILL.md references the following supporting modules for detailed procedure
 
 | Module | File | Purpose |
 |---|---|---|
-| Input Classification | `modules/classification.md` | Detailed classification rules, borderline cases |
-| Reasoning Workflow | `modules/reasoning_workflow.md` | Expanded 7-step workflow with worked examples |
-| Verification Engine | `modules/verification_engine.md` | Full verification method specifications and selection |
-| Higher Mathematics | `modules/higher_math_modules.md` | Domain-specific protocols for advanced topics |
-| Search Policy | `modules/search_policy.md` | Search heuristics, source evaluation, plagiarism avoidance |
-| Hard Problem Protocol | `modules/hard_problem_protocol.md` | Escalation procedures and uncertainty handling |
-| Error Prevention | `modules/error_prevention.md` | Comprehensive error checklists by domain |
-| Output Templates | `modules/output_templates.md` | Complete template formatting and mode selection |
-| Interaction Policy | `modules/interaction_policy.md` | 18 interaction scenarios with strategies and examples |
-| Test Suite | `tests/` | Test assertions covering accuracy, edge cases, verification, and templates |
+| Input Classification |  `modules/classification.md`  | Detailed classification rules, borderline cases |
+| Reasoning Workflow |  `modules/reasoning_workflow.md`  | Expanded 7-step workflow with worked examples |
+| Verification Engine |  `modules/verification_engine.md`  | Full verification method specifications and selection |
+| Higher Mathematics |  `modules/higher_math_modules.md`  | Domain-specific protocols for advanced topics |
+| Search Policy |  `modules/search_policy.md`  | Search heuristics, source evaluation, plagiarism avoidance |
+| Hard Problem Protocol |  `modules/hard_problem_protocol.md`  | Escalation procedures and uncertainty handling |
+| Error Prevention |  `modules/error_prevention.md`  | Comprehensive error checklists by domain |
+| Output Templates |  `modules/output_templates.md`  | Complete template formatting and mode selection |
+| Interaction Policy |  `modules/interaction_policy.md`  | 18 interaction scenarios with strategies and examples |
+| Test Suite |  `tests/`  | Test assertions covering accuracy, edge cases, verification, and templates |
 
 Each module file is the authoritative source for its domain. In case of conflict between SKILL.md (this file) and a module file, the module file takes precedence for its specific domain.

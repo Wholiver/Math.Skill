@@ -1,172 +1,172 @@
-# 分式不等式的解法
+# Solutions to fractional inequalities
 
-## 用户输入
-解不等式：$\displaystyle \frac{x^2-3x+2}{x+1} \geq 0$
+## User input
+Solve the inequality:     $\displaystyle \frac{x^2-3x+2}{x+1} \geq 0$
 
-## Skill 分类
-不等式（Inequalities）— 分式不等式与符号表法
+## Skill Category
+Inequalities - Fractional Inequalities and Symbol Table Method
 
-## 题意解析
+## Question meaning analysis
 
-**已知条件：**
-- 分式不等式：$\frac{x^2-3x+2}{x+1} \geq 0$
+**Known conditions:**
+- Fractional inequality:     $\frac{x^2-3x+2}{x+1} \geq 0$
 
-**求解目标：**
-- 求满足不等式 $\geq 0$ 的所有实数 $x$。
+**Solution goal:**
+- Find all real numbers     $x$     that satisfy the inequality     $\geq 0$    .
 
-**变量与定义域：**
-- 分母 $x+1 \neq 0$，即 $x \neq -1$
-- 分子 $x^2-3x+2$ 为二次多项式，对一切实数有定义
-- 定义域：$x \in \mathbb{R} \setminus \{-1\}$
+**Variables and Domains:**
+- Denominator     $x+1 \neq 0$     , which is     $x \neq -1$
+- The numerator     $x^2-3x+2$     is a quadratic polynomial and is defined for all real numbers
+- Domain:     $x \in \mathbb{R} \setminus \{-1\}$
 
-**隐式条件：**
-- 分子可因式分解为 $(x-1)(x-2)$，意味着在 $x=1$ 和 $x=2$ 处分式值为 $0$，应纳入解集（不等式是 $\geq$，含等号）。
-- 分母根 $x=-1$ 是间断点，分式在此无定义，绝对不能纳入解集。
+**Implicit condition:**
+- The numerator is factorable as     $(x-1)(x-2)$     , which means that at     $x=1$     and     $x=2$     the fractional value is     $0$     , which should be included in the solution set (the inequality is     $\geq$     , including the equal sign).
+- The denominator root     $x=-1$     is a discontinuity point, the fraction is not defined here and must not be included in the solution set.
 
-**解的个数：**
-- 不等式的解是实数轴上的若干区间，可能有无限多个解。
+**Number of solutions:**
+- The solutions to the inequalities are intervals on the real number axis, and there are infinitely many possible solutions.
 
-## 方法选择
+## Method selection
 
-**选择方法：** 符号表法（穿根法/数轴标根法）
+**Selection method:** Symbol table method (root crossing method/number axis marking method)
 
-**理由：**
-- 分式不等式的解题核心是确定分子分母在各个区间的符号。
-- 符号表法通过列出所有零点，划分数轴为若干区间，逐一确定各区间的符号，直观且不易遗漏。
+**reason:**
+- The core of solving fractional inequalities is to determine the signs of the numerator and denominator in each interval.
+- The symbol table method lists all zero points, divides the number axis into several intervals, and determines the symbols of each interval one by one, which is intuitive and difficult to miss.
 
-**备选方法：**
-- 分类讨论法：将分式不等式 $\frac{P(x)}{Q(x)} \geq 0$ 转化为 $\begin{cases} P(x) \geq 0 \\ Q(x) > 0 \end{cases}$ 或 $\begin{cases} P(x) \leq 0 \\ Q(x) < 0 \end{cases}$。可行但步骤更多。
-- 直接移项通分法：将不等式化为 $\frac{(x-1)(x-2)}{x+1} \geq 0$，然后分析符号——实际就是符号表法。
+**Alternative method:**
+- Classification discussion method: Convert the fractional inequality     $\frac{P(x)}{Q(x)} \geq 0$     into     $\begin{cases} P(x) \geq 0 \\ Q(x) > 0 \end{cases}$     or     $\begin{cases} P(x) \leq 0 \\ Q(x) < 0 \end{cases}$    . It works but there are more steps.
+- Direct transfer method: convert the inequality into     $\frac{(x-1)(x-2)}{x+1} \geq 0$    , and then analyze the symbols - actually it is the symbol table method.
 
-**关键原则：**
-- 分母不能为零，$x=-1$ 处用空心点标记。
-- 分子零点处不等式取等号成立，$x=1$ 和 $x=2$ 用实心点标记。
+**Key Principles:**
+- The denominator cannot be zero,     $x=-1$     is marked with a hollow dot.
+- The equality sign holds true at the zero point of the molecule,     $x=1$     and     $x=2$     are marked with solid dots.
 
-## 解题过程
+## Problem solving process
 
-### 第一步：因式分解分子
+### Step 1: Factor the numerator
 
-$$
+     $$
 x^2 - 3x + 2 = (x-1)(x-2)
 $$
 
-验证：$(x-1)(x-2) = x^2 - 2x - x + 2 = x^2 - 3x + 2$ ✓
+Verification:     $(x-1)(x-2) = x^2 - 2x - x + 2 = x^2 - 3x + 2$     ✓
 
-原不等式化为：
+The original inequality becomes:
 
-$$
+     $$
 \frac{(x-1)(x-2)}{x+1} \geq 0
 $$
 
-### 第二步：确定关键点
+### Step 2: Determine key points
 
-分式的符号由三个线性因子决定：
-- 分子因子：$x-1$（零点 $x=1$），$x-2$（零点 $x=2$）
-- 分母因子：$x+1$（零点 $x=-1$）
+The sign of the fraction is determined by three linear factors:
+- Numerator factors:     $x-1$     (zero point     $x=1$     ),     $x-2$     (zero point     $x=2$     )
+- Denominator factor:     $x+1$     (zero point     $x=-1$     )
 
-将所有关键点按从小到大的顺序排列在数轴上：
+Arrange all key points on the number axis in order from small to large:
 
-$$
+     $$
 -1 \quad 1 \quad 2
 $$
 
-它们在数轴上划分出四个区间：
+They divide four intervals on the number line:
 
-$$
+     $$
 (-\infty, -1),\ (-1, 1),\ (1, 2),\ (2, +\infty)
 $$
 
-### 第三步：建立符号表
+### Step 3: Create symbol table
 
-在每个区间内取一个代表点，判断各因子的符号，进而判断分式的符号。
+Take a representative point in each interval to determine the sign of each factor, and then determine the sign of the fraction.
 
-| 区间 | 代表点 | $x+1$ | $x-1$ | $x-2$ | $\frac{(x-1)(x-2)}{x+1}$ | 符号 |
+| Interval | Representative point |     $x+1$     |     $x-1$     |     $x-2$     |     $\frac{(x-1)(x-2)}{x+1}$     | Symbol |
 |------|--------|-------|-------|-------|---------------------------|------|
-| $(-\infty, -1)$ | $x=-2$ | $-$ | $-$ | $-$ | $\frac{(-)\times(-)}{(-)} = \frac{(+)}{(-)} = (-)$ | **负** |
-| $(-1, 1)$ | $x=0$ | $+$ | $-$ | $-$ | $\frac{(-)\times(-)}{(+)} = \frac{(+)}{(+)} = (+)$ | **正** |
-| $(1, 2)$ | $x=1.5$ | $+$ | $+$ | $-$ | $\frac{(+)\times(-)}{(+)} = \frac{(-)}{(+)} = (-)$ | **负** |
-| $(2, +\infty)$ | $x=3$ | $+$ | $+$ | $+$ | $\frac{(+)\times(+)}{(+)} = (+)$ | **正** |
+|     $(-\infty, -1)$     |     $x=-2$     |     $-$     |     $-$     |     $-$     |     $\frac{(-)\times(-)}{(-)} = \frac{(+)}{(-)} = (-)$     | **Negative** |
+|     $(-1, 1)$     |     $x=0$     |     $+$     |     $-$     |     $-$     |     $\frac{(-)\times(-)}{(+)} = \frac{(+)}{(+)} = (+)$     | **True** |
+|     $(1, 2)$     |     $x=1.5$     |     $+$     |     $+$     |     $-$     |     $\frac{(+)\times(-)}{(+)} = \frac{(-)}{(+)} = (-)$     | **Negative** |
+|     $(2, +\infty)$     |     $x=3$     |     $+$     |     $+$     |     $+$     |     $\frac{(+)\times(+)}{(+)} = (+)$     | **True** |
 
-### 第四步：处理边界点
+### Step 4: Process boundary points
 
-在关键点处判断分式的值：
+Judge the value of the fraction at key points:
 
-- $x = -1$：**分母为零，分式无意义**。空心点，不纳入解集。
-- $x = 1$：代入，$\frac{(1-1)(1-2)}{1+1} = \frac{0 \times (-1)}{2} = 0$，满足 $\geq 0$。**实心点，纳入解集。**
-- $x = 2$：代入，$\frac{(2-1)(2-2)}{2+1} = \frac{1 \times 0}{3} = 0$，满足 $\geq 0$。**实心点，纳入解集。**
+-     $x = -1$    : **The denominator is zero, the fraction is meaningless**. Hollow points are not included in the solution set.
+-     $x = 1$    : Substitute,     $\frac{(1-1)(1-2)}{1+1} = \frac{0 \times (-1)}{2} = 0$    , satisfy     $\geq 0$    . **Solid points are included in the solution set. **
+-     $x = 2$    : Substitute,     $\frac{(2-1)(2-2)}{2+1} = \frac{1 \times 0}{3} = 0$    , satisfy     $\geq 0$    . **Solid points are included in the solution set. **
 
-### 第五步：写出解集
+### Step 5: Write the solution set
 
-不等式 $\geq 0$ 要求分式值为非负。由符号表可知，分式取正值（$>0$）的区间为 $(-1, 1)$ 和 $(2, +\infty)$，取零值的点为 $x=1$ 和 $x=2$。合并得：
+The inequality     $\geq 0$     requires that the fraction value be nonnegative. It can be seen from the symbol table that the interval where the fraction takes a positive value (    $>0$    ) is     $(-1, 1)$     and     $(2, +\infty)$    , and the points where the fraction takes a zero value are     $x=1$     and     $x=2$    . Combined:
 
-$$
+     $$
 x \in (-1, 1] \cup [2, +\infty)
 $$
 
-用数轴表示：
+Represented on a number line:
 
-```
+     ```
 <---(----●========●)----(----●=======>
     -1       0       1       2
-    空心       正     实心       实心
+Hollow Positive Solid Solid
 ```
 
-## 验算
+## Check calculation
 
-### 验算方法一：分类区间代表性取点
+### Calculation method one: representative points of classification interval
 
-在每个解集区间和非解集区间取点验证：
+Take points in each solution set interval and non-solution set interval to verify:
 
-**区间 $(-1, 1]$（应满足）：**
+**Interval     $(-1, 1]$     (should be satisfied): **
 
-$x = 0$：$\frac{0-0+2}{1} = 2 \geq 0$ ✓
+     $x = 0$     ：     $\frac{0-0+2}{1} = 2 \geq 0$      ✓
 
-$x = 0.5$：$\frac{0.25-1.5+2}{1.5} = \frac{0.75}{1.5} = 0.5 > 0$ ✓
+     $x = 0.5$     ：     $\frac{0.25-1.5+2}{1.5} = \frac{0.75}{1.5} = 0.5 > 0$      ✓
 
-$x = 1$（边界）：$\frac{1-3+2}{2} = \frac{0}{2} = 0 \geq 0$ ✓
+    $x = 1$     (boundary):     $\frac{1-3+2}{2} = \frac{0}{2} = 0 \geq 0$     ✓
 
-**区间 $[2, +\infty)$（应满足）：**
+**Interval     $[2, +\infty)$     (should be satisfied): **
 
-$x = 2$（边界）：$\frac{4-6+2}{3} = \frac{0}{3} = 0 \geq 0$ ✓
+    $x = 2$     (boundary):     $\frac{4-6+2}{3} = \frac{0}{3} = 0 \geq 0$     ✓
 
-$x = 3$：$\frac{9-9+2}{4} = \frac{2}{4} = 0.5 > 0$ ✓
+     $x = 3$     ：     $\frac{9-9+2}{4} = \frac{2}{4} = 0.5 > 0$      ✓
 
-$x = 10$：$\frac{100-30+2}{11} = \frac{72}{11} > 0$ ✓
+     $x = 10$     ：     $\frac{100-30+2}{11} = \frac{72}{11} > 0$      ✓
 
-**区间 $(-\infty, -1)$（不应满足）：**
+**Interval     $(-\infty, -1)$     (should not be met):**
 
-$x = -2$：$\frac{4+6+2}{-1} = \frac{12}{-1} = -12 < 0$（不满足） ✓
+    $x = -2$    :     $\frac{4+6+2}{-1} = \frac{12}{-1} = -12 < 0$     (not satisfied) ✓
 
-$x = -10$：$\frac{100+30+2}{-9} = \frac{132}{-9} < 0$（不满足） ✓
+    $x = -10$    :     $\frac{100+30+2}{-9} = \frac{132}{-9} < 0$     (not satisfied) ✓
 
-**区间 $(1, 2)$（不应满足）：**
+**Interval     $(1, 2)$     (should not be met): **
 
-$x = 1.5$：$\frac{2.25-4.5+2}{2.5} = \frac{-0.25}{2.5} = -0.1 < 0$（不满足） ✓
+    $x = 1.5$    :     $\frac{2.25-4.5+2}{2.5} = \frac{-0.25}{2.5} = -0.1 < 0$     (not satisfied) ✓
 
-所有验证点均符合预期。
+All verification points are as expected.
 
-### 验算方法二：函数图像法
+### Calculation method two: function image method
 
-令 $f(x) = \frac{x^2-3x+2}{x+1}$，分析其渐近线和零点。
+Let     $f(x) = \frac{x^2-3x+2}{x+1}$     , analyze its asymptotes and zeros.
 
-- 垂直渐近线：$x = -1$
-- 零点：$x = 1$，$x = 2$
-- 水平渐近线：$\lim_{x\to +\infty} f(x) = +\infty$（分子二次，分母一次）
+- Vertical asymptote:     $x = -1$
+- Zero point:     $x = 1$    ,     $x = 2$
+- Horizontal asymptote:     $\lim_{x\to +\infty} f(x) = +\infty$     (numerator quadratic, denominator linear)
 
-函数在零点处分式值为 $0$，在零点之间符号交替变化，与符号表分析一致。$f(x) \geq 0$ 的解集为函数图像位于 $x$ 轴及其以上的部分，即 $(-1, 1] \cup [2, +\infty)$。
+The function's fractional value at zero points is     $0$     , and its sign alternates between zero points, consistent with symbol table analysis. The solution set of     $f(x) \geq 0$     is the part of the function graph located on and above the     $x$     axis, that is,     $(-1, 1] \cup [2, +\infty)$     .
 
-## 最终答案
+## Final answer
 
-$$
+     $$
 \boxed{x \in (-1,\ 1] \cup [2,\ +\infty)}
 $$
 
-或用不等式表示：$-1 < x \leq 1$ 或 $x \geq 2$
+Or expressed as an inequality:     $-1 < x \leq 1$     or     $x \geq 2$
 
-## 易错点
-1. **分母零点误纳入解集：** $x=-1$ 时分式无意义，必须排除。即使用的是 $\geq$ 符号，分母零点也不能取等号。
-2. **分母零点导致遗漏区间：** 做符号表时，分子零点将数轴划分为区间，**分母零点同样划分区间**。忘记分母零点会导致少分析一个区间，解集错误。
-3. **符号判断错误：** 三个因子符号相乘时计算错误。建议在符号表中逐因子写下符号，再综合判断。也可以使用穿根法：从右上方开始，遇到奇次因子穿根，遇偶次因子反弹。
-4. **区间端点符号写错：** $(-1, 1]$ 中 $-1$ 用小括号（不包含），$1$ 用中括号（包含）。区间 $[2, +\infty)$ 中 $2$ 包含。写反会直接丢分。
-5. **忽视"取等"条件：** 不等式是 $\geq 0$ 时，分子零点处 $=0$ 满足条件，应纳入解集。如果是 $>0$（严格不等），分子零点也需排除。
-6. **穿根法起始方向：** 习惯从右上方开始穿根，但如果最高次项前面有负号，应从右下方开始。验证最右侧区间的符号可以避免方向错误。
+## Easy to make mistakes
+1. **The zero point of the denominator is mistakenly included in the solution set:**     $x=-1$     The time fraction is meaningless and must be eliminated. Even if     $\geq$     notation is used, the denominator zero cannot be equal.
+2. **The zero point in the denominator causes the missing interval:** When making a symbol table, the zero point in the numerator divides the number axis into intervals, and the zero point in the denominator also divides the interval**. Forgetting the zero point in the denominator will result in one less interval being analyzed and the solution set being wrong.
+3. **Symbol judgment error:** Calculation error when the signs of three factors are multiplied. It is recommended to write down the symbols factor by factor in the symbol table and then make a comprehensive judgment. You can also use the root-penetrating method: starting from the upper right, it will penetrate the root when encountering odd-order factors, and rebound when encountering even-order factors.
+4. **The interval endpoint symbols are written incorrectly:** In     $(-1, 1]$    ,     $-1$     uses parentheses (not included), and     $1$     uses square brackets (inclusive). The range     $[2, +\infty)$     contains     $2$    . If you write it backwards, you will lose points directly.
+5. **Ignore the "equal" condition:** When the inequality is     $\geq 0$    ,     $=0$     at the zero point of the molecule satisfies the condition and should be included in the solution set. In the case of     $>0$     (strictly unequal), the numerator zeros also need to be excluded.
+6. **Starting direction of root threading method:** It is customary to start root threading from the upper right, but if there is a negative sign in front of the highest order term, you should start from the lower right. Verifying the sign of the rightmost interval can avoid directional errors.
