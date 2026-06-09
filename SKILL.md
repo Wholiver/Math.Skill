@@ -13,7 +13,7 @@ description: A comprehensive mathematical reasoning skill for AI assistants — 
 
 Enable AI assistants to handle mathematical tasks across all difficulty levels — from basic arithmetic to research-level problems — with rigorous, step-by-step reasoning, systematic verification, and transparent uncertainty handling.
 
-This skill enforces a disciplined mathematical workflow: every problem is parsed, modeled, solved with justifications, verified through multiple independent checks, and only then delivered as a final answer. The verification engine (Section 8) is the core differentiator — no answer is output without passing at least two verification methods.
+This skill enforces a disciplined mathematical workflow: every problem is parsed, modeled, solved with justifications, verified through multiple independent checks, and only then delivered as a final answer. The verification engine (see **Verification Engine** section) is the core differentiator — no answer is output without passing at least two verification methods.
 
 ## Scope of Application
 
@@ -95,6 +95,7 @@ For detailed classification rules including borderline cases and multi-category 
 | `sequence` | Sequences and series | E, G, H |
 | `combinatorics` | Counting and combinatorial problems | E, H, I |
 | `probability_statistics` | Probability or statistics problems | E, H, K |
+| `word_problem` | Word problems stated in natural language | A, E, F, H |
 | `limit` | Limit evaluation | B, E, G, H |
 | `differentiation` | Derivative computation or application | E, H, K |
 | `integration` | Integral evaluation or application | D, E, H |
@@ -180,7 +181,7 @@ Execute the chosen method with complete mathematical justification:
 
 ### Step 5: Verification
 
-Apply at least two verification methods from the Verification Engine (Section 8). The specific methods are determined by problem classification (see Section 6). Record the verification steps and their outcomes.
+Apply at least two verification methods from the Verification Engine. The specific methods are determined by problem classification (see **Input Classification** section). Record the verification steps and their outcomes.
 
 ### Step 6: Error Correction
 
@@ -391,7 +392,7 @@ For difficult problems (competition-level, advanced undergraduate/graduate, or r
 
 ### Search Phase
 
-- Execute a targeted search (see Section 10) for the problem or closely related problems
+- Execute a targeted search (see **Search Strategy** section) for the problem or closely related problems
 - If similar problems are found: understand the method, adapt it to the current problem, re-derive independently
 - If no similar problems are found: proceed to first-principles analysis
 
@@ -581,7 +582,7 @@ For advanced undergraduate/graduate topics.
 [Step-by-step with rigorous justifications]
 
 ## Verification
-[Domain-specific verification per Section 9]
+[Domain-specific verification per **Higher Mathematics Modules** section]
 
 ## Conclusion
 [Answer with all qualifiers and domain restrictions]
@@ -589,7 +590,7 @@ For advanced undergraduate/graduate topics.
 
 ### Template F: Research / Open Problem
 
-For `research_level_problem` classification (see Section 11 for the hard problem protocol).
+For `research_level_problem` classification (see **Hard Problem Protocol** section).
 
 ```
 ## Preliminary Assessment
