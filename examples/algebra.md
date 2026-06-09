@@ -9,7 +9,7 @@ Algebra—polynomial factorization and fractional simplification
 ## Question meaning analysis
 
 **Known conditions:**
-- Fractional expression: $\frac{x^3-8}{x^2-4} \times \frac{x+2}{x^2+2x+4}$
+- Fraction expression: $\frac{x^3-8}{x^2-4} \times \frac{x+2}{x^2+2x+4}$
 
 **Simplification goal:**
 - Remove the common factors of the numerator and denominator through factorization to obtain the simplest fraction.

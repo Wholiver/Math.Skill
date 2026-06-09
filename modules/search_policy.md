@@ -160,7 +160,7 @@ When Internet access is not available, follow these strategies:
 4. **Mark the part that requires network verification**: Add the `[to be network verified]` mark at the end of the answer
 
 ### Labeling specifications
-     ```
+ ```
 ## Internet verification suggestions
 - [ ] Verify the precise requirement of Stoltz's theorem on the monotonicity of the denominator
 - [ ] Confirm whether the analytical solution of the integral exists
@@ -173,46 +173,46 @@ When Internet access is not available, follow these strategies:
 
 ### Basic principles
 1. **Use English keywords**: Mathematics literature is mainly in English, and the hit rate of English queries is significantly higher than that of Chinese
-2. **Contains LaTeX syntax**: Use     `$a_n$`    ,     `$\sum$`     and other LaTeX fragments directly in the query
-3. **Target source specific**: If you want to search StackExchange, add     `site:math.stackexchange.com`
+2. **Contains LaTeX syntax**: Use `$a_n$`, `$\sum$` and other LaTeX fragments directly in the query
+3. **Target source specific**: If you want to search StackExchange, add `site:math.stackexchange.com`
 4. **Contains theorem name**: If there is a standard name, directly use the standard name to query
 
 ### Query construction template
 
 #### Check definition/theorem expression
-     ```
+ ```
 "theorem_name" statement conditions
 ```
-Example:     `"Stolz Cesaro theorem" statement conditions`
+Example: `"Stolz Cesaro theorem" statement conditions`
 
 #### Check similar questions
-     ```
+ ```
 "[Simplified mathematical expression]" similar problem solution
 ```
-Example:     `sum_(k=1)^n k*k! similar problem`
+Example: `sum_(k=1)^n k*k! similar problem`
 
 #### Check if it is an open issue
-     ```
+ ```
 "[Problem description]" open problem unsolved conjecture
 ```
-Example:     `"is every even number sum of two primes" open problem`
+Example: `"is every even number sum of two primes" open problem`
 
 #### Check specific competition questions
-     ```
+ ```
 "[Keywords]" IMO OR Putnam OR "Chinese Mathematical Olympiad" problem solution
 ```
 
 #### Check the standard method
-     ```
+ ```
 "[Problem type]" standard technique OR method OR approach
 ```
-Example:     `"evaluate improper integral" standard technique contour`
+Example: `"evaluate improper integral" standard technique contour`
 
 #### Using OEIS
-     ```
+ ```
 "[First few items of the sequence]" OEIS
 ```
-Example:     `1, 1, 2, 3, 5, 8, 13 OEIS`
+Example: `1, 1, 2, 3, 5, 8, 13 OEIS`
 
 ### Post-search processing
 1. Read summaries of search results instead of clicking through them one by one

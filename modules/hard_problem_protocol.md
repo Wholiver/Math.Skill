@@ -54,7 +54,7 @@ For non-standard textbook questions, perform the following search:
 
 ### Output format
 Clearly label the impact of search results in your answer:
-     ```
+ ```
 ## Reference to similar questions
 - Find similar structured questions in [Source] [Brief Description]
 - The method used in this question is different from the reference plan in [specific aspects]
@@ -70,14 +70,14 @@ If the search does not find any similar problems, enter **First Principles Mode*
 ### First principles model process
 
 #### Step 1: Write down all relevant definitions
-     ```
+ ```
 Definition of object X:…
 Definition of property P:…
 Precise definition of the problem: [Restated in mathematical language]
 ```
 
 #### Step 2: Break down the goal into sub-goals
-     ```
+ ```
 Goal: Prove P(X)
 Sub-goal 1: Prove Q(X)
 Subgoal 2: Prove R(X)
@@ -154,7 +154,7 @@ Search with question keyword + "open problem" or "unsolved" or "conjecture".
 
 #### Step 2: If confirmed as an open issue
 **MUST enforce the statement**:
-     ```
+ ```
 ## Problem status
 
 This problem is a known open problem in mathematics: [standard name]
@@ -212,7 +212,7 @@ Don't stop when you encounter difficulties, try:
 
 ### Clearly explain barriers
 When you encounter a step that you cannot break through:
-     ```
+ ```
 ## Current obstacle
 Encountered an obstacle at step [X]:
 - We need to prove [specific statement]
@@ -221,7 +221,7 @@ Encountered an obstacle at step [X]:
 ```
 
 ### Suggest follow-up directions
-     ```
+ ```
 ## Possible breakthrough direction
 1. [Direction 1]: [Specific reasons and expectations]
 2. [Direction 2]: [Specific reasons and expectations]
@@ -232,7 +232,7 @@ Encountered an obstacle at step [X]:
 
 ## 7. Decision Tree
 
-     ```
+ ```
 receive complex math questions
 │
 ├─ Are the questions complete?

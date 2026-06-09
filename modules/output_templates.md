@@ -13,7 +13,7 @@ The following defines 6 output templates, each including: applicable scenarios, 
 
 ### Standard structure
 
-     ```markdown
+ ```markdown
 ## Question meaning analysis
 [Reformulate the problem in mathematical language and clarify the known conditions and solution goals]
 
@@ -35,7 +35,7 @@ The following defines 6 output templates, each including: applicable scenarios, 
 
 ### Complete example
 
-     ```markdown
+ ```markdown
 ## Question meaning analysis
 Given the function f(x) = x³ - 3x² + 2, find the maximum and minimum values ​​of f on [-1, 3].
 
@@ -95,7 +95,7 @@ The minimum value is -2, taken at x = -1 and x = 2.
 
 ### Standard structure
 
-     ```markdown
+ ```markdown
 The answer is: [formula or numerical value]
 
 Simple verification: [One line verification]
@@ -103,7 +103,7 @@ Simple verification: [One line verification]
 
 ### Complete example
 
-     ```markdown
+ ```markdown
 The answer is: ∬_D (x² + y²) dxdy = 8π/3
 
 Simple calculation: using polar coordinates, ∫₀²∫₀²ᵖⁱ r²·r dθ dr = 2π·[r⁴/4]₀² = 2π·4 = 8π ✓
@@ -125,7 +125,7 @@ Simple calculation: using polar coordinates, ∫₀²∫₀²ᵖⁱ r²·r dθ d
 
 ### Standard structure
 
-     ```markdown
+ ```markdown
 ## Proposition
 [precise statement of the proposition being proved]
 
@@ -144,7 +144,7 @@ Simple calculation: using polar coordinates, ∫₀²∫₀²ᵖⁱ r²·r dθ d
 
 ### Complete example
 
-     ```markdown
+ ```markdown
 ## Proposition
 For any positive integer n, prove that: n³ - n is divisible by 6.
 
@@ -197,7 +197,7 @@ Proof of the proposition: For any positive integer n, 6 | (n³ - n). ∎
 
 ### Standard structure
 
-     ```markdown
+ ```markdown
 ## Check conclusion
 [Overall judgment: correct / incorrect / partially correct]
 
@@ -217,7 +217,7 @@ Proof of the proposition: For any positive integer n, 6 | (n³ - n). ∎
 
 ### Complete example
 
-     ```markdown
+ ```markdown
 ## Check conclusion
 Your answer is wrong. The first two steps are correct, but in step 3 a critical error occurs.
 
@@ -270,7 +270,7 @@ Your mistake mainly lies in ignoring the non-negativity convention of the square
 
 ### Standard structure
 
-     ```markdown
+ ```markdown
 ## Question type
 [Field classification: real analysis / abstract algebra / topology / advanced probability...]
 
@@ -292,7 +292,7 @@ Your mistake mainly lies in ignoring the non-negativity convention of the square
 
 ### Complete example
 
-     ```markdown
+ ```markdown
 ## Question type
 Real analysis - the relationship between uniform convergence and point-wise convergence
 
@@ -356,7 +356,7 @@ The limit function has a jump discontinuity at x = 1, breaking continuity.
 
 ### Standard structure
 
-     ```markdown
+ ```markdown
 ## Preliminary judgment
 [The status of this problem in the current mathematical knowledge system]
 
@@ -387,7 +387,7 @@ The limit function has a jump discontinuity at x = 1, breaking continuity.
 
 ### Complete example
 
-     ```markdown
+ ```markdown
 ## Preliminary judgment
 This problem is essentially equivalent to **Collatz Conjecture (3n+1 problem)**.
 This question has not been proven or disproven since it was raised in 1937.
@@ -454,7 +454,7 @@ It does not represent a proof of the original question.
 
 ### Standard structure
 
-     ```markdown
+ ```markdown
 ## Problem classification and positioning
 [The mathematical field to which the problem belongs, and its relationship to known problems]
 
@@ -499,7 +499,7 @@ It does not represent a proof of the original question.
 
 ### Complete example
 
-     ```markdown
+ ```markdown
 ## Problem classification and positioning
 **Field**: Analytic Number Theory × Algebraic Geometry
 **Problem type**: Association of zero point distribution of L-functions with arithmetic objects
@@ -579,7 +579,7 @@ It is recommended to decompose this problem into several tractable sub-problems 
 
 ## Template selection decision tree
 
-     ```
+ ```
 received a math question
 │
 ├─ User specified template → Use specified template
@@ -599,7 +599,7 @@ received a math question
 
 ## Common specifications across templates
 
-1. **Mathematical notation**: Use standard LaTeX syntax (    $...$     inline,     $$...$$     independent line)
+1. **Mathematical notation**: Use standard LaTeX syntax ($...$ inline, $$...$$ independent line)
 2. **Format Consistency**: The numbering, indentation, and marking methods within the same template must be consistent
 3. **Language**: Simplified Chinese is used, and professional terms are used in Chinese or English depending on the expression that the reader may be more familiar with.
 4. **Check Calculation**: All templates must include a verification link (Template B exists in the form of "Simple Calculation")

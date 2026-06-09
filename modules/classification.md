@@ -9,10 +9,10 @@ This module defines the classification system for input problems in Math.skill. 
 ## calculation
 
 **Identification Features:**
-- Input contains only numeric values ​​and operators (  $+,-,\times,\div,\hat{\ },\sqrt{}$   etc.)
+- Input contains only numeric values ​​and operators ($+,-,\times,\div,\hat{\ },\sqrt{}$ etc.)
 - No variables, no equal sign or inequality sign
 - Common expressions: "calculation", "evaluation", "what is the result"
-- Example:   $\sqrt{169} + 3^4 - 12 \div 4$
+- Example: $\sqrt{169} + 3^4 - 12 \div 4$
 
 **Recommended solution strategy:**
 - Calculate step by step according to operation priority
@@ -21,13 +21,13 @@ This module defines the classification system for input problems in Math.skill. 
 
 **Conditions that must be checked:**
 - The denominator of the division in the expression is not zero
-- Expression under even-numbered radicals   $\geq 0$
-- base of logarithm   $>0$   and   $\neq 1$   , real number   $>0$
+- Expression under even-numbered radicals $\geq 0$
+- base of logarithm $>0$ and $\neq 1$ , real number $>0$
 - Whether the exponential operation result is within a reasonable range
 
 **Common mistakes:**
 - Incorrect operation priority (such as addition first and then multiplication)
-- Negative sign handling error (  $(-3)^2 = 9$  , not   $-9$  )
+- Negative sign handling error ($(-3)^2 = 9$, not $-9$)
 - Common division errors in fraction operations
 - Precision is lost when decimals and fractions are mixed
 - Large number operation overflow or rounding error
@@ -39,7 +39,7 @@ This module defines the classification system for input problems in Math.skill. 
 - Cross-validation of key intermediate results
 
 **Output format:**
-   ```
+ ```
 Result: [exact value]
 Step-by-step calculation process: [Each step operation and intermediate results]
 ```
@@ -53,7 +53,7 @@ Step-by-step calculation process: [Each step operation and intermediate results]
 **Identification Features:**
 - Expressions containing algebraic variables requiring reduction, factorization or expansion
 - Keywords: "simplify", "factorization", "expand", "merge similar terms"
-- Example: Simplify   $(x+2)(x-3) - (x-1)^2$
+- Example: Simplify $(x+2)(x-3) - (x-1)^2$
 
 **Recommended solution strategy:**
 - Recognize expression structures (polynomials, fractions, radicals, etc.)
@@ -63,7 +63,7 @@ Step-by-step calculation process: [Each step operation and intermediate results]
 
 **Conditions that must be checked:**
 - Conditions when the denominator is not zero
-- Expression under even-numbered roots   $\geq 0$
+- Expression under even-numbered roots $\geq 0$
 - Whether the factorization result is completely decomposed
 - Whether the expansion result has merged all similar items
 
@@ -81,7 +81,7 @@ Step-by-step calculation process: [Each step operation and intermediate results]
 - Verify that domain constraints are consistent
 
 **Output format:**
-   ```
+ ```
 Simplification result: [simplest form]
 Key steps: [Transformation of each step]
 Note: [Domain constraints]
@@ -95,27 +95,27 @@ Note: [Domain constraints]
 
 **Identification Features:**
 - A single equation with one unknown
-- Keywords: "solve equations", "find   $x$  ", equation
-- Example: Solve the equation   $2x^2 - 5x + 2 = 0$
+- Keywords: "solve equations", "find $x$", equation
+- Example: Solve the equation $2x^2 - 5x + 2 = 0$
 
 **Recommended solution strategy:**
 - Determine the type of equation (linear, quadratic, higher degree, fraction, radical, exponential, logarithmic, trigonometric, etc.)
 - Linear: solution using the transfer method
-- Quadratic: discriminant method   $\Delta = b^2 - 4ac$  , root formula   $x = \frac{-b \pm \sqrt{\Delta}}{2a}$
+- Quadratic: discriminant method $\Delta = b^2 - 4ac$, root formula $x = \frac{-b \pm \sqrt{\Delta}}{2a}$
 - Higher order: factorization or root trial method
 - Fraction: solve after removing the denominator, pay attention to adding roots
 - Radical formula: square root elimination, pay attention to root addition
 
 **Conditions that must be checked:**
 - Whether there are increasing roots (substitute into the original equation to verify)
-- The discriminant of the quadratic equation   $\Delta$   is   $\geq 0$
+- The discriminant of the quadratic equation $\Delta$ is $\geq 0$
 - The denominator of a fractional equation is not zero
 - The radicand of a radical equation is non-negative
-- Logarithmic equations have real numbers   $>0$  , bases   $>0$   and   $\neq 1$
+- Logarithmic equations have real numbers $>0$, bases $>0$ and $\neq 1$
 
 **Common mistakes:**
 - Forgot to verify root addition
-- Missing solution to quadratic equation (two roots when   $\Delta > 0$  )
+- Missing solution to quadratic equation (two roots when $\Delta > 0$)
 - divide by an expression that may be zero
 - The root of the radical equation is not tested after squaring it
 - Wrong sign when moving items
@@ -123,11 +123,11 @@ Note: [Domain constraints]
 **Recommended verification method:**
 - Substitute all solutions into the original equation to verify that they are established
 - Check if the solution is within the domain
-- Verify   $x_1 + x_2 = -b/a$  ,   $x_1 x_2 = c/a$   for quadratic equations
-- Graphical method verification (intersection of function graph and   $x$   axis)
+- Verify $x_1 + x_2 = -b/a$, $x_1 x_2 = c/a$ for quadratic equations
+- Graphical method verification (intersection of function graph and $x$ axis)
 
 **Output format:**
-   ```
+ ```
 Equation type: [linear/quadratic/higher degree/fractional/radical/...]
 Solution: $x = [value]$ (or $x_1 = [value], x_2 = [value]$)
 Solution steps: [Key transformation steps]
@@ -144,7 +144,7 @@ Root verification: [Insert verification result]
 **Identification Features:**
 - Multiple equations with multiple unknowns
 - Keywords: "system of equations", multiple equations connected with braces
-- Example:   $\begin{cases} 2x + y = 5 \\ x - 3y = -1 \end{cases}$
+- Example: $\begin{cases} 2x + y = 5 \\ x - 3y = -1 \end{cases}$
 
 **Recommended solution strategy:**
 - System of linear equations: substitution method, elimination method, matrix method
@@ -167,11 +167,11 @@ Root verification: [Insert verification result]
 
 **Recommended verification method:**
 - Verify by substituting all solutions into each equation
-- Verification after solving linear equations using matrix method   $A\vec{x} = \vec{b}$
+- Verification after solving linear equations using matrix method $A\vec{x} = \vec{b}$
 - Cross-validation using Clem's rule for systems of linear equations in two variables
 
 **Output format:**
-   ```
+ ```
 System type: [Linear/Nonlinear]
 Solution: $(x, y) = ([value], [value])$ (or $x = [value], y = [value], z = [value]$)
 Solution method: [Substitution method/Elimination method/Matrix method]
@@ -186,9 +186,9 @@ Verification: [Results inserted into each equation]
 ## inequality_solving
 
 **Identification Features:**
-- Expressions containing the inequality sign (  $>, <, \geq, \leq$  )
-- Keywords: "solve inequalities", "find the range of   $x$  ", "inequality group"
-- Example: Solving Inequalities   $\frac{x-1}{x+2} \geq 0$
+- Expressions containing the inequality sign ($>, <, \geq, \leq$)
+- Keywords: "solve inequalities", "find the range of $x$", "inequality group"
+- Example: Solving Inequalities $\frac{x-1}{x+2} \geq 0$
 
 **Recommended solution strategy:**
 - First degree inequalities of one variable: shift terms, pay attention to the reverse direction of the negative signs in multiplication and division
@@ -218,7 +218,7 @@ Verification: [Results inserted into each equation]
 - Number line verification method
 
 **Output format:**
-   ```
+ ```
 Inequality type: [primary/quadratic/fraction/absolute value/inequality group]
 Solution set: $x \in [interval expression]$
 Key steps: [Classification discussion process]
@@ -233,13 +233,13 @@ Key steps: [Classification discussion process]
 **Identification Features:**
 - Given a function expression, ask to analyze its properties
 - Keywords: "definition domain", "range", "monotonicity", "parity", "extreme value", "maximum value", "image"
-- Example: Analyze the properties of function   $f(x) = \frac{x^2-1}{x-2}$
+- Example: Analyze the properties of function $f(x) = \frac{x^2-1}{x-2}$
 
 **Recommended solution strategy:**
-- Domain: exclude denominator zero, negative root sign, true logarithm number   $\leq 0$  , etc.
+- Domain: exclude denominator zero, negative root sign, true logarithm number $\leq 0$, etc.
 - Value range: inverse function, combination method, derivation method, image method
 - Monotonicity: derivation judgment symbol, monotonicity rule of composite functions
-- Parity: Verify   $f(-x) = f(x)$   (even) or   $f(-x) = -f(x)$   (odd)
+- Parity: Verify $f(-x) = f(x)$ (even) or $f(-x) = -f(x)$ (odd)
 - Extreme value: Find the critical point by taking the derivative, and determine the type of extreme value by using the second-order derivative.
 - Image: find key points (zero points, extreme points, inflection points, asymptotes) and depict trends
 
@@ -254,7 +254,7 @@ Key steps: [Classification discussion process]
 - Composite function domain error
 - Confusion of extreme points (stationary points are not necessarily extreme points)
 - Error in endpoint handling of monotonic intervals
-- Ignore odd functions at   $x=0$     $f(0)=0$
+- Ignore odd functions at $x=0$ $f(0)=0$
 
 **Recommended verification method:**
 - Take special points to verify function values
@@ -263,7 +263,7 @@ Key steps: [Classification discussion process]
 - Verify extreme points using monotonicity
 
 **Output format:**
-   ```
+ ```
 Function: $f(x) = [expression]$
 Domain: $x \in [interval]$
 Range: $f(x) \in [interval]$
@@ -282,7 +282,7 @@ Asymptote: [Asymptote equation]
 **Identification Features:**
 - Involving plane geometric figures: triangles, quadrilaterals, circles, etc.
 - Keywords: "proof", "verification", "area", "congruence", "similarity", "angle"
-- Example: In   $\triangle ABC$  ,   $AB=AC$  , verify   $\angle B = \angle C$
+- Example: In $\triangle ABC$, $AB=AC$, verify $\angle B = \angle C$
 
 **Recommended solution strategy:**
 - Draw pictures to aid understanding
@@ -294,7 +294,7 @@ Asymptote: [Asymptote equation]
 
 **Conditions that must be checked:**
 - Triangle inequality (the sum of any two sides is greater than the third side)
-- Angle sum constraints (triangle angle sum   $180^\circ$   )
+- Angle sum constraints (triangle angle sum $180^\circ$ )
 - Is the congruent/similar correspondence correct?
 - The rationality of the auxiliary line construction
 
@@ -312,7 +312,7 @@ Asymptote: [Asymptote equation]
 - Backward verification
 
 **Output format:**
-   ```
+ ```
 Known: [condition]
 Proof/Solution: [Objective]
 Proof/Solution Steps: [Reasoning Process]
@@ -329,14 +329,14 @@ Conclusion: [Final Result]
 **Identification Features:**
 - Geometric problems in coordinate systems, involving points, straight lines, circles, and conics
 - Keywords: "coordinates", "equation of a straight line", "equation of a circle", "ellipse", "hyperbola", "parabola"
-- Example: Find the equation of the straight line passing through the point   $(1,2)$   and parallel to the straight line   $2x-y+3=0$
+- Example: Find the equation of the straight line passing through the point $(1,2)$ and parallel to the straight line $2x-y+3=0$
 
 **Recommended solution strategy:**
 - Establish a suitable coordinate system
 - Use distance formula and slope formula
-- Equation of a circle:   $(x-a)^2 + (y-b)^2 = r^2$
-- Line position relationship: parallel (slopes are equal), perpendicular (the product of slopes is   $-1$   )
-- Distance: point to line   $d = \frac{|Ax_0+By_0+C|}{\sqrt{A^2+B^2}}$
+- Equation of a circle: $(x-a)^2 + (y-b)^2 = r^2$
+- Line position relationship: parallel (slopes are equal), perpendicular (the product of slopes is $-1$ )
+- Distance: point to line $d = \frac{|Ax_0+By_0+C|}{\sqrt{A^2+B^2}}$
 - Definition and standard equations of conic sections
 
 **Conditions that must be checked:**
@@ -350,7 +350,7 @@ Conclusion: [Final Result]
 - Forgot to add the absolute value in the distance formula
 - The formula for the angle between two straight lines is used incorrectly
 - Wrong formula for circle equation
--   $a,b,c$   relation confusion in ellipse/hyperbola
+- $a,b,c$ relation confusion in ellipse/hyperbola
 
 **Recommended verification method:**
 - Verify whether the substitution point is on the curve
@@ -359,7 +359,7 @@ Conclusion: [Final Result]
 - Visual inspection of drawings
 
 **Output format:**
-   ```
+ ```
 Coordinate system: [Rectangular coordinates/polar coordinates]
 The equation of the geometric object sought: [equation]
 Solution steps: [Derivation process]
@@ -373,20 +373,20 @@ Key properties: [Focus/Directrix/Circle Center/Radius, etc.]
 ## trigonometry
 
 **Identification Features:**
-- Involves trigonometric functions   $\sin, \cos, \tan$   etc.
+- Involves trigonometric functions $\sin, \cos, \tan$ etc.
 - Keywords: "Trigonometric functions", "Trigonometric identities", "Solution of triangles", "Sine theorem", "Cosine theorem"
-- Example: Proof   $\sin^2\theta + \cos^2\theta = 1$
+- Example: Proof $\sin^2\theta + \cos^2\theta = 1$
 
 **Recommended solution strategy:**
 - Memorize and apply basic identities
-- Sum and difference formula:   $\sin(A \pm B), \cos(A \pm B)$
-- Double angle formula:   $\sin 2\theta = 2\sin\theta\cos\theta$
-- Solve triangles: sine theorem   $\frac{a}{\sin A} = 2R$  , cosine theorem   $a^2 = b^2 + c^2 - 2bc\cos A$
+- Sum and difference formula: $\sin(A \pm B), \cos(A \pm B)$
+- Double angle formula: $\sin 2\theta = 2\sin\theta\cos\theta$
+- Solve triangles: sine theorem $\frac{a}{\sin A} = 2R$, cosine theorem $a^2 = b^2 + c^2 - 2bc\cos A$
 - Trigonometric equations: using periodicity to find general solutions
 
 **Conditions that must be checked:**
-- Angle range (acute angle,   $[0, 2\pi)$  , etc.)
-- Trigonometric function domain (  $\tan\theta$   in   $\theta \neq \frac{\pi}{2}+k\pi$  )
+- Angle range (acute angle, $[0, 2\pi)$, etc.)
+- Trigonometric function domain ($\tan\theta$ in $\theta \neq \frac{\pi}{2}+k\pi$)
 - Solutions of triangles (one solution/two solutions/no solution)
 - Units for radians and angles are unified
 
@@ -400,11 +400,11 @@ Key properties: [Focus/Directrix/Circle Center/Radius, etc.]
 **Recommended verification method:**
 - Verify the identity by substituting special angles
 - Calculate the same angle on both sides of the trigonometric identity
-- Verify triangle angle sum   $180^\circ$
+- Verify triangle angle sum $180^\circ$
 - Use different methods to find the same amount of cross-validation
 
 **Output format:**
-   ```
+ ```
 Solve/Prove: [Objective]
 Use the formula: [sine theorem/cosine theorem/sum and difference formula/...]
 Steps: [Derivation process]
@@ -420,37 +420,37 @@ Number of solutions: [One solution/Two solutions/No solution]
 
 **Identification Features:**
 - Involving the definition, general terms and summation of sequence
-- Keywords: "arithmetic sequence", "geometric sequence", "general formula", "sum of first   $n$   terms", "recursion"
-- Example: Given that   $\{a_n\}$   is an arithmetic sequence,   $a_3=5$   ,   $a_7=13$   , find   $a_n$   and   $S_n$
+- Keywords: "arithmetic sequence", "geometric sequence", "general formula", "sum of first $n$ terms", "recursion"
+- Example: Given that $\{a_n\}$ is an arithmetic sequence, $a_3=5$ , $a_7=13$ , find $a_n$ and $S_n$
 
 **Recommended solution strategy:**
-- Equal differences:   $a_n = a_1 + (n-1)d$  ,   $S_n = \frac{n(a_1+a_n)}{2} = na_1 + \frac{n(n-1)}{2}d$
-- Equivalent:   $a_n = a_1 q^{n-1}$  ,   $S_n = \frac{a_1(1-q^n)}{1-q}$   (  $q \neq 1$  )
+- Equal differences: $a_n = a_1 + (n-1)d$, $S_n = \frac{n(a_1+a_n)}{2} = na_1 + \frac{n(n-1)}{2}d$
+- Equivalent: $a_n = a_1 q^{n-1}$, $S_n = \frac{a_1(1-q^n)}{1-q}$ ($q \neq 1$)
 - Recursive sequence: characteristic root method, accumulation/accumulation multiplication method, fixed point method
-- General term and summation relationship:   $a_n = S_n - S_{n-1}$   (  $n \geq 2$  )
+- General term and summation relationship: $a_n = S_n - S_{n-1}$ ($n \geq 2$)
 
 **Conditions that must be checked:**
-- Range of   $n$   (   $n \in \mathbb{N}^*$   )
-- Special case of geometric sequence common ratio   $q=1$
+- Range of $n$ ( $n \in \mathbb{N}^*$ )
+- Special case of geometric sequence common ratio $q=1$
 - Initial conditions for recursive formulas
 - The case where the characteristic root is a complex root
-- The sum of infinite decreasing geometric sequences (  $|q| < 1$  )
+- The sum of infinite decreasing geometric sequences ($|q| < 1$)
 
 **Common mistakes:**
 - Confusion with equal difference/equal ratio formulas
 - The initial item of the recursive sequence is incorrectly substituted into the range
-- The special case of missing   $q=1$   in proportional summation
+- The special case of missing $q=1$ in proportional summation
 - Wrong calculation of number of terms when summing by groups
 - Misplaced subtraction sign error
 
 **Recommended verification method:**
 - Substitute the first few items to verify the general formula
 - Directly list the first few items and compare them
-- Verify using   $a_n = S_n - S_{n-1}$
+- Verify using $a_n = S_n - S_{n-1}$
 - Mathematical induction verification
 
 **Output format:**
-   ```
+ ```
 Sequence type: [arithmetic/equal ratio/recursion]
 General formula: $a_n = [expression]$
 Sum of first $n$ terms: $S_n = [expression]$
@@ -469,8 +469,8 @@ Derivation steps: [Process]
 - Example: Select 3 people from 5 boys and 4 girls to form a committee, requiring at least 1 girl. How many choices are there?
 
 **Recommended solution strategy:**
-- Arrangement: in order,   $A_n^m = \frac{n!}{(n-m)!}$   or   $P_n^m$
-- Combination: no order,   $C_n^m = \binom{n}{m} = \frac{n!}{m!(n-m)!}$
+- Arrangement: in order, $A_n^m = \frac{n!}{(n-m)!}$ or $P_n^m$
+- Combination: no order, $C_n^m = \binom{n}{m} = \frac{n!}{m!(n-m)!}$
 - Principle of classification counting (addition principle) and step counting principle (multiplication principle)
 - Complement method: subtract the total number that does not meet the conditions
 - Bundling method and interpolation method to deal with adjacent/non-adjacent problems
@@ -495,7 +495,7 @@ Derivation steps: [Process]
 - Use different classification methods to get the same results
 
 **Output format:**
-   ```
+ ```
 Question Type: [Permutation/Combination/Mixed]
 Method: [Classification counting/step counting/complement method/bundling method/...]
 Calculation: [Formula Substitution]
@@ -516,13 +516,13 @@ Enumeration verification (small scale): [enumeration result]
 
 **Recommended solution strategy:**
 - Classical profile: $P(A) = \frac{\text{Number of favorable situations}}{\text{Number of total situations}}$
-- Conditional probability:   $P(A|B) = \frac{P(AB)}{P(B)}$  , Bayesian formula
-- Independent event:   $P(AB) = P(A) \cdot P(B)$
-- Binomial distribution:   $P(X=k) = C_n^k p^k (1-p)^{n-k}$
-- Expectation:   $E(X) = \sum x_i p_i$  , Variance:   $D(X) = E(X^2) - [E(X)]^2$
+- Conditional probability: $P(A|B) = \frac{P(AB)}{P(B)}$, Bayesian formula
+- Independent event: $P(AB) = P(A) \cdot P(B)$
+- Binomial distribution: $P(X=k) = C_n^k p^k (1-p)^{n-k}$
+- Expectation: $E(X) = \sum x_i p_i$, Variance: $D(X) = E(X^2) - [E(X)]^2$
 
 **Conditions that must be checked:**
-- Whether events are mutually exclusive (  $P(A+B) = P(A) + P(B)$  )
+- Whether events are mutually exclusive ($P(A+B) = P(A) + P(B)$)
 - Whether the events are independent
 - Is the division in the total probability formula complete?
 - Is the sample space equal to possibility?
@@ -532,7 +532,7 @@ Enumeration verification (small scale): [enumeration result]
 - Misuse of the addition formula (not subtracting the probability of intersection)
 - Confusion between conditional probability and unconditional probability
 - Expected linearity conditions ignored
-- Binomial distribution probability of success   $p$   constant conditions ignored
+- Binomial distribution probability of success $p$ constant conditions ignored
 - Calculation errors of each order moment
 
 **Recommended verification method:**
@@ -542,7 +542,7 @@ Enumeration verification (small scale): [enumeration result]
 - Different solutions get consistent results
 
 **Output format:**
-   ```
+ ```
 Probability type: [classical concept/conditional probability/geometric concept]
 Sample space: [description]
 Advantages: [Description and Count]
@@ -569,7 +569,7 @@ Expectation (if any): $E(X) = [value]$
 5. Test the rationality of the solution (whether it is consistent with reality)
 
 **Conditions that must be checked:**
-- Implied conditions (speed   $>0$   , age a positive integer, etc.)
+- Implied conditions (speed $>0$ , age a positive integer, etc.)
 - Is the unit unified?
 - Is the physical meaning of the solution reasonable?
 - Whether there are multiple solutions or the model is not unique
@@ -588,7 +588,7 @@ Expectation (if any): $E(X) = [value]$
 - Re-model and solve using different methods of setting unknowns
 
 **Output format:**
-   ```
+ ```
 Problem analysis: [Extracted known quantities and unknown quantities]
 Assume unknown number: [variable definition]
 Modeling: [Equations/Inequalities]
@@ -605,19 +605,19 @@ Actual plausibility test: [Verification]
 
 **Identification Features:**
 - Involving sequence limits or function limits
-- Keywords: "limit", "  $\lim$  ", "tend to", "tendency", "convergence"
-- Example: Find   $\lim_{x \to 0} \frac{\sin x}{x}$
+- Keywords: "limit", "$\lim$", "tend to", "tendency", "convergence"
+- Example: Find $\lim_{x \to 0} \frac{\sin x}{x}$
 
 **Recommended solution strategy:**
 - Substitution method (if it can be substituted directly and there is no infinitive)
-- Infinitive type identification (  $\frac{0}{0}, \frac{\infty}{\infty}, 0\cdot\infty, \infty-\infty, 1^\infty, 0^0, \infty^0$  )
-- Equivalent infinitesimal substitution:   $\sin x \sim x, \tan x \sim x, \ln(1+x) \sim x, e^x-1 \sim x$   (   $x \to 0$   )
-- Lópida's Law (Type   $0/0$   or   $\infty/\infty$  )
-- Important limits:   $\lim_{x\to 0}\frac{\sin x}{x}=1$  ,   $\lim_{x\to\infty}(1+\frac{1}{x})^x=e$
+- Infinitive type identification ($\frac{0}{0}, \frac{\infty}{\infty}, 0\cdot\infty, \infty-\infty, 1^\infty, 0^0, \infty^0$)
+- Equivalent infinitesimal substitution: $\sin x \sim x, \tan x \sim x, \ln(1+x) \sim x, e^x-1 \sim x$ ( $x \to 0$ )
+- Lópida's Law (Type $0/0$ or $\infty/\infty$)
+- Important limits: $\lim_{x\to 0}\frac{\sin x}{x}=1$, $\lim_{x\to\infty}(1+\frac{1}{x})^x=e$
 - Pinch theorem
 
 **Conditions that must be checked:**
-- Conditions of Lópida's law (the numerator and denominator are differentiable, the limit is   $0/0$   or   $\infty/\infty$   )
+- Conditions of Lópida's law (the numerator and denominator are differentiable, the limit is $0/0$ or $\infty/\infty$ )
 - Equivalent infinitesimal substitution is only used in multiplication and division (not directly used in addition and subtraction)
 - Are the left and right limits equal?
 - The domain of the function at the limit point
@@ -632,11 +632,11 @@ Actual plausibility test: [Verification]
 **Recommended verification method:**
 - Numerical approximation (substitute the approximate value for calculation)
 -Taylor expanded verification
-- The result of L'Block's law verifies the limit of   $f'(x)/g'(x)$
+- The result of L'Block's law verifies the limit of $f'(x)/g'(x)$
 - Construction verification of the pinching theorem
 
 **Output format:**
-   ```
+ ```
 Limit: $\lim_{x \to [value]} [expression]$
 Type: [deterministic / infinitive $\frac{0}{0}$ / ...]
 Method: [equivalent replacement/Lópida/pinch/...]
@@ -652,15 +652,15 @@ Verification: [Numerical approximation or alternative method results]
 
 **Identification Features:**
 - Involves derivation, tangent, rate of change
-- Keywords: "derivative", "derivative", "  $f'(x)$  ", "  $\frac{dy}{dx}$  ", "tangent equation", "rate of change"
-- Example: Find the derivative of   $f(x) = x^3\ln x$
+- Keywords: "derivative", "derivative", "$f'(x)$", "$\frac{dy}{dx}$", "tangent equation", "rate of change"
+- Example: Find the derivative of $f(x) = x^3\ln x$
 
 **Recommended solution strategy:**
 - Memorize basic derivation formulas
-- Four arithmetic operations:   $(u \pm v)' = u' \pm v'$  ,   $(uv)' = u'v + uv'$  ,   $(\frac{u}{v})' = \frac{u'v-uv'}{v^2}$
-- Chain Rule:   $y = f(g(x)) \Rightarrow y' = f'(g(x)) \cdot g'(x)$
+- Four arithmetic operations: $(u \pm v)' = u' \pm v'$, $(uv)' = u'v + uv'$, $(\frac{u}{v})' = \frac{u'v-uv'}{v^2}$
+- Chain Rule: $y = f(g(x)) \Rightarrow y' = f'(g(x)) \cdot g'(x)$
 - Implicit function derivation
-- Derivative of parametric equations:   $\frac{dy}{dx} = \frac{dy/dt}{dx/dt}$
+- Derivative of parametric equations: $\frac{dy}{dx} = \frac{dy/dt}{dx/dt}$
 - Higher order derivatives
 
 **Conditions that must be checked:**
@@ -672,7 +672,7 @@ Verification: [Numerical approximation or alternative method results]
 **Common mistakes:**
 - Missing chain rule (incomplete derivation of composite functions)
 - The sign of the product derivative formula is wrong
-- Implicit function derivation misses   $\frac{dy}{dx}$   items
+- Implicit function derivation misses $\frac{dy}{dx}$ items
 - Logarithmic derivation domain check missing
 - Missing terms in the calculation of higher-order derivatives
 
@@ -683,7 +683,7 @@ Verification: [Numerical approximation or alternative method results]
 - Symmetry verification using derivation formulas
 
 **Output format:**
-   ```
+ ```
 Function: $f(x) = [expression]$
 Derivative: $f'(x) = [expression]$
 Method: [direct derivation/chain rule/implicit function derivation/...]
@@ -699,22 +699,22 @@ Key steps: [Main transformation process]
 
 **Identification Features:**
 - Involving indefinite integrals, definite integrals, area, and volume
-- Keywords: "integral", "  $\int$  ", "original function", "area", "volume", "indefinite integral", "definite integral"
-- Example: Calculate   $\int_0^1 x e^x \,dx$
+- Keywords: "integral", "$\int$", "original function", "area", "volume", "indefinite integral", "definite integral"
+- Example: Calculate $\int_0^1 x e^x \,dx$
 
 **Recommended solution strategy:**
 - Memory of basic integral formulas
 - Integral method with substitution of elements (first type/differentiation, second type/trigonometric substitution)
-- Integration by parts method:   $\int u\,dv = uv - \int v\,du$
+- Integration by parts method: $\int u\,dv = uv - \int v\,du$
 - Integral of rational functions: partial fraction decomposition
 - Trigonometric Rational Integration: Universal Formula
-- Definite integral: Newton-Leibniz formula   $\int_a^b f(x)dx = F(b) - F(a)$
+- Definite integral: Newton-Leibniz formula $\int_a^b f(x)dx = F(b) - F(a)$
 
 **Conditions that must be checked:**
 - Whether the integrand is continuous on the integration interval
 - Convergence of anomalous integrals
 - Corresponding transformation of upper and lower limits after substitution
-- Selection strategy of   $u$   and   $dv$   in partial integration (LIATE principle)
+- Selection strategy of $u$ and $dv$ in partial integration (LIATE principle)
 
 **Common mistakes:**
 - Forgot to change the upper and lower limits of the points after changing yuan
@@ -730,7 +730,7 @@ Key steps: [Main transformation process]
 - Symmetry exploit verification
 
 **Output format:**
-   ```
+ ```
 Integral: $\int [expression] \,dx$ (or upper and lower limits of definite integral)
 Method: [Substitution method/integration by parts/partial fractions/...]
 Key steps: [Change setting / $u, dv$ selection / decomposition]
@@ -746,38 +746,38 @@ Definite integral value (if any): [value]
 
 **Identification Features:**
 - Partial derivatives, total differentials, and heavy integrals involving multivariate functions
-- Keywords: "Partial derivative", "  $\frac{\partial}{\partial x}$  ", "Total differential", "Double integral", "Triple integral", "Gradient"
-- Example: Find the partial derivatives   $\frac{\partial f}{\partial x}$   and   $\frac{\partial f}{\partial y}$   of   $f(x,y) = x^2y + e^{xy}$
+- Keywords: "Partial derivative", "$\frac{\partial}{\partial x}$", "Total differential", "Double integral", "Triple integral", "Gradient"
+- Example: Find the partial derivatives $\frac{\partial f}{\partial x}$ and $\frac{\partial f}{\partial y}$ of $f(x,y) = x^2y + e^{xy}$
 
 **Recommended solution strategy:**
 - Partial derivatives: When deriving the derivative of a certain variable, other variables are treated as constants
-- Chain Rule:   $\frac{\partial z}{\partial t} = \frac{\partial z}{\partial x}\frac{\partial x}{\partial t} + \frac{\partial z}{\partial y}\frac{\partial y}{\partial t}$
-- Full differential:   $dz = \frac{\partial f}{\partial x}dx + \frac{\partial f}{\partial y}dy$
-- Directional derivatives and gradients:   $\nabla f = (\frac{\partial f}{\partial x}, \frac{\partial f}{\partial y})$
+- Chain Rule: $\frac{\partial z}{\partial t} = \frac{\partial z}{\partial x}\frac{\partial x}{\partial t} + \frac{\partial z}{\partial y}\frac{\partial y}{\partial t}$
+- Full differential: $dz = \frac{\partial f}{\partial x}dx + \frac{\partial f}{\partial y}dy$
+- Directional derivatives and gradients: $\nabla f = (\frac{\partial f}{\partial x}, \frac{\partial f}{\partial y})$
 - Double integral: select the order of integration, interchange rectangular coordinates and polar coordinates
 - Triple integral: rectangular coordinates, cylindrical coordinates, spherical coordinates
 
 **Conditions that must be checked:**
-- Commutative conditions for mixed partial derivatives (  $f_{xy} = f_{yx}$  , when second-order partial derivatives are continuous)
+- Commutative conditions for mixed partial derivatives ($f_{xy} = f_{yx}$, when second-order partial derivatives are continuous)
 - Correct description of the integration area for heavy integration
 - Calculation of Jacobian (when changing elements)
--   $r$   factor for polar/spherical coordinates
+- $r$ factor for polar/spherical coordinates
 
 **Common mistakes:**
 - Forget about treating other variables as constants when taking partial derivatives
 - Wrong area description when double integral exchange order
-- Polar coordinate substitution misses   $r$   in   $r\,dr\,d\theta$
+- Polar coordinate substitution misses $r$ in $r\,dr\,d\theta$
 - Jacobian calculation error
 - Green's formula/Stokes' formula direction error
 
 **Recommended verification method:**
-- Verify   $f_{xy} = f_{yx}$   (second-order partial derivative)
+- Verify $f_{xy} = f_{yx}$ (second-order partial derivative)
 - Numerical integration to verify re-integration
 - Substitution and direct calculation cross-validation
 - Symmetry exploit verification
 
 **Output format:**
-   ```
+ ```
 Function: $f(x,y,\dots) = [expression]$
 Partial derivatives: $\frac{\partial f}{\partial x} = [expression], \frac{\partial f}{\partial y} = [expression]$
 (optional) gradient: $\nabla f = ([value], [value])$
@@ -794,37 +794,37 @@ Method: [Rectangular coordinates/polar coordinates/cylindrical coordinates/spher
 **Identification Features:**
 - Involving matrices, vectors, linear equations, determinants, and eigenvalues
 - Keywords: "matrix", "determinant", "eigenvalue", "eigenvector", "rank", "linear correlation", "diagonalization"
-- Example: Find the eigenvalues ​​and eigenvectors of matrix   $A = \begin{pmatrix} 2 & 1 \\ 1 & 2 \end{pmatrix}$
+- Example: Find the eigenvalues ​​and eigenvectors of matrix $A = \begin{pmatrix} 2 & 1 \\ 1 & 2 \end{pmatrix}$
 
 **Recommended solution strategy:**
 - Determinant calculation: expansion method, elementary transformation, special matrix formula
 - Matrix operations: addition, multiplication, transpose, inverse matrix
-- Eigenvalue: Solution   $|A - \lambda I| = 0$
-- Eigenvector: Solution   $(A - \lambda I)\vec{x} = \vec{0}$
-- Diagonalization:   $A = PDP^{-1}$   (the columns of   $P$   are eigenvectors and   $D$   is the diagonal matrix)
+- Eigenvalue: Solution $|A - \lambda I| = 0$
+- Eigenvector: Solution $(A - \lambda I)\vec{x} = \vec{0}$
+- Diagonalization: $A = PDP^{-1}$ (the columns of $P$ are eigenvectors and $D$ is the diagonal matrix)
 - Calculation of rank: elementary transformation into row echelon form
 
 **Conditions that must be checked:**
 - Is matrix multiplication multiplicable (dimension matching)
-- Condition for the existence of inverse matrix (  $|A| \neq 0$  )
-- Diagonalization condition (whether there are   $n$   linearly independent eigenvectors)
+- Condition for the existence of inverse matrix ($|A| \neq 0$)
+- Diagonalization condition (whether there are $n$ linearly independent eigenvectors)
 - A real symmetric matrix must be diagonalizable
 
 **Common mistakes:**
-- Matrix multiplication is not commutative (  $AB \neq BA$  )
+- Matrix multiplication is not commutative ($AB \neq BA$)
 - Wrong sign during determinant calculation
 - Error in solving characteristic equation
 - Improper setting of eigenvector free variables
 - Calculation errors in the orthogonalization process
 
 **Recommended verification method:**
-- Verify   $A\vec{v} = \lambda\vec{v}$   for each feature pair
-- Verify   $P^{-1}AP = D$
-- Verify   $A \cdot A^{-1} = I$
+- Verify $A\vec{v} = \lambda\vec{v}$ for each feature pair
+- Verify $P^{-1}AP = D$
+- Verify $A \cdot A^{-1} = I$
 - Verification of the relationship between trace and eigenvalue sum
 
 **Output format:**
-   ```
+ ```
 matrix/vector: [representation]
 Determinant (if any): $|A| = [value]$
 Eigenvalues: $\lambda_1 = [value], \lambda_2 = [value], \dots$
@@ -841,25 +841,25 @@ Rank: $r(A) = [value]$
 
 **Identification Features:**
 - Involves equations containing derivatives
-- Keywords: "differential equation", "general solution", "particular solution", "initial conditions", "   $y'$   ", "   $\frac{dy}{dx}$   "
-- Example: Solve differential equation   $y' + 2xy = x$  , satisfying   $y(0) = 1$
+- Keywords: "differential equation", "general solution", "particular solution", "initial conditions", " $y'$ ", " $\frac{dy}{dx}$ "
+- Example: Solve differential equation $y' + 2xy = x$, satisfying $y(0) = 1$
 
 **Recommended solution strategy:**
 - Identify equation types: separable variables, first-order linear, homogeneous, Bernoulli, proper equation, etc.
-- Detachable variable:   $\frac{dy}{dx} = f(x)g(y) \Rightarrow \int \frac{dy}{g(y)} = \int f(x)dx$
-- First-order linear:   $y' + P(x)y = Q(x)$  , integration factor   $\mu = e^{\int P(x)dx}$
-- Second-order linear with constant coefficients: characteristic equation   $r^2 + pr + q = 0$
+- Detachable variable: $\frac{dy}{dx} = f(x)g(y) \Rightarrow \int \frac{dy}{g(y)} = \int f(x)dx$
+- First-order linear: $y' + P(x)y = Q(x)$, integration factor $\mu = e^{\int P(x)dx}$
+- Second-order linear with constant coefficients: characteristic equation $r^2 + pr + q = 0$
 - Constant variation method
 - Initial conditions determine the specific solution
 
 **Conditions that must be checked:**
--   $g(y) = 0$   Whether a strange solution is generated
+- $g(y) = 0$ Whether a strange solution is generated
 - Is the integration factor defined?
 - The solution form corresponding to the characteristic root type (real root/multiple root/complex root)
 - Is the equation linear?
 
 **Common mistakes:**
-- Missing solution to   $g(y) = 0$   when variables are separable
+- Missing solution to $g(y) = 0$ when variables are separable
 - Calculation error of integration factor
 - The solution form of the characteristic equation is wrongly selected (real roots/multiple roots/complex roots)
 - Error in judging linearly independent solutions
@@ -872,7 +872,7 @@ Rank: $r(A) = [value]$
 - Approximate verification of numerical solutions
 
 **Output format:**
-   ```
+ ```
 Equation type: [separable variable/first-order linear/second-order constant coefficient/...]
 General solution: $y = [expression] + C$
 (optional) Special solution: $y = [expression]$
@@ -888,13 +888,13 @@ Steps: [Main transformation]
 
 **Identification Features:**
 - Involving complex functions, residues, and circumferential integrals
-- Keywords: "complex number", "complex function", "residue", "analysis", "  $e^{iz}$  ", "circuit integral"
-- Example: Calculate residue   $\operatorname{Res}\left(\frac{e^z}{z^2}, 0\right)$
+- Keywords: "complex number", "complex function", "residue", "analysis", "$e^{iz}$", "circuit integral"
+- Example: Calculate residue $\operatorname{Res}\left(\frac{e^z}{z^2}, 0\right)$
 
 **Recommended solution strategy:**
 - Determine whether the function is analytical (Cauchy-Riemann equation)
-- Residue calculation:   $\operatorname{Res}(f, z_0) = \frac{1}{(m-1)!}\lim_{z\to z_0}\frac{d^{m-1}}{dz^{m-1}}[(z-z_0)^m f(z)]$   (  $m$   order pole)
--Block points:   $\oint_C f(z)dz = 2\pi i \sum \operatorname{Res}(f, z_k)$
+- Residue calculation: $\operatorname{Res}(f, z_0) = \frac{1}{(m-1)!}\lim_{z\to z_0}\frac{d^{m-1}}{dz^{m-1}}[(z-z_0)^m f(z)]$ ($m$ order pole)
+-Block points: $\oint_C f(z)dz = 2\pi i \sum \operatorname{Res}(f, z_k)$
 - Laurent Expand
 -Use the Cauchy integral formula
 
@@ -917,7 +917,7 @@ Steps: [Main transformation]
 - Series expansion cross validation
 
 **Output format:**
-   ```
+ ```
 Function: $f(z) = [expression]$
 Singularity: $z = [value]$ (type: [pole/nature singularity/removable singularity])
 Residue: $\operatorname{Res}(f, z_0) = [value]$
@@ -932,36 +932,36 @@ Residue: $\operatorname{Res}(f, z_0) = [value]$
 
 **Identification Features:**
 - Involves rigorous real-analytic proof of concept
-- Keywords: "  $\epsilon$   -   $\delta$   definition", "consistent continuity", "consistent convergence", "Lebesgue", "measure", "completeness"
-- Example: Prove   $\lim_{x\to 2} x^2 = 4$   in   $\epsilon$   -   $\delta$   language
+- Keywords: "$\epsilon$ - $\delta$ definition", "consistent continuity", "consistent convergence", "Lebesgue", "measure", "completeness"
+- Example: Prove $\lim_{x\to 2} x^2 = 4$ in $\epsilon$ - $\delta$ language
 
 **Recommended solution strategy:**
-- Understand and apply   $\epsilon$   -   $\delta$   (   $\epsilon$   -   $N$   ) definitions
-- Starting from   $|f(x)-L|<\epsilon$   and working backward to   $|x-a|<\delta$
+- Understand and apply $\epsilon$ - $\delta$ ( $\epsilon$ - $N$ ) definitions
+- Starting from $|f(x)-L|<\epsilon$ and working backward to $|x-a|<\delta$
 - Utilize zooming techniques
 - Real number completeness theorems such as the certainty principle and the monotonic bounded theorem
 - Judgment of consistent continuity: If it is continuous on a closed interval, it is consistent and continuous.
 
 **Conditions that must be checked:**
-- Arbitrariness of   $\epsilon$
-- Dependency of   $\delta$   on   $\epsilon$
+- Arbitrariness of $\epsilon$
+- Dependency of $\delta$ on $\epsilon$
 - Whether the domain is a closed interval
 - Strict definition of function continuity
 
 **Common mistakes:**
--   $\delta$   is only related to   $\epsilon$   and should not depend on   $x$
-- Excessive scaling causes   $\delta$   to not meet the requirements
+- $\delta$ is only related to $\epsilon$ and should not depend on $x$
+- Excessive scaling causes $\delta$ to not meet the requirements
 - Confusing uniform continuity with point-wise continuity
 - The logical reasoning chain of the real number completeness theorem is broken
 - Improper assumptions in proof by contradiction
 
 **Recommended verification method:**
 - Logical derivation for each step check
--Construct concrete   $\epsilon$   value validation
+-Construct concrete $\epsilon$ value validation
 - Counterexample test
 
 **Output format:**
-   ```
+ ```
 proposition: [statement]
 Proof method: [$\epsilon$-$\delta$ / proof by contradiction / certainty / ...]
 Proof: [Strict derivation process]
@@ -977,13 +977,13 @@ Conclusion: [The proposition is true/not true]
 **Identification Features:**
 - Involving the definition and properties of algebraic structures such as groups, rings, fields, etc.
 - Keywords: "group", "ring", "domain", "homomorphism", "isomorphism", "subgroup", "normal subgroup", "ideal"
-- Example: Prove that the subgroup   $H$   of   $G$   is a normal subgroup if and only if   $\forall g \in G, gHg^{-1} = H$
+- Example: Prove that the subgroup $H$ of $G$ is a normal subgroup if and only if $\forall g \in G, gHg^{-1} = H$
 
 **Recommended solution strategy:**
 - Verify group axioms (closure, associativity, identity element, inverse element)
-- Subgroup determination:   $H \leq G \iff \forall a,b \in H, ab^{-1} \in H$
-- Regular subgroup:   $\forall g\in G, gH = Hg$   or   $gHg^{-1} \subseteq H$
-- Fundamental theorem of homomorphism:   $G/\ker\phi \cong \operatorname{Im}\phi$
+- Subgroup determination: $H \leq G \iff \forall a,b \in H, ab^{-1} \in H$
+- Regular subgroup: $\forall g\in G, gH = Hg$ or $gHg^{-1} \subseteq H$
+- Fundamental theorem of homomorphism: $G/\ker\phi \cong \operatorname{Im}\phi$
 - Lagrange's theorem: The order of a subgroup divides the order of the group
 - Ideal judgment of the ring
 
@@ -1003,11 +1003,11 @@ Conclusion: [The proposition is true/not true]
 **Recommended verification method:**
 - Verify the axioms one by one
 - Construct counterexamples to verify non-properties
-- Test general conclusions with specific groups (  $\mathbb{Z}_n, S_3$  , etc.)
+- Test general conclusions with specific groups ($\mathbb{Z}_n, S_3$, etc.)
 - Two-way verification of isomorphic mapping
 
 **Output format:**
-   ```
+ ```
 Algebraic structure: [group/ring/field/module]
 Known: [given conditions]
 Proof: [Property to be proved]
@@ -1052,7 +1052,7 @@ Key theorem: [name of theorem used]
 - Check the axioms and definitions one by one
 
 **Output format:**
-   ```
+ ```
 Space: $(X, \tau)$ / specific space
 Property/proposition: [statement]
 Proof idea: [Core strategy]
@@ -1068,37 +1068,37 @@ Counterexample (if any): [Explanation]
 
 **Identification Features:**
 - Involving divisibility of integers, prime numbers, and congruence
-- Keywords: "Divisibility", "Prime Numbers", "Congruence", "  $\pmod{n}$  ", "Fermat's Little Theorem", "Euler's Theorem", "Chinese Remainder Theorem"
+- Keywords: "Divisibility", "Prime Numbers", "Congruence", "$\pmod{n}$", "Fermat's Little Theorem", "Euler's Theorem", "Chinese Remainder Theorem"
 - Example: Prove that there is no largest prime number
 
 **Recommended solution strategy:**
-- Division with remainder:   $a = bq + r$  ,   $0 \leq r < |b|$
+- Division with remainder: $a = bq + r$, $0 \leq r < |b|$
 - Greatest common factor: Euclidean algorithm
 - Congruence operations and properties
-- Fermat's Little Theorem:   $a^{p-1} \equiv 1 \pmod{p}$   (  $p$   is a prime number,   $p \nmid a$  )
-- Euler's Theorem:   $a^{\varphi(n)} \equiv 1 \pmod{n}$   (   $\gcd(a,n)=1$   )
+- Fermat's Little Theorem: $a^{p-1} \equiv 1 \pmod{p}$ ($p$ is a prime number, $p \nmid a$)
+- Euler's Theorem: $a^{\varphi(n)} \equiv 1 \pmod{n}$ ( $\gcd(a,n)=1$ )
 - Chinese Remainder Theorem to solve the system of congruence equations
 
 **Conditions that must be checked:**
 - Whether the modulus in modular operation is positive
-- Whether   $p$   in Fermat's Little Theorem is a prime number
-- Euler's theorem   $\gcd(a,n) = 1$
+- Whether $p$ in Fermat's Little Theorem is a prime number
+- Euler's theorem $\gcd(a,n) = 1$
 - In the Chinese Remainder Theorem, the modulus are pairwise prime
 
 **Common mistakes:**
 - Forgetting to take the modulus in the modulo operation during congruence operation
 - Misuse when the conditions of Fermat’s Little Theorem are not met
 - Modules are not mutually prime when using the Chinese Remainder Theorem
-- Divisor confusion (  $a \mid b$   vs   $b \mid a$  )
-- Prime number determination ignores the specialness of   $2$
+- Divisor confusion ($a \mid b$ vs $b \mid a$)
+- Prime number determination ignores the specialness of $2$
 
 **Recommended verification method:**
 - Substitute specific numerical values ​​for verification
 - Cross-solve congruence equations using different methods
-- Inverse element verification (  $a \cdot a^{-1} \equiv 1 \pmod{n}$  )
+- Inverse element verification ($a \cdot a^{-1} \equiv 1 \pmod{n}$)
 
 **Output format:**
-   ```
+ ```
 Question Type: [Divisibility/Congruence/Prime Numbers/Diophantine Equation]
 Theorem reference: [Fermat's Little Theorem/Euler's Theorem/Chinese Remainder Theorem/...]
 Solution/Proof: [Step]
@@ -1143,7 +1143,7 @@ Result: [numeric value or conclusion]
 - Counterexample construction
 
 **Output format:**
-   ```
+ ```
 Branch: [Graph Theory/Logic/Set Theory/Relationship]
 proposition: [statement]
 Method: [Handshake theorem/truth table/pigeon nest principle/...]
@@ -1160,7 +1160,7 @@ Conclusion: [result]
 **Identification Features:**
 - Involves finding the maximum or minimum value under constraints
 - Keywords: "maximization", "minimization", "optimality", "constraints", "linear programming", "nonlinear programming"
-- Example: Under the condition of   $x+y \leq 10, x \geq 0, y \geq 0$  , find the maximum value of   $z = 3x + 2y$
+- Example: Under the condition of $x+y \leq 10, x \geq 0, y \geq 0$, find the maximum value of $z = 3x + 2y$
 
 **Recommended solution strategy:**
 - Linear programming: simplex method or graphical method (2D)
@@ -1190,7 +1190,7 @@ Conclusion: [result]
 - Sensitivity analysis
 
 **Output format:**
-   ```
+ ```
 Optimization type: [Linear programming/nonlinear programming/integer programming/dynamic programming]
 Objective function: [expression]
 Constraints: [Inequalities/Equations]
@@ -1239,7 +1239,7 @@ Optimal value: $z^* = [value]$
 - Dimensional analysis
 
 **Output format:**
-   ```
+ ```
 Problem Description: [Overview]
 Assumptions: [List all assumptions]
 Variable definition: [Meaning and unit of each variable]
@@ -1258,11 +1258,11 @@ Limitations: [Model limitations]
 **Identification Features:**
 - Ask to prove a certain mathematical proposition
 - Keywords: "proof", "verification", "test", "prove or deny"
-- Example: Prove that   $\sqrt{2}$   is an irrational number
+- Example: Prove that $\sqrt{2}$ is an irrational number
 
 **Recommended solution strategy:**
 - Determine the proof method: direct proof, proof by contradiction, mathematical induction, construction method, equivalent transformation
-- Mathematical induction: verify that   $n=1$   is established, assume that   $n=k$   is established and conclude that   $n=k+1$   is established
+- Mathematical induction: verify that $n=1$ is established, assume that $n=k$ is established and conclude that $n=k+1$ is established
 - Evidence by contradiction: Assume that the conclusion is not valid and derive contradictions
 - Construction method: Construct specific objects that meet the conditions
 - Analyze the structure of propositions and determine premises and conclusions
@@ -1288,7 +1288,7 @@ Limitations: [Model limitations]
 - Prove it again in different ways
 
 **Output format:**
-   ```
+ ```
 proposition: [statement]
 Proof method: [direct proof/contradiction/mathematical induction/construction method/...]
 Hypothesis (such as proof by contradiction): [hypothesis by contradiction]
@@ -1305,7 +1305,7 @@ Conclusion: The proposition holds $\square$
 **Identification Features:**
 - Ask for counterexamples to refute a certain proposition
 - Keywords: "counterexample", "not established", "cite counterexamples", "whether it is established", "cite...refutation"
-- Example: Is the proposition "If   $f'(x_0)=0$   , then   $x_0$   is the extreme point of   $f(x)$  " true? If this is not true, please give a counterexample.
+- Example: Is the proposition "If $f'(x_0)=0$ , then $x_0$ is the extreme point of $f(x)$" true? If this is not true, please give a counterexample.
 
 **Recommended solution strategy:**
 1. Analyze the conditions and conclusions of propositions
@@ -1333,7 +1333,7 @@ Conclusion: The proposition holds $\square$
 - Whether simplifying counterexamples can maintain the properties of counterexamples
 
 **Output format:**
-   ```
+ ```
 proposition: [original proposition statement]
 Analysis: [Why this proposition may not be true]
 Counterexample: [Specific counterexample construction]
@@ -1351,7 +1351,7 @@ Minimal counterexample: [Can it be simpler]
 **Identification Features:**
 - Given a solution (possibly a student answer), ask to check if it is correct or incorrect
 - Keywords: "is it right", "is it correct", "check", "correct", "are there any errors", "this solution"
-- Example: Check whether the following solution is correct or incorrect: solve   $x^2=4$   to get   $x=2$
+- Example: Check whether the following solution is correct or incorrect: solve $x^2=4$ to get $x=2$
 
 **Recommended solution strategy:**
 1. Solve the problem independently again
@@ -1380,7 +1380,7 @@ Minimal counterexample: [Can it be simpler]
 - Estimating plausibility of numerical results
 
 **Output format:**
-   ```
+ ```
 Question: [original question]
 Given solution: [Solution to be checked]
 Independent solution result: [Correct answer]
@@ -1429,7 +1429,7 @@ Correction suggestions: [How to correct it]
 - Estimated trial time
 
 **Output format:**
-   ```
+ ```
 Knowledge points: [Knowledge points covered]
 Title: [Full title description]
 Difficulty: [Easy/Medium/Hard]
@@ -1447,7 +1447,7 @@ Examination points: [What is the main examination of the question]
 **Identification Features:**
 - Very high level of difficulty, possibly close to competition finals, mathematical studies or open questions
 - Keywords: References involving Fermat’s Last Theorem and Riemann Hypothesis, or that are obviously beyond the standard curriculum
-- Example: Prove that the non-trivial zeros of Riemann's   $\zeta$   function are located on   $\operatorname{Re}(s) = 1/2$
+- Example: Prove that the non-trivial zeros of Riemann's $\zeta$ function are located on $\operatorname{Re}(s) = 1/2$
 
 **Recommended solution strategy:**
 - First determine whether the problem is known to have been solved
@@ -1474,7 +1474,7 @@ Examination points: [What is the main examination of the question]
 - Compare with known results
 
 **Output format:**
-   ```
+ ```
 Problem Assessment: [Known Result/Partially Solved/Open Issue]
 Known progress: [Related theorems and partial results]
 References: [Key Citation]
@@ -1516,7 +1516,7 @@ Note: [Question Difficulty Description]
 - Check whether the answers under each explanation are consistent
 
 **Output format:**
-   ```
+ ```
 Question: [Original user input]
 Ambiguities/missing points: [itemize]
 Possible explanation:
@@ -1554,7 +1554,7 @@ Confirmation required: [Specific content needs to be clarified by the user]
 - Confirm that the input does not contain processable mathematical content
 
 **Output format:**
-   ```
+ ```
 Judgment: The input does not belong to the category of mathematical problems
 Specific reason: [Explanation]
 Recommendation: [Recommend user to use other tools or rephrase if applicable]
