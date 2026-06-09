@@ -79,7 +79,7 @@ npx skills add Wholiver/Math.Skill
 ```
 calculation | algebra_simplification | equation_solving | system_of_equations
 inequality_solving | function_analysis | geometry | analytic_geometry
-trigonometry | sequence | combinatorics | probability_statistics | limit
+trigonometry | sequence | combinatorics | probability_statistics | word_problem | limit
 differentiation | integration | multivariable_calculus | linear_algebra
 ordinary_differential_equation | complex_analysis | real_analysis
 abstract_algebra | topology | number_theory | discrete_math | optimization
